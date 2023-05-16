@@ -9,18 +9,18 @@ interface LanguageSwitcherProps {
 }
 
 export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({ className }) => {
-  const { i18n } = useTranslation()
+    const { i18n } = useTranslation()
 
-  const toggleLanguage = () => {
-    i18n.changeLanguage(i18n.language === 'en' ? 'ua' : 'en')
-  }
-  return (
-    <Button
-      variant={BtnVariant.CLEAR}
-      className={classNames(cls.languageSwitcher, {}, [className])}
-      onClick={toggleLanguage}
-    >
-      {i18n.language === 'en' ? 'Українська' : 'English'}
-    </Button>
-  )
+    const toggleLanguage = () => {
+        i18n.changeLanguage(i18n.language === 'en' ? 'ua' : 'en')
+    }
+    return (
+        <Button
+            variant={BtnVariant.CLEAR}
+            className={classNames(cls.languageSwitcher, {}, [className])}
+            onClick={toggleLanguage}
+        >
+            {i18n.language === 'en' ? 'Українська' : 'English'}
+        </Button>
+    )
 }
