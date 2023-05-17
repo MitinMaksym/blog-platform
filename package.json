@@ -21,9 +21,10 @@
   },
   "lint-staged": {
     "*.(ts|tsx)": [
-      "nlint:ts-fix",
-      "lint:scss-fix",
-      "git add"
+      "npm run lint:ts"
+    ],
+    "*.scss": [
+      "npm run lint:scss"
     ]
   },
   "author": "",
