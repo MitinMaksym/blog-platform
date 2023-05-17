@@ -3,6 +3,7 @@ module.exports = {
     env: {
         browser: true,
         es2021: true,
+        jest: true
     },
     settings: {
         react: {
@@ -14,6 +15,7 @@ module.exports = {
         'airbnb-base',
         'prettier',
         'plugin:i18next/recommended',
+        "plugin:react-hooks/recommended"
     ],
     overrides: [
     ],
@@ -47,6 +49,7 @@ module.exports = {
         'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
         "semi": [2, "always"],
+        "max-len": [2,{code:100, ignoreComments: true}]
 
     },
     globals: {
