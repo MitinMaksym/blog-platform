@@ -1,18 +1,19 @@
 module.exports = {
-    
+
     env: {
         browser: true,
         es2021: true,
     },
     settings: {
-        "react": {
-            "version": "detect"
-        }
+        react: {
+            version: 'detect',
+        },
     },
     extends: [
         'plugin:react/recommended',
         'airbnb-base',
         'prettier',
+        'plugin:i18next/recommended',
     ],
     overrides: [
     ],
@@ -27,6 +28,7 @@ module.exports = {
     plugins: [
         'react',
         '@typescript-eslint',
+        'i18next',
     ],
     rules: {
         'react/jsx-indent': [2, 4],
@@ -40,15 +42,15 @@ module.exports = {
         'no-shadow': 'off',
         'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
         'react/react-in-jsx-scope': 'off',
-        'react/require-default-props': "off",
-        'react/jsx-props-no-spreading':'warn',
-        'import/no-extraneous-dependencies':'off',
-        'no-underscore-dangle':'off'
-        
+        'react/require-default-props': 'off',
+        'react/jsx-props-no-spreading': 'warn',
+        'import/no-extraneous-dependencies': 'off',
+        'no-underscore-dangle': 'off',
+        "semi": [2, "always"],
+
     },
     globals: {
         __IS_DEV__: true,
     },
 
-    
 };
