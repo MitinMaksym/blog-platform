@@ -49,7 +49,8 @@ module.exports = {
         'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
         "semi": [2, "always"],
-        "max-len": [2,{code:100, ignoreComments: true}]
+        "max-len": [2,{code:100, ignoreComments: true}],
+        "class-methods-use-this": 'off'
 
     },
     globals: {
