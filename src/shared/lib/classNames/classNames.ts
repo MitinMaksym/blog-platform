@@ -9,6 +9,6 @@ export function classNames(
         ...Object.entries(mods)
             .filter(([_, value]) => Boolean(value))
             .map(([c]) => c),
-        ...additional,
+        ...additional.filter((value) => value !== 'undefined' && !!value),
     ].join(' ');
 }
