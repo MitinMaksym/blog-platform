@@ -1,8 +1,9 @@
 {
   "main-page-link": "Main",
   "about-page-link": "About Us",
-  "toggle": "Toggle",
   "not-found-page": "Page Not Found",
   "error-occured": "Error occured",
-  "reload-page": "Reload Page"
+  "reload-page": "Reload Page",
+  "langShort": "En",
+  "langLong": "English"
 }

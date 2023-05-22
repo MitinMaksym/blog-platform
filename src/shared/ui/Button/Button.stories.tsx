@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { BtnVariant, Button } from './Button';
+import { BtnSize, BtnVariant, Button } from './Button';
 
 const meta: Meta<typeof Button> = {
     title: 'shared/Button',
@@ -21,12 +21,30 @@ export const Clear: Story = {
         children: 'Text'
     },
 };
+
 export const Outlined: Story = {
     args: {
         variant: BtnVariant.OUTLINE,
         children: 'Text'
     },
 };
+
+export const OutlinedL: Story = {
+    args: {
+        variant: BtnVariant.OUTLINE,
+        children: 'Text',
+        size: BtnSize.L
+    },
+};
+
+export const OutlinedXL: Story = {
+    args: {
+        variant: BtnVariant.OUTLINE,
+        children: 'Text',
+        size: BtnSize.XL
+    },
+};
+
 export const OutlinedDark: Story = {
     args: {
         variant: BtnVariant.OUTLINE,
@@ -34,4 +52,69 @@ export const OutlinedDark: Story = {
     },
     decorators:[ThemeDecorator(Theme.DARK)]
 };
+
+export const Background: Story = {
+    args: {
+        variant: BtnVariant.BACKGROUND,
+        children: 'Text',
+    },
+    decorators:[ThemeDecorator(Theme.DARK)]
+};
+
+export const BackgroundInverted: Story = {
+    args: {
+        variant: BtnVariant.BACKGROUND_INVERTED,
+        children: 'Text',
+    },
+    decorators:[ThemeDecorator(Theme.DARK)]
+};
+
+export const LSize: Story = {
+    args: {
+        variant: BtnVariant.BACKGROUND_INVERTED,
+        children: 'Text',
+        size: BtnSize.L
+    },
+    decorators:[ThemeDecorator(Theme.DARK)]
+};
+
+export const XLSize: Story = {
+    args: {
+        variant: BtnVariant.BACKGROUND_INVERTED,
+        children: 'Text',
+        size: BtnSize.XL
+    },
+    decorators:[ThemeDecorator(Theme.DARK)]
+};
+
+export const Square: Story = {
+    args: {
+        variant: BtnVariant.BACKGROUND_INVERTED,
+        children: '>',
+        square: true
+    },
+    decorators:[ThemeDecorator(Theme.DARK)]
+};
+
+export const SquareL: Story = {
+    args: {
+        variant: BtnVariant.BACKGROUND_INVERTED,
+        children: '>',
+        square: true,
+        size: BtnSize.L
+    },
+    decorators:[ThemeDecorator(Theme.DARK)]
+};
+
+export const SquareXL: Story = {
+    args: {
+        variant: BtnVariant.BACKGROUND_INVERTED,
+        children: '>',
+        square: true,
+        size: BtnSize.XL
+    },
+    decorators:[ThemeDecorator(Theme.DARK)]
+};
+
+
 

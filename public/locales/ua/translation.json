@@ -1,8 +1,9 @@
 {
   "main-page-link": "Головна",
   "about-page-link": "Про Нас",
-  "toggle": "Сховати",
   "not-found-page": "Сторінка не знайдена",
   "error-occured": "Сталася помилка",
-  "reload-page": "Оновити сторінку"
+  "reload-page": "Оновити сторінку",
+  "langShort": "Укр",
+  "langLong": "Українська"
 }

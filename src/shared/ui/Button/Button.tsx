@@ -5,20 +5,33 @@ import cls from './Button.module.scss';
 export enum BtnVariant {
   CLEAR = 'clear',
   OUTLINE = 'outline',
+  BACKGROUND = 'background',
+  BACKGROUND_INVERTED = 'backgroundInverted'
+}
+
+export enum BtnSize{
+  M = "sizeM",
+  L = 'sizeL',
+  XL = 'sizeXL'
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string
-  variant?: BtnVariant
+  variant?: BtnVariant,
+  square?: boolean,
+  size?: BtnSize
 }
 
 export const Button: FC<ButtonProps> = ({
     className,
     children,
     variant,
+    size = BtnSize.M,
+    square,
     ...otherProps
 }) => <button
-    className={classNames(cls.button, {}, [className, cls[variant]])}
+    className={classNames(cls.button, 
+        { [cls.square]:square }, [className, cls[variant], cls[size]])}
     {...otherProps}
 >
     {children}

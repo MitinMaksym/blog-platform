@@ -6,21 +6,26 @@ import { BtnVariant, Button } from 'shared/ui/Button/Button';
 
 interface LanguageSwitcherProps {
   className?: string
+  short?: boolean
 }
 
-export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({ className }) => {
-    const { i18n } = useTranslation();
+export const LanguageSwitcher: FC<LanguageSwitcherProps> = (props) => {
+    const {className, short} = props;
+    const { i18n, t } = useTranslation();
 
     const toggleLanguage = () => {
         i18n.changeLanguage(i18n.language === 'en' ? 'ua' : 'en');
     };
+
+    const languageLabel = short ? t('langShort') : t('langLong');
+
     return (
         <Button
             variant={BtnVariant.CLEAR}
             className={classNames("", {}, [className])}
             onClick={toggleLanguage}
         >
-            {i18n.language === 'en' ? 'Українська' : 'English'}
+            {languageLabel}
         </Button>
     );
 };
