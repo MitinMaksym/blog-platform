@@ -20,6 +20,7 @@ export const Clear: Story = {
         variant: BtnVariant.CLEAR,
         children: 'Text'
     },
+    decorators:[ThemeDecorator()]  
 };
 
 export const Outlined: Story = {
@@ -27,6 +28,7 @@ export const Outlined: Story = {
         variant: BtnVariant.OUTLINE,
         children: 'Text'
     },
+    decorators:[ThemeDecorator()]
 };
 
 export const OutlinedL: Story = {
@@ -35,6 +37,7 @@ export const OutlinedL: Story = {
         children: 'Text',
         size: BtnSize.L
     },
+    decorators:[ThemeDecorator()]
 };
 
 export const OutlinedXL: Story = {
@@ -43,6 +46,7 @@ export const OutlinedXL: Story = {
         children: 'Text',
         size: BtnSize.XL
     },
+    decorators:[ThemeDecorator()]  
 };
 
 export const OutlinedDark: Story = {

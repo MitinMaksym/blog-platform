@@ -13,10 +13,12 @@ const meta: Meta<typeof MainPage> = {
 export default meta;
 type Story = StoryObj<typeof MainPage>;
 
-export const MainPageLight: Story = {
+export const Light: Story = {
     args: {},
+    decorators:[ThemeDecorator()]
+
 };
-export const MainPageDark: Story = {
+export const Dark: Story = {
     args: {},
     decorators:[ThemeDecorator(Theme.DARK)]
 };
