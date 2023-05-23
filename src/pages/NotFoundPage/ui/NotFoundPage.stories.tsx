@@ -13,10 +13,11 @@ const meta: Meta<typeof NotFoundPage> = {
 export default meta;
 type Story = StoryObj<typeof NotFoundPage>;
 
-export const NotFoundPageLight: Story = {
+export const Light: Story = {
     args: {},
+    decorators:[ThemeDecorator()]
 };
-export const NotFoundPageDark: Story = {
+export const Dark: Story = {
     args: {},
     decorators:[ThemeDecorator(Theme.DARK)]
 };

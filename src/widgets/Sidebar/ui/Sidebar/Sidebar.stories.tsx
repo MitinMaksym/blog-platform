@@ -5,7 +5,7 @@ import { RouterDecorator } from 'shared/config/storybook/decorators/RouterDecora
 import { Sidebar } from './Sidebar';
 
 const meta: Meta<typeof Sidebar> = {
-    title: 'shared/Sidebar',
+    title: 'widgets/Sidebar',
     component: Sidebar,
     tags: ['autodocs'],
     argTypes: {
@@ -17,10 +17,11 @@ const meta: Meta<typeof Sidebar> = {
 export default meta;
 type Story = StoryObj<typeof Sidebar>;
 
-export const SidebarLight: Story = {
+export const Light: Story = {
     args: {},
+    decorators:[ThemeDecorator()]
 };
-export const SidebarDark: Story = {
+export const Dark: Story = {
     args: {},
     decorators:[ThemeDecorator(Theme.DARK)]
 };

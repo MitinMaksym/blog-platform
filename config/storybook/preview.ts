@@ -1,8 +1,6 @@
 
 import type { Preview } from "@storybook/react";
 import {StyleDecorator} from "../../src/shared/config/storybook/decorators/StyleDecorator";
-import {ThemeDecorator} from "../../src/shared/config/storybook/decorators/ThemeDecorator";
-import {Theme} from "../../src/app/providers/ThemeProvider";
 
 import i18n from './i18next.js';
 
@@ -26,6 +24,6 @@ const preview: Preview = {
     }
 };
 
-export const decorators = [StyleDecorator, ThemeDecorator(Theme.LIGHT)];
+export const decorators = [StyleDecorator];
 
 export default preview;

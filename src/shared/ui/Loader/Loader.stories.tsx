@@ -15,8 +15,9 @@ const meta: Meta<typeof Loader> = {
 export default meta;
 type Story = StoryObj<typeof Loader>;
 
-export const Normal: Story = {
+export const Light: Story = {
     args: {},
+    decorators:[ThemeDecorator()]
 };
 export const Dark: Story = {
     args: {},
