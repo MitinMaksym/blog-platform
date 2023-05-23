@@ -23,8 +23,8 @@ export const Light: Story = {
     },
     decorators: [ThemeDecorator()]
 };
-export const Dark: Story = {
-    args: {},
-    decorators: [ThemeDecorator(Theme.DARK)]
-};
+// export const Dark: Story = {
+//     args: {},
+//     decorators: [ThemeDecorator(Theme.DARK)]
+// };
 
