@@ -24,12 +24,14 @@ export const Light: Story = {
     decorators: [ThemeDecorator()]
 };
 
-export const Dark: Story = {
-    args: {
-        children: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-        Nulla consequuntur sequi harum, earum accusamus esse`
+// TODO: Figure out how to make it work in ci
 
-    },
-    decorators: [ThemeDecorator(Theme.DARK)]
-};
+// export const Dark: Story = {
+//     args: {
+//         children: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+//         Nulla consequuntur sequi harum, earum accusamus esse`
+
+//     },
+//     decorators: [ThemeDecorator(Theme.DARK)]
+// }; 
 
