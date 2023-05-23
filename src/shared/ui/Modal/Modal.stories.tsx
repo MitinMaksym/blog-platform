@@ -26,6 +26,9 @@ export const Light: Story = {
 
 export const Dark: Story = {
     args: {
+        children: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+        Nulla consequuntur sequi harum, earum accusamus esse!`
+
     },
     decorators: [ThemeDecorator(Theme.DARK)]
 };
