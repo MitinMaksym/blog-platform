@@ -1,18 +1,24 @@
-import { FC, MouseEvent, ReactNode, useCallback, useEffect } from 'react';
+import { FC, lazy, MouseEvent, ReactNode, useCallback, useEffect, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Portal } from '../Portal/Portal';
 import cls from './Modal.module.scss';
 
 interface ModalProps {
-    children: ReactNode;
+    children: ReactNode
     open: boolean
-    className?: string;
-    onClose: () => void;
+    className?: string
+    lazy?: boolean
+    onClose: () => void
 
 }
 
 export const Modal: FC<ModalProps> = (props) => {
     const { children, className, open, onClose } = props;
+    const [mounted, setMounted] = useState(false);
+    
+    useEffect(() => {
+        if(open) setMounted(true);
+    },[open]);
 
     const mods = {
         [cls.open]:open,
@@ -39,6 +45,8 @@ export const Modal: FC<ModalProps> = (props) => {
             document.removeEventListener('keydown', handleKeyDown);
         };
     }, [open, handleKeyDown]);
+
+    if(lazy && !mounted) return null;
 
     return (
         <Portal>

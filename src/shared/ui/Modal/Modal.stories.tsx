@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
 import {  Modal } from './Modal';
 
 const meta: Meta<typeof Modal> = {
@@ -10,7 +9,6 @@ const meta: Meta<typeof Modal> = {
     argTypes: {},
     args: {
         open:true,
-        onClose: () => {},
         children: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas, suscipit'
     },
 };

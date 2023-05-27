@@ -22,7 +22,10 @@
 }
 
 .content {
-    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
     background: var(--bg-color);
     padding: 20px;
     transform: scale(0.5);

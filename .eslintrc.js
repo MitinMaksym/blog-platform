@@ -13,6 +13,8 @@ module.exports = {
         'plugin:react/recommended',
         'airbnb-base',
         'prettier',
+        'plugin:@typescript-eslint/eslint-recommended',
+        'plugin:@typescript-eslint/recommended',
         'plugin:i18next/recommended',
         'plugin:react-hooks/recommended',
         'plugin:storybook/recommended'],
@@ -38,14 +40,13 @@ module.exports = {
         'import/prefer-default-export': 'off',
         'import/extensions': 'off',
         'import/no-unresolved': 'off',
-        'no-unused-vars': 'warn',
         'no-shadow': 'off',
         'react/jsx-filename-extension': [2, {
             extensions: ['.js', '.jsx', '.tsx']
         }],
         'react/react-in-jsx-scope': 'off',
         'react/require-default-props': 'off',
-        'react/jsx-props-no-spreading': 'warn',
+        'react/jsx-props-no-spreading': 'off',
         'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
         'semi': [2, 'always'],
@@ -57,7 +58,10 @@ module.exports = {
         'react/display-name': 'off',
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'error',
-        'no-param-reassign': 'off'
+        'no-param-reassign': 'off',
+        '@typescript-eslint/no-unused-vars': 'warn',
+        'no-unused-vars': 'off',
+        
     },
     globals: {
         __IS_DEV__: true
