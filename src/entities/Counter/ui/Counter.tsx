@@ -1,16 +1,10 @@
 import { StateSchema } from 'app/providers/StoreProvider';
-import { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from 'shared/ui/Button/Button';
 import { getCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
 import { counterActions } from '../model/slice/CounterSlice';
 
-
-interface CounterProps {
-
-}
-
-export const Counter: FC<CounterProps> = () => {
+export const Counter = () => {
     const dispatch = useDispatch();
     const value = useSelector<StateSchema>(getCounterValue);
 
