@@ -18,10 +18,12 @@ type Story = StoryObj<typeof Input>;
 
 export const Primary: Story = {
     args: {},
+    decorators:[ThemeDecorator(Theme.LIGHT)]
 };
 
 export const WithLabel: Story = {
     args: {},
+    decorators:[ThemeDecorator(Theme.LIGHT)]
 };
 export const Dark: Story = {
     args: {},
