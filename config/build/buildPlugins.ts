@@ -25,7 +25,7 @@ export function buildPlugins({
 
     if(isDev){
         plugins.push(new webpack.HotModuleReplacementPlugin());
-        plugins.push(new BundleAnalyzerPlugin({analyzerMode:analyze ? "server" : "disabled"}));
+        plugins.push(new BundleAnalyzerPlugin({analyzerMode:analyze ? 'server' : 'disabled'}));
     }
 
     return plugins;

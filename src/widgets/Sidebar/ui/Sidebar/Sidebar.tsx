@@ -5,8 +5,8 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { BtnSize, BtnVariant, Button } from 'shared/ui/Button/Button';
-import AboutIcon from "shared/assets/icons/about.svg";
-import MainIcon from "shared/assets/icons/main.svg";
+import AboutIcon from 'shared/assets/icons/about.svg';
+import MainIcon from 'shared/assets/icons/main.svg';
 
 import { RoutePath } from 'shared/config/routerConfig';
 import cls from './Sidebar.module.scss';

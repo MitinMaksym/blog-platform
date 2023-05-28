@@ -9,10 +9,10 @@ export const BugButton: FC<BugButtoProps> = ({ className }) => {
     const [error, setError] = useState(false);
 
     useEffect(() => {
-        if(error) throw new Error("test error");
+        if(error) throw new Error('test error');
     },[error]);
     return (
-        <div className={classNames("", {}, [className])} onClick={() => setError(true)}>
+        <div className={classNames('', {}, [className])} onClick={() => setError(true)}>
             {/* eslint-disable  */}
             Test Error
         </div>

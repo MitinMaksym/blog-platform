@@ -9,7 +9,7 @@ const meta: Meta<typeof AppLink> = {
     component: AppLink,
     tags: ['autodocs'],
     argTypes: {},
-    args: {to: "/"},
+    args: {to: '/'},
     decorators: [RouterDecorator]
 };
 
@@ -19,7 +19,7 @@ type Story = StoryObj<typeof AppLink>;
 export const Primary: Story = {
     args: {
         theme: AppLinkTheme.PRIMARY,
-        children: "Text",
+        children: 'Text',
     },
     decorators:[ThemeDecorator()]
 
@@ -28,7 +28,7 @@ export const Primary: Story = {
 export const PrimaryDark: Story = {
     args: {
         theme: AppLinkTheme.PRIMARY,
-        children: "Text"
+        children: 'Text'
     },
     decorators: [ThemeDecorator(Theme.DARK)]
 };
@@ -36,7 +36,7 @@ export const PrimaryDark: Story = {
 export const Secondary: Story = {
     args: {
         theme: AppLinkTheme.SECONDARY,
-        children: "Text",
+        children: 'Text',
     },
     decorators:[ThemeDecorator()]
 
@@ -45,7 +45,7 @@ export const Secondary: Story = {
 export const SecondaryDark: Story = {
     args: {
         theme: AppLinkTheme.SECONDARY,
-        children: "Text"
+        children: 'Text'
     },
     decorators: [ThemeDecorator(Theme.DARK)]
 };

@@ -10,7 +10,7 @@ export enum BtnVariant {
 }
 
 export enum BtnSize{
-  M = "sizeM",
+  M = 'sizeM',
   L = 'sizeL',
   XL = 'sizeXL'
 }

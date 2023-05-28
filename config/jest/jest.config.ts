@@ -18,19 +18,19 @@ export default {
     clearMocks: true,
 
     // The test environment that will be used for testing
-    testEnvironment: "jsdom",
+    testEnvironment: 'jsdom',
 
     coveragePathIgnorePatterns: [
-        "/node_modules/"
+        '/node_modules/'
     ],
 
     moduleFileExtensions: [
-        "js",
-        "jsx",
-        "ts",
-        "tsx",
-        "json",
-        "node"
+        'js',
+        'jsx',
+        'ts',
+        'tsx',
+        'json',
+        'node'
     ],
 
     moduleDirectories: ['node_modules'],
@@ -42,7 +42,7 @@ export default {
     ],
 
     // The root directory that Jest should scan for tests and modules within
-    rootDir: "../../",
+    rootDir: '../../',
 
     moduleNameMapper: {
         '\\.(css|scss)$': 'identity-obj-proxy',

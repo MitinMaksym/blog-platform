@@ -1,29 +1,29 @@
-import type { StorybookConfig } from "@storybook/react-webpack5";
-import path from "path";
-import { Configuration, RuleSetRule } from "webpack";
-import { buildCssLoader } from "../build/loaders/buildCssLoader";
+import type { StorybookConfig } from '@storybook/react-webpack5';
+import path from 'path';
+import { Configuration, RuleSetRule } from 'webpack';
+import { buildCssLoader } from '../build/loaders/buildCssLoader';
 
 const config: StorybookConfig = {
-    stories: ["../../src/**/*.stories.@(js|jsx|ts|tsx)"],
+    stories: ['../../src/**/*.stories.@(js|jsx|ts|tsx)'],
     addons: [
-        "storybook-react-i18next",
-        "@storybook/addon-links",
-        "@storybook/addon-essentials",
-        "@storybook/addon-interactions",
+        'storybook-react-i18next',
+        '@storybook/addon-links',
+        '@storybook/addon-essentials',
+        '@storybook/addon-interactions',
       
          
     ],
     framework: {
-        name: "@storybook/react-webpack5",
+        name: '@storybook/react-webpack5',
         options: {},
     },
     docs: {
-        autodocs: "tag",
+        autodocs: 'tag',
     },
     webpackFinal: async (config: Configuration) => {
        
      
-        config?.resolve?.modules?.push(path.resolve(__dirname, '..', '..', "src"));
+        config?.resolve?.modules?.push(path.resolve(__dirname, '..', '..', 'src'));
         config?.resolve?.extensions?.push('.ts', '.tsx');
     
         if(config.module) {

@@ -17,7 +17,7 @@ const MainPage = () => {
         </h1>
         <Button onClick={handleModalToggle}>{t('toggle-modal', {ns: 'translation'})}</Button>
         <Modal open={modalOpen} onClose={handleModalClose}>
-            {t("page-title")}
+            {t('page-title')}
         </Modal></>;
 };
 

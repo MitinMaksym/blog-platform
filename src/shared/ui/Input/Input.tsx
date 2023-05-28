@@ -3,7 +3,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
 
 type HTMLInputProps = Omit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, 
-HTMLInputElement>,"onChange">
+HTMLInputElement>,'onChange'>
 
 interface InputProps extends HTMLInputProps {
     id: string
