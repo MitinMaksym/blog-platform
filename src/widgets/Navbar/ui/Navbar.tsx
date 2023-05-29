@@ -1,6 +1,8 @@
+import { selectUserAuthData, userActions } from 'entities/User';
 import { LoginModal } from 'features/AuthByUsername';
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button } from 'shared/ui/Button/Button';
 
@@ -11,16 +13,31 @@ interface NavbarProps {
 }
 
 export const Navbar = ({ className }: NavbarProps) => {
-    const [loginModalVisible, setLoginModalVisible] = useState(false);
-
-    const closeSignInModal = useCallback(() => setLoginModalVisible(false),[]);
-    const openSignInModal = useCallback(() => setLoginModalVisible(true),[]);
-    
     const {t} = useTranslation();
+    const dispatch = useDispatch();
+    const [loginModalVisible, setLoginModalVisible] = useState(false);
+    const userData = useSelector(selectUserAuthData);
+
+    const closeLoginModal = useCallback(() => setLoginModalVisible(false),[]);
+
+    const openLoginModal = useCallback(() => setLoginModalVisible(true),[]);
+
+    const handleLogout = useCallback(() => {
+        dispatch(userActions.logout());
+    }, [dispatch]);
+
+    if(userData){
+        return <nav className={classNames(cls.navbar, {}, [className])}>
+            <div className={cls.links}>
+                <Button onClick={handleLogout}>{t('logout')}</Button>
+            </div>
+        </nav>;
+    }
+    
     return  <nav className={classNames(cls.navbar, {}, [className])}>
         <div className={cls.links}>
-            <Button onClick={openSignInModal}>{t('sign-in')}</Button>
-            <LoginModal open={loginModalVisible} onClose={closeSignInModal}/>
+            <Button onClick={openLoginModal}>{t('sign-in')}</Button>
+            <LoginModal open={loginModalVisible} onClose={closeLoginModal}/>
         </div>
     </nav>;
 };

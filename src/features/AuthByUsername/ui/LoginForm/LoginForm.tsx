@@ -1,8 +1,13 @@
-import { FC, useState } from 'react';
+import { FC, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { BtnVariant, Button } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
+import { selectLoginState } from '../../model/selectors/selectLoginState';
+import { loginActions } from '../../model/slice/loginSlice';
 
 import cls from './LoginForm.module.scss';
 
@@ -12,14 +17,26 @@ interface LoginFormProps {
 
 export const LoginForm: FC<LoginFormProps> = ({ className }) => {
     const {t} = useTranslation();
-
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+    const dispatch = useDispatch();
+    const {username, password, error, loading} = useSelector(selectLoginState);
     
-    const handleUsernameChange = (name: string) => setUsername(name);
-    const handlePasswordChange = (password: string) => setPassword(password);
+    const handleUsernameChange = useCallback((name: string) => 
+        dispatch(loginActions.setUsername(name)), [dispatch]);
 
-    return <form className={classNames(cls.loginForm, {}, [className])}>
+    const handlePasswordChange = useCallback((ps: string) => 
+        dispatch(loginActions.setPassword(ps)), [dispatch]);
+
+    const handleSubmit = useCallback(async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        dispatch(loginByUsername({username, password}));
+    },[dispatch, password, username]);
+
+
+    return <form 
+        className={classNames(cls.loginForm, {}, [className])}
+        onSubmit={handleSubmit}>
+        <Text title={t('login-form')}/>
+        {error && <Text text={error} theme={TextTheme.ERROR}/>}
         <Input
             id='username'
             label='Username'
@@ -35,6 +52,9 @@ export const LoginForm: FC<LoginFormProps> = ({ className }) => {
             onChange={handlePasswordChange}/> 
         <Button 
             className={cls.button}  
-            variant={BtnVariant.BACKGROUND_INVERTED}>{t('sign-in')}</Button>      
+            variant={BtnVariant.BACKGROUND_INVERTED}
+            disabled={loading}>
+            {t('sign-in')}
+        </Button>      
     </form>;
 };

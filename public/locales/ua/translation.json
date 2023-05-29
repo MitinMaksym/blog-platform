@@ -7,5 +7,8 @@
   "langShort": "Укр",
   "langLong": "Українська",
   "toggle-modal": "Переключити модалку",
-  "sign-in": "Увійти"
+  "sign-in": "Увійти",
+  "login-form": "Логін ",
+  "login-error": "Неправильний логін або пароль",
+  "logout": "Вийти"
 }

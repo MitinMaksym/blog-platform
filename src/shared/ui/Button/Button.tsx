@@ -29,10 +29,15 @@ export const Button: FC<ButtonProps> = ({
     size = BtnSize.M,
     square,
     ...otherProps
-}) => <button
-    className={classNames(cls.button, 
-        { [cls.square]:square }, [className, cls[variant], cls[size]])}
-    {...otherProps}
->
-    {children}
-</button>;
+}) => {
+    const mods = { 
+        [cls.square]:square, 
+        [cls.disabled]: otherProps.disabled };
+    return <button
+        className={classNames(cls.button, 
+            mods, [className, cls[variant], cls[size]])}
+        {...otherProps}
+    >
+        {children}
+    </button>;
+};

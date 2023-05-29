@@ -1,6 +1,7 @@
 .button {
     cursor: pointer;
     padding: 10px 15px;
+    transition: opacity 0.3s ease 0s;
 }
 
 .clear {
@@ -56,4 +57,8 @@
 
 .sizeXL {
     font: var(--font-xl);
+}
+
+.disabled {
+    opacity: 0.6;
 }
