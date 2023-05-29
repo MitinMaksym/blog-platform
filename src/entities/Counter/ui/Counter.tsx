@@ -1,12 +1,12 @@
 import { StateSchema } from 'app/providers/StoreProvider';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from 'shared/ui/Button/Button';
-import { getCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
+import { selectCounterValue } from '../model/selectors/selectCounterValue/selectCounterValue';
 import { counterActions } from '../model/slice/CounterSlice';
 
 export const Counter = () => {
     const dispatch = useDispatch();
-    const value = useSelector<StateSchema>(getCounterValue);
+    const value = useSelector<StateSchema>(selectCounterValue);
 
     const increment = () => {
         dispatch(counterActions.increment());

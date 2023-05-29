@@ -1,0 +1,81 @@
+import type { Meta, StoryObj } from '@storybook/react';
+import { Theme } from 'app/providers/ThemeProvider';
+import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
+import {  Text, TextTheme } from './Text';
+
+const meta: Meta<typeof Text> = {
+    title: 'shared/Text',
+    component: Text,
+    tags: ['autodocs'],
+    argTypes: {},
+};
+
+export default meta;
+type Story = StoryObj<typeof Text>;
+
+export const Primary: Story = {
+    args: {
+        title: 'Test title',
+        text: 'Text text'
+    },
+    decorators:[ThemeDecorator(Theme.LIGHT)]
+};
+
+export const Error: Story = {
+    args: {
+        title: 'Test title',
+        text: 'Text text',
+        theme: TextTheme.ERROR
+    },
+    decorators:[ThemeDecorator(Theme.LIGHT)]
+};
+
+export const ErrorDark: Story = {
+    args: {
+        title: 'Test title',
+        text: 'Text text',
+        theme: TextTheme.ERROR
+    },
+    decorators:[ThemeDecorator(Theme.DARK)]
+};
+
+export const OnlyTitle: Story = {
+    args: {
+        title: 'Text title'
+    },
+    decorators:[ThemeDecorator(Theme.LIGHT)]
+};
+
+export const OnlyText: Story = {
+    args: {
+        text: 'Text text'
+    },
+    decorators:[ThemeDecorator(Theme.LIGHT)]
+};
+
+export const PrimaryDark: Story = {
+    args: {
+        title: 'Test title',
+        text: 'Text text'
+    },
+    decorators:[ThemeDecorator(Theme.DARK)]
+};
+
+export const OnlyTitleDark: Story = {
+    args: {
+        title: 'Text title'
+    },
+    decorators:[ThemeDecorator(Theme.DARK)]
+};
+
+export const OnlyTextDark: Story = {
+    args: {
+        text: 'Text text'
+    },
+    decorators:[ThemeDecorator(Theme.DARK)]
+};
+
+
+
+
+

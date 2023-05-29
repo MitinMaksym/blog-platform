@@ -1,11 +1,11 @@
 import { DeepPartial } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
-import { getCounterValue } from './getCounterValue';
+import { selectCounter } from './selectCounter';
 
 
-describe('getCounterValue', () => {
+describe('selectCounter', () => {
     test('should return counter state', () => {
         const state:DeepPartial<StateSchema> = {counter: {value:10}};
-        expect(getCounterValue(state as StateSchema)).toEqual(10);
+        expect(selectCounter(state as StateSchema)).toEqual({value: 10});
     });
 });

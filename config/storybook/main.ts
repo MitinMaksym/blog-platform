@@ -1,6 +1,6 @@
 import type { StorybookConfig } from '@storybook/react-webpack5';
 import path from 'path';
-import { Configuration, RuleSetRule } from 'webpack';
+import { Configuration, DefinePlugin, RuleSetRule } from 'webpack';
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
 
 const config: StorybookConfig = {
@@ -22,7 +22,6 @@ const config: StorybookConfig = {
     },
     webpackFinal: async (config: Configuration) => {
        
-     
         config?.resolve?.modules?.push(path.resolve(__dirname, '..', '..', 'src'));
         config?.resolve?.extensions?.push('.ts', '.tsx');
     
@@ -41,6 +40,10 @@ const config: StorybookConfig = {
         });
 
         config?.module?.rules?.push(buildCssLoader(true));
+
+        config.plugins?.push( new DefinePlugin({
+            __IS_DEV__: true,
+        }),);
 
         return config;
     },
