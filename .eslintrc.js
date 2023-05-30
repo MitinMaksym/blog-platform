@@ -61,7 +61,8 @@ module.exports = {
         'no-param-reassign': 'off',
         '@typescript-eslint/no-unused-vars': 'warn',
         'no-unused-vars': 'off',
-        'quotes': [2, 'single', { 'avoidEscape': true }]
+        'quotes': [2, 'single', { 'avoidEscape': true }],
+        '@typescript-eslint/ban-ts-comment': 'off'
         
     },
     globals: {
