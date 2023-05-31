@@ -37,7 +37,7 @@ export const Navbar = ({ className }: NavbarProps) => {
     return  <nav className={classNames(cls.navbar, {}, [className])}>
         <div className={cls.links}>
             <Button onClick={openLoginModal}>{t('sign-in')}</Button>
-            <LoginModal open={loginModalVisible} onClose={closeLoginModal}/>
+            {loginModalVisible && <LoginModal open={loginModalVisible} onClose={closeLoginModal}/>}
         </div>
     </nav>;
 };
