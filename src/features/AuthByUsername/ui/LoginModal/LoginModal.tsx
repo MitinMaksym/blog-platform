@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Modal } from 'shared/ui/Modal/Modal';
-import { LoginForm } from '../LoginForm/LoginForm';
+import { LoginForm } from '../LoginForm/LoginForm.async';
 
 interface LoginModalProps {
     open: boolean
@@ -9,7 +9,7 @@ interface LoginModalProps {
 }
 
 export const LoginModal: FC<LoginModalProps> = ({open, onClose}) => (
-    <Modal open={open} onClose={onClose}>
+    <Modal open={open} lazy onClose={onClose}>
         <LoginForm/>
     </Modal>
 );

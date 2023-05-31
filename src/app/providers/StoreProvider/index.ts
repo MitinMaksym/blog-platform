@@ -1,3 +1,4 @@
-export type { StateSchema } from './config/StateSchema';
-export { createReduxStore } from './config/store';
+export type { StateSchema, StateSchemaKey } from './config/StateSchema';
+export type { createReducerManager } from './config/reducerManager';
+export { createReduxStore, StoreWithReducerManager } from './config/store';
 export { StoreProvider } from './ui/StoreProvider';
