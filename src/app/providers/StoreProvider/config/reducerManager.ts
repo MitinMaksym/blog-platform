@@ -2,7 +2,7 @@ import { combineReducers, Reducer, ReducersMapObject,
     AnyAction, 
     CombinedState} from '@reduxjs/toolkit';
 import { StateSchema } from '..';
-import { StateSchemaKey } from './stateSchema';
+import { StateSchemaKey } from './StateSchema';
 
 export interface ReducerManager {
     getReducerMap: () => ReducersMapObject<StateSchema>;

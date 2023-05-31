@@ -4,7 +4,7 @@ import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
 
 import { createReducerManager, ReducerManager } from './reducerManager';
-import { StateSchema } from './stateSchema';
+import { StateSchema } from './StateSchema';
 
 
 export const createReduxStore = (
