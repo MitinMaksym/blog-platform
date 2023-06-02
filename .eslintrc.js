@@ -63,7 +63,7 @@ module.exports = {
         'no-unused-vars': 'off',
         'quotes': [2, 'single', { 'avoidEscape': true }],
         '@typescript-eslint/ban-ts-comment': 'off',
-        'react/prop-types':'off'
+        'react/prop-types':'off',
         
     },
     globals: {
