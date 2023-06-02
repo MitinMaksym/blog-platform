@@ -36,3 +36,5 @@ export const createReduxStore = (
 export interface StoreWithReducerManager extends EnhancedStore<StateSchema> {
     reducerManager:ReducerManager
 }
+
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']

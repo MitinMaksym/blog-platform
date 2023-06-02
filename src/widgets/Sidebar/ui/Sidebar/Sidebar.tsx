@@ -1,14 +1,11 @@
 import { LanguageSwitcher } from 'features/LanguageSwitcher';
 import { ThemeSwitcher } from 'features/ThemeSwitcher';
 import { FC, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { BtnSize, BtnVariant, Button } from 'shared/ui/Button/Button';
-import AboutIcon from 'shared/assets/icons/about.svg';
-import MainIcon from 'shared/assets/icons/main.svg';
+import { sidebarItemsList } from '../../model/items';
+import { SidebarItem } from '../SidebarItem/SidebarItem';
 
-import { RoutePath } from 'shared/config/routerConfig';
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
@@ -17,8 +14,6 @@ className?: string
 
 export const Sidebar: FC<SidebarProps> = ({ className }) => {
     const [collapsed, setCollapsed] = useState(false);
-    const {t} = useTranslation();
-
     const onToggle = () => {
         setCollapsed((prev) => !prev);
     };
@@ -29,23 +24,9 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
             ])}
         >
             <ul className={cls.items}>
-                <li className={cls.item}>
-                    <AppLink to={RoutePath.main} 
-                        className={cls.link} 
-                        theme={AppLinkTheme.SECONDARY}>
-                        <MainIcon className={cls.icon}/>
-                        <span className={cls.linkText}>{t('main-page-link')}</span>
-                    </AppLink>
-                </li> 
             
-                <li className={cls.item}>
-                    <AppLink to={RoutePath.about} 
-                        className={cls.link} 
-                        theme={AppLinkTheme.SECONDARY}>
-                        <AboutIcon className={cls.icon}/>
-                        <span className={cls.linkText}>{t('about-page-link')}</span>
-                    </AppLink>
-                </li>
+                {sidebarItemsList.map((item) => 
+                    <SidebarItem key = {item.path} item={item} collapsed={collapsed}/>)}
                
             </ul>
           

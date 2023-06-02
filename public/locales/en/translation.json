@@ -1,4 +1,5 @@
 {
+  "profile-page-link": "Profile",
   "main-page-link": "Main",
   "about-page-link": "About Us",
   "not-found-page": "Page Not Found",
@@ -10,5 +11,6 @@
   "sign-in": "Sign In",
   "login-form": "Login Form",
   "login-error": "Incorrect login or password",
-  "logout": "Logout"
+  "logout": "Logout",
+  "profile": "Profile"
 }

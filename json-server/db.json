@@ -14,8 +14,15 @@
         }
     ],
     "profile": {
-        "name": "typicode"
-    },
+        "first": "Maksym",
+        "lastname": "Mitin",
+        "age": 26,
+        "currency": "RUB",
+        "country": "Ukraine",
+        "city": "Kharkiv",
+        "username": "admin",
+        "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
+      },
     "users": [
         {
             "id": "1",

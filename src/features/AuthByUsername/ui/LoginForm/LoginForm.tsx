@@ -1,12 +1,13 @@
 import { FC, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { BtnVariant, Button } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { DynamicModuleLoader, 
     ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import { selectLoginUsername } from '../../model/selectors/selectLoginUsername/selectLoginUsername';
@@ -17,15 +18,16 @@ import { selectLoginError} from '../../model/selectors/selectLoginError/selectLo
 import cls from './LoginForm.module.scss';
 
 interface LoginFormProps {
-    className?: string;
+    className?: string
+    onSuccess: () => void
 }
 const asyncReducers:ReducersList= {
     loginForm:loginReducer,
 };
 
-const LoginForm: FC<LoginFormProps> = ({ className }) => {
+const LoginForm: FC<LoginFormProps> = ({ className, onSuccess }) => {
     const {t} = useTranslation();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const username = useSelector(selectLoginUsername);
     const password = useSelector(selectLoginPassword);
     const error = useSelector(selectLoginError);
@@ -39,8 +41,9 @@ const LoginForm: FC<LoginFormProps> = ({ className }) => {
 
     const handleSubmit = useCallback(async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        dispatch(loginByUsername({username, password}));
-    },[dispatch, password, username]);
+        const result = await dispatch(loginByUsername({username, password}));
+        if(result.meta.requestStatus === 'fulfilled'){onSuccess();}
+    }, [dispatch, password, username, onSuccess]);
 
  
     return <DynamicModuleLoader reducers={asyncReducers} removeAfterUnmount> 
