@@ -1,0 +1,21 @@
+.item {
+    font: var(--font-l);
+    min-height: 25px;
+
+    .link {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        flex-wrap: nowrap;
+    }
+
+    .icon {
+        fill: var(--inverted-primary-color);
+    }
+}
+
+.collapsed {
+    .text {
+        display: none;
+    }
+}

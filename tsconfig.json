@@ -10,6 +10,7 @@
     "sourceMap": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+
     // For absolute import
     "baseUrl": ".",
     "paths": {

@@ -1,4 +1,5 @@
 {
+  "profile-page-link": "Профіль",
   "main-page-link": "Головна",
   "about-page-link": "Про Нас",
   "not-found-page": "Сторінка не знайдена",
@@ -10,5 +11,7 @@
   "sign-in": "Увійти",
   "login-form": "Логін ",
   "login-error": "Неправильний логін або пароль",
-  "logout": "Вийти"
+  "logout": "Вийти",
+  "profile": "Профіль"
+
 }
