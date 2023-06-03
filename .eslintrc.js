@@ -67,7 +67,8 @@ module.exports = {
         
     },
     globals: {
-        __IS_DEV__: true
+        __IS_DEV__: true,
+        __API_URL__: 'readonly'
     },
     overrides: [{
         files: ['**/src/**/*.test.{ts,tsx}'],

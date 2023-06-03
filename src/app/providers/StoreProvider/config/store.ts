@@ -1,11 +1,21 @@
-import { configureStore, 
+import {
+    configureStore, 
     EnhancedStore, ReducersMapObject } from '@reduxjs/toolkit';
+import { AxiosInstance } from 'axios';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
+import { $api } from 'shared/api/api';
 
 import { createReducerManager, ReducerManager } from './reducerManager';
 import { StateSchema } from './StateSchema';
 
+export type ThunkExtraArg = {
+    api: AxiosInstance
+}
+
+const extraArg: ThunkExtraArg= {
+    api: $api,
+};
 
 export const createReduxStore = (
     initialState?: StateSchema, 
@@ -19,12 +29,17 @@ export const createReduxStore = (
     };
 
     const reducerManager = createReducerManager(rootReducer);
-    
-    const store =  configureStore<StateSchema>({
+
+    const store =  configureStore({
         reducer: reducerManager.reduce,
         devTools: __IS_DEV__,
-        preloadedState: initialState
-    });
+        preloadedState: initialState,
+      
+        middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+            thunk: {
+                extraArgument: extraArg,
+            },
+        }),    });
     
     // @ts-ignore
     store.reducerManager = reducerManager;
@@ -38,3 +53,8 @@ export interface StoreWithReducerManager extends EnhancedStore<StateSchema> {
 }
 
 export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']
+
+export interface ThunkConfig<T>{
+    rejectValue: T,
+    extra: ThunkExtraArg
+}
