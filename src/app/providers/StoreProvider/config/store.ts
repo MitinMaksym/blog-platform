@@ -1,6 +1,8 @@
 import {
+    CombinedState,
     configureStore, 
-    EnhancedStore, ReducersMapObject } from '@reduxjs/toolkit';
+    Dispatch, 
+    EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
@@ -31,7 +33,7 @@ export const createReduxStore = (
     const reducerManager = createReducerManager(rootReducer);
 
     const store =  configureStore({
-        reducer: reducerManager.reduce,
+        reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
         devTools: __IS_DEV__,
         preloadedState: initialState,
       
@@ -55,6 +57,7 @@ export interface StoreWithReducerManager extends EnhancedStore<StateSchema> {
 export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']
 
 export interface ThunkConfig<T>{
-    rejectValue: T,
+    rejectValue: T
     extra: ThunkExtraArg
+    dispatch?: Dispatch
 }
