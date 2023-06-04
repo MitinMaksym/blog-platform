@@ -51,7 +51,7 @@ module.exports = {
         'no-underscore-dangle': 'off',
         'semi': [2, 'always'],
         'max-len': [2, {
-            code: 100,
+            code: 120,
             ignoreComments: true
         }],
         'class-methods-use-this': 'off',
