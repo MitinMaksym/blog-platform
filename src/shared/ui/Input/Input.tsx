@@ -7,7 +7,7 @@ HTMLInputElement>,'onChange'>
 
 interface InputProps extends HTMLInputProps {
     id: string
-    value: string | number | undefined 
+    value: string | undefined | number
     label?: string
     className?: string
     readOnly?: boolean

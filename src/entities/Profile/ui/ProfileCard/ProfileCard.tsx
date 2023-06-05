@@ -1,18 +1,17 @@
 import { CountrySelect } from 'entities/Country';
 import { CurrencySelect } from 'entities/Currency';
 import {  FC } from 'react';
+import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Input } from 'shared/ui/Input/Input';
 import { Loader } from 'shared/ui/Loader/Loader';
-import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { Profile } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
     data?: Profile
     loading: boolean
-    error?: string
     className?: string
     readOnly?: boolean
     onChange:(value: Profile) => void
@@ -23,20 +22,18 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
         data, 
         className, 
         loading, 
-        error, 
         readOnly, 
         onChange
     } = props;
-
+    const {t} = useTranslation();
     if (loading) return <div className={classNames(cls.profileCard, {}, [className, cls.loading])}>
         <Loader/>
     </div>;
 
-    if (error) return <div className={classNames(cls.profileCard, {}, [className, cls.error])}>
-        <Text title='Error' text={error} theme={TextTheme.ERROR}/>
-    </div>;
 
-    const handleFormChange = (name: keyof Profile) => (value: string) =>{
+
+    const handleFormChange = (name: keyof Profile) => (value: string | number) => {
+        if(value && name === 'age') value = Number(value);
         onChange({[name]: value});
     };
     
@@ -47,7 +44,7 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
         <form className={cls.form}>
             <Input 
                 id='firstName'
-                label='First name' 
+                label={t('first-name')}
                 readOnly={readOnly}
                 className={cls.input} 
                 value={data?.first}
@@ -55,7 +52,7 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
                 
             <Input 
                 id='lastName' 
-                label='Last name' 
+                label={t('last-name')}
                 readOnly={readOnly}
                 className={cls.input}  
                 value={data?.lastname}
@@ -63,15 +60,16 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
             />
             <Input 
                 id='userName' 
-                label='User name' 
+                label={t('user-name')}
                 readOnly={readOnly}
                 className={cls.input}  
                 value={data?.username}
                 onChange={handleFormChange('username')}
             />
             <Input 
-                id='userAge' 
-                label='Age' 
+                id='userAge'
+                type="number"
+                label={t('age')}
                 readOnly={readOnly}
                 className={cls.input}  
                 value={data?.age}
@@ -84,7 +82,7 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
             />
             <Input 
                 id='avatar' 
-                label='Avatar' 
+                label={t('avatar')}
                 readOnly={readOnly}
                 className={cls.input}  
                 value={data?.avatar}

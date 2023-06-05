@@ -53,6 +53,7 @@ const LoginForm: FC<LoginFormProps> = ({ className, onSuccess }) => {
             <Text title={t('login-form')}/>
             {error && <Text text={error} theme={TextTheme.ERROR}/>}
             <Input
+                type='text'
                 id='username'
                 label='Username'
                 className={cls.input} 

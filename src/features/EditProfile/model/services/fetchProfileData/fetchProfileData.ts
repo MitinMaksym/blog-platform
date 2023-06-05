@@ -1,10 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
 import { Profile } from 'entities/Profile';
-import i18n from 'shared/config/i18n/i18n';
+import { ProfileValidationError } from '../../types/profileSchema';
 
 export const fetchProfileData = 
-createAsyncThunk<Profile, void, ThunkConfig<string>>(
+createAsyncThunk<Profile, void, ThunkConfig<ProfileValidationError[]>>(
     'features/fetchProfileData',
     async (_, { rejectWithValue, extra }) => {
         try {
@@ -13,7 +13,7 @@ createAsyncThunk<Profile, void, ThunkConfig<string>>(
             
             return response.data;
         } catch (error) {
-            return rejectWithValue(i18n.t('data-load-fail-error'));
+            return rejectWithValue([ProfileValidationError.SERVER_ERROR]);
      
         }
     

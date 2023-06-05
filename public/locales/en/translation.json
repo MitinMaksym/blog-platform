@@ -16,5 +16,19 @@
   "data-load-fail-error": "Data load failed",
   "edit": "Edit",
   "save": "Save",
-  "cancel": "Cancel"
+  "cancel": "Cancel",
+  "incorrect-user-data": "Incorrect user data",
+  "incorrect-country": "Incorrect country",
+  "server-error": "Server error",
+  "incorrect-age": "Incorrect age",
+  "no-data-error": "No data",
+  "first-name": "First name",
+  "last-name": "Last name",
+  "user-name": "User name",
+  "age": "Age",
+  "avatar": "Avatar",
+  "currency-label": "Currency",
+  "country-label": "Country",
+  "ukraine": "Ukraine",
+  "usa": "The USA"
 }
