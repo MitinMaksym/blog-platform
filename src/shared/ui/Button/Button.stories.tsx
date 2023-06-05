@@ -31,6 +31,21 @@ export const Outlined: Story = {
     decorators:[ThemeDecorator()]
 };
 
+export const OutlinedError: Story = {
+    args: {
+        variant: BtnVariant.OUTLINE_ERROR,
+        children: 'Text'
+    },
+    decorators:[ThemeDecorator()]
+};
+export const OutlinedErrorDark: Story = {
+    args: {
+        variant: BtnVariant.OUTLINE_ERROR,
+        children: 'Text'
+    },
+    decorators:[ThemeDecorator(Theme.DARK)]
+};
+
 export const OutlinedL: Story = {
     args: {
         variant: BtnVariant.OUTLINE,

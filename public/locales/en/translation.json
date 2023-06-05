@@ -12,5 +12,9 @@
   "login-form": "Login Form",
   "login-error": "Incorrect login or password",
   "logout": "Logout",
-  "profile": "Profile"
+  "profile": "Profile",
+  "data-load-fail-error": "Data load failed",
+  "edit": "Edit",
+  "save": "Save",
+  "cancel": "Cancel"
 }

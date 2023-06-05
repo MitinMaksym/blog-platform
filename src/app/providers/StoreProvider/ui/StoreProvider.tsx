@@ -12,7 +12,7 @@ interface StoreProviderProps {
 
 export const StoreProvider: FC<StoreProviderProps> = ({children, initialState, asyncReducers}) => {
     const store = createReduxStore(initialState, asyncReducers as ReducersMapObject<StateSchema>);
-    
+
     return <Provider store={store}>
         {children} 
     </Provider>;

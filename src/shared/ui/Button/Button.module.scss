@@ -1,6 +1,6 @@
 .button {
     cursor: pointer;
-    padding: 10px 15px;
+    padding: 8px 15px;
     transition: opacity 0.3s ease 0s;
 }
 
@@ -26,6 +26,11 @@
     background: var(--inverted-bg-color);
     color: var(--inverted-primary-color);
     border: none;
+}
+
+.outlineError {
+    color: var(--red-light);
+    border: 1px solid var(--red-light);
 }
 
 .square {
