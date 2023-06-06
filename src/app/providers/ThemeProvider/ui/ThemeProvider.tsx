@@ -17,7 +17,7 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ children, defaultTheme }) => {
 
     useEffect(() => {
         const classes = document.body.className.split(' ')
-            .filter(cls => cls !== Theme.LIGHT && cls !== Theme.DARK);
+            .filter(cls => !(Object.values(Theme) as Array<string>).includes(cls)) ;
         
         document.body.className = [...classes, theme].join(' ');
 
