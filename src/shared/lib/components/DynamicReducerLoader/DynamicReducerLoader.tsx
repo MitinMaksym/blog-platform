@@ -7,13 +7,13 @@ export type ReducersList = {
     [name in StateSchemaKey]?: Reducer;
 }
 
-interface DynamicModuleLoaderProps {
+interface DynamicReducerLoaderProps {
     children: ReactNode
     reducers: ReducersList
     removeAfterUnmount?: boolean
 }
 
-export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
+export const DynamicReducerLoader: FC<DynamicReducerLoaderProps> = (props) => {
     const { children, reducers, removeAfterUnmount } = props;
     const store = useStore() as StoreWithReducerManager;
     const dispatch = useDispatch();

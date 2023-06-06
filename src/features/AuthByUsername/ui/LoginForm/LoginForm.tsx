@@ -5,8 +5,8 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { BtnVariant, Button } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
-import { DynamicModuleLoader, 
-    ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { DynamicReducerLoader, 
+    ReducersList } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
@@ -46,7 +46,7 @@ const LoginForm: FC<LoginFormProps> = ({ className, onSuccess }) => {
     }, [dispatch, password, username, onSuccess]);
 
  
-    return <DynamicModuleLoader reducers={asyncReducers} removeAfterUnmount> 
+    return <DynamicReducerLoader reducers={asyncReducers} removeAfterUnmount> 
         <form 
             className={classNames(cls.loginForm, {}, [className])}
             onSubmit={handleSubmit}>
@@ -73,7 +73,7 @@ const LoginForm: FC<LoginFormProps> = ({ className, onSuccess }) => {
                 {t('sign-in')}
             </Button>      
         </form>
-    </DynamicModuleLoader>;
+    </DynamicReducerLoader>;
 };
 
 export default LoginForm;

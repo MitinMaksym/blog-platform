@@ -25,7 +25,9 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
         readOnly, 
         onChange
     } = props;
+
     const {t} = useTranslation();
+
     if (loading) return <div className={classNames(cls.profileCard, {}, [className, cls.loading])}>
         <Loader/>
     </div>;

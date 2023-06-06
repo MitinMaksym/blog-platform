@@ -1,6 +1,6 @@
 import { Profile } from 'entities/Profile';
 
-export enum ProfileValidationError {
+export enum ProfileError {
     NO_DATA = 'NO_DATA',
     SERVER_ERROR = 'SERVER_ERROR',
     INCORRECT_USER_DATA = 'INCORRECT_USER_DATA',
@@ -11,6 +11,6 @@ export interface ProfileSchema {
     data?: Profile
     form?: Profile
     loading: boolean
-    errors?: Array<ProfileValidationError>
+    errors?: Array<ProfileError>
     readonly: boolean
 }

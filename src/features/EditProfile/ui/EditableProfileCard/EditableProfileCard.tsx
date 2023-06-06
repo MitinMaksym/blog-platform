@@ -1,12 +1,12 @@
 import { Profile, ProfileCard } from 'entities/Profile';
-import { FC, useCallback, useEffect } from 'react';
+import { FC, memo, useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 import { BtnVariant, Button } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
-import { selectProfileFormData } from '../../model/selectors/selectProfileFormData/selectFormData';
+import { selectProfileFormData } from '../../model/selectors/selectProfileFormData/selectProfileFormData';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { selectProfileErrors} 
@@ -15,8 +15,10 @@ import { selectProfileLoading } from '../../model/selectors/selectProfileLoading
 import { selectProfileReadOnly } from '../../model/selectors/selectProfileReadOnly/selectProfileReadOnly';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 // import { classNames } from 'shared/lib/classNames/classNames';
+import { ProfileError } from '../../model/types/profileSchema';
+
 import cls from './EditableProfileCard.module.scss';
-import { ProfileValidationError } from '../../model/types/profileSchema';
+
 
 interface EditableProfileCardProps {
     className?: string;
@@ -26,7 +28,7 @@ const reducers: ReducersList = {
 };
 
 
-export const EditableProfileCard: FC<EditableProfileCardProps> = () => {
+export const EditableProfileCard: FC<EditableProfileCardProps> = memo(() => {
     const {t} = useTranslation();
     const dispatch = useAppDispatch();
     const formData = useSelector(selectProfileFormData);
@@ -37,16 +39,18 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = () => {
     const buttonsVisible = !loading;
 
     const errorsTranslations = {
-        [ProfileValidationError.INCORRECT_USER_DATA]: t('incorrect-user-data'),
-        [ProfileValidationError.INCORRECT_COUNTRY]: t('incorrect-country'),
-        [ProfileValidationError.SERVER_ERROR]: t('server-error'),
-        [ProfileValidationError.NO_DATA]: t('no-data-error'),
-        [ProfileValidationError.INCORRECT_AGE]: t('incorrect-age'),
+        [ProfileError.INCORRECT_USER_DATA]: t('incorrect-user-data'),
+        [ProfileError.INCORRECT_COUNTRY]: t('incorrect-country'),
+        [ProfileError.SERVER_ERROR]: t('server-error'),
+        [ProfileError.NO_DATA]: t('no-data-error'),
+        [ProfileError.INCORRECT_AGE]: t('incorrect-age'),
     };
 
 
     useEffect(() => {
-        dispatch(fetchProfileData());
+        if(__PROJECT__ !== 'storybook'){
+            dispatch(fetchProfileData());
+        }
     }, [dispatch]);
 
     const formChangeHandler = useCallback((data: Profile)=> {
@@ -58,7 +62,7 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = () => {
     const allowFormEdit = useCallback(() => dispatch(profileActions.setReadOnly(false)),[dispatch]);
 
     return <div className={cls.cardWrapper}>
-        <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+        <DynamicReducerLoader reducers={reducers} removeAfterUnmount>
             {!!errors?.length && errors?.map(err => 
                 <Text key={err} title={t('error-occured')} text={errorsTranslations[err]} theme={TextTheme.ERROR}/>)}
 
@@ -78,6 +82,6 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = () => {
                     </>}
             </div>
             }
-        </DynamicModuleLoader>
+        </DynamicReducerLoader>
     </div>;
-};
+});

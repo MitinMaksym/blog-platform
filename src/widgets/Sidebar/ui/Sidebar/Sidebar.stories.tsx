@@ -11,7 +11,7 @@ const meta: Meta<typeof Sidebar> = {
     tags: ['autodocs'],
     argTypes: {
     },
-    decorators: [RouterDecorator,]
+    decorators: [RouterDecorator, StoreDecorator({user:{authData:{}}})]
 
 };
 
@@ -20,15 +20,15 @@ type Story = StoryObj<typeof Sidebar>;
 
 export const Light: Story = {
     args: {},
-    decorators:[ThemeDecorator(), StoreDecorator({})]
+    decorators:[ThemeDecorator()]
 };
 export const Dark: Story = {
     args: {},
-    decorators:[ThemeDecorator(Theme.DARK), StoreDecorator({})]
+    decorators:[ThemeDecorator(Theme.DARK)]
 };
-export const Auth: Story = {
+export const NoAuth: Story = {
     args: {},
-    decorators:[ThemeDecorator(Theme.DARK), StoreDecorator({user:{authData:{}}})]
+    decorators:[ThemeDecorator(Theme.DARK), StoreDecorator({user:{authData:undefined}})]
 };
 
 
