@@ -6,6 +6,7 @@ export enum BtnVariant {
   CLEAR = 'clear',
   OUTLINE = 'outline',
   BACKGROUND = 'background',
+  OUTLINE_ERROR = 'outlineError',
   BACKGROUND_INVERTED = 'backgroundInverted'
 }
 

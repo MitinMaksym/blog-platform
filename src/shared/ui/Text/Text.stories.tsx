@@ -68,11 +68,26 @@ export const OnlyTitleDark: Story = {
     decorators:[ThemeDecorator(Theme.DARK)]
 };
 
-export const OnlyTextDark: Story = {
+export const AlignLeft: Story = {
     args: {
-        text: 'Text text'
+        text: 'Text text',
+        align:'left'
     },
-    decorators:[ThemeDecorator(Theme.DARK)]
+    decorators:[ThemeDecorator(Theme.LIGHT)]
+};
+export const AlignRight: Story = {
+    args: {
+        text: 'Text text',
+        align:'right'
+    },
+    decorators:[ThemeDecorator(Theme.LIGHT)]
+};
+export const AlignCenter: Story = {
+    args: {
+        text: 'Text text',
+        align: 'center'
+    },
+    decorators:[ThemeDecorator(Theme.LIGHT)]
 };
 
 

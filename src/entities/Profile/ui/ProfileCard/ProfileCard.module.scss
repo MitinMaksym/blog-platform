@@ -1,0 +1,21 @@
+// .profileCard {
+
+// }
+
+.loading,
+.error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input {
+    &:not(:last-child) {
+        margin-bottom: 10px;
+    }
+}
+
+.avatar {
+    display: flex;
+    justify-content: center;
+}

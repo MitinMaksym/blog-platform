@@ -59,5 +59,6 @@ export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']
 export interface ThunkConfig<T>{
     rejectValue: T
     extra: ThunkExtraArg
-    dispatch?: Dispatch
+    dispatch: Dispatch
+    state: StateSchema
 }

@@ -3,7 +3,7 @@ import { Theme, ThemeProvider } from 'app/providers/ThemeProvider';
 
 export const ThemeDecorator = (thm: Theme = Theme.LIGHT) => (Story: StoryFn) => (
     <ThemeProvider defaultTheme={thm}>
-        <div className="app"><Story /></div>;
+        <div className="app"><Story /></div>
     </ThemeProvider>
 );
 

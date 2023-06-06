@@ -1,6 +1,8 @@
+import { selectUserAuthData } from 'entities/User';
 import { LanguageSwitcher } from 'features/LanguageSwitcher';
 import { ThemeSwitcher } from 'features/ThemeSwitcher';
-import { FC, useState } from 'react';
+import { FC, memo, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { BtnSize, BtnVariant, Button } from 'shared/ui/Button/Button';
 import { sidebarItemsList } from '../../model/items';
@@ -12,8 +14,10 @@ interface SidebarProps {
 className?: string
 }
 
-export const Sidebar: FC<SidebarProps> = ({ className }) => {
+export const Sidebar: FC<SidebarProps> = memo(({ className }) => {
     const [collapsed, setCollapsed] = useState(false);
+    const isAuth = useSelector(selectUserAuthData);
+
     const onToggle = () => {
         setCollapsed((prev) => !prev);
     };
@@ -25,8 +29,9 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
         >
             <ul className={cls.items}>
             
-                {sidebarItemsList.map((item) => 
-                    <SidebarItem key = {item.path} item={item} collapsed={collapsed}/>)}
+                {sidebarItemsList.filter(({authOnly})=> !authOnly || isAuth)
+                    .map((item) => 
+                        <SidebarItem key = {item.path} item={item} collapsed={collapsed}/>)}
                
             </ul>
           
@@ -42,4 +47,4 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
             </div>
         </aside>
     );
-};
+});

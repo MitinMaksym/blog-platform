@@ -1,0 +1,20 @@
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.select {
+    background: none;
+    outline: none;
+    color: var(--promary-color);
+    padding: 5px 10px;
+    border: 1px solid var(--primary-color);
+}
+
+.option {
+    color: var(--inverted-primary-color);
+    background: var(--inverted-bg-color);
+    font-weight: bold;
+}

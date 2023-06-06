@@ -16,9 +16,9 @@ export class TestAsyncThunk<Return, Arg, Reject> {
 
     asyncThunk: AsyncThunkType<Return, Arg, Reject>;
 
-    constructor(asyncThunk:AsyncThunkType<Return, Arg, Reject>){
+    constructor(asyncThunk:AsyncThunkType<Return, Arg, Reject>, state?: DeepPartial<StateSchema>){
         this.dispatch = jest.fn();
-        this.getState = jest.fn();
+        this.getState = jest.fn(() => state as StateSchema);
         this.api = mockedAxios;
         this.asyncThunk = asyncThunk;
     }

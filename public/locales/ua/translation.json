@@ -12,6 +12,23 @@
   "login-form": "Логін ",
   "login-error": "Неправильний логін або пароль",
   "logout": "Вийти",
-  "profile": "Профіль"
-
+  "profile": "Профіль",
+  "data-load-fail-error": "Не вдалося загрузити дані",
+  "edit": "Редагувати",
+  "cancel": "Відмінити",
+  "save": "Зберегти",
+  "incorrect-age": "Невірний вік",
+  "incorrect-country": "Країна вказана невірно",
+  "incorrect-user-data": "Дані користувача вказані невірно",
+  "no-data-error": "Дані відсутні",
+  "server-error": "Помилка на сервері",
+  "age": "Вік",
+  "avatar": "Аватар",
+  "country-label": "Країна",
+  "currency-label": "Валюта",
+  "first-name": "Ім'я",
+  "last-name": "Поізвище",
+  "user-name": "Нікнейм",
+  "ukraine": "Україна",
+  "usa": "США"
 }

@@ -1,8 +1,8 @@
 import { ReducersMapObject } from '@reduxjs/toolkit';
 import { StoryFn } from '@storybook/react';
 import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
-import { profileReducer } from 'entities/Profile';
-import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
+import { loginReducer } from 'features/AuthByUsername';
+import { profileReducer } from 'features/EditProfile';
 
 const defaultAsyncReducers:DeepPartial<ReducersMapObject<StateSchema>>  = {
     loginForm: loginReducer,
