@@ -1,18 +1,9 @@
 import webpack from 'webpack';
 import { BuildOptions } from './types/config';
 import { buildCssLoader } from './loaders/buildCssLoader';
+import { BuildBabelLoader } from './loaders/buildBabelLoader';
 
 export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
-    const babelLoader = {
-        test: /\.(js|ts|tsx)$/,
-        exclude: /node_modules/,
-        use: {
-            loader: 'babel-loader',
-            options: {
-                presets: ['@babel/preset-env']
-            }
-        }
-    };
 
     const fileLoader = {
         test: /\.(png|jpe?g|gif)$/i,
@@ -34,5 +25,5 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
         exclude: /node_modules/,
     };
 
-    return [babelLoader, typescriptLoader, buildCssLoader(isDev), svgloader, fileLoader];
+    return [BuildBabelLoader(isDev), typescriptLoader, buildCssLoader(isDev), svgloader, fileLoader];
 }
