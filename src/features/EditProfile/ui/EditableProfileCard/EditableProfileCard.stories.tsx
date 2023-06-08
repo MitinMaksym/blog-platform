@@ -5,6 +5,7 @@ import { Currency } from 'entities/Currency';
 import { ProfileError } from 'features/EditProfile/model/types/profileSchema';
 import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
+import AvatarIcon from 'shared/assets/avatar.webp';
 import {EditableProfileCard} from './EditableProfileCard';
 
 const data = { 
@@ -12,7 +13,7 @@ const data = {
     lastname:'Last Name', 
     username:'Nickname', 
     age: 25, 
-    avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
+    avatar: AvatarIcon,
     country: Country.UKRAINE,
     currency: Currency.EUR
 };
