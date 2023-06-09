@@ -33,11 +33,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Cache deps
-        uses: actions/cache@v3
-        with:
-          path: ~/.npm
-          key: node_modules-${{ hashFiles('**/package-lock.json') }}
+          cache: 'npm'
+          cache-dependency-path: '**/package-lock.json' 
       - name: install modules
         run: npm ci --force
       - name: lint ts
@@ -58,11 +55,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Cache deps
-        uses: actions/cache@v3
-        with:
-          path: ~/.npm
-          key: node_modules-${{ hashFiles('**/package-lock.json') }}
+          cache: 'npm'
+          cache-dependency-path: '**/package-lock.json' 
       - name: install modules
         run: npm ci --force
       - name: build storybook
