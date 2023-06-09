@@ -5,7 +5,8 @@ on:
   pull_request:
     branches: [ master ]
 jobs:
-  pipeline:
+
+  build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -16,23 +17,55 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          cache-dependency-path: '**/package-lock.json' 
       - name: install modules
-        run: npm i --force
+        run: npm ci --force
       - name: build production project
         run: npm run build:prod
-        if: always()
+     
+  unit-tests-and-linting:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 17.x ]
+    steps: 
+      - uses: actions/checkout@v3
+      - name: Starting Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          cache-dependency-path: '**/package-lock.json' 
+      - name: install modules
+        run: npm ci --force
       - name: lint ts
         run: npm run lint:ts
-        if: always()
       - name: stylelint
         run: npm run lint:scss
       - name: unit tests
         run: npm run test:unit
-        if: always()
+
+  storybook:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 17.x ]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Starting Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          cache-dependency-path: '**/package-lock.json' 
+      - name: install modules
+        run: npm ci --force
       - name: build storybook
         run: npm run storybook:build
-        if: always()
       - name: screenshot & storybook tests
         run: npm run test:ui:ci
-        if: always()
+
+      
+  
 

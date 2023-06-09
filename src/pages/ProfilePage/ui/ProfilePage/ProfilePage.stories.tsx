@@ -4,7 +4,9 @@ import { Theme } from 'app/providers/ThemeProvider';
 import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
+import avatarIcon from 'shared/assets/avatar.webp';
 import ProfilePage  from './ProfilePage';
+
 
 const meta: Meta<typeof ProfilePage> = {
     title: 'pages/ProfilePage',
@@ -17,7 +19,7 @@ const meta: Meta<typeof ProfilePage> = {
             lastname:'Last Name', 
             username:'Nickname', 
             age: 25, 
-            avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
+            avatar: avatarIcon,
             country: Country.UKRAINE,
             currency: Currency.EUR
         }
