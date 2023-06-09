@@ -51,7 +51,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: install modules
         run: npm ci --force
-       - name: lint ts
+      - name: lint ts
         run: npm run lint:ts
       - name: stylelint
         run: npm run lint:scss
