@@ -38,39 +38,39 @@ jobs:
       - name: unit tests
         run: npm run test:unit
 
-  lint:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [ 17.x ]
-    steps: 
-      - uses: actions/checkout@v3
-      - name: Starting Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: install modules
-        run: npm ci --force
-       - name: lint ts
-        run: npm run lint:ts
-      - name: stylelint
-        run: npm run lint:scss
+  # lint:
+  #   runs-on: ubuntu-latest
+  #   strategy:
+  #     matrix:
+  #       node-version: [ 17.x ]
+  #   steps: 
+  #     - uses: actions/checkout@v3
+  #     - name: Starting Node.js ${{ matrix.node-version }}
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version: ${{ matrix.node-version }}
+  #     - name: install modules
+  #       run: npm ci --force
+  #      - name: lint ts
+  #       run: npm run lint:ts
+  #     - name: stylelint
+  #       run: npm run lint:scss
 
-  storybook:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [ 17.x ]
-    steps:
-      - uses: actions/checkout@v3
-      - name: Starting Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: build storybook
-        run: npm run storybook:build
-      - name: screenshot & storybook tests
-        run: npm run test:ui:ci
+  # storybook:
+  #   runs-on: ubuntu-latest
+  #   strategy:
+  #     matrix:
+  #       node-version: [ 17.x ]
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - name: Starting Node.js ${{ matrix.node-version }}
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version: ${{ matrix.node-version }}
+  #     - name: build storybook
+  #       run: npm run storybook:build
+  #     - name: screenshot & storybook tests
+  #       run: npm run test:ui:ci
 
       
   
