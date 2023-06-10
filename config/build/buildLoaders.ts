@@ -1,7 +1,7 @@
 import webpack from 'webpack';
 import { BuildOptions } from './types/config';
 import { buildCssLoader } from './loaders/buildCssLoader';
-import { BuildBabelLoader } from './loaders/buildBabelLoader';
+import { buildBabelLoader } from './loaders/buildBabelLoader';
 
 export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
 
@@ -25,5 +25,5 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
         exclude: /node_modules/,
     };
 
-    return [BuildBabelLoader(isDev), typescriptLoader, buildCssLoader(isDev), svgloader, fileLoader];
+    return [buildBabelLoader(isDev), typescriptLoader, buildCssLoader(isDev), svgloader, fileLoader];
 }

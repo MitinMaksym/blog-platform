@@ -1,4 +1,4 @@
-export const BuildBabelLoader = (isDev: boolean) => ({
+export const buildBabelLoader = (isDev: boolean) => ({
     test: /\.(js|ts|tsx)$/,
     exclude: /node_modules/,
     use: {
