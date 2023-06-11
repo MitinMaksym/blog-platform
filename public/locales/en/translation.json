@@ -2,6 +2,7 @@
   "profile-page-link": "Profile",
   "main-page-link": "Main",
   "about-page-link": "About Us",
+  "articles-page-link": "Articles",
   "not-found-page": "Page Not Found",
   "error-occured": "Error occured",
   "reload-page": "Reload Page",
@@ -30,5 +31,7 @@
   "currency-label": "Currency",
   "country-label": "Country",
   "ukraine": "Ukraine",
-  "usa": "The USA"
+  "usa": "The USA",
+  "articles-page-title": "Articles Page",
+  "article-details-page-title": "Article Details Page"
 }

@@ -2,6 +2,7 @@
   "profile-page-link": "Профіль",
   "main-page-link": "Головна",
   "about-page-link": "Про Нас",
+  "articles-page-link": "Статті",
   "not-found-page": "Сторінка не знайдена",
   "error-occured": "Сталася помилка",
   "reload-page": "Оновити сторінку",
@@ -30,5 +31,7 @@
   "last-name": "Поізвище",
   "user-name": "Нікнейм",
   "ukraine": "Україна",
-  "usa": "США"
+  "usa": "США",
+  "articles-page-title": "Статті",
+  "article-details-page-title": "Опис статті"
 }
