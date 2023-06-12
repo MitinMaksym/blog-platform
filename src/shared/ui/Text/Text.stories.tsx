@@ -89,6 +89,24 @@ export const AlignCenter: Story = {
     },
     decorators:[ThemeDecorator(Theme.LIGHT)]
 };
+export const SizeM: Story = {
+    args: {
+        title:'Test title',
+        text: 'Text text',
+        size:'sizeM'
+    },
+    decorators:[ThemeDecorator(Theme.LIGHT)]
+};
+export const SizeL: Story = {
+    args: {
+        title:'Test title',
+        text: 'Text text',
+        size: 'sizeL'
+    },
+    decorators:[ThemeDecorator(Theme.LIGHT)]
+};
+
+
 
 
 

@@ -1,9 +1,17 @@
 .articleDetails {
     min-height: 100%;
+
+    .header {
+        &:not(:last-child) {
+            margin-bottom: 22px;
+        }
+    }
 }
 
 .avatar {
-    margin-bottom: 35px;
+    &:not(:last-child) {
+        margin-bottom: 40px;
+    }
 }
 
 .title {
@@ -17,4 +25,10 @@
     &:not(:last-child) {
         margin-bottom: 30px;
     }
+}
+
+.articleInfo {
+    display: flex;
+    gap: 10px;
+    align-items: center;
 }

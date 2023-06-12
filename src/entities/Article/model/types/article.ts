@@ -7,24 +7,24 @@ interface ArticleBlockBase {
     type: ArticleBlockType
 }
 
-interface ArticleTextBlock extends ArticleBlockBase {
+export interface ArticleTextBlock extends ArticleBlockBase {
     type:'TEXT',
     title: string
     paragraphs: Array<string>
 }
 
-interface ArticleCodeBlock extends ArticleBlockBase {
+export interface ArticleCodeBlock extends ArticleBlockBase {
     type:'CODE',
     code: string
 }
 
-interface ArticleImageBlock extends ArticleBlockBase {
+export interface ArticleImageBlock extends ArticleBlockBase {
     type:'IMAGE',
     title: string
     src: string
 }
 
-type ArticleBlock = ArticleTextBlock | ArticleCodeBlock | ArticleImageBlock
+export type ArticleBlock = ArticleTextBlock | ArticleCodeBlock | ArticleImageBlock
 
 export type ArticleType = 'IT' | 'SCIENCE'
 
@@ -35,6 +35,6 @@ export interface Article {
     img: string
     views: number
     createdAt: string,
-    type: Array<Article>,
+    type: Array<ArticleType>,
     blocks: Array<ArticleBlock>
 }
