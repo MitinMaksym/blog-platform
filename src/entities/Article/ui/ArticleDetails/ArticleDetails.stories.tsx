@@ -54,6 +54,9 @@ export const Primary: Story = {
 
 export const Loading: Story = {
     args: {},
+    parameters: {
+        loki: { skip: true },
+    },
     decorators:[StoreDecorator({articleDetails: {loading: true}})]
  
 };

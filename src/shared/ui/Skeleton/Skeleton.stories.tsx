@@ -8,6 +8,9 @@ const meta: Meta<typeof Skeleton> = {
     component: Skeleton,
     tags: ['autodocs'],
     args: {},
+    parameters: {
+        loki: { skip: true },
+    },
 };
 
 export default meta;
