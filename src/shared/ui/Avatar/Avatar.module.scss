@@ -1,11 +1,33 @@
-.wrapper {
+.container {
+    display: flex;
+
+    // ALIGN
+
+    &.left {
+        justify-content: left;
+    }
+
+    &.center {
+        justify-content: center;
+    }
+
+    &.right {
+        justify-content: flex-end;
+    }
+}
+
+.innerWrapper {
     border-radius: 50%;
     width: 50px;
     height: 50px;
     object-fit: cover;
     overflow: hidden;
+    position: relative;
 
     img {
+        position: absolute;
+        left: 0;
+        top: 0;
         width: 100%;
         height: 100%;
     }

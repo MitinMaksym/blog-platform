@@ -28,11 +28,9 @@ export const Sidebar: FC<SidebarProps> = memo(({ className }) => {
             ])}
         >
             <ul className={cls.items}>
-            
                 {sidebarItemsList.filter(({authOnly})=> !authOnly || isAuth)
                     .map((item) => 
                         <SidebarItem key = {item.path} item={item} collapsed={collapsed}/>)}
-               
             </ul>
           
             <Button data-testid='toggle-btn' 

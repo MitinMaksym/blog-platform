@@ -30,4 +30,28 @@ export const Big: Story = {
     },
     decorators:[ThemeDecorator()]
 };
+export const AlignLeft: Story = {
+    args: {
+        size: 150,
+        src: avatarImg,
+        align:'left'
+    },
+    decorators:[ThemeDecorator()]
+};
+export const AlignCenter: Story = {
+    args: {
+        size: 150,
+        src: avatarImg,
+        align:'center'
+    },
+    decorators:[ThemeDecorator()]
+};
+export const AlignRight: Story = {
+    args: {
+        size: 150,
+        src: avatarImg,
+        align:'right'
+    },
+    decorators:[ThemeDecorator()]
+};
 

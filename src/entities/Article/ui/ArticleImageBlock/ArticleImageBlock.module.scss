@@ -1,0 +1,11 @@
+.articleImageBlock {
+    .title {
+        &:not(:first-child) {
+            margin-top: 10px;
+        }
+    }
+
+    .image {
+        max-width: 100%;
+    }
+}

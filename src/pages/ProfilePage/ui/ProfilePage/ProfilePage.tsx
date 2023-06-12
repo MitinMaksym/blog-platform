@@ -1,5 +1,5 @@
 import { EditableProfileCard } from 'features/EditProfile';
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text } from 'shared/ui/Text/Text';
@@ -20,4 +20,4 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
     </div>;
 };
 
-export default ProfilePage;
+export default memo(ProfilePage);

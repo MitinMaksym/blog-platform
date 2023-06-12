@@ -6,14 +6,17 @@ interface AvatarProps {
     className?: string
     src?: string
     size?: number
+    align?: 'left' | 'center' | 'right'
 }
 
-export const Avatar: FC<AvatarProps> = memo(({ className, src, size }) => {
+export const Avatar: FC<AvatarProps> = memo(({ className, src, size, align='left' }) => {
 
     const avatarStyles:CSSProperties = useMemo(() => ({width: size || 50, height: size || 50}),[size]);
 
-    return  <div className={classNames(cls.wrapper, {}, [className])} style={avatarStyles}>
-        <img src={src}/>
+    return  <div className={classNames(cls.container, {}, [cls[align], className])}>
+        <div className={classNames(cls.innerWrapper, {}, [])} style={avatarStyles}>
+            <img src={src}/>
+        </div>
     </div>;
             
 });
