@@ -1,0 +1,20 @@
+.articleDetails {
+    min-height: 100%;
+}
+
+.avatar {
+    margin-bottom: 35px;
+}
+
+.title {
+    &:not(:last-child) {
+        margin-bottom: 16px;
+    }
+}
+
+.subTitle,
+.block {
+    &:not(:last-child) {
+        margin-bottom: 30px;
+    }
+}

@@ -1,5 +1,5 @@
 import { BugButton } from 'app/providers/ErrorBoundary';
-import { useCallback, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from 'shared/ui/Button/Button';
 import { Modal } from 'shared/ui/Modal/Modal';
@@ -21,4 +21,4 @@ const MainPage = () => {
         </Modal></>;
 };
 
-export default MainPage;
+export default memo(MainPage);

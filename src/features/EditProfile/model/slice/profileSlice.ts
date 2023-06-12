@@ -50,8 +50,7 @@ export const profileSlice = createSlice({
                 state.loading = false; 
                 state.errors = action.payload;
 
-            });
-        builder
+            })
             .addCase(updateProfileData.pending, (state) => {
                 state.loading = true;
                 state.errors = undefined;
