@@ -1,0 +1,14 @@
+.commentCard {
+    border: 1px solid var(--primary-color);
+    padding: 12px 16px;
+
+    .header {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+
+        &:not(:last-child) {
+            margin-bottom: 10px;
+        }
+    }
+}
