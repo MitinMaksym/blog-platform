@@ -32,6 +32,20 @@ const asyncReducers: ReducersList = {
     articleDetails: articleDetailsReducer
 };
 
+const renderBlock = (block: ArticleBlock) => {
+    switch(block.type){
+    case 'CODE':
+        return <ArticleCodeBlock key={block.id} className={cls.block}  block={block}/>;
+    case 'IMAGE':
+        return <ArticleImageBlock key={block.id} className={cls.block}  block={block}/>;
+    case 'TEXT':
+        return <ArticleTextBlock key={block.id} className={cls.block}  block={block}/>;
+
+    default: return null;
+
+    }
+};
+
 export const ArticleDetails: FC<ArticleDetailsProps> = memo((props) => {
     const dispatch = useAppDispatch();
     const { id, className } = props;
@@ -45,20 +59,6 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo((props) => {
             dispatch(fetchArticleById(id));
         }
     }, [id, dispatch]);
-
-    const renderBlock = useCallback((block: ArticleBlock) => {
-        switch(block.type){
-        case 'CODE':
-            return <ArticleCodeBlock key={block.id} className={cls.block}  block={block}/>;
-        case 'IMAGE':
-            return <ArticleImageBlock key={block.id} className={cls.block}  block={block}/>;
-        case 'TEXT':
-            return <ArticleTextBlock key={block.id} className={cls.block}  block={block}/>;
-
-        default: return null;
-
-        }
-    },[]);
 
     let content;
 
