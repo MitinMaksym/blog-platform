@@ -5,13 +5,18 @@ import { Sidebar } from 'widgets/Sidebar';
 import { Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUserInited, userActions } from 'entities/User';
+import { USER_DATA_KEY } from 'shared/const/localstorage';
 
 export const App = () => {
     const dispatch = useDispatch();
     const userInited = useSelector(selectUserInited);
 
     useEffect(() => {
-        dispatch(userActions.initAuthData());
+        const userData = localStorage.getItem(USER_DATA_KEY);
+        if(userData){
+            dispatch(userActions.initAuthData(JSON.parse(userData)));
+        }
+
     }, [dispatch]);
 
     return <div className={classNames('app', {}, [])}>
