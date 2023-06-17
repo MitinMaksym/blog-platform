@@ -40,7 +40,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -103,16 +105,30 @@
       ]
     }
   ],
-  "profile": {
-    "first": "Maksym123",
-    "lastname": "Mitin",
-    "age": 20,
-    "currency": "EUR",
-    "country": "США",
-    "city": "Kharkiv",
-    "username": "admin",
-    "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
-  },
+  "profile": [
+    {
+      "id": "1",
+      "first": "Maksym123",
+      "lastname": "Mitin",
+      "age": 20,
+      "currency": "EUR",
+      "country": "The USA",
+      "city": "Kharkiv",
+      "username": "admin",
+      "avatar": "https://st2.depositphotos.com/1000393/6507/i/600/depositphotos_65076917-stock-photo-hacker-and-terrorism-fight.jpg"
+    },
+    {
+      "id": "2",
+      "first": "Andrey",
+      "lastname": "Mitin",
+      "age": 30,
+      "currency": "EUR",
+      "country": "Ukraine",
+      "city": "Kharkiv",
+      "username": "admin",
+      "avatar": "https://thumbs.dreamstime.com/b/hacker-picture-computer-44924794.jpg"
+    }
+  ],
   "users": [
     {
       "id": "1",

@@ -6,14 +6,14 @@ import { selectProfileFormData } from '../../selectors/selectProfileFormData/sel
 import { ProfileError } from '../../types/profileSchema';
 
 export const updateProfileData = 
-createAsyncThunk<Profile, void, ThunkConfig<Array<ProfileError>>>(
+createAsyncThunk<Profile, string, ThunkConfig<Array<ProfileError>>>(
     'features/updateProfileData',
-    async (_, { rejectWithValue, extra, getState }) => {
+    async (profileId, { rejectWithValue, extra, getState }) => {
         const formData = selectProfileFormData(getState());
         const errors = validateProfileData(formData);
         if(errors.length > 0) return rejectWithValue(errors);
         try {
-            const response = await extra.api.put<Profile>('/profile', formData);
+            const response = await extra.api.put<Profile>(`/profile/${profileId}`, formData);
             if(!response.data) throw new Error();
             
             return response.data;

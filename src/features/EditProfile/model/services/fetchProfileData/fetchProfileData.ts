@@ -4,11 +4,11 @@ import { Profile } from 'entities/Profile';
 import { ProfileError } from '../../types/profileSchema';
 
 export const fetchProfileData = 
-createAsyncThunk<Profile, void, ThunkConfig<ProfileError[]>>(
+createAsyncThunk<Profile, string, ThunkConfig<ProfileError[]>>(
     'features/fetchProfileData',
-    async (_, { rejectWithValue, extra }) => {
+    async (profileId, { rejectWithValue, extra }) => {
         try {
-            const response = await extra.api.get<Profile>('/profile');
+            const response = await extra.api.get<Profile>(`/profile/${profileId}`);
             if(!response.data) throw new Error();
             
             return response.data;

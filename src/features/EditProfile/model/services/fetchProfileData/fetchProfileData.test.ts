@@ -19,18 +19,18 @@ describe('fetchProfileData', () => {
     };
 
     test('should load profile data', async () => {
-        const thunk = new TestAsyncThunk<Profile, void, ProfileError[]>(fetchProfileData);
+        const thunk = new TestAsyncThunk<Profile, string, ProfileError[]>(fetchProfileData);
         thunk.api.get.mockReturnValue(Promise.resolve({data: profileData}));
-        const result = await thunk.callThunk();
+        const result = await thunk.callThunk('1');
         expect(result.meta.requestStatus).toBe('fulfilled');
         expect(thunk.api.get).toHaveBeenCalled();
         expect(result.payload).toEqual(profileData);
     });
 
     test('with error', async () => {
-        const thunk = new TestAsyncThunk<Profile, void, ProfileError[]>(fetchProfileData);
+        const thunk = new TestAsyncThunk<Profile, string, ProfileError[]>(fetchProfileData);
         thunk.api.get.mockReturnValue(Promise.resolve({status: 403}));
-        const result = await thunk.callThunk();
+        const result = await thunk.callThunk('1');
         expect(result.meta.requestStatus).toBe('rejected');
         expect(thunk.api.get).toHaveBeenCalled();
         expect(result.payload).toEqual([ProfileError.SERVER_ERROR]);

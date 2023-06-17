@@ -5,15 +5,21 @@ import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorato
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 import avatarIcon from 'shared/assets/avatar.webp';
+import { withRouter } from 'storybook-addon-react-router-v6';
 import ProfilePage  from './ProfilePage';
-
 
 const meta: Meta<typeof ProfilePage> = {
     title: 'pages/ProfilePage',
     component: ProfilePage,
     tags: ['autodocs'],
     argTypes: {},
-    decorators:[StoreDecorator({profile: {
+    parameters: {
+        reactRouter: {
+            routePath: '/profile/:id',
+            routeParams: { id: '1' },
+        }
+    },
+    decorators:[withRouter, StoreDecorator({profile: {
         form: { 
             first:'First Name', 
             lastname:'Last Name', 

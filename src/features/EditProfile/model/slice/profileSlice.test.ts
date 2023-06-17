@@ -16,10 +16,10 @@ describe('profileSlice', () => {
         country: Country.UKRAINE,
         currency: Currency.EUR
     };
-    test('setReadOnly', () => {
-        const state: DeepPartial<ProfileSchema> = {readonly: false};
+    test('setEditMode', () => {
+        const state: DeepPartial<ProfileSchema> = {editMode: false};
         expect(profileReducer(state as ProfileSchema, 
-            profileActions.setReadOnly(true))).toEqual({readonly: true});
+            profileActions.setEditMode(true))).toEqual({editMode: true});
     });
 
     test('setProfileForm', () => {
@@ -32,13 +32,13 @@ describe('profileSlice', () => {
         const state: DeepPartial<ProfileSchema> = {
             form: {...data, username: 'Test123'}, 
             data, 
-            readonly: false
+            editMode: false
         };
 
         const newState: DeepPartial<ProfileSchema> = {
             form: data, 
             data, 
-            readonly: true
+            editMode: true
         };
         expect(profileReducer(state as ProfileSchema, 
             profileActions.cancelFormEdit())).toEqual(newState);
@@ -55,12 +55,12 @@ describe('profileSlice', () => {
 
     test('updateProfileData fulfilled state', () => {
         const state: DeepPartial<ProfileSchema> = {
-            readonly: false,
+            editMode: false,
             loading: true
         };
         expect(profileReducer(state as ProfileSchema, 
-            updateProfileData.fulfilled(data, ''))).toEqual({
-            loading: false, errors: undefined, form:data, data, readonly: true});
+            updateProfileData.fulfilled(data, '',''))).toEqual({
+            loading: false, errors: undefined, form:data, data, editMode: true});
     });
 
 });

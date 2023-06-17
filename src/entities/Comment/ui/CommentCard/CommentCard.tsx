@@ -1,5 +1,7 @@
 import { FC, memo } from 'react';
+import { RoutePath } from 'shared/config/routerConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { Text } from 'shared/ui/Text/Text';
@@ -18,10 +20,10 @@ export const CommentCard: FC<CommentCardProps> = memo((props) => {
 
     return (
         <div className={classNames(cls.commentCard, {}, [className])}>
-            <div className={cls.header}>
+            <AppLink to={RoutePath.profile + user.id} className={cls.header}>
                 {user.avatar && <Avatar src={user.avatar}/>}
                 <Text title={user.username}/>
-            </div>
+            </AppLink>
             <Text text={text}/>
         </div>
     );

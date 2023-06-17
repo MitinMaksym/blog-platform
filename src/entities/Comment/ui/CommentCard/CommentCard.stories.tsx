@@ -1,9 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import avatarImg from 'shared/assets/avatar.webp';
+import { withRouter } from 'storybook-addon-react-router-v6';
 import { CommentCard } from './CommentCard';
 
 const meta: Meta<typeof CommentCard> = {
-    title: 'entities/CommentCard',
+    title: 'entities/Comment/CommentCard',
     component: CommentCard,
     tags: ['autodocs'],
     args: {
@@ -18,6 +19,7 @@ const meta: Meta<typeof CommentCard> = {
 
         }
     },
+    decorators:[withRouter]
 };
 
 export default meta;

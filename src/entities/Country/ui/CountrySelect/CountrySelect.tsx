@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { Select, SelectProps } from 'shared/ui/Select/Select';
 import { Country } from '../../model/types/country';
 
-
 export const CountrySelect: FC<SelectProps> = memo((props) => {
     const {t} = useTranslation();
 

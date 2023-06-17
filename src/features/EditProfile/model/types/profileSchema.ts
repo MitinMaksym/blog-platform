@@ -12,5 +12,5 @@ export interface ProfileSchema {
     form?: Profile
     loading: boolean
     errors?: Array<ProfileError>
-    readonly: boolean
+    editMode: boolean
 }

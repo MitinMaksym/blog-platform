@@ -9,7 +9,7 @@ const initialState: ProfileSchema = {
     data: undefined,
     form: undefined,
     loading: false,
-    readonly: true,
+    editMode: false,
     errors: undefined,
 
 };
@@ -18,8 +18,8 @@ export const profileSlice = createSlice({
     name: 'profile',
     initialState,
     reducers: {
-        setReadOnly: (state, action: PayloadAction<boolean>) => {
-            state.readonly = action.payload;
+        setEditMode: (state, action: PayloadAction<boolean>) => {
+            state.editMode = action.payload;
         },
 
         setProfileForm: (state, action: PayloadAction<Profile>) => {
@@ -30,7 +30,7 @@ export const profileSlice = createSlice({
         },
         cancelFormEdit: (state) => {
             state.form = state.data;
-            state.readonly = true;
+            state.editMode = false;
         },
     },
     extraReducers: (builder) => {
@@ -60,7 +60,7 @@ export const profileSlice = createSlice({
                 state.loading = false; 
                 state.data = action.payload;
                 state.form = action.payload;
-                state.readonly = true;
+                state.editMode = false;
 
             })
             .addCase(updateProfileData.rejected, (state, action) => {
