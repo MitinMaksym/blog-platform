@@ -32,13 +32,13 @@ describe('profileSlice', () => {
         const state: DeepPartial<ProfileSchema> = {
             form: {...data, username: 'Test123'}, 
             data, 
-            editMode: false
+            editMode: true
         };
 
         const newState: DeepPartial<ProfileSchema> = {
             form: data, 
             data, 
-            editMode: true
+            editMode: false
         };
         expect(profileReducer(state as ProfileSchema, 
             profileActions.cancelFormEdit())).toEqual(newState);
@@ -55,12 +55,12 @@ describe('profileSlice', () => {
 
     test('updateProfileData fulfilled state', () => {
         const state: DeepPartial<ProfileSchema> = {
-            editMode: false,
+            editMode: true,
             loading: true
         };
         expect(profileReducer(state as ProfileSchema, 
             updateProfileData.fulfilled(data, '',''))).toEqual({
-            loading: false, errors: undefined, form:data, data, editMode: true});
+            loading: false, errors: undefined, form:data, data, editMode: false});
     });
 
 });
