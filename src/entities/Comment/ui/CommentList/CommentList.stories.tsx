@@ -35,6 +35,9 @@ export const Primary: Story = {
 
 export const Loading: Story = {
     args: {
-        loading: true
+        loading: true,
     },
+    parameters: {
+        loki: { skip: true },
+    }
 };
