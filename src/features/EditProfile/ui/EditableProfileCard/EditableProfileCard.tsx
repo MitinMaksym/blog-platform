@@ -7,6 +7,7 @@ import { BtnVariant, Button } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { selectProfileCanEdit } from '../../model/selectors/selectProfileCanEdit/selectProfileCanEdit';
 import { selectProfileFormData } from '../../model/selectors/selectProfileFormData/selectProfileFormData';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
@@ -14,11 +15,11 @@ import { selectProfileErrors}
     from '../../model/selectors/selectProfileErrors/selectProfileErrors';
 import { selectProfileLoading } from '../../model/selectors/selectProfileLoading/selectProfileLoading';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
-// import { classNames } from 'shared/lib/classNames/classNames';
 import { ProfileError } from '../../model/types/profileSchema';
 
-import cls from './EditableProfileCard.module.scss';
 import { selectProfileEditMode } from '../../model/selectors/selectProfileEditMode/selectProfileEditMode';
+
+import cls from './EditableProfileCard.module.scss';
 
 
 interface EditableProfileCardProps {
@@ -37,9 +38,10 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = memo((props) =>
     const loading = useSelector(selectProfileLoading);
     const errors = useSelector(selectProfileErrors);
     const editMode = useSelector(selectProfileEditMode);
+    const canEdit = useSelector(selectProfileCanEdit);
     const {id} = props;
 
-    const buttonsVisible = !loading;
+    const actionButtonsVisible = !loading && canEdit;
 
     const errorsTranslations = {
         [ProfileError.INCORRECT_USER_DATA]: t('incorrect-user-data'),
@@ -59,7 +61,8 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = memo((props) =>
 
     const saveProfile = useCallback(() => dispatch(updateProfileData(id)),[dispatch, id]);
     const cancelFormEdit = useCallback(() => dispatch(profileActions.cancelFormEdit()),[dispatch]);
-    const allowFormEdit = useCallback(() => dispatch(profileActions.setEditMode(true)),[dispatch]);
+    const setEditMode = useCallback(() => dispatch(profileActions.setEditMode(true)),[dispatch]);
+
 
     return <div className={cls.cardWrapper}>
         <DynamicReducerLoader reducers={reducers} removeAfterUnmount>
@@ -73,14 +76,14 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = memo((props) =>
                 readOnly = {!editMode} 
                 onChange={formChangeHandler}/>
 
-            {buttonsVisible && <div className={cls.buttons}>
+            {actionButtonsVisible && <div className={cls.buttons}>
                 {
                     editMode ?   
                         <>
                             <Button onClick={saveProfile}>{t('save')}</Button>
                             <Button variant={BtnVariant.OUTLINE_ERROR} onClick={cancelFormEdit}>{t('cancel')}</Button>
                         </> :
-                        <Button onClick={allowFormEdit}>{t('edit')}</Button> 
+                        <Button onClick={setEditMode}>{t('edit')}</Button> 
                 }
             </div>
             }

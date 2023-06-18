@@ -10,14 +10,14 @@ import cls from './CommentList.module.scss';
 interface CommentListProps {
    className?: string;
    comments: Array<Comment>
-   loading?: boolean
+   loading: boolean
 }
 
 export const CommentList: FC<CommentListProps> = memo((props) => {
     const { className, comments, loading } = props;
     const { t } = useTranslation('article-details');
 
-    if(loading){
+    if(loading && !comments.length){
         return <CommentCardSkeleton/>;
     }
 
@@ -28,7 +28,8 @@ export const CommentList: FC<CommentListProps> = memo((props) => {
                     comment => <CommentCard
                         key={comment.id} 
                         className={cls.comment} 
-                        comment={comment} />) : 
+                        comment={comment}
+                        loading={loading} />) : 
                 <Text title={t('no-comments-found')}/>}
         </div>
     );

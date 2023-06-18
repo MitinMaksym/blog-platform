@@ -3,6 +3,7 @@ import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolki
 import { Comment } from 'entities/Comment';
 import { fetchCommentsByArticleId } from '../services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { ArticleDetailsCommentsSchema } from '../types/articleDetailsCommentsSchema';
+import { addCommentForArticle } from '../services/addCommentForArticle/addCommentForArticle';
 
 
 const initialState: ArticleDetailsCommentsSchema = {
@@ -35,6 +36,19 @@ export const articleDetailsCommentsSlice = createSlice({
                 state.loading = false; 
                 state.error = action.payload;
 
+            })
+            .addCase(addCommentForArticle.pending, (state) => {
+                state.loading = true;
+                state.error = undefined;
+
+            })
+            .addCase(addCommentForArticle.fulfilled, (state) => {
+                state.loading = false;
+            })
+            .addCase(addCommentForArticle.rejected, (state, action) => {
+                
+                state.loading = false;
+                state.error = action.payload;
             });
     }
    

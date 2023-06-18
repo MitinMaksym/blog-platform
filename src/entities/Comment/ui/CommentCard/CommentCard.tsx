@@ -12,11 +12,24 @@ import cls from './CommentCard.module.scss';
 interface CommentCardProps {
    className?: string;
    comment: Comment
+   loading: boolean
 }
 
+export const CommentCardSkeleton= memo(() => (
+    <div className={classNames(cls.commentCard, {}, [])}>
+        <div className={cls.header}>
+            <Skeleton width={30} height={30} border="50%"/>
+            <Skeleton height={24} width={100}/>
+        </div>
+        <Skeleton height={32} width='100%'/>
+    </div>
+));
+
 export const CommentCard: FC<CommentCardProps> = memo((props) => {
-    const { className, comment } = props;
+    const { className, comment, loading } = props;
     const {text, user} = comment;
+
+    if(loading) return <CommentCardSkeleton/>;
 
     return (
         <div className={classNames(cls.commentCard, {}, [className])}>
@@ -28,13 +41,3 @@ export const CommentCard: FC<CommentCardProps> = memo((props) => {
         </div>
     );
 });
-
-export const CommentCardSkeleton= memo(() => (
-    <div className={classNames(cls.commentCard, {}, [])}>
-        <div className={cls.header}>
-            <Skeleton width={30} height={30} border="50%"/>
-            <Skeleton height={24} width={100}/>
-        </div>
-        <Skeleton height={32} width='100%'/>
-    </div>
-));

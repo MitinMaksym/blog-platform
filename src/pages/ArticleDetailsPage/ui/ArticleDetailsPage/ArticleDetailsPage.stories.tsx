@@ -4,6 +4,8 @@ import { Article } from 'entities/Article';
 import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { withRouter } from 'storybook-addon-react-router-v6';
+import avatarImg from 'shared/assets/avatar.webp';
+import { SuspenseDecorator } from 'shared/config/storybook/decorators/SuspenseDecorator';
 import ArticleDetailsPage from './ArticleDetailsPage';
 
 const data: Article =  {
@@ -44,7 +46,26 @@ const meta: Meta<typeof ArticleDetailsPage> = {
     component: ArticleDetailsPage,
     tags: ['autodocs'],
     args: {},
-    decorators:[withRouter, StoreDecorator({articleDetails: {data}}), ThemeDecorator(Theme.LIGHT)],
+    decorators:[withRouter, SuspenseDecorator, StoreDecorator({
+        articleDetails: {data}, 
+        addCommentForm: {text:'Test comment'},
+        articleDetailsComments:{
+            ids:['1'],
+            entities:{
+                '1':  {
+                    id: '1',
+                    text: 'some comment',
+                    user: {
+                        id: '1',
+                        username: 'John',
+                        avatar: avatarImg
+                    }
+
+                }
+            }
+        }
+    }), 
+    ThemeDecorator(Theme.LIGHT)],
     parameters: {
         reactRouter: {
             routePath: '/articles/:id',

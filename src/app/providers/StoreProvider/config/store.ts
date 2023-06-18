@@ -1,7 +1,6 @@
 import {
     CombinedState,
     configureStore, 
-    Dispatch, 
     EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
 import { counterReducer } from 'entities/Counter';
@@ -59,6 +58,6 @@ export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']
 export interface ThunkConfig<T>{
     rejectValue: T
     extra: ThunkExtraArg
-    dispatch: Dispatch
+    dispatch: AppDispatch
     state: StateSchema
 }
