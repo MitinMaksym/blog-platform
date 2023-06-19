@@ -59,7 +59,7 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = memo((props) =>
         dispatch(profileActions.setProfileForm(data));
     },[dispatch]);
 
-    const saveProfile = useCallback(() => dispatch(updateProfileData(id)),[dispatch, id]);
+    const saveProfile = useCallback(() => dispatch(updateProfileData()),[dispatch]);
     const cancelFormEdit = useCallback(() => dispatch(profileActions.cancelFormEdit()),[dispatch]);
     const setEditMode = useCallback(() => dispatch(profileActions.setEditMode(true)),[dispatch]);
 

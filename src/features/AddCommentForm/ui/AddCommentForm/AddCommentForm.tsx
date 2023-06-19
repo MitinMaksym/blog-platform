@@ -31,11 +31,15 @@ const AddCommentForm: FC<AddCommentFormProps> = memo((props) => {
         dispatch(addCommentFormActions.setText(text));
     }, [dispatch]);
 
-    const handleFormSubmit = (e:FormEvent<HTMLFormElement>) => {
+    const handleFormSubmit = useCallback((e:FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         onSubmit(text || '');
-        dispatch(addCommentFormActions.setText(''));
-    };
+        handleCommentTextChange('');
+    },[
+        handleCommentTextChange, 
+        onSubmit, 
+        text
+    ]);
 
     const submitBtnDisabled = !text || loading;
 

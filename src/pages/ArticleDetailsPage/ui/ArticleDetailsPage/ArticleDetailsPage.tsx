@@ -40,8 +40,8 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = () => {
         dispatch(fetchCommentsByArticleId(id));
     });
 
-    const sendCommentHandler = useCallback(() => {
-        dispatch(addCommentForArticle());
+    const sendCommentHandler = useCallback((text: string) => {
+        dispatch(addCommentForArticle(text));
     },[dispatch]);
 
     let content;

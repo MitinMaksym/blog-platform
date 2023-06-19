@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text } from 'shared/ui/Text/Text';
 import { Comment } from '../../model/types/comment';
-import { CommentCard, CommentCardSkeleton } from '../CommentCard/CommentCard';
+import { CommentCard } from '../CommentCard/CommentCard';
 
 import cls from './CommentList.module.scss';
 
@@ -17,8 +17,14 @@ export const CommentList: FC<CommentListProps> = memo((props) => {
     const { className, comments, loading } = props;
     const { t } = useTranslation('article-details');
 
-    if(loading && !comments.length){
-        return <CommentCardSkeleton/>;
+    if(loading){
+        return (
+            <>
+                <CommentCard loading/>
+                <CommentCard loading/>
+                <CommentCard loading/>
+            </>
+        );
     }
 
     return (

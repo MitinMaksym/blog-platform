@@ -11,25 +11,25 @@ import cls from './CommentCard.module.scss';
 
 interface CommentCardProps {
    className?: string;
-   comment: Comment
+   comment?: Comment
    loading: boolean
 }
 
-export const CommentCardSkeleton= memo(() => (
-    <div className={classNames(cls.commentCard, {}, [])}>
+
+export const CommentCard: FC<CommentCardProps> = memo((props) => {
+    const { className, comment, loading } = props;
+
+    if(loading) return  <div className={classNames(cls.commentCard, {}, [cls.loading])}>
         <div className={cls.header}>
             <Skeleton width={30} height={30} border="50%"/>
             <Skeleton height={24} width={100}/>
         </div>
         <Skeleton height={32} width='100%'/>
-    </div>
-));
+    </div>;
 
-export const CommentCard: FC<CommentCardProps> = memo((props) => {
-    const { className, comment, loading } = props;
+    if(!comment) return null;
+
     const {text, user} = comment;
-
-    if(loading) return <CommentCardSkeleton/>;
 
     return (
         <div className={classNames(cls.commentCard, {}, [className])}>

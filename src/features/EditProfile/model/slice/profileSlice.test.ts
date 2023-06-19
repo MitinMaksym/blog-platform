@@ -59,7 +59,7 @@ describe('profileSlice', () => {
             loading: true
         };
         expect(profileReducer(state as ProfileSchema, 
-            updateProfileData.fulfilled(data, '',''))).toEqual({
+            updateProfileData.fulfilled(data, '',))).toEqual({
             loading: false, errors: undefined, form:data, data, editMode: false});
     });
 
