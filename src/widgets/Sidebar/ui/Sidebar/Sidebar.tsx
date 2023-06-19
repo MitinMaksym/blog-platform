@@ -5,7 +5,7 @@ import { FC, memo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { BtnSize, BtnVariant, Button } from 'shared/ui/Button/Button';
-import { sidebarItemsList } from '../../model/items';
+import { selectSidebarItems } from '../../model/selectors/selectSidebarItems';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 
 import cls from './Sidebar.module.scss';
@@ -17,6 +17,7 @@ className?: string
 export const Sidebar: FC<SidebarProps> = memo(({ className }) => {
     const [collapsed, setCollapsed] = useState(false);
     const isAuth = useSelector(selectUserAuthData);
+    const sidebarItemsList = useSelector(selectSidebarItems);
 
     const onToggle = () => {
         setCollapsed((prev) => !prev);
@@ -28,7 +29,7 @@ export const Sidebar: FC<SidebarProps> = memo(({ className }) => {
             ])}
         >
             <ul className={cls.items}>
-                {sidebarItemsList.filter(({authOnly})=> !authOnly || isAuth)
+                {sidebarItemsList
                     .map((item) => 
                         <SidebarItem key = {item.path} item={item} collapsed={collapsed}/>)}
             </ul>
