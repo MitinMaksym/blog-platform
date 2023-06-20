@@ -1,12 +1,14 @@
 import { StateSchema } from 'app/providers/StoreProvider';
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Comment } from 'entities/Comment';
+import {ArticleDetailsCommentsSchema} from '../../model/types/articleDetailsCommentsSchema';
 import { fetchCommentsByArticleId } from '../services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { ArticleDetailsCommentsSchema } from '../types/articleDetailsCommentsSchema';
 import { addCommentForArticle } from '../services/addCommentForArticle/addCommentForArticle';
 
 
+
 const initialState: ArticleDetailsCommentsSchema = {
+    text:'',
     loading: false,
     error: undefined,
     ids: [],
@@ -19,7 +21,11 @@ const commentsAdapter = createEntityAdapter<Comment>();
 export const articleDetailsCommentsSlice = createSlice({
     name: 'articleDetailsComments',
     initialState: commentsAdapter.getInitialState(initialState),
-    reducers: {},
+    reducers: {
+        setCommentText: (state, action) => {
+            state.text = action.payload;
+        }
+    },
     extraReducers: (builder) => {
         builder
             .addCase(fetchCommentsByArticleId.pending, (state) => {

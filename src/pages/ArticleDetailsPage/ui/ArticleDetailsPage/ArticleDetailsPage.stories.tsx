@@ -48,7 +48,6 @@ const meta: Meta<typeof ArticleDetailsPage> = {
     args: {},
     decorators:[withRouter, SuspenseDecorator, StoreDecorator({
         articleDetails: {data}, 
-        addCommentForm: {text:'Test comment'},
         articleDetailsComments:{
             ids:['1'],
             entities:{
@@ -62,7 +61,8 @@ const meta: Meta<typeof ArticleDetailsPage> = {
                     }
 
                 }
-            }
+            },
+            text:'Comment'
         }
     }), 
     ThemeDecorator(Theme.LIGHT)],

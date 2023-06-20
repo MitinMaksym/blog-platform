@@ -5,10 +5,6 @@
     justify-content: space-between;
     gap: 10px;
 
-    &:not(:last-child) {
-        margin-bottom: 15px;
-    }
-
     .input {
         flex-grow: 1;
     }
