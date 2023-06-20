@@ -1,10 +1,11 @@
 import { AddCommentForm, CommentList } from 'entities/Comment';
-import { FC, memo, useCallback } from 'react';
+import { FC, memo, useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { 
     articleDetailsCommentsActions, 
     articleDetailsCommentsReducer, 
@@ -14,8 +15,11 @@ import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByAr
 import cls from './ArticleDetailsComments.module.scss';
 import { selectArticleDetailsCommentsLoading } 
     from '../../model/selectors/selectArticleDetailsCommentsLoading/selectArticleDetailsCommentsLoading';
-import { selectCommentFormText } from '../../model/selectors/selectCommentFormText/selectCommentFormText';
+import { selectArticleCommentFormText } 
+    from '../../model/selectors/selectArticleCommentFormText/selectArticleCommentFormText';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
+import { selectArticleDetailsCommentsError } 
+    from '../../model/selectors/selectArticleDetailsCommentsError/selectArticleDetailsCommentsError';
 
 interface ArticleDetailsCommentsProps {
    id: string
@@ -29,10 +33,11 @@ const reducers: ReducersList = {
 const ArticleDetailsComments: FC<ArticleDetailsCommentsProps> = memo((props) => {
     const dispatch = useAppDispatch();
     const { id, className } = props;
-    const text = useSelector(selectCommentFormText);
+    const text = useSelector(selectArticleCommentFormText);
 
     const comments = useSelector(commentsSelectors.selectAll);
     const loading = useSelector(selectArticleDetailsCommentsLoading);
+    const error = useSelector(selectArticleDetailsCommentsError);
 
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id));
@@ -46,16 +51,27 @@ const ArticleDetailsComments: FC<ArticleDetailsCommentsProps> = memo((props) => 
         dispatch(addCommentForArticle(text));
     },[dispatch]);
 
+    let content;
+
+    if(error) content = <Text title={error} theme={TextTheme.ERROR}/>;
+    else {
+        content =  <>    
+            <AddCommentForm 
+                loading={loading} 
+                value={text}
+                className={cls.form} 
+                onChange={handleCommentTextChange} 
+                onSubmit={sendCommentHandler}/>
+            <CommentList comments={comments} loading={loading}/>
+        </>; 
+    }
+    
+
+
     return (
         <DynamicReducerLoader reducers={reducers}>
             <div className={classNames(cls.articleDetailsComments, {}, [className])}>
-                <AddCommentForm 
-                    loading={loading} 
-                    value={text}
-                    className={cls.form} 
-                    onChange={handleCommentTextChange} 
-                    onSubmit={sendCommentHandler}/>
-                <CommentList comments={comments} loading={loading}/>
+                {content}
             </div>
         </DynamicReducerLoader>
     );

@@ -12,7 +12,7 @@ createAsyncThunk<Array<Comment>, string | undefined, ThunkConfig<string>>(
                 articleId,
                 _expand:'user'
             }});
-            if(!response.data) throw new Error();
+            if(!response.data) return rejectWithValue('Error');
             return response.data;
         } catch (error) {
             return rejectWithValue('Error');
