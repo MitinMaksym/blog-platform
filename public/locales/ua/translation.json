@@ -32,5 +32,7 @@
   "user-name": "Нікнейм",
   "ukraine": "Україна",
   "usa": "США",
-  "articles-page-title": "Статті"
+  "articles-page-title": "Статті",
+  "send": "Відправити",
+  "enter-comment-placeholder": "Введіть текст коментаря"
 }

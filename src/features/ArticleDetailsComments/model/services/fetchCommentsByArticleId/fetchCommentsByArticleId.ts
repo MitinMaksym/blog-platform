@@ -4,7 +4,7 @@ import { Comment } from 'entities/Comment';
 
 export const fetchCommentsByArticleId = 
 createAsyncThunk<Array<Comment>, string | undefined, ThunkConfig<string>>(
-    'pages/fetchCommentsByArticleId',
+    'features/fetchCommentsByArticleId',
     async (articleId , { rejectWithValue, extra }) => {
         try {
             if(!articleId) return rejectWithValue('articleId not found');
@@ -12,7 +12,7 @@ createAsyncThunk<Array<Comment>, string | undefined, ThunkConfig<string>>(
                 articleId,
                 _expand:'user'
             }});
-            if(!response.data) throw new Error();
+            if(!response.data) return rejectWithValue('Error');
             return response.data;
         } catch (error) {
             return rejectWithValue('Error');

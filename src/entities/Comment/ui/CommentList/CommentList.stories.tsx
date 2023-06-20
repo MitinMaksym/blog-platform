@@ -20,16 +20,7 @@ const meta: Meta<typeof CommentList> = {
                 }
     
             },
-            {
-                id: '2',
-                text: 'some comment 2',
-                user: {
-                    id: '2',
-                    username: 'Tom',
-                    avatar: avatarImg
-                }
-    
-            }
+
         ]
     },
     decorators:[withRouter]
@@ -40,4 +31,13 @@ type Story = StoryObj<typeof CommentList>;
 
 export const Primary: Story = {
     args: {},
+};
+
+export const Loading: Story = {
+    args: {
+        loading: true,
+    },
+    parameters: {
+        loki: { skip: true },
+    }
 };

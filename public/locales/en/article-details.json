@@ -2,5 +2,6 @@
   "article-not-found": "Article not found",
   "failed-load-articles": "Failed to load article",
   "comments": "Comments",
-  "no-comments-found": "No comments found"
+  "no-comments-found": "No comments found",
+  "send-comment-failure": "Failed to send a comment"
 }
