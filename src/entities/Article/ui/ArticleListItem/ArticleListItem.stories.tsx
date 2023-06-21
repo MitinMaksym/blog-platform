@@ -76,7 +76,7 @@ const article = {
 } as Article;
 
 const meta: Meta<typeof ArticleListItem> = {
-    title: 'entities/Article/ArticleListItem1',
+    title: 'entities/Article/ArticleListItem',
     component: ArticleListItem,
     tags: ['autodocs'],
     args: {
