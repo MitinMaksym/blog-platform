@@ -48,12 +48,6 @@ const article = {
             ]
         },
         {
-            'id': '2',
-            'type': 'IMAGE',
-            'src': 'https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png',
-            'title': 'Рисунок 1 - скриншот сайта'
-        },
-        {
             'id': '3',
             'type': 'CODE',
             // eslint-disable-next-line
@@ -67,12 +61,6 @@ const article = {
                 // eslint-disable-next-line
                 'JavaScript — это язык, программы на котором можно выполнять в разных средах. В нашем случае речь идёт о браузерах и о серверной платформе Node.js. Если до сих пор вы не написали ни строчки кода на JS и читаете этот текст в браузере, на настольном компьютере, это значит, что вы буквально в считанных секундах от своей первой JavaScript-программы.',
             ]
-        },
-        {
-            'id': '8',
-            'type': 'IMAGE',
-            'src': 'https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png',
-            'title': 'Рисунок 1 - скриншот сайта'
         },
         {
             'id': '9',
