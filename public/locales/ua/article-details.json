@@ -3,5 +3,6 @@
   "failed-load-articles": "Не вдалося загрузити статтю",
   "comments": "Коментарі",
   "no-comments-found": "Коментарі відсутні",
-  "send-comment-failure": "Не вдалося відправити коментар"
+  "send-comment-failure": "Не вдалося відправити коментар",
+  "read-more": "Читати далі..."
 }

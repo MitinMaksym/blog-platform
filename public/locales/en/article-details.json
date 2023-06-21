@@ -3,5 +3,6 @@
   "failed-load-articles": "Failed to load article",
   "comments": "Comments",
   "no-comments-found": "No comments found",
-  "send-comment-failure": "Failed to send a comment"
+  "send-comment-failure": "Failed to send a comment",
+  "read-more": "Read more..."
 }

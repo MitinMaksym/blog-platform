@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
+import testImg from 'shared/assets/testImg.png';
 import { Article } from '../../model/types/article';
 import { ArticleDetails } from './ArticleDetails';
 
@@ -7,10 +8,14 @@ const data: Article =  {
     'id': '1',
     'title': 'Javascript news',
     'subtitle': 'Что нового в JS за 2022 год?',
-    'img': 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
+    'img': testImg,
     'views': 1022,
     'createdAt': '26.02.2022',
     'type': ['IT'],
+    'user': {
+        'id': '1',
+        'username': 'admin',
+    },
     'blocks': [
         {
             'id': '1',
