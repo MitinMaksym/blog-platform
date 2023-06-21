@@ -1,8 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { withRouter } from 'storybook-addon-react-router-v6';
 import testImg from 'shared/assets/testImg.png';
+import avatarImg from 'shared/assets/avatar.webp';
 import { Article } from '../../model/types/article';
 import { ArticleListItem } from './ArticleListItem';
+
 
 
 
@@ -16,8 +18,7 @@ const article = {
     'user':    {
         'id': '1',
         'username': 'admin',
-        // eslint-disable-next-line
-        'avatar': 'https://st2.depositphotos.com/1000393/6507/i/600/depositphotos_65076917-stock-photo-hacker-and-terrorism-fight.jpg'
+        'avatar': avatarImg
     },
     'type': [
         'IT', 'SCIENCE', 'SCIENCE', 'IT'
