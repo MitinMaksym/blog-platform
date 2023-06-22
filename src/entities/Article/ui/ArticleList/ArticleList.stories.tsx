@@ -79,7 +79,7 @@ const meta: Meta<typeof ArticleList> = {
     component: ArticleList,
     tags: ['autodocs'],
     args: {
-        articles: Array(8).fill(0).map(_ => article)
+        articles: Array(6).fill(0).map(_ => article)
     },
     decorators:[withRouter]
 };
