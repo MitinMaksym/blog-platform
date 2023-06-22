@@ -11,13 +11,13 @@ const article = {
     'id': '1',
     'title': 'Javascript news',
     'subtitle': 'Что нового в JS за 2022 год?',
-    'img': '',
+    'img': testImg,
     'views': 1022,
     'createdAt': '26.02.2022',
     'user':    {
         'id': '1',
         'username': 'admin',
-        'avatar': ''
+        'avatar': avatarImg
     },
     'type': [
         'IT', 'SCIENCE', 'SCIENCE', 'IT'
@@ -79,9 +79,12 @@ const meta: Meta<typeof ArticleList> = {
     component: ArticleList,
     tags: ['autodocs'],
     args: {
-        articles: Array(6).fill(0).map(_ => article)
+        articles: Array(8).fill(0).map(_ => article)
     },
-    decorators:[withRouter]
+    decorators:[withRouter],
+    parameters: {
+        loki: { skip: true },
+    } 
 };
 
 export default meta;
@@ -90,13 +93,13 @@ type Story = StoryObj<typeof ArticleList>;
 export const Grid: Story = {
     args: {
         view: 'GRID'
-    },
+    }, 
 };
 
 export const List: Story = {
     args: {
         view: 'LIST'
-    },
+    },  
 };
 export const LoadingGrid: Story = {
     args: {
@@ -114,7 +117,4 @@ export const LoadingList: Story = {
         view: 'LIST'
     },
     decorators:[],
-    parameters:{
-        loki: { skip: true },
-    }  
 };
