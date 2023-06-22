@@ -20,7 +20,8 @@
 
     &.gridView {
         position: relative;
-        transition: transform 0.3s ease 0s;
+
+        // transition: transform 0.3s ease 0s;
 
         @media (any-hover: hover) {
             &:hover {
@@ -116,7 +117,8 @@
                 bottom: 0;
                 width: 100%;
                 height: 50px;
-                backdrop-filter: blur(3px);
+
+                // backdrop-filter: blur(3px);
             }
 
             &:not(:last-child) {
