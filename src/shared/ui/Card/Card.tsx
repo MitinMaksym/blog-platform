@@ -9,10 +9,10 @@ interface CardProps extends HTMLAttributes<HTMLDivElement>{
 }
 
 export const Card: FC<CardProps> = (props) => {
-    const { className } = props;
+    const { className, ...otherProps } = props;
 
     return (
-        <div className={classNames(cls.card, {}, [className])}>
+        <div className={classNames(cls.card, {}, [className])} {...otherProps}>
             {props.children}
         </div>
     );
