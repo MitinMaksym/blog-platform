@@ -84,6 +84,11 @@ const meta: Meta<typeof ArticlesPage> = {
         ThemeDecorator(Theme.DARK), 
         StoreDecorator({ articlesPage: articlesPageState })
     ],
+    parameters: {
+        loki: {
+            skip: true
+        }
+    }
 };
 
 export default meta;

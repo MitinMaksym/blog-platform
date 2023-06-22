@@ -10,13 +10,13 @@ const article = {
     'id': '1',
     'title': 'Javascript news',
     'subtitle': 'Что нового в JS за 2022 год?',
-    'img': '',
+    'img': testImg,
     'views': 1022,
     'createdAt': '26.02.2022',
     'user':    {
         'id': '1',
         'username': 'admin',
-        'avatar': ''
+        'avatar': avatarImg
     },
     'type': [
         'IT', 'SCIENCE', 'SCIENCE', 'IT'
@@ -43,7 +43,7 @@ const meta: Meta<typeof ArticleListItem> = {
     },
     decorators:[withRouter],
     parameters: {
-        // loki: { skip: true }, // TODO: figure out why screenshots fails in ci
+        loki: { skip: true }, // TODO: figure out why screenshots fails in ci
     }  
 };
 

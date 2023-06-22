@@ -83,7 +83,7 @@ const meta: Meta<typeof ArticleList> = {
     },
     decorators:[withRouter],
     parameters: {
-        loki: { skip: true },
+        loki: { skip: true }, // TODO: figure out why screenshots fails in ci
     } 
 };
 
