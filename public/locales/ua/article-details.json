@@ -1,6 +1,7 @@
 {
   "article-not-found": "Стаття не знайдена",
-  "failed-load-articles": "Не вдалося загрузити статтю",
+  "failed-load-article": "Не вдалося загрузити статтю",
+  "failed-load-articles": "Не вдалося загрузити статті",
   "comments": "Коментарі",
   "no-comments-found": "Коментарі відсутні",
   "send-comment-failure": "Не вдалося відправити коментар",

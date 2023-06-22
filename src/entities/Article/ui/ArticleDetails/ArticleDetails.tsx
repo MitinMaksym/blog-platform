@@ -76,7 +76,7 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo((props) => {
     else if(error){
         content = <Text 
             title={t('error-occured', {ns: 'translation'})} 
-            text={t('failed-load-articles')} 
+            text={t('failed-load-article')} 
             align="center" 
             theme={TextTheme.ERROR}/>;
     } else {

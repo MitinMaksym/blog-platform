@@ -31,7 +31,7 @@ export const ArticleList: FC<ArticleListProps> = memo((props) => {
     if(loading){
         content = getSkeletons(view);
     } else {
-        content = articles.map(_ => articles[0]).map(renderArticle);
+        content = articles.map(renderArticle);
     }
 
 

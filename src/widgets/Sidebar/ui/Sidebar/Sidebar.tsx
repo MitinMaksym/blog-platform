@@ -1,4 +1,3 @@
-import { selectUserAuthData } from 'entities/User';
 import { LanguageSwitcher } from 'features/LanguageSwitcher';
 import { ThemeSwitcher } from 'features/ThemeSwitcher';
 import { FC, memo, useState } from 'react';
@@ -16,14 +15,13 @@ className?: string
 
 export const Sidebar: FC<SidebarProps> = memo(({ className }) => {
     const [collapsed, setCollapsed] = useState(false);
-    const isAuth = useSelector(selectUserAuthData);
     const sidebarItemsList = useSelector(selectSidebarItems);
 
     const onToggle = () => {
         setCollapsed((prev) => !prev);
     };
     return (
-        <aside data-testid = 'sidebar'
+        <nav data-testid = 'sidebar'
             className={classNames(cls.sidebar, { [cls.collapsed]: collapsed }, [
                 className,
             ])}
@@ -44,6 +42,6 @@ export const Sidebar: FC<SidebarProps> = memo(({ className }) => {
                 <ThemeSwitcher />
                 <LanguageSwitcher short={collapsed}/>
             </div>
-        </aside>
+        </nav>
     );
 });

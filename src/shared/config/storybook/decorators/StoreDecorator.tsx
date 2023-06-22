@@ -5,13 +5,15 @@ import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetai
 import { articleDetailsCommentsReducer } from 'features/ArticleDetailsComments/model/slice/articleDetailsCommentsSlice';
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 import { profileReducer } from 'features/EditProfile/model/slice/profileSlice';
+import { articlesPageReducer } from 'pages/ArticlesPage/model/slice/articlesPageSlice';
 
 
 const defaultAsyncReducers:DeepPartial<ReducersMapObject<StateSchema>>  = {
     loginForm: loginReducer,
     profile: profileReducer,
     articleDetails: articleDetailsReducer,
-    articleDetailsComments: articleDetailsCommentsReducer
+    articleDetailsComments: articleDetailsCommentsReducer,
+    articlesPage: articlesPageReducer
     
 };
 

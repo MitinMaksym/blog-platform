@@ -18,8 +18,6 @@ interface ArticleListItemProps {
    article: Article
    view: ArticleView
    className?: string
-
-   
 }
 
 export const ArticleListItem: FC<ArticleListItemProps> = memo((props) => {
