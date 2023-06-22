@@ -1,0 +1,12 @@
+.articleViewSwitcher {
+    display: flex;
+    gap: 5px;
+
+    .icon {
+        fill: var(--secondary-color);
+
+        &.selected {
+            fill: var(--primary-color);
+        }
+    }
+}

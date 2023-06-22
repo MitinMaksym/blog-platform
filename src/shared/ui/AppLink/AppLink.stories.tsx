@@ -41,6 +41,14 @@ export const Secondary: Story = {
     decorators:[ThemeDecorator()]
 
 };
+export const Outlined: Story = {
+    args: {
+        theme: AppLinkTheme.OUTLINED,
+        children: 'Text',
+    },
+    decorators:[ThemeDecorator()]
+
+};
 
 export const SecondaryDark: Story = {
     args: {

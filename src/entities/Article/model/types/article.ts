@@ -1,3 +1,4 @@
+import { User } from 'entities/User';
 
 type ArticleBlockType = 'TEXT' | 'CODE' | 'IMAGE'
 
@@ -28,10 +29,13 @@ export type ArticleBlock = ArticleTextBlock | ArticleCodeBlock | ArticleImageBlo
 
 export type ArticleType = 'IT' | 'SCIENCE'
 
+export type ArticleView = 'LIST' | 'GRID' 
+
 export interface Article {
     id: string
     title: string
     subtitle: string
+    user: User
     img: string
     views: number
     createdAt: string,

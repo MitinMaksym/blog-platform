@@ -15,3 +15,9 @@
 .secondary {
     color: var(--inverted-primary-color);
 }
+
+.outlined {
+    border: 1px solid var(--primary-color);
+    padding: 8px 12px;
+    display: inline-block;
+}

@@ -1,7 +1,9 @@
 {
   "article-not-found": "Article not found",
-  "failed-load-articles": "Failed to load article",
+  "failed-load-article": "Failed to load article",
+  "failed-load-articles": "Failed to load articles",
   "comments": "Comments",
   "no-comments-found": "No comments found",
-  "send-comment-failure": "Failed to send a comment"
+  "send-comment-failure": "Failed to send a comment",
+  "read-more": "Read more..."
 }
