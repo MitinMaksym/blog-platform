@@ -7,6 +7,7 @@ import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/Dynami
 import { ArticleViewSwitcher } from 'features/ArticleViewSwitcher';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
+import { ARTICLES_VIEW } from 'shared/const/localstorage';
 import { articlesSelectors, articlesPageReducer, articlesPageActions } from '../../model/slice/articlesPageSlice';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { selectArticlesPageLoading } from '../../model/selectors/selectArticlesPageLoading/selectArticlesPageLoading';
@@ -30,12 +31,15 @@ const ArticlesPage: FC<ArticlesPageProps> = () => {
     const error = useSelector(selectArticlesPageError);
 
     const handleViewToggle = useCallback((view: ArticleView) => {
+        localStorage.setItem(ARTICLES_VIEW, view);
         dispatch(articlesPageActions.setView(view));
     },[dispatch]);
 
 
     useInitialEffect(() => {
         dispatch(fetchArticlesList());
+        const articlesView = localStorage.getItem(ARTICLES_VIEW) as ArticleView || 'GRID';
+        dispatch(articlesPageActions.setView(articlesView));
     });
 
     let content;

@@ -1,6 +1,6 @@
 import { StateSchema } from 'app/providers/StoreProvider';
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Article } from 'entities/Article';
+import { Article, ArticleView } from 'entities/Article';
 import { ArticlesPageSchema } from '../types/articlesPageSchema';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 
@@ -19,7 +19,7 @@ export const ArticlesPageSlice = createSlice({
     name: 'articlesPage',
     initialState: articlesAdapter.getInitialState(initialState),
     reducers: {
-        setView: (state, action) => {
+        setView: (state, action: PayloadAction<ArticleView>) => {
             state.view = action.payload;
         }
     },
