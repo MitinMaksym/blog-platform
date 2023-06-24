@@ -71,7 +71,9 @@ const articlesPageState: ArticlesPageSchema = {
     ids:['1', '2'],
     loading: false,
     error: undefined,
-    view: 'GRID'
+    view: 'GRID',
+    page: 1,
+    hasMore: true
 };
 
 const meta: Meta<typeof ArticlesPage> = {

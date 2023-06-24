@@ -26,18 +26,10 @@ export const ArticleList: FC<ArticleListProps> = memo((props) => {
     const renderArticle = useCallback((article) => 
         <ArticleListItem view={view} key={article.id} article={article}/>, [view]);
 
-    let content;
-
-    if(loading){
-        content = getSkeletons(view);
-    } else {
-        content = articles.map(renderArticle);
-    }
-
-
     return (
         <div className={classNames(cls.articleList, {}, [className, `${cls[`${view.toLowerCase()}View`]}`])}>
-            {content}
+            {articles.length > 0 ? articles.map(renderArticle) : null}
+            {loading && getSkeletons(view)}
         </div>
     );
 });

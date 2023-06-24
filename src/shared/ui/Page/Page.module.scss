@@ -1,0 +1,6 @@
+.page {
+    flex-grow: 1;
+    padding: 40px;
+    max-height: calc(100vh - var(--navbar-height));
+    overflow: auto;
+}

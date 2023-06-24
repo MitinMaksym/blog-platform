@@ -1,5 +1,5 @@
 import { ArticleList, ArticleView } from 'entities/Article';
-import { FC, memo, useCallback } from 'react';
+import { FC, memo, useCallback, } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
@@ -8,6 +8,9 @@ import { ArticleViewSwitcher } from 'features/ArticleViewSwitcher';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { ARTICLES_VIEW } from 'shared/const/localstorage';
+import { Page } from 'shared/ui/Page/Page';
+import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { selectArticlesCurrentPage } from '../../model/selectors/selectArticlesCurrentPage/selectArticlesCurrentPage';
 import { articlesSelectors, articlesPageReducer, articlesPageActions } from '../../model/slice/articlesPageSlice';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { selectArticlesPageLoading } from '../../model/selectors/selectArticlesPageLoading/selectArticlesPageLoading';
@@ -29,22 +32,27 @@ const ArticlesPage: FC<ArticlesPageProps> = () => {
     const loading = useSelector(selectArticlesPageLoading);
     const view = useSelector(selectArticlesPageView);
     const error = useSelector(selectArticlesPageError);
+    const currentPage = useSelector(selectArticlesCurrentPage);
 
     const handleViewToggle = useCallback((view: ArticleView) => {
         localStorage.setItem(ARTICLES_VIEW, view);
         dispatch(articlesPageActions.setView(view));
     },[dispatch]);
 
+    const handleNextPageFetching = useCallback(() => {
+        dispatch(fetchNextArticlesPage());
+    }, [dispatch]);
+
 
     useInitialEffect(() => {
-        dispatch(fetchArticlesList());
         const articlesView = localStorage.getItem(ARTICLES_VIEW) as ArticleView || 'GRID';
         dispatch(articlesPageActions.setView(articlesView));
+        dispatch(fetchArticlesList({ page: currentPage || 1 }));
     });
 
     let content;
 
-    if(error) {content =  <Text title={t('failed-load-articles')} theme={TextTheme.ERROR}/>;}
+    if(error) {content = <Text title={t('failed-load-articles')} theme={TextTheme.ERROR}/>;}
     else {
         content = <> 
             <ArticleViewSwitcher view={view} onToggleView = {handleViewToggle}/>
@@ -55,9 +63,9 @@ const ArticlesPage: FC<ArticlesPageProps> = () => {
 
     return (
         <DynamicReducerLoader reducers={reducers}>
-            <div>
+            <Page onScrollEnd={handleNextPageFetching}>
                 {content}
-            </div>
+            </Page>
         </DynamicReducerLoader>
     );
 };

@@ -8,9 +8,7 @@ export const AppRouter = () => {
     const renderWithWrapper = useCallback((route: AppRoutesProps) => {
         const {path, authOnly} = route;
         const element = <Suspense fallback={<PageLoader/>}>
-            <div className='pageWrapper'> 
-                {route.element}
-            </div>
+            {route.element}
         </Suspense>;
 
         return  <Route

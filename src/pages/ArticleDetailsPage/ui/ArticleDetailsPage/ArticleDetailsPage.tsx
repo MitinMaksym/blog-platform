@@ -5,8 +5,7 @@ import { useParams } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { ArticleDetailsComments } from 'features/ArticleDetailsComments';
-
-
+import { Page } from 'shared/ui/Page/Page';
 import cls from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
@@ -25,13 +24,11 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = () => {
 
     return (
 
-        <div className = {classNames(cls.articleDetailsPage, {}, [])}>
-            
+        <Page className = {classNames(cls.articleDetailsPage, {}, [])}>         
             <ArticleDetails id={id} className={cls.articleDetails}/>
             <Text className={cls.commentsTitle} title={t('comments')}/>
             <ArticleDetailsComments id={id}/>
-        </div>
-     
+        </Page>
     );
 };
 
