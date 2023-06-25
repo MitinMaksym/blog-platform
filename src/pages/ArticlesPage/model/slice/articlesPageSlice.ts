@@ -11,7 +11,7 @@ const initialState: ArticlesPageSchema = {
     entities: {},
     view: 'GRID',
     page: 1,
-    hasMore: true,
+    hasMore: false,
     limit: 9
 };
 
