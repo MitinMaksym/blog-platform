@@ -9,10 +9,9 @@ import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { ARTICLES_VIEW } from 'shared/const/localstorage';
 import { Page } from 'shared/ui/Page/Page';
+import { initArticlesPage } from 'pages/ArticlesPage/model/services/initArticlesPage/initArticlesPage';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
-import { selectArticlesCurrentPage } from '../../model/selectors/selectArticlesCurrentPage/selectArticlesCurrentPage';
 import { articlesSelectors, articlesPageReducer, articlesPageActions } from '../../model/slice/articlesPageSlice';
-import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { selectArticlesPageLoading } from '../../model/selectors/selectArticlesPageLoading/selectArticlesPageLoading';
 import { selectArticlesPageView } from '../../model/selectors/selectArticlesPageView/selectArticlesPageView';
 import { selectArticlesPageError } from '../../model/selectors/selectArticlesPageError/selectArticlesPageError';
@@ -32,7 +31,6 @@ const ArticlesPage: FC<ArticlesPageProps> = () => {
     const loading = useSelector(selectArticlesPageLoading);
     const view = useSelector(selectArticlesPageView);
     const error = useSelector(selectArticlesPageError);
-    const currentPage = useSelector(selectArticlesCurrentPage);
 
     const handleViewToggle = useCallback((view: ArticleView) => {
         localStorage.setItem(ARTICLES_VIEW, view);
@@ -44,11 +42,7 @@ const ArticlesPage: FC<ArticlesPageProps> = () => {
     }, [dispatch]);
 
 
-    useInitialEffect(() => {
-        const articlesView = localStorage.getItem(ARTICLES_VIEW) as ArticleView || 'GRID';
-        dispatch(articlesPageActions.setView(articlesView));
-        dispatch(fetchArticlesList({ page: currentPage || 1 }));
-    });
+    useInitialEffect(() => dispatch(initArticlesPage()));
 
     let content;
 
@@ -62,7 +56,7 @@ const ArticlesPage: FC<ArticlesPageProps> = () => {
 
 
     return (
-        <DynamicReducerLoader reducers={reducers}>
+        <DynamicReducerLoader reducers={reducers} removeAfterUnmount={false}>
             <Page onScrollEnd={handleNextPageFetching}>
                 {content}
             </Page>

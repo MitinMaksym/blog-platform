@@ -12,7 +12,8 @@ const initialState: ArticlesPageSchema = {
     view: 'GRID',
     page: 1,
     hasMore: false,
-    limit: 9
+    limit: 9,
+    _inited: false
 };
 
 const articlesAdapter = createEntityAdapter<Article>();
@@ -24,12 +25,15 @@ export const ArticlesPageSlice = createSlice({
     reducers: {
         setView: (state, action: PayloadAction<ArticleView>) => {
             state.view = action.payload;
-            state.limit = action.payload === 'GRID' ? 9 : 4;
         },
 
         setPage: (state, action: PayloadAction<number>) => {
             state.page = action.payload;
         },
+
+        initState: (state) => {
+            state._inited = true;
+        }
 
     },
     extraReducers: (builder) => {

@@ -19,12 +19,13 @@ export const DynamicReducerLoader: FC<DynamicReducerLoaderProps> = (props) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
+
         Object.entries(reducers).forEach(([name, reducer]) => {
-            store.reducerManager.add(name as StateSchemaKey, reducer);
-            dispatch({type:`@INIT ${name} reducer`});
+            if(!store.reducerManager.getReducerMap()[name as StateSchemaKey]){
+                store.reducerManager.add(name as StateSchemaKey, reducer);
+                dispatch({type:`@INIT ${name} reducer`});
+            }
         });
-
-
 
         return () => {
             if(removeAfterUnmount){
