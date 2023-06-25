@@ -8,7 +8,7 @@ import { ArticleViewSwitcher } from 'features/ArticleViewSwitcher';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { ARTICLES_VIEW } from 'shared/const/localstorage';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page';
 import { initArticlesPage } from 'pages/ArticlesPage/model/services/initArticlesPage/initArticlesPage';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { articlesSelectors, articlesPageReducer, articlesPageActions } from '../../model/slice/articlesPageSlice';

@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { ArticleDetailsComments } from 'features/ArticleDetailsComments';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page';
 import cls from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {

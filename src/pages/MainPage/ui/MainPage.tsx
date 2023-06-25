@@ -3,7 +3,7 @@ import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from 'shared/ui/Button/Button';
 import { Modal } from 'shared/ui/Modal/Modal';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page';
 
 const MainPage = () => {
     const { t } = useTranslation('main');
