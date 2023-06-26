@@ -6,10 +6,12 @@ import { articleDetailsCommentsReducer } from 'features/ArticleDetailsComments/m
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 import { profileReducer } from 'features/EditProfile/model/slice/profileSlice';
 import { articlesPageReducer } from 'pages/ArticlesPage/model/slice/articlesPageSlice';
+import { pageReducer } from 'widgets/Page';
 
 
 const defaultAsyncReducers:DeepPartial<ReducersMapObject<StateSchema>>  = {
     loginForm: loginReducer,
+    page: pageReducer,
     profile: profileReducer,
     articleDetails: articleDetailsReducer,
     articleDetailsComments: articleDetailsCommentsReducer,

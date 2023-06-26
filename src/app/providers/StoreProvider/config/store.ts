@@ -6,7 +6,7 @@ import { AxiosInstance } from 'axios';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
 import { $api } from 'shared/api/api';
-
+import { pageReducer } from 'widgets/Page';
 import { createReducerManager, ReducerManager } from './reducerManager';
 import { StateSchema } from './StateSchema';
 
@@ -27,6 +27,7 @@ export const createReduxStore = (
         ...asyncReducers,
         counter: counterReducer,
         user: userReducer,
+        page: pageReducer
     };
 
     const reducerManager = createReducerManager(rootReducer);
