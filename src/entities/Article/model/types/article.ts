@@ -27,7 +27,7 @@ export interface ArticleImageBlock extends ArticleBlockBase {
 
 export type ArticleBlock = ArticleTextBlock | ArticleCodeBlock | ArticleImageBlock
 
-export type ArticleType = 'IT' | 'SCIENCE'
+export type ArticleType = 'IT' | 'SCIENCE' | 'ECONOMICS' | 'POLITICS' | 'SPORT'
 
 export type ArticleView = 'LIST' | 'GRID' 
 
