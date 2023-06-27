@@ -1,0 +1,23 @@
+.tags {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    .tag {
+        padding: 8px 16px;
+        background-color: var(--card-bg);
+        border-radius: 10px;
+        cursor: pointer;
+        transition: transform 0.2s ease 0s;
+
+        @media (any-hover: hover) {
+            &:hover {
+                transform: scale(1.01);
+            }
+        }
+    }
+
+    .selected {
+        border: 2px solid var(--primary-color);
+    }
+}

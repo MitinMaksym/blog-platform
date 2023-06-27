@@ -1,4 +1,4 @@
-import { ArticleList, ArticleView } from 'entities/Article';
+import { ArticleList, ArticlesFilters as ArticlesFiltersType, ArticleView } from 'entities/Article';
 import { FC, memo, useCallback, } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -9,12 +9,17 @@ import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { ARTICLES_VIEW } from 'shared/const/localstorage';
 import { Page } from 'widgets/Page';
+import { ArticlesFilters } from 'features/ArticlesFilters';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { articlesSelectors, articlesPageReducer, articlesPageActions } from '../../model/slice/articlesPageSlice';
 import { selectArticlesPageLoading } from '../../model/selectors/selectArticlesPageLoading/selectArticlesPageLoading';
 import { selectArticlesPageView } from '../../model/selectors/selectArticlesPageView/selectArticlesPageView';
 import { selectArticlesPageError } from '../../model/selectors/selectArticlesPageError/selectArticlesPageError';
+import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
+
+import cls from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
    className?: string;
@@ -24,7 +29,7 @@ const reducers: ReducersList = {
     articlesPage: articlesPageReducer
 };
 
-const ArticlesPage: FC<ArticlesPageProps> = () => {
+const ArticlesPage: FC<ArticlesPageProps> = ({className}) => {
     const dispatch = useAppDispatch();
     const {t} = useTranslation('article-details');
     const articles = useSelector(articlesSelectors.selectAll);
@@ -41,6 +46,11 @@ const ArticlesPage: FC<ArticlesPageProps> = () => {
         dispatch(fetchNextArticlesPage());
     }, [dispatch]);
 
+    const handleFiltersChange = useCallback((filters:  ArticlesFiltersType) => {
+        dispatch(articlesPageActions.setPage(1));
+        dispatch(fetchArticlesList({replace: true, filters}));
+    }, [dispatch]);
+
 
     useInitialEffect(() => dispatch(initArticlesPage()));
 
@@ -49,7 +59,11 @@ const ArticlesPage: FC<ArticlesPageProps> = () => {
     if(error) {content = <Text title={t('failed-load-articles')} theme={TextTheme.ERROR}/>;}
     else {
         content = <> 
-            <ArticleViewSwitcher view={view} onToggleView = {handleViewToggle}/>
+            <div className={cls.filters}>
+                <ArticlesFilters onFilterChange={handleFiltersChange}/>
+                <ArticleViewSwitcher view={view} onToggleView = {handleViewToggle}/>
+            </div>
+            
             <ArticleList view={view} articles={articles} loading={loading}/>
         </>;
     }
@@ -57,7 +71,7 @@ const ArticlesPage: FC<ArticlesPageProps> = () => {
 
     return (
         <DynamicReducerLoader reducers={reducers} removeAfterUnmount={false}>
-            <Page onScrollEnd={handleNextPageFetching}>
+            <Page className={classNames(cls.articlesPage, {}, [className])} onScrollEnd={handleNextPageFetching}>
                 {content}
             </Page>
         </DynamicReducerLoader>

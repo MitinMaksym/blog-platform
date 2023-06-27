@@ -1,0 +1,23 @@
+.articlesFilters {
+    &:not(:last-child) {
+        margin-bottom: 20px;
+    }
+
+    .selects {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+
+        &:not(:last-child) {
+            margin-bottom: 15px;
+        }
+    }
+
+    .searchInput {
+        max-width: 500px;
+
+        &:not(:last-child) {
+            margin-bottom: 15px;
+        }
+    }
+}

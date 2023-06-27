@@ -18,7 +18,7 @@ describe('initArticlesPage', () => {
     };
 
     test('should init state', async () => {
-        const thunk = new TestAsyncThunk<void, void, string>(initArticlesPage, {
+        const thunk = new TestAsyncThunk(initArticlesPage, {
             articlesPage: state
         });
         const initAction = articlesPageActions.initState();
@@ -29,7 +29,7 @@ describe('initArticlesPage', () => {
     });
 
     test('should not init state if already inited', async () => {
-        const thunk = new TestAsyncThunk<void, void, string>(initArticlesPage, {
+        const thunk = new TestAsyncThunk(initArticlesPage, {
             articlesPage: {...state, _inited: true}
         });
         await thunk.callThunk();
@@ -39,7 +39,7 @@ describe('initArticlesPage', () => {
 
     test('should retriew view from localStorage', async () => {
         jest.spyOn(Object.getPrototypeOf(window.localStorage), 'getItem');
-        const thunk = new TestAsyncThunk<void, void, string>(initArticlesPage, {
+        const thunk = new TestAsyncThunk(initArticlesPage, {
             articlesPage: {...state, _inited: false}
         });
         await thunk.callThunk();
