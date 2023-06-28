@@ -27,7 +27,7 @@ createAsyncThunk<Array<Article>, FetchArticlesListProps, ThunkConfig<string>>(
                 type_like: filters?.type  === 'ALL' ? undefined : filters?.type,
                 q: filters?.search || undefined
             }});
-
+           
             if(!response.data) return rejectWithValue('Error');
             return response.data;
         } catch (error) {

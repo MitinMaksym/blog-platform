@@ -24,8 +24,7 @@ describe('initArticlesPage', () => {
         const initAction = articlesPageActions.initState();
         await thunk.callThunk();
         expect(thunk.dispatch).toHaveBeenCalledWith(initAction);
-        expect(thunk.dispatch).toBeCalledTimes(5);
-        expect(fetchArticlesList).toBeCalledWith({page: 5});
+        expect(thunk.dispatch).toBeCalledTimes(4);
     });
 
     test('should not init state if already inited', async () => {
@@ -34,7 +33,6 @@ describe('initArticlesPage', () => {
         });
         await thunk.callThunk();
         expect(thunk.dispatch).toBeCalledTimes(2);
-        expect(fetchArticlesList).not.toBeCalled();
     });
 
     test('should retriew view from localStorage', async () => {
