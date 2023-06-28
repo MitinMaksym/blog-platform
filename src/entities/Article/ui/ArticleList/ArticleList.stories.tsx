@@ -101,6 +101,7 @@ export const List: Story = {
         view: 'LIST'
     },  
 };
+
 export const LoadingGrid: Story = {
     args: {
         loading: true,
@@ -111,6 +112,7 @@ export const LoadingGrid: Story = {
         loki: { skip: true },
     }  
 };
+
 export const LoadingList: Story = {
     args: {
         loading: true,

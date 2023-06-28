@@ -17,7 +17,7 @@ createAsyncThunk<void, void, ThunkConfig<string>>(
 
         if(hasMore && !loading) {
             dispatch(articlesPageActions.setPage(currentPage + 1));
-            dispatch(fetchArticlesList({ page: currentPage + 1 }));
+            dispatch(fetchArticlesList({}));
         }
     
     }

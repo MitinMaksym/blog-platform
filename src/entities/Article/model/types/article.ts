@@ -1,7 +1,9 @@
 import { User } from 'entities/User';
+import { SortOrder } from 'shared/types';
 
 type ArticleBlockType = 'TEXT' | 'CODE' | 'IMAGE'
 
+export type ArticlesSortField = 'views' | 'createdAt' | 'title'
 
 interface ArticleBlockBase {
     id: string
@@ -27,9 +29,16 @@ export interface ArticleImageBlock extends ArticleBlockBase {
 
 export type ArticleBlock = ArticleTextBlock | ArticleCodeBlock | ArticleImageBlock
 
-export type ArticleType = 'IT' | 'SCIENCE' | 'ECONOMICS' | 'POLITICS' | 'SPORT'
+export type ArticleType = 'IT' | 'SCIENCE' | 'ECONOMICS' | 'POLITICS' | 'SPORT' | 'ALL'
 
 export type ArticleView = 'LIST' | 'GRID' 
+
+export interface ArticlesFilters {
+    search: string
+    order: SortOrder
+    sort: ArticlesSortField
+    type: ArticleType
+}
 
 export interface Article {
     id: string

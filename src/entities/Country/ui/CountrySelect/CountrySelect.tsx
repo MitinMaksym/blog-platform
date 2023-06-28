@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Select, SelectProps } from 'shared/ui/Select/Select';
 import { Country } from '../../model/types/country';
 
-export const CountrySelect: FC<SelectProps> = memo((props) => {
+export const CountrySelect: FC<SelectProps<Country>> = memo((props) => {
     const {t} = useTranslation();
 
     const translations:Record<Country, string>  = useMemo(() => (
@@ -14,6 +14,7 @@ export const CountrySelect: FC<SelectProps> = memo((props) => {
     ), [t]);
 
     const options = useMemo(() => 
-        Object.entries(translations).map((val) => ({value: val[0], content: val[1]})),[translations]);
-    return <Select options={options} label={t('country-label')} {...props}/>;
+        Object.entries(translations).map((val) => ({value: val[0] as Country, content: val[1]})),[translations]);
+        
+    return <Select<Country> options={options} label={t('country-label')} {...props}/>;
 });

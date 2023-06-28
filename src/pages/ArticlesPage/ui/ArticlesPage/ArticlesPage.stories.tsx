@@ -73,7 +73,8 @@ const articlesPageState: ArticlesPageSchema = {
     error: undefined,
     view: 'GRID',
     page: 1,
-    hasMore: true
+    hasMore: true,
+    limit:10
 };
 
 const meta: Meta<typeof ArticlesPage> = {

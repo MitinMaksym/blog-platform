@@ -6,6 +6,7 @@ import { LoginSchema } from 'features/AuthByUsername';
 import { ProfileSchema } from 'features/EditProfile';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import { PageSchema } from 'widgets/Page';
+import { ArticlesFiltersSchema } from '../../../../features/ArticlesFilters/model/types/articleFiltersSchema';
 
 export interface StateSchema {
     counter: CounterSchema
@@ -18,6 +19,7 @@ export interface StateSchema {
     articleDetails?: ArticleDetailsSchema
     articleDetailsComments?: ArticleDetailsCommentsSchema
     articlesPage?: ArticlesPageSchema
+    articlesFilters?: ArticlesFiltersSchema
 }
 
 export type StateSchemaKey = keyof StateSchema

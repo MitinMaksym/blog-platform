@@ -19,7 +19,7 @@ describe('fetchNextArticlesPage', () => {
         });
         await thunk.callThunk();
         expect(thunk.dispatch).toBeCalledTimes(4);
-        expect(fetchArticlesList).toBeCalledWith({page: 6});
+        expect(fetchArticlesList).toBeCalled();
     });
 
     test('not call fetchArticlesList in hasMore is false', async () => {
