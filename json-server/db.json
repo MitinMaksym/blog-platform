@@ -48,6 +48,12 @@
       "articleId": "1",
       "userId": "1",
       "id": "iNpHcjc"
+    },
+    {
+      "text": "test comment",
+      "articleId": "4",
+      "userId": "1",
+      "id": "B7tG8uM"
     }
   ],
   "articles": [
@@ -55,7 +61,7 @@
       "id": "1",
       "title": "Javascript news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "userId":"1",
+      "userId": "1",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
@@ -275,7 +281,9 @@
       "img": "https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/4LWq8Yujum02JHPONHMkun/71d421d9168094b73d4568900be533a0/GettyImages-1255905237.jpg?w=1500&h=680&q=60&fit=fill&f=faces&fm=jpg&fl=progressive&auto=format%2Ccompress&dpr=1&w=1000&h=",
       "views": 1050,
       "createdAt": "02.06.2023",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -311,7 +319,8 @@
       "createdAt": "26.02.2022",
       "userId": "1",
       "type": [
-        "IT", "ECONOMICS"
+        "IT",
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -449,7 +458,10 @@
       "img": "https://www.simplilearn.com/ice9/free_resources_article_thumb/Why-get-certified-in-Artificial-Intelligence.jpg",
       "views": 876,
       "createdAt": "15.07.2023",
-      "type": ["IT", "SCIENCE"],
+      "type": [
+        "IT",
+        "SCIENCE"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -477,7 +489,9 @@
       "img": "https://bpac.in/wp-content/uploads/2020/07/BPAC_Main.png",
       "views": 693,
       "createdAt": "30.06.2023",
-      "type": ["POLITICS"],
+      "type": [
+        "POLITICS"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -505,7 +519,10 @@
       "img": "https://img.freepik.com/free-vector/scientific-research-abstract-composition_1284-24330.jpg?w=2000",
       "views": 891,
       "createdAt": "18.09.2023",
-      "type": ["SCIENCE", "ECONOMICS"],
+      "type": [
+        "SCIENCE",
+        "ECONOMICS"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -533,7 +550,9 @@
       "img": "https://www.mbaknol.com/wp-content/uploads/2019/05/Information-systems-modern-business-mbaknol-e1558419872472.jpg.webp",
       "views": 743,
       "createdAt": "25.07.2023",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -561,7 +580,9 @@
       "img": "https://img.freepik.com/free-photo/sports-tools_53876-138077.jpg?w=2000",
       "views": 342,
       "createdAt": "10.10.2020",
-      "type": ["SPORT"],
+      "type": [
+        "SPORT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -589,7 +610,9 @@
       "img": "https://i0.wp.com/blog.frontiersin.org/wp-content/uploads/2021/10/main-image-blog.png?ssl=1",
       "views": 623,
       "createdAt": "01.08.2019",
-      "type": ["SCIENCE"],
+      "type": [
+        "SCIENCE"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -617,7 +640,10 @@
       "img": "https://www.cio.com/wp-content/uploads/2022/07/data_analytics_risk_assessment_tracking_trends_graphs_by_ipopba_gettyimages-1150397416_2400x1600-100828857-orig.jpg?quality=50&strip=all",
       "views": 509,
       "createdAt": "20.04.2022",
-      "type": ["ECONOMICS", "SCIENCE"],
+      "type": [
+        "ECONOMICS",
+        "SCIENCE"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -645,7 +671,10 @@
       "img": "https://cdn.telanganatoday.com/wp-content/uploads/2020/11/Election.jpg",
       "views": 745,
       "createdAt": "12.07.2023",
-      "type": ["POLITICS", "ECONOMICS"],
+      "type": [
+        "POLITICS",
+        "ECONOMICS"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -673,7 +702,10 @@
       "img": "https://cdn.thomasnet.com/insights-images/21a96e61-44f0-46f1-a3a4-41a46ac44551/750px.png",
       "views": 649,
       "createdAt": "05.05.2018",
-      "type": ["SCIENCE", "ECONOMICS"],
+      "type": [
+        "SCIENCE",
+        "ECONOMICS"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -836,7 +868,7 @@
           ]
         }
       ]
-    } 
+    }
   ],
   "profile": [
     {

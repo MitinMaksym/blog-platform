@@ -6,6 +6,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { useTranslation } from 'react-i18next';
 import { 
     articleDetailsCommentsActions, 
     articleDetailsCommentsReducer, 
@@ -31,6 +32,7 @@ const reducers: ReducersList = {
 };
 
 const ArticleDetailsComments: FC<ArticleDetailsCommentsProps> = memo((props) => {
+    const {t} = useTranslation('article-details');
     const dispatch = useAppDispatch();
     const { id, className } = props;
     const text = useSelector(selectArticleCommentFormText);
@@ -55,7 +57,8 @@ const ArticleDetailsComments: FC<ArticleDetailsCommentsProps> = memo((props) => 
 
     if(error) content = <Text title={error} theme={TextTheme.ERROR}/>;
     else {
-        content =  <>    
+        content =  <>
+            <Text className={cls.title} title={t('comments')}/>
             <AddCommentForm 
                 loading={loading} 
                 value={text}

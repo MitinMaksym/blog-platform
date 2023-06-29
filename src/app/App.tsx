@@ -12,10 +12,9 @@ export const App = () => {
     const userInited = useSelector(selectUserInited);
 
     useEffect(() => {
-        const userData = localStorage.getItem(USER_DATA_KEY);
-        if(userData){
-            dispatch(userActions.initAuthData(JSON.parse(userData)));
-        }
+        const storageAuthData = localStorage.getItem(USER_DATA_KEY);
+        dispatch(userActions.initAuthData(storageAuthData ? JSON.parse(storageAuthData) : undefined));
+        
 
     }, [dispatch]);
 

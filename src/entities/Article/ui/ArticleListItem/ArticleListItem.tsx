@@ -1,4 +1,4 @@
-import { FC, memo } from 'react';
+import { FC, HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Card } from 'shared/ui/Card/Card';
@@ -18,10 +18,11 @@ interface ArticleListItemProps {
    article: Article
    view: ArticleView
    className?: string
+   target?: HTMLAttributeAnchorTarget
 }
 
 export const ArticleListItem: FC<ArticleListItemProps> = memo((props) => {
-    const { className, article, view = 'GRID' } = props;
+    const { className, article, target, view = 'GRID' } = props;
     const {id, title, blocks, createdAt, views, type, img, user} = article;
     const { t } = useTranslation('article-details');
 
@@ -50,7 +51,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo((props) => {
     } 
 
     return (
-        <AppLink to={articlePath}>
+        <AppLink to={articlePath} target = {target}>
             <Card className={classNames(cls.articleListItem, {}, [className, cls.gridView])}>
                 <div className={cls.imageWrapper}>
                     <img className={cls.image} src={img} alt={title}/>

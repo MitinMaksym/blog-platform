@@ -1,4 +1,4 @@
-import { FC, memo, useCallback } from 'react';
+import { FC, HTMLAttributeAnchorTarget, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useFirstRender } from 'shared/lib/hooks/useFirstRender/useFirstRender';
@@ -13,6 +13,7 @@ interface ArticleListProps {
    view: ArticleView
    loading?:boolean 
    className?: string;
+   target?: HTMLAttributeAnchorTarget
 
 }
 
@@ -24,12 +25,12 @@ const getSkeletons = (view: ArticleView) => new Array(view === 'GRID' ? 8 : 3)
 
 export const ArticleList: FC<ArticleListProps> = memo((props) => {
     const {t} = useTranslation('articles');
-    const { className, articles, view, loading = false } = props;
+    const { className, articles, view, target, loading = false } = props;
     const firstRender = useFirstRender();
     const notFoundMsgVisible = !articles.length && !loading  && !firstRender;
 
     const renderArticle = useCallback((article) => 
-        <ArticleListItem key={article.id} view={view}  article={article}/>, [view]);
+        <ArticleListItem key={article.id} view={view}  article={article} target={target}/>, [view, target]);
 
     return (
         <div className={classNames(cls.articleList, {}, [className, `${cls[`${view.toLowerCase()}View`]}`])}>

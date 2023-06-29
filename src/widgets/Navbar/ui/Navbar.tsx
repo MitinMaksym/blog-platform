@@ -3,7 +3,7 @@ import { LoginModal } from 'features/AuthByUsername';
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { USER_DATA_KEY } from 'shared/const/localstorage';
+import { ARTICLES_FILTERS, USER_DATA_KEY } from 'shared/const/localstorage';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button } from 'shared/ui/Button/Button';
 
@@ -26,6 +26,7 @@ export const Navbar = ({ className }: NavbarProps) => {
     const handleLogout = useCallback(() => {
         dispatch(userActions.logout());
         localStorage.removeItem(USER_DATA_KEY);
+        localStorage.removeItem(ARTICLES_FILTERS);
     }, [dispatch]);
 
     if(userData){
