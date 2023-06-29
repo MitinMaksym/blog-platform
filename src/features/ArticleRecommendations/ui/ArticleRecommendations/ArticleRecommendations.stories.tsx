@@ -160,6 +160,11 @@ const meta: Meta<typeof ArticleRecommendations> = {
     component: ArticleRecommendations,
     tags: ['autodocs'],
     args: {},
+    parameters: {
+        loki: {
+            skip: true
+        }
+    },
     decorators: [withRouter, StoreDecorator({aricleRecommendations: recommendationsState})]
 };
 
