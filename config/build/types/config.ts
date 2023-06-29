@@ -7,6 +7,7 @@ export interface BuildPaths {
   src: string
   locales: string
   buildLocales: string
+  envPath: string
 }
 
 export interface BuildEnv {
@@ -22,6 +23,5 @@ export interface BuildOptions {
   isDev: boolean
   port: number,
   analyze: boolean,
-  apiUrl: string,
   project: 'frontend' | 'storybook' | 'jest'
 }

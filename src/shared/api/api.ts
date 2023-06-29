@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { USER_DATA_KEY } from 'shared/const/localstorage';
 
-export const $api = axios.create({baseURL: __API_URL__});
+export const $api = axios.create({baseURL: process.env.API_URL || 'http://localhost:8000'});
 
 // Add a request interceptor
 $api.interceptors.request.use((config) => {
