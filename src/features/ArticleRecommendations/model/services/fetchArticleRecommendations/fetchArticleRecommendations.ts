@@ -10,7 +10,7 @@ createAsyncThunk<Array<Article>, void, ThunkConfig<string>>(
         
         try {
             const response = await extra.api.get<Array<Article>>('/articles', { params: {
-                _limit: 3,
+                _limit: 5,
 
             }});
            

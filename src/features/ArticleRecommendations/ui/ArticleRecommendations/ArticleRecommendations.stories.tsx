@@ -64,9 +64,93 @@ const recommendationsState: AricleRecommendationsSchema= {
                 },
             ]
                     
-        }
+        },
+        '3': {
+            'id': '3',
+            'title': 'Javascript news',
+            'subtitle': 'Что нового в JS за 2022 год?',
+            'img': testImg,
+            'views': 1022,
+            'createdAt': '26.02.2022',
+            'user':    {
+                'id': '1',
+                'username': 'admin',
+                'avatar': avatarImg
+            },
+            'type': [
+                'IT', 'SCIENCE', 'SCIENCE', 'IT'
+            ],
+            'blocks': [
+                {
+                    'id': '1',
+                    'type': 'TEXT',
+                    'title': 'Заголовок этого блока',
+                    'paragraphs': [
+                        // eslint-disable-next-line
+                            'Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.',
+                    ]
+                },
+            ]
+                    
+        },
+        '4': {
+            'id': '4',
+            'title': 'Javascript news',
+            'subtitle': 'Что нового в JS за 2022 год?',
+            'img': testImg,
+            'views': 1022,
+            'createdAt': '26.02.2022',
+            'user':    {
+                'id': '1',
+                'username': 'admin',
+                'avatar': avatarImg
+            },
+            'type': [
+                'IT', 'SCIENCE', 'SCIENCE', 'IT'
+            ],
+            'blocks': [
+                {
+                    'id': '1',
+                    'type': 'TEXT',
+                    'title': 'Заголовок этого блока',
+                    'paragraphs': [
+                        // eslint-disable-next-line
+                            'Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.',
+                    ]
+                },
+            ]
+                    
+        },
+        '5': {
+            'id': '5',
+            'title': 'Javascript news',
+            'subtitle': 'Что нового в JS за 2022 год?',
+            'img': testImg,
+            'views': 1022,
+            'createdAt': '26.02.2022',
+            'user':    {
+                'id': '1',
+                'username': 'admin',
+                'avatar': avatarImg
+            },
+            'type': [
+                'IT', 'SCIENCE', 'SCIENCE', 'IT'
+            ],
+            'blocks': [
+                {
+                    'id': '1',
+                    'type': 'TEXT',
+                    'title': 'Заголовок этого блока',
+                    'paragraphs': [
+                        // eslint-disable-next-line
+                            'Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.',
+                    ]
+                },
+            ]
+                    
+        },
     },
-    ids:['1', '2'],
+    ids:['1', '2', '3', '4', '5'],
     loading: false,
     error: undefined,
 };
