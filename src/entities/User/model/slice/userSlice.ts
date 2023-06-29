@@ -14,7 +14,7 @@ export const userSlice = createSlice({
             state.authData = action.payload;
         },
 
-        initAuthData: (state, action) => {      
+        initAuthData: (state, action: PayloadAction<UserSchema['authData']>) => {      
             state.authData = action.payload;
             state._inited = true;
         },
