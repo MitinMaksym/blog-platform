@@ -6,6 +6,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { ArticleDetailsComments } from 'features/ArticleDetailsComments';
 import { Page } from 'widgets/Page';
+import { ArticleRecommendations } from 'features/ArticleRecommendations';
 import cls from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
@@ -26,7 +27,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = () => {
 
         <Page className = {classNames(cls.articleDetailsPage, {}, [])}>         
             <ArticleDetails id={id} className={cls.articleDetails}/>
-            <Text className={cls.commentsTitle} title={t('comments')}/>
+            <ArticleRecommendations className={cls.recommendations}/>
             <ArticleDetailsComments id={id}/>
         </Page>
     );

@@ -1,4 +1,10 @@
 .articleDetailsComments {
+    .title {
+        &:not(:last-child) {
+            margin-bottom: 10px;
+        }
+    }
+
     .form {
         &:not(:last-child) {
             margin-bottom: 15px;

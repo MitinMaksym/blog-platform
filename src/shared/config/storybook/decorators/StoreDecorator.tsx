@@ -3,6 +3,7 @@ import { StoryFn } from '@storybook/react';
 import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
 import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice';
 import { articleDetailsCommentsReducer } from 'features/ArticleDetailsComments/model/slice/articleDetailsCommentsSlice';
+import { articleRecommendationsReducer } from 'features/ArticleRecommendations/model/slice/articleRecommendationsSlice';
 import { articlesFiltersReducer } from 'features/ArticlesFilters/model/slice/articlesFiltersSlice';
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 import { profileReducer } from 'features/EditProfile/model/slice/profileSlice';
@@ -17,8 +18,8 @@ const defaultAsyncReducers:DeepPartial<ReducersMapObject<StateSchema>>  = {
     articleDetails: articleDetailsReducer,
     articleDetailsComments: articleDetailsCommentsReducer,
     articlesPage: articlesPageReducer,
-    articlesFilters: articlesFiltersReducer
- 
+    articlesFilters: articlesFiltersReducer,
+    aricleRecommendations: articleRecommendationsReducer
 };
 
 export const StoreDecorator = (

@@ -5,5 +5,7 @@
   "comments": "Коментарі",
   "no-comments-found": "Коментарі відсутні",
   "send-comment-failure": "Не вдалося відправити коментар",
-  "read-more": "Читати далі..."
+  "read-more": "Читати далі...",
+  "recommendations": "Рекомендації"
+
 }
