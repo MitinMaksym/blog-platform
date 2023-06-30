@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
 import testImg from 'shared/assets/testImg.png';
+import { withRouter } from 'storybook-addon-react-router-v6';
 import { Article } from '../../model/types/article';
 import { ArticleDetails } from './ArticleDetails';
 
@@ -46,7 +47,7 @@ const meta: Meta<typeof ArticleDetails> = {
     component: ArticleDetails,
     tags: ['autodocs'],
     args: {},
-    decorators:[StoreDecorator({articleDetails: {data}})]
+    decorators:[withRouter, StoreDecorator({articleDetails: {data}})]
 };
 
 export default meta;

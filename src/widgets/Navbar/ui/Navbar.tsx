@@ -3,9 +3,11 @@ import { LoginModal } from 'features/AuthByUsername';
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
+import { RoutePath } from 'shared/config/routerConfig';
 import { ARTICLES_FILTERS, USER_DATA_KEY } from 'shared/const/localstorage';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Button } from 'shared/ui/Button/Button';
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { BtnVariant, Button } from 'shared/ui/Button/Button';
 
 import cls from './Navbar.module.scss';
 
@@ -32,7 +34,8 @@ export const Navbar = ({ className }: NavbarProps) => {
     if(userData){
         return <nav className={classNames(cls.navbar, {}, [className])}>
             <div className={cls.links}>
-                <Button onClick={handleLogout}>{t('logout')}</Button>
+                <AppLink to={RoutePath.article_create} theme={AppLinkTheme.INVERTED}>{t('create-article')}</AppLink>
+                <Button  onClick={handleLogout} variant={BtnVariant.BACKGROUND_INVERTED}>{t('logout')}</Button>
             </div>
         </nav>;
     }

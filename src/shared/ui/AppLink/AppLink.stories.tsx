@@ -50,6 +50,15 @@ export const Outlined: Story = {
 
 };
 
+export const Inverted: Story = {
+    args: {
+        theme: AppLinkTheme.INVERTED,
+        children: 'Text',
+    },
+    decorators:[ThemeDecorator()]
+
+};
+
 export const SecondaryDark: Story = {
     args: {
         theme: AppLinkTheme.SECONDARY,

@@ -25,7 +25,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = () => {
 
     return (
 
-        <Page className = {classNames(cls.articleDetailsPage, {}, [])}>         
+        <Page className = {classNames(cls.articleDetailsPage, {}, [])}>
             <ArticleDetails id={id} className={cls.articleDetails}/>
             <ArticleRecommendations className={cls.recommendations}/>
             <ArticleDetailsComments id={id}/>

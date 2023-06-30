@@ -35,5 +35,6 @@
   "articles-page-title": "Статті",
   "send": "Відправити",
   "enter-comment-placeholder": "Введіть текст коментаря",
-  "search": "Пошук"
+  "search": "Пошук",
+  "create-article": "Створити статтю"
 }

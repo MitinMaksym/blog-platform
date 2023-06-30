@@ -1,6 +1,11 @@
 .articleDetails {
     min-height: 100%;
 
+    .editBtn {
+        margin-left: auto;
+        display: block;
+    }
+
     .header {
         &:not(:last-child) {
             margin-bottom: 22px;

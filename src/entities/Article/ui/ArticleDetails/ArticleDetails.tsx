@@ -1,4 +1,4 @@
-import { FC, memo, useEffect } from 'react';
+import { FC, memo, useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -10,12 +10,17 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import EyeIcon from 'shared/assets/icons/eye.svg';
 import CalendarIcon from 'shared/assets/icons/calendar.svg';
 import { Icon } from 'shared/ui/Icon/Icon/Icon';
+import { Button } from 'shared/ui/Button/Button';
+import { useNavigate } from 'react-router-dom';
+import { RoutePath } from 'shared/config/routerConfig';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { selectArticleDetailsError } from '../../model/selectors/selectArticleDetailsError/selectArticleDetailsError';
 import { selectArticleDetailsLoading } 
     from '../../model/selectors/selectArticleDetailsLoading/selectArticleDetailsLoading';
 import { selectArticleDetailsData } from '../../model/selectors/selectArticleDetailsData/selectArticleDetailsData';
+import { selectArticleDetailsCanEdit } 
+    from '../../model/selectors/selectArticleDetailsCanEdit/selectArticleDetailsCanEdit';
 import { ArticleBlock } from '../../model/types/article';
 
 import cls from './ArticleDetails.module.scss';
@@ -48,11 +53,17 @@ const renderBlock = (block: ArticleBlock) => {
 
 export const ArticleDetails: FC<ArticleDetailsProps> = memo((props) => {
     const dispatch = useAppDispatch();
+    const navigate = useNavigate();
     const { id, className } = props;
     const { t } = useTranslation('article-details');
     const error = useSelector(selectArticleDetailsError);
     const loading = useSelector(selectArticleDetailsLoading);
     const article = useSelector(selectArticleDetailsData);
+    const canEdit = useSelector(selectArticleDetailsCanEdit);
+
+    const handleEditBtnClick = useCallback(() => {
+        navigate(`${RoutePath.articles}/${id}/edit`);
+    }, [navigate, id]); 
 
     useEffect(() => {
         if(__PROJECT__ !== 'storybook'){
@@ -83,6 +94,11 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo((props) => {
         content = (
             <>
                 <div className={cls.header}>
+                    { canEdit && <Button 
+                        className={cls.editBtn} 
+                        onClick={handleEditBtnClick}>
+                        {t('edit')}
+                    </Button>}         
                     <Avatar 
                         className={cls.avatar}
                         src={article?.img} 
