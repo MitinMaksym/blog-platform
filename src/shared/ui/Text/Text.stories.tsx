@@ -75,6 +75,7 @@ export const AlignLeft: Story = {
     },
     decorators:[ThemeDecorator(Theme.LIGHT)]
 };
+
 export const AlignRight: Story = {
     args: {
         text: 'Text text',
@@ -82,6 +83,7 @@ export const AlignRight: Story = {
     },
     decorators:[ThemeDecorator(Theme.LIGHT)]
 };
+
 export const AlignCenter: Story = {
     args: {
         text: 'Text text',
@@ -89,6 +91,16 @@ export const AlignCenter: Story = {
     },
     decorators:[ThemeDecorator(Theme.LIGHT)]
 };
+
+export const SizeS: Story = {
+    args: {
+        title:'Test title',
+        text: 'Text text',
+        size:'sizeS'
+    },
+    decorators:[ThemeDecorator(Theme.LIGHT)]
+};
+
 export const SizeM: Story = {
     args: {
         title:'Test title',
@@ -97,6 +109,7 @@ export const SizeM: Story = {
     },
     decorators:[ThemeDecorator(Theme.LIGHT)]
 };
+
 export const SizeL: Story = {
     args: {
         title:'Test title',

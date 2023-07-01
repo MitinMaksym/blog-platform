@@ -10,7 +10,7 @@ export enum TextTheme  {
 
 type Align = 'left' | 'right' | 'center'
 
-type Size = 'sizeM' | 'sizeL'
+type Size = 'sizeS' | 'sizeM' | 'sizeL'
 
 interface TextProps {
     className?: string

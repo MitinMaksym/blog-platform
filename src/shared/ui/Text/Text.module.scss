@@ -32,6 +32,16 @@
 
 // SIZE
 
+.sizeS {
+    .title {
+        font: var(--font-m);
+    }
+
+    .text {
+        font: var(--font-s);
+    }
+}
+
 .sizeM {
     .title {
         font: var(--font-l);
