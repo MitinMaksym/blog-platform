@@ -6,6 +6,7 @@ import listIcon from 'shared/assets/icons/list.svg';
 import { BtnVariant, Button } from 'shared/ui/Button/Button';
 import { Icon } from 'shared/ui/Icon/Icon/Icon';
 
+import { HStack } from 'shared/ui/Stack';
 import cls from './ArticleViewSwitcher.module.scss';
 
 interface ArticleViewSwitcherProps {
@@ -36,7 +37,7 @@ export const ArticleViewSwitcher: FC<ArticleViewSwitcherProps> = memo((props) =>
     const handleViewToggle = (view: ArticleView) => () => onToggleView(view);
 
     return (
-        <div className={classNames(cls.articleViewSwitcher, {}, [className])}>
+        <HStack className={classNames(cls.articleViewSwitcher, {}, [className])} gap='8'>
             {viewTypes.map(({icon, type}) => 
                 <Button 
                     key={type}
@@ -44,6 +45,6 @@ export const ArticleViewSwitcher: FC<ArticleViewSwitcherProps> = memo((props) =>
                     onClick={handleViewToggle(type)}>
                     <Icon className={classNames(cls.icon, {[cls.selected]: view === type}, [])} SVG={icon}/>
                 </Button>)}
-        </div>
+        </HStack>
     );
 });

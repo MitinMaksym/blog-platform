@@ -4,9 +4,6 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Select, SelectOption } from 'shared/ui/Select/Select';
 
-
-import cls from './ArticlesSortSelect.module.scss';
-
 interface ArticlesSortSelectProps {
    className?: string
    value: ArticlesSortField
@@ -28,7 +25,7 @@ export const ArticlesSortSelect: FC<ArticlesSortSelectProps> = memo((props) => {
             .map((val) => ({value: val[0] as ArticlesSortField, content: t(val[1])})),[t]);
 
     return (
-        <div className={classNames(cls.articlesSortSelect, {}, [className])}>
+        <div className={classNames('', {}, [className])}>
             <Select<ArticlesSortField> 
                 id="article-sort-select" 
                 options={orderOptions} 

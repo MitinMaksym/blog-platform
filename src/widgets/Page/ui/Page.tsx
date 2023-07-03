@@ -48,11 +48,11 @@ export const Page: FC<PageProps> = ({children, className, onScrollEnd}) => {
     });
 
     return (
-        <div 
+        <main 
             ref={wrapperRef} 
             className={classNames(cls.page, {}, [className])} 
             onScroll={handleScroll}>
             {children}
             <div ref={triggerRef}/>
-        </div>);
+        </main>);
 };

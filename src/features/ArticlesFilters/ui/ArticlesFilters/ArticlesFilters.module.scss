@@ -4,10 +4,6 @@
     }
 
     .selects {
-        display: flex;
-        gap: 20px;
-        align-items: center;
-
         &:not(:last-child) {
             margin-bottom: 15px;
         }

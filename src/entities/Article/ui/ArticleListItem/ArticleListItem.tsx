@@ -8,6 +8,7 @@ import { Icon } from 'shared/ui/Icon/Icon/Icon';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routerConfig';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { HStack } from 'shared/ui/Stack';
 import { Article, ArticleTextBlock as ArticleTextBlockType, ArticleView } from '../../model/types/article';
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 
@@ -32,13 +33,13 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo((props) => {
         const texBlock = blocks.find(block => block.type === 'TEXT') as ArticleTextBlockType;
         return (
             <Card className={classNames(cls.articleListItem, {}, [className, cls.listView ])}>
-                <div className={cls.header}>
-                    <div className={cls.userInfo}>
+                <HStack justify='between' align='center'>
+                    <HStack gap='16'>
                         <Avatar src={user.avatar}/> 
                         <Text title={user.username}/>
-                    </div>
+                    </HStack>
                     <Text className={cls.date} text={createdAt}/>
-                </div>
+                </HStack>
                 <Text className={cls.title} title={title}/>
                 <div className={cls.tags}>{type.join(', ')}</div>
                 <div className={cls.imageWrapper}>
@@ -57,13 +58,13 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo((props) => {
                     <img className={cls.image} src={img} alt={title}/>
                 </div>
                 <div className={cls.date}>{createdAt}</div>
-                <div className={cls.info}>
+                <HStack justify='between'>
                     <div className={cls.tags}>{type.join(', ')}</div>
-                    <div className={cls.views}>
-                        <div className={cls.count}>{views}</div>
+                    <HStack gap='4'>
+                        <span className={cls.count}>{views}</span>
                         <Icon SVG={eyeIcon}/>
-                    </div> 
-                </div>
+                    </HStack> 
+                </HStack>
                 <Text className={cls.title} title={title}/>
             </Card>
         </AppLink>

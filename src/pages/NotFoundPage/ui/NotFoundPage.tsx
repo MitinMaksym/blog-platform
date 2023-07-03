@@ -2,6 +2,7 @@ import { FC, memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Page } from 'widgets/Page';
+import { HStack } from 'shared/ui/Stack';
 import cls from './NotFoundPage.module.scss';
 
 interface NotFoundPageProps {
@@ -12,6 +13,8 @@ export const NotFoundPage: FC<NotFoundPageProps> = memo(({ className }) => {
     const {t} = useTranslation();
     return (  
         <Page className={classNames(cls.notFoundPage, {}, [className])}>
-            {t('not-found-page')}
+            <HStack justify='center'>
+                {t('not-found-page')}
+            </HStack>
         </Page>);
 });

@@ -1,13 +1,11 @@
 .loginForm {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
     width: 300px;
-    justify-content: center;
-    align-items: stretch;
+}
+
+.input {
+    width: 100%;
 }
 
 .button {
     margin-top: 15px;
-    align-self: flex-start;
 }

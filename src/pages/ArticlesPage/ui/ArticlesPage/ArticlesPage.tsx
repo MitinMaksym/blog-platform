@@ -11,6 +11,7 @@ import { ARTICLES_VIEW } from 'shared/const/localstorage';
 import { Page } from 'widgets/Page';
 import { ArticlesFilters } from 'features/ArticlesFilters';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { HStack } from 'shared/ui/Stack';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { articlesSelectors, articlesPageReducer, articlesPageActions } from '../../model/slice/articlesPageSlice';
@@ -18,8 +19,6 @@ import { selectArticlesPageLoading } from '../../model/selectors/selectArticlesP
 import { selectArticlesPageView } from '../../model/selectors/selectArticlesPageView/selectArticlesPageView';
 import { selectArticlesPageError } from '../../model/selectors/selectArticlesPageError/selectArticlesPageError';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
-
-import cls from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
    className?: string;
@@ -59,10 +58,10 @@ const ArticlesPage: FC<ArticlesPageProps> = ({className}) => {
     if(error) {content = <Text title={t('failed-load-articles')} theme={TextTheme.ERROR}/>;}
     else {
         content = <> 
-            <div className={cls.filters}>
+            <HStack gap='24' justify='between' align='start'>
                 <ArticlesFilters onFilterChange={handleFiltersChange}/>
                 <ArticleViewSwitcher view={view} onToggleView = {handleViewToggle}/>
-            </div>
+            </HStack>
             
             <ArticleList view={view} articles={articles} loading={loading}/>
         </>;
@@ -71,7 +70,7 @@ const ArticlesPage: FC<ArticlesPageProps> = ({className}) => {
 
     return (
         <DynamicReducerLoader reducers={reducers} removeAfterUnmount={false}>
-            <Page className={classNames(cls.articlesPage, {}, [className])} onScrollEnd={handleNextPageFetching}>
+            <Page className={classNames('', {}, [className])} onScrollEnd={handleNextPageFetching}>
                 {content}
             </Page>
         </DynamicReducerLoader>

@@ -4,6 +4,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import { HStack } from 'shared/ui/Stack';
 import { Text } from 'shared/ui/Text/Text';
 import { Comment } from '../..';
 
@@ -20,10 +21,10 @@ export const CommentCard: FC<CommentCardProps> = memo((props) => {
     const { className, comment, loading } = props;
 
     if(loading) return  <div className={classNames(cls.commentCard, {}, [cls.loading])}>
-        <div className={cls.header}>
+        <HStack className={cls.header}>
             <Skeleton width={30} height={30} border="50%"/>
             <Skeleton height={24} width={100}/>
-        </div>
+        </HStack>
         <Skeleton height={32} width='100%'/>
     </div>;
 

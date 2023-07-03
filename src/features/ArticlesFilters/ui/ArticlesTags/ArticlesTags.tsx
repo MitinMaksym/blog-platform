@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { TagItem, Tags } from 'shared/ui/Tags/Tags';
 import {ArticleType} from 'entities/Article/model/types/article';
-import cls from './ArticlesTags.module.scss';
 
 interface ArticlesTagsProps {
    className?: string;
@@ -30,6 +29,6 @@ export const ArticlesTags: FC<ArticlesTagsProps> = memo((props) => {
     return <Tags 
         items={tags} 
         value={value} 
-        className={classNames(cls.articlesTags, {}, [className])} 
+        className={classNames('', {}, [className])} 
         onChange={onChange}/>;
 });

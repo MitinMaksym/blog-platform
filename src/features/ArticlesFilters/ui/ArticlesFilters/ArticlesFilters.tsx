@@ -8,6 +8,7 @@ import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
 import { useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ArticlesFilters as  ArticlesFiltersType} from 'entities/Article';
+import { HStack } from 'shared/ui/Stack';
 import { useSaveFilterState } from '../../lib/hooks/useSaveFiltersState.ts/useSaveFiltersState';
 import { 
     selectArticlesFiltersSearch, 
@@ -55,10 +56,10 @@ export const ArticlesFilters: FC<ArticlesFiltersProps> = memo((props) => {
     return (
         <DynamicReducerLoader reducers={reducers} removeAfterUnmount={false}>
             <div className={classNames(cls.articlesFilters, {}, [className])}>
-                <div className={cls.selects}>
+                <HStack className={cls.selects} gap='24'>
                     <ArticlesOrderSelect value={order} onChange={handleFiltersChange('order')}/>
                     <ArticlesSortSelect value={sortField} onChange={handleFiltersChange('sort')}/>
-                </div>
+                </HStack>
                 <Card className={cls.searchInput}>
                     <Input 
                         id='search-input' 

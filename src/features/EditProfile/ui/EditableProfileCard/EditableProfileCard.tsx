@@ -7,6 +7,7 @@ import { BtnVariant, Button } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { HStack } from 'shared/ui/Stack';
 import { selectProfileCanEdit } from '../../model/selectors/selectProfileCanEdit/selectProfileCanEdit';
 import { selectProfileFormData } from '../../model/selectors/selectProfileFormData/selectProfileFormData';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
@@ -76,7 +77,7 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = memo((props) =>
                 readOnly = {!editMode} 
                 onChange={formChangeHandler}/>
 
-            {actionButtonsVisible && <div className={cls.buttons}>
+            {actionButtonsVisible && <HStack gap='8'>
                 {
                     editMode ?   
                         <>
@@ -85,7 +86,7 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = memo((props) =>
                         </> :
                         <Button onClick={setEditMode}>{t('edit')}</Button> 
                 }
-            </div>
+            </HStack>
             }
         </DynamicReducerLoader>
     </div>;

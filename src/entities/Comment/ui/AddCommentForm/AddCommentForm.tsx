@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
+import { HStack } from 'shared/ui/Stack';
 
 import cls from './AddCommentForm.module.scss';
 
@@ -41,18 +42,20 @@ export const AddCommentForm: FC<AddCommentFormProps> = memo((props) => {
         <form 
             className={classNames(cls.addCommentForm, {}, [className])} 
             onSubmit={handleFormSubmit}>
-            <Input 
-                id='addCommentInput' 
-                value={value} 
-                className={cls.input} 
-                placeholder={t('enter-comment-placeholder')}
-                onChange={handleCommentTextChange}
+            <HStack gap='8' justify='between'>
+                <Input 
+                    id='addCommentInput' 
+                    value={value} 
+                    className={cls.input} 
+                    placeholder={t('enter-comment-placeholder')}
+                    onChange={handleCommentTextChange}
         
-            />
-            <Button
-                disabled={submitBtnDisabled}>
-                {t('send')}
-            </Button>
+                />
+                <Button
+                    disabled={submitBtnDisabled}>
+                    {t('send')}
+                </Button>
+            </HStack>
         </form>
     );
 });

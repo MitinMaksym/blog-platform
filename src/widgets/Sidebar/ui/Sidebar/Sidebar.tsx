@@ -4,6 +4,7 @@ import { FC, memo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { BtnSize, BtnVariant, Button } from 'shared/ui/Button/Button';
+import { HStack, VStack } from 'shared/ui/Stack';
 import { selectSidebarItems } from '../../model/selectors/selectSidebarItems';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 
@@ -38,10 +39,10 @@ export const Sidebar: FC<SidebarProps> = memo(({ className }) => {
                 size={BtnSize.L}
                 square={true}
                 onClick={onToggle}>{collapsed ? '>' : '<'}</Button>
-            <div className={cls.switchers}>
+            <HStack className={cls.switchers} gap='16' justify='center'>
                 <ThemeSwitcher />
                 <LanguageSwitcher short={collapsed}/>
-            </div>
+            </HStack>
         </nav>
     );
 });

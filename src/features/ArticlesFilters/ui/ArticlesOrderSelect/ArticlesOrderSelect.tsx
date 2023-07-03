@@ -4,7 +4,6 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Select, SelectOption } from 'shared/ui/Select/Select';
 import { SortOrder } from 'shared/types';
 
-import cls from './ArticlesOrderSelect.module.scss';
 
 interface ArticlesOrderSelectProps {
    className?: string
@@ -26,7 +25,7 @@ export const ArticlesOrderSelect: FC<ArticlesOrderSelectProps> = memo((props) =>
             .map((val) => ({value: val[0] as SortOrder, content:t(val[1])})),[t]);
 
     return (
-        <div className={classNames(cls.articlesSortSelect, {}, [className])}>
+        <div className={classNames('', {}, [className])}>
             <Select<SortOrder> 
                 id="article-order-select" 
                 options={orderOptions} 

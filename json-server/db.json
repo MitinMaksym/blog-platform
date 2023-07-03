@@ -54,6 +54,12 @@
       "articleId": "4",
       "userId": "1",
       "id": "B7tG8uM"
+    },
+    {
+      "text": "test comment",
+      "articleId": "14",
+      "userId": "1",
+      "id": "egiuIco"
     }
   ],
   "articles": [
@@ -873,7 +879,7 @@
   "profile": [
     {
       "id": "1",
-      "first": "Maksym123",
+      "first": "Maksym1",
       "lastname": "Mitin",
       "age": 20,
       "currency": "EUR",

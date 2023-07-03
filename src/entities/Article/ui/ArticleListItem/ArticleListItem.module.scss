@@ -40,10 +40,6 @@
         }
 
         .info {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
             &:not(:last-child) {
                 margin-bottom: 10px;
             }
@@ -56,14 +52,8 @@
             text-overflow: ellipsis;
         }
 
-        .views {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .title p {
-            max-width: 220px;
+        .title * {
+            max-width: 215px;
             overflow-x: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
@@ -74,19 +64,9 @@
 
     &.listView {
         .header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
             &:not(:last-child) {
                 margin-bottom: 15px;
             }
-        }
-
-        .userInfo {
-            display: flex;
-            align-items: center;
-            column-gap: 15px;
         }
 
         .title {

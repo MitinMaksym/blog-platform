@@ -6,8 +6,6 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Page } from 'widgets/Page';
 import { Text } from 'shared/ui/Text/Text';
     
-import cls from './ProfilePage.module.scss';
-
 interface ProfilePageProps {
     className?: string;
 }
@@ -19,13 +17,13 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
 
     if(!id){
         return  (
-            <Page className = {classNames(cls.profilePage, {}, [])}>
+            <Page className = {classNames('', {}, [className])}>
                 <Text title={t('profile-not-found')}/>
             </Page>);
     }
 
     return (
-        <Page className={classNames(cls.profilePage, {}, [className])}>
+        <Page className={classNames('', {}, [className])}>
             <Text title={t('profile-page-title')}/>
             <EditableProfileCard id={id}/>
         </Page>);

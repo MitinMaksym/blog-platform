@@ -1,4 +1,4 @@
-import { FC, memo, useCallback, useEffect, useState } from 'react';
+import { FC, memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -13,6 +13,7 @@ import { Icon } from 'shared/ui/Icon/Icon/Icon';
 import { Button } from 'shared/ui/Button/Button';
 import { useNavigate } from 'react-router-dom';
 import { RoutePath } from 'shared/config/routerConfig';
+import { HStack } from 'shared/ui/Stack';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { selectArticleDetailsError } from '../../model/selectors/selectArticleDetailsError/selectArticleDetailsError';
@@ -108,14 +109,14 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo((props) => {
                         className={cls.title} 
                         title={article?.title} 
                         text={article?.subtitle} size="sizeL"/>
-                    <div className={cls.articleInfo}>
+                    <HStack gap='8'>
                         <Icon SVG={EyeIcon}/>
                         <Text title={String(article?.views)}/>
-                    </div>
-                    <div className={cls.articleInfo}>
+                    </HStack>
+                    <HStack gap='8'>
                         <Icon SVG={CalendarIcon}/>
                         <Text title={String(article?.createdAt)}/>
-                    </div>
+                    </HStack>
                 </div>
                 <div className={cls.blocks}>
                     {article?.blocks.map(renderBlock)}

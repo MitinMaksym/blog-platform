@@ -8,6 +8,7 @@ import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { DynamicReducerLoader, 
     ReducersList } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { VStack } from 'shared/ui/Stack';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import { selectLoginUsername } from '../../model/selectors/selectLoginUsername/selectLoginUsername';
@@ -50,28 +51,30 @@ const LoginForm: FC<LoginFormProps> = ({ className, onSuccess }) => {
         <form 
             className={classNames(cls.loginForm, {}, [className])}
             onSubmit={handleSubmit}>
-            <Text title={t('login-form')}/>
-            {error && <Text text={error} theme={TextTheme.ERROR}/>}
-            <Input
-                type='text'
-                id='username'
-                label='Username'
-                className={cls.input} 
-                value={username} 
-                onChange={handleUsernameChange}/>       
-            <Input
-                type="password"
-                id='password' 
-                label='Password'
-                className={cls.input} 
-                value={password} 
-                onChange={handlePasswordChange}/> 
-            <Button 
-                className={cls.button}  
-                variant={BtnVariant.BACKGROUND_INVERTED}
-                disabled={loading}>
-                {t('sign-in')}
-            </Button>      
+            <VStack gap='16' justify='center'>
+                <Text title={t('login-form')}/>
+                {error && <Text text={error} theme={TextTheme.ERROR}/>}
+                <Input
+                    type='text'
+                    id='username'
+                    label='Username'
+                    className={cls.input} 
+                    value={username} 
+                    onChange={handleUsernameChange}/>       
+                <Input
+                    type="password"
+                    id='password' 
+                    label='Password'
+                    className={cls.input} 
+                    value={password} 
+                    onChange={handlePasswordChange}/> 
+                <Button 
+                    className={cls.button}  
+                    variant={BtnVariant.BACKGROUND_INVERTED}
+                    disabled={loading}>
+                    {t('sign-in')}
+                </Button> 
+            </VStack>     
         </form>
     </DynamicReducerLoader>;
 };
