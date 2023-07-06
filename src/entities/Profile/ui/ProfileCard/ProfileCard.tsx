@@ -92,8 +92,8 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
                     value={data?.avatar}
                     onChange={handleFormChange('avatar')}
                 />
-                <CurrencySelect 
-                    id="currency" 
+                <CurrencySelect
+                    id="currency-select" 
                     value={data?.currency} 
                     className={cls.input}
                     disabled={readOnly}
