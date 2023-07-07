@@ -45,7 +45,7 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
             <Avatar src={data?.avatar} size={100}/>
         </div>}
         <form className={cls.form}>
-            <VStack justify='center'>
+            <VStack justify='center' align='stretch'>
                 <Input 
                     id='firstName'
                     label={t('first-name')}
@@ -92,17 +92,17 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
                     value={data?.avatar}
                     onChange={handleFormChange('avatar')}
                 />
-                <CurrencySelect 
-                    id="currency" 
-                    value={data?.currency} 
-                    className={cls.input}
+                <CurrencySelect
+                    id="currency-select" 
+                    value={data?.currency}
+                    className={cls.select} 
                     disabled={readOnly}
                     onChange={handleFormChange('currency')}
                 />
                 <CountrySelect 
-                    id="country" 
-                    value={data?.country} 
-                    className={cls.input}
+                    id="country-select" 
+                    value={data?.country}
+                    className={cls.select}  
                     disabled={readOnly}
                     onChange={handleFormChange('country')}
                 /> 

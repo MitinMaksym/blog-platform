@@ -3,7 +3,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Flex.module.scss';
 
 type FlexJustify = 'start' | 'center' | 'end' | 'between'
-type FlexAlign = 'start' | 'center' | 'end'
+type FlexAlign = 'start' | 'center' | 'end' | 'stretch'
 type FlexDirection = 'row' | 'column'
 type FlexGap = '4' | '8' | '16' | '24' | '32'
 
@@ -18,6 +18,7 @@ const alignClasses: Record<FlexAlign, string> = {
     'start': cls.alignStart,
     'center': cls.alignCenter,
     'end': cls.alignEnd,
+    'stretch': cls.stretch
 };
 
 
