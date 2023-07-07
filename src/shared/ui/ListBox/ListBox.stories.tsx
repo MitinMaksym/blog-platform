@@ -6,6 +6,7 @@ const meta: Meta<typeof ListBox> = {
     component: ListBox,
     tags: ['autodocs'],
     args: {
+        id:'test-select',
         items: [
             {value: '1', content: 'Item 1'},
             {value: '2', content: 'Item 2'},
@@ -20,5 +21,12 @@ type Story = StoryObj<typeof ListBox>;
 
 export const Primary: Story = {
     args: {},
+    decorators:[]  
+};
+
+export const WithLable: Story = {
+    args: {
+        label: 'Label'
+    },
     decorators:[]  
 };
