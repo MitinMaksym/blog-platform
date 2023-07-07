@@ -2,7 +2,7 @@ import { ArticlesSortField } from 'entities/Article';
 import { FC, memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Select, SelectOption } from 'shared/ui/Select/Select';
+import { ListBox, ListBoxItem } from 'shared/ui/ListBox/ListBox';
 
 interface ArticlesSortSelectProps {
    className?: string
@@ -20,15 +20,15 @@ export const ArticlesSortSelect: FC<ArticlesSortSelectProps> = memo((props) => {
     const { value, className, onChange } = props;
     const { t } = useTranslation('articles');
 
-    const orderOptions:SelectOption<ArticlesSortField>[] = useMemo(() => 
+    const orderOptions:ListBoxItem<ArticlesSortField>[] = useMemo(() => 
         Object.entries(sortTranslations)
             .map((val) => ({value: val[0] as ArticlesSortField, content: t(val[1])})),[t]);
 
     return (
         <div className={classNames('', {}, [className])}>
-            <Select<ArticlesSortField> 
+            <ListBox
                 id="article-sort-select" 
-                options={orderOptions} 
+                items={orderOptions} 
                 value={value}
                 label={t('sort-by')}
                 onChange={onChange}/>

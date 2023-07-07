@@ -20,10 +20,7 @@ import { ArticlesOrderSelect } from '../ArticlesOrderSelect/ArticlesOrderSelect'
 import { ArticlesSortSelect } from '../ArticlesSortSelect/ArticlesSortSelect';
 import { ArticlesTags } from '../ArticlesTags/ArticlesTags';
 
-
 import cls from './ArticlesFilters.module.scss';
-
-
 
 interface ArticlesFiltersProps {
    className?: string

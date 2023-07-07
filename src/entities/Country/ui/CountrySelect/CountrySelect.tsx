@@ -1,11 +1,10 @@
 import { FC, memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Select, SelectProps } from 'shared/ui/Select/Select';
+import { ListBox, ListBoxItem, ListBoxProps } from 'shared/ui/ListBox/ListBox';
 import { Country } from '../../model/types/country';
 
-export const CountrySelect: FC<SelectProps<Country>> = memo((props) => {
+export const CountrySelect:  FC<Omit<ListBoxProps<Country>, 'items' | 'label'>>  = memo((props) => {
     const {t} = useTranslation();
-
     const translations:Record<Country, string>  = useMemo(() => (
         {
             [Country.UKRAINE]: t('ukraine'),
@@ -13,8 +12,9 @@ export const CountrySelect: FC<SelectProps<Country>> = memo((props) => {
         }
     ), [t]);
 
-    const options = useMemo(() => 
+    const options: Array<ListBoxItem<Country>> = useMemo(() => 
         Object.entries(translations).map((val) => ({value: val[0] as Country, content: val[1]})),[translations]);
         
-    return <Select<Country> options={options} label={t('country-label')} {...props}/>;
+    return <ListBox items={options} label={t('country-label')} {...props}/>;
 });
+

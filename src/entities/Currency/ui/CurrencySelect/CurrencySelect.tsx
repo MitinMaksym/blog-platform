@@ -6,8 +6,8 @@ import { Currency } from '../../model/types/currency';
 const options: Array<ListBoxItem<Currency>> = Object.entries(Currency).map((val) => 
     ({value: val[0] as Currency, content: val[1]}));
 
-export const CurrencySelect: FC<Omit<ListBoxProps<Currency>,'items' | 'label'>> = memo((props) => {
+export const CurrencySelect: FC<Omit<ListBoxProps<Currency>, 'items' | 'label'>> = memo((props) => {
     const {t} = useTranslation();
-
-    return <ListBox items={options} {...props} label={t('currency-label')}/>;
+ 
+    return <ListBox items={options}  label={t('currency-label')} {...props}/>;
 });

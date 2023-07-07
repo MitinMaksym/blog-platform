@@ -11,7 +11,10 @@
 
 .input {
     width: 100%;
+}
 
+.select,
+.input {
     &:not(:last-child) {
         margin-bottom: 10px;
     }

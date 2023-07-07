@@ -26,12 +26,16 @@ export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
     const { className } = props;
 
     return (
-        <HStack justify='between'>
+        <HStack 
+            justify='between' 
+            align='center'
+            gap="4"
+            className={classNames(cls.listBox, {}, [className])} 
+        >
             {label && <label htmlFor={id}>{label}</label>}
             <Listbox
                 as={'div'} 
                 value={value} 
-                className={classNames(cls.listBox, {}, [className])} 
                 onChange={onChange}>
                 <Listbox.Button className={cls.trigger}>
                     <Button disabled={disabled}>
