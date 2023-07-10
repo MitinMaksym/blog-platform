@@ -31,7 +31,9 @@ module.exports = {
         'react', 
         '@typescript-eslint', 
         'i18next', 
-        'react-hooks'],
+        'react-hooks',
+        'fsd-methodology-rules-checker'
+    ],
     rules: {
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
@@ -64,6 +66,7 @@ module.exports = {
         'quotes': [2, 'single', { 'avoidEscape': true }],
         '@typescript-eslint/ban-ts-comment': 'off',
         'react/prop-types':'off',
+        'fsd-methodology-rules-checker/path-checker': 'error'
         
     },
     globals: {

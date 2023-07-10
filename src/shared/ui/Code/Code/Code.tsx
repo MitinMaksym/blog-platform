@@ -1,8 +1,8 @@
 import { FC, memo, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import CopyBtn from 'shared/assets/icons/copy.svg';
-import { BtnVariant, Button } from 'shared/ui/Button/Button';
 import cls from './Code.module.scss';
+import { BtnVariant, Button } from '../../Button/Button';
 
 interface CodeProps {
    className?: string;
@@ -19,7 +19,7 @@ export const Code: FC<CodeProps> = memo((props) => {
     return (
         <pre className={classNames(cls.code, {}, [className])}>
             <code>
-                <Button 
+                <Button
                     className={cls.copyBtn} 
                     variant={BtnVariant.CLEAR} 
                     onClick={handleCopyBtnClick}>                

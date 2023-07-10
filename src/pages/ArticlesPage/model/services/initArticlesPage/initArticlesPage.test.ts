@@ -1,7 +1,6 @@
 import { ARTICLES_VIEW } from 'shared/const/localstorage';
 import { TestAsyncThunk } from 'shared/lib/tests/testAsyncThunk/TestAsyncThunk';
 import { articlesPageActions } from '../../slice/articlesPageSlice';
-import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 import { initArticlesPage } from './initArticlesPage';
 
 

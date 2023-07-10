@@ -37,10 +37,11 @@ export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
                 as={'div'} 
                 value={value} 
                 onChange={onChange}>
-                <Listbox.Button className={cls.trigger}>
+                <Listbox.Button as='div' className={cls.trigger}>
                     <Button disabled={disabled}>
                         {items.find(el => el.value === value)?.content}
-                    </Button></Listbox.Button>
+                    </Button>
+                </Listbox.Button>
                 <Listbox.Options className={cls.options} as='ul'>
                     {items.map((item) => (
                         <Listbox.Option
