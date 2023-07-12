@@ -2,7 +2,7 @@ import { FC, memo, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import CopyBtn from 'shared/assets/icons/copy.svg';
 import cls from './Code.module.scss';
-import { BtnVariant, Button } from '../../Button/Button';
+import { BtnVariant, Button } from '../Button/Button';
 
 interface CodeProps {
    className?: string;
