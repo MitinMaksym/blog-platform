@@ -7,7 +7,9 @@ import { RoutePath } from 'shared/config/routerConfig';
 import { ARTICLES_FILTERS, USER_DATA_KEY } from 'shared/const/localstorage';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { BtnVariant, Button } from 'shared/ui/Button/Button';
+import { Menu } from 'shared/ui/Menu/Menu';
 
 import cls from './Navbar.module.scss';
 
@@ -33,11 +35,22 @@ export const Navbar = ({ className }: NavbarProps) => {
 
     if(userData){
         return <nav className={classNames(cls.navbar, {}, [className])}>
-            <div className={cls.links}>
-                <AppLink to={RoutePath.article_create} theme={AppLinkTheme.INVERTED}>{t('create-article')}</AppLink>
-                <Button  onClick={handleLogout} variant={BtnVariant.BACKGROUND_INVERTED}>{t('logout')}</Button>
-            </div>
-        </nav>;
+            <Menu
+                trigger={<Avatar src={userData.avatar} size={30}/>} 
+                direction='bottomLeft'
+                items = {
+                    [
+                        {
+                            content: t('create-article'),
+                            href: RoutePath.article_create
+                        },
+                        {
+                            content: t('logout'),
+                            onClick:handleLogout
+                        },
+                    ]
+                }
+            /></nav>;  
     }
     
     return  <nav className={classNames(cls.navbar, {}, [className])}>
