@@ -24,7 +24,8 @@
     "analyze:prod": "webpack --env mode=production analyze=true",
     "analyze:dev": "webpack --env mode=development analyze=true",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
-    "storybook:build": "storybook build -c ./config/storybook"
+    "storybook:build": "storybook build -c ./config/storybook",
+    "create:slice": "node scripts/createSlice/index.js"
   },
   "husky": {
     "hooks": {
