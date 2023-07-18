@@ -1,7 +1,8 @@
 .articleDetailsPage {
-    .articleDetails {
+    .articleDetails,
+    .recommendations {
         &:not(:last-child) {
-            margin-bottom: 22px;
+            margin-bottom: 20px;
         }
     }
 }

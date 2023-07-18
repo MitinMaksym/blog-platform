@@ -1,11 +1,7 @@
 .articleRecommendations {
-    &:not(:last-child) {
-        margin-bottom: 20px;
-    }
-
     .title {
         &:not(:last-child) {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
     }
 }
