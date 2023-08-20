@@ -6,6 +6,7 @@ import { AxiosInstance } from 'axios';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
 import { $api } from 'shared/api/api';
+import { rtkApi } from 'shared/api/rtkApi';
 import { pageReducer } from 'widgets/Page';
 import { createReducerManager, ReducerManager } from './reducerManager';
 import { StateSchema } from './StateSchema';
@@ -24,10 +25,11 @@ export const createReduxStore = (
 ) => { 
 
     const rootReducer:ReducersMapObject<StateSchema> = {
-        ...asyncReducers,
         counter: counterReducer,
         user: userReducer,
-        page: pageReducer
+        page: pageReducer,
+        [rtkApi.reducerPath]: rtkApi.reducer,
+        ...asyncReducers,
     };
 
     const reducerManager = createReducerManager(rootReducer);
@@ -41,7 +43,7 @@ export const createReduxStore = (
             thunk: {
                 extraArgument: extraArg,
             },
-        }),    });
+        }).concat(rtkApi.middleware),    });
     
     // @ts-ignore
     store.reducerManager = reducerManager;

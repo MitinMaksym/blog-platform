@@ -21,6 +21,7 @@ import { ProfileError } from '../../model/types/profileSchema';
 import { selectProfileEditMode } from '../../model/selectors/selectProfileEditMode/selectProfileEditMode';
 
 import cls from './EditableProfileCard.module.scss';
+import { EditableProfileCardButtons } from '../EditableProfileCardButtons/EditableProfileCardButtons';
 
 
 interface EditableProfileCardProps {
@@ -65,29 +66,34 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = memo((props) =>
     const setEditMode = useCallback(() => dispatch(profileActions.setEditMode(true)),[dispatch]);
 
 
-    return <div className={cls.cardWrapper}>
-        <DynamicReducerLoader reducers={reducers} removeAfterUnmount>
-            {!!errors?.length && errors?.map(err => 
-                <Text key={err} title={t('error-occured')} text={errorsTranslations[err]} theme={TextTheme.ERROR}/>)}
+    return (
+        <div className={cls.cardWrapper}>
+            <DynamicReducerLoader reducers={reducers} removeAfterUnmount>
+                {!!errors?.length &&
+            errors?.map((err) => (
+                <Text
+                    key={err}
+                    title={t('error-occured')}
+                    text={errorsTranslations[err]}
+                    theme={TextTheme.ERROR}
+                />
+            ))}
 
-            <ProfileCard 
-                data={formData} 
-                className={cls.profileCard} 
-                loading={loading} 
-                readOnly = {!editMode} 
-                onChange={formChangeHandler}/>
-
-            {actionButtonsVisible && <HStack gap='8'>
-                {
-                    editMode ?   
-                        <>
-                            <Button onClick={saveProfile}>{t('save')}</Button>
-                            <Button variant={BtnVariant.OUTLINE_ERROR} onClick={cancelFormEdit}>{t('cancel')}</Button>
-                        </> :
-                        <Button onClick={setEditMode}>{t('edit')}</Button> 
-                }
-            </HStack>
-            }
-        </DynamicReducerLoader>
-    </div>;
+                <ProfileCard
+                    data={formData}
+                    className={cls.profileCard}
+                    loading={loading}
+                    readOnly={!editMode}
+                    onChange={formChangeHandler}
+                />
+                <EditableProfileCardButtons
+                    visible={actionButtonsVisible}
+                    editMode={editMode}
+                    onSave={saveProfile}
+                    onSetEditMode={setEditMode}
+                    onCancel={cancelFormEdit}
+                />
+            </DynamicReducerLoader>
+        </div>
+    );
 });
