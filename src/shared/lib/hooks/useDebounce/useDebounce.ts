@@ -1,4 +1,4 @@
-import { useRef, useCallback, useEffect } from 'react';
+import { useRef, useCallback } from 'react';
 
 export function useDebounce(cb:(...arg: any[]) => void, delay: number){
 

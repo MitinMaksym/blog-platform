@@ -13,7 +13,7 @@ interface DynamicReducerLoaderProps {
     removeAfterUnmount?: boolean
 }
 
-export const DynamicReducerLoader: FC<DynamicReducerLoaderProps> = (props) => {
+export const DynamicReducerLoader = (props: DynamicReducerLoaderProps) => {
     const { children, reducers, removeAfterUnmount = true } = props;
     const store = useStore() as StoreWithReducerManager;
     const dispatch = useDispatch();

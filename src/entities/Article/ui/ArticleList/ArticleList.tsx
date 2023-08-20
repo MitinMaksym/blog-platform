@@ -29,7 +29,7 @@ export const ArticleList: FC<ArticleListProps> = memo((props) => {
     const firstRender = useFirstRender();
     const notFoundMsgVisible = !articles.length && !loading  && !firstRender;
 
-    const renderArticle = useCallback((article) => 
+    const renderArticle = useCallback((article: Article) => 
         <ArticleListItem key={article.id} view={view}  article={article} target={target}/>, [view, target]);
 
     return (
