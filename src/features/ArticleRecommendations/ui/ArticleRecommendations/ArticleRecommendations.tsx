@@ -21,9 +21,9 @@ interface ArticleRecommendationsProps {
 export const ArticleRecommendations: FC<ArticleRecommendationsProps> = memo((props) => {
     const { className } = props;
     const { t } = useTranslation('article-details');
-    const {data: articles, isLoading,} = useGetArticleRecommendationsQuery();
-
-
+    const { data: articles, isLoading } = useGetArticleRecommendationsQuery(5, {
+        skip: __PROJECT__ === 'storybook',
+    });
     const renderSlide = useCallback((article: Article) => 
         (<SwiperSlide key={article.id}>
             <ArticleListItem 
@@ -61,7 +61,7 @@ export const ArticleRecommendations: FC<ArticleRecommendationsProps> = memo((pro
                     },
                 }}
             >
-                {articles && articles.map(renderSlide)}
+                {!!articles?.length && articles.map(renderSlide)}
             </Swiper>
         </div>
     );

@@ -5,7 +5,9 @@ const meta: Meta<typeof ArticlesSortSelect> = {
     title: 'features/ArticlesFilters/ArticlesSortSelect',
     component: ArticlesSortSelect,
     tags: ['autodocs'],
-    args: {},
+    args: {
+        value: 'createdAt'
+    },
 };
 
 export default meta;

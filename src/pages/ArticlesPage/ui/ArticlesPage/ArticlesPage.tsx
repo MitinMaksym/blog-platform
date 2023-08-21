@@ -42,7 +42,9 @@ const ArticlesPage: FC<ArticlesPageProps> = ({className}) => {
     },[dispatch]);
 
     const handleNextPageFetching = useCallback(() => {
-        dispatch(fetchNextArticlesPage());
+        if(__PROJECT__ !== 'storybook'){
+            dispatch(fetchNextArticlesPage());
+        }
     }, [dispatch]);
 
     const handleFiltersChange = useCallback((filters:  ArticlesFiltersType) => {

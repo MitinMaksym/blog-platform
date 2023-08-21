@@ -6,11 +6,12 @@ import { buildCssLoader } from '../build/loaders/buildCssLoader';
 const config: StorybookConfig = {
     stories: ['../../src/**/*.stories.@(js|jsx|ts|tsx)'],
     addons: [
+        'storybook-addon-mock',
         'storybook-react-i18next',
         '@storybook/addon-links',
         '@storybook/addon-essentials',
         '@storybook/addon-interactions',
-        'storybook-addon-react-router-v6'
+        'storybook-addon-react-router-v6',
     ],
     framework: {
         name: '@storybook/react-webpack5',
@@ -43,6 +44,7 @@ const config: StorybookConfig = {
         config.plugins?.push( new DefinePlugin({
             __IS_DEV__: true,
             __PROJECT__: JSON.stringify('storybook'),
+            __API__: JSON.stringify(process.env.API_URL)
         }),);
 
         return config;
