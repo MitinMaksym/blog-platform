@@ -36,5 +36,8 @@
   "send": "Send",
   "enter-comment-placeholder": "Enter comment text",
   "search": "Search",
-  "create-article": "Create article"
+  "create-article": "Create article",
+  "page-forbidden": "This page is forbidden",
+  "admin-panel": "Admin Panel"
+  
 }

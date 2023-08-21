@@ -36,5 +36,7 @@
   "send": "Відправити",
   "enter-comment-placeholder": "Введіть текст коментаря",
   "search": "Пошук",
-  "create-article": "Створити статтю"
+  "create-article": "Створити статтю",
+  "admin-panel": "Адмін панель",
+  "page-forbidden": "Доступ заборонено"
 }
