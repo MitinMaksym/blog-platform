@@ -1,4 +1,4 @@
-import { selectUserAuthData, userActions } from 'entities/User';
+import { selectIsUserAdmin, selectIsUserManager, selectUserAuthData, userActions } from 'entities/User';
 import { LoginModal } from 'features/AuthByUsername';
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -6,9 +6,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RoutePath } from 'shared/config/routerConfig';
 import { ARTICLES_FILTERS, USER_DATA_KEY } from 'shared/const/localstorage';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { BtnVariant, Button } from 'shared/ui/Button/Button';
+import { Button } from 'shared/ui/Button/Button';
 import { Menu } from 'shared/ui/Menu/Menu';
 
 import cls from './Navbar.module.scss';
@@ -22,6 +21,9 @@ export const Navbar = ({ className }: NavbarProps) => {
     const dispatch = useDispatch();
     const [loginModalVisible, setLoginModalVisible] = useState(false);
     const userData = useSelector(selectUserAuthData);
+    const isAdmin = useSelector(selectIsUserAdmin);
+    const isManager = useSelector(selectIsUserManager);
+    const adminPanelAvailable = isAdmin || isManager;
 
     const closeLoginModal = useCallback(() => setLoginModalVisible(false),[]);
 
@@ -34,23 +36,34 @@ export const Navbar = ({ className }: NavbarProps) => {
     }, [dispatch]);
 
     if(userData){
-        return <nav className={classNames(cls.navbar, {}, [className])}>
-            <Menu
-                trigger={<Avatar src={userData.avatar} size={30}/>} 
-                direction='bottomLeft'
-                items = {
-                    [
+        return (
+            <nav className={classNames(cls.navbar, {}, [className])}>
+                <Menu
+                    trigger={<Avatar src={userData.avatar} size={30} />}
+                    direction="bottomLeft"
+                    items={[
+                        ...[
+                            ...( adminPanelAvailable
+                                ? [
+                                    {
+                                        content: t('admin-panel'),
+                                        href: RoutePath.admin,
+                                    },
+                                ]
+                                : []),
+                        ],
                         {
                             content: t('create-article'),
-                            href: RoutePath.article_create
+                            href: RoutePath.article_create,
                         },
                         {
                             content: t('logout'),
-                            onClick:handleLogout
+                            onClick: handleLogout,
                         },
-                    ]
-                }
-            /></nav>;  
+                    ]}
+                />
+            </nav>
+        );  
     }
     
     return  <nav className={classNames(cls.navbar, {}, [className])}>
