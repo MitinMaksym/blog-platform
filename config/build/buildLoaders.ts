@@ -3,7 +3,8 @@ import { BuildOptions } from './types/config';
 import { buildCssLoader } from './loaders/buildCssLoader';
 import { buildBabelLoader } from './loaders/buildBabelLoader';
 
-export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
+export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
+    const {isDev} = options;
 
     const fileLoader = {
         test: /\.(png|jpe?g|gif)$/i,
@@ -19,11 +20,8 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
         use: ['@svgr/webpack'],
     };
 
-    const typescriptLoader = {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-    };
+    const babelTsxCodeLoader = buildBabelLoader({...options, isTSX: true});
+    const babelCodeLoader = buildBabelLoader(options);
 
-    return [buildBabelLoader(isDev), typescriptLoader, buildCssLoader(isDev), svgloader, fileLoader];
+    return [babelCodeLoader, babelTsxCodeLoader, buildCssLoader(isDev), svgloader, fileLoader];
 }
