@@ -130,7 +130,7 @@
     "react-dom": "^18.2.0",
     "react-i18next": "^13.1.2",
     "react-redux": "^7.2.6",
-    "react-router-dom": "^6.12.1",
+    "react-router-dom": "^6.15.0",
     "swiper": "^9.4.1"
   },
   "loki": {
