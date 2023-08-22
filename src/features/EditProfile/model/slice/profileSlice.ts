@@ -31,6 +31,7 @@ export const profileSlice = createSlice({
         cancelFormEdit: (state) => {
             state.form = state.data;
             state.editMode = false;
+            state.errors = undefined;
         },
     },
     extraReducers: (builder) => {

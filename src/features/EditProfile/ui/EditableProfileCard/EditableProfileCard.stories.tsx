@@ -5,7 +5,7 @@ import { Currency } from 'entities/Currency';
 import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import AvatarIcon from 'shared/assets/avatar.webp';
-import { ProfileError } from '../../model/types/profileSchema';
+import { ProfileError } from '../../model/consts/consts';
 import { EditableProfileCard } from './EditableProfileCard';
 
 const data = { 

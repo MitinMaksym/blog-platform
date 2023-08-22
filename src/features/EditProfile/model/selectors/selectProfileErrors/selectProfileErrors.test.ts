@@ -1,5 +1,5 @@
 import { StateSchema } from 'app/providers/StoreProvider';
-import { ProfileError } from '../../types/profileSchema';
+import { ProfileError } from '../../consts/consts';
 import { selectProfileErrors } from './selectProfileErrors';
 
 describe('selectProfileErrors', () => {

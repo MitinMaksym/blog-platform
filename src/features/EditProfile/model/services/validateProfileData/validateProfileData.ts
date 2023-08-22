@@ -1,5 +1,5 @@
 import { Profile } from 'entities/Profile';
-import { ProfileError } from '../../types/profileSchema';
+import { ProfileError } from '../../consts/consts';
 
 export const validateProfileData = (profile?: Profile):Array<ProfileError> => {
     if(!profile) return [ProfileError.NO_DATA];

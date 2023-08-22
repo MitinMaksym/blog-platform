@@ -1,7 +1,7 @@
 import { FC, memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ListBox, ListBoxItem, ListBoxProps } from 'shared/ui/ListBox/ListBox';
-import { Country } from '../../model/types/country';
+import { Country } from '../../model/consts/consts';
 
 export const CountrySelect:  FC<Omit<ListBoxProps<Country>, 'items' | 'label'>>  = memo((props) => {
     const {t} = useTranslation();

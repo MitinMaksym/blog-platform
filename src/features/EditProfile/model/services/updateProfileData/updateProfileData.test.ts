@@ -2,7 +2,7 @@ import { TestAsyncThunk } from 'shared/lib/tests/testAsyncThunk/TestAsyncThunk';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 import { Profile } from 'entities/Profile';
-import { ProfileError } from '../../types/profileSchema';
+import { ProfileError } from '../../consts/consts';
 import { updateProfileData } from './updateProfileData';
 
 

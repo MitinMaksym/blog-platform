@@ -3,11 +3,9 @@ import { FC, memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
-import { BtnVariant, Button } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { HStack } from 'shared/ui/Stack';
 import { selectProfileCanEdit } from '../../model/selectors/selectProfileCanEdit/selectProfileCanEdit';
 import { selectProfileFormData } from '../../model/selectors/selectProfileFormData/selectProfileFormData';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
@@ -16,7 +14,7 @@ import { selectProfileErrors}
     from '../../model/selectors/selectProfileErrors/selectProfileErrors';
 import { selectProfileLoading } from '../../model/selectors/selectProfileLoading/selectProfileLoading';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
-import { ProfileError } from '../../model/types/profileSchema';
+import { ProfileError } from '../../model/consts/consts';
 
 import { selectProfileEditMode } from '../../model/selectors/selectProfileEditMode/selectProfileEditMode';
 
