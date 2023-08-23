@@ -1,4 +1,3 @@
-import { StateSchema } from 'app/providers/StoreProvider';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from 'shared/ui/Button/Button';
 import { selectCounterValue } from '../model/selectors/selectCounterValue/selectCounterValue';
