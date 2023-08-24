@@ -48,6 +48,7 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
             <VStack justify='center' align='stretch'>
                 <Input 
                     id='firstName'
+                    data-testid='ProfileCard.Firstname'
                     label={t('first-name')}
                     readOnly={readOnly}
                     className={cls.input} 
@@ -55,7 +56,8 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
                     onChange={handleFormChange('first')}/>
                 
                 <Input 
-                    id='lastName' 
+                    id='lastName'
+                    data-testid='ProfileCard.Lastname' 
                     label={t('last-name')}
                     readOnly={readOnly}
                     className={cls.input}  
@@ -63,7 +65,8 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
                     onChange={handleFormChange('lastname')}
                 />
                 <Input 
-                    id='userName' 
+                    id='userName'
+                    data-testid='ProfileCard.Username'  
                     label={t('user-name')}
                     readOnly={readOnly}
                     className={cls.input}  
@@ -72,6 +75,7 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
                 />
                 <Input 
                     id='userAge'
+                    data-testid='ProfileCard.UserAge' 
                     type="number"
                     label={t('age')}
                     readOnly={readOnly}

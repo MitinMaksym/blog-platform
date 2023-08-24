@@ -28,13 +28,27 @@ export const EditableProfileCardButtons: FC<EditableProfileCardButtonsProps> = (
         <HStack gap="8" className={className}>
             {editMode ? (
                 <>
-                    <Button onClick={onSave}>{t('save')}</Button>
-                    <Button variant={BtnVariant.OUTLINE_ERROR} onClick={onCancel}>
+                    <Button
+                        data-testid='EditableProfileCardButtons.SaveButton'
+                        onClick={onSave}
+                    >
+                        {t('save')}
+                    </Button>
+                    <Button
+                        data-testid='EditableProfileCardButtons.CancelButton'
+                        variant={BtnVariant.OUTLINE_ERROR}
+                        onClick={onCancel}
+                    >
                         {t('cancel')}
                     </Button>
                 </>
             ) : (
-                <Button onClick={onSetEditMode}>{t('edit')}</Button>
+                <Button
+                    data-testid='EditableProfileCardButtons.EditButton'
+                    onClick={onSetEditMode}
+                >
+                    {t('edit')}
+                </Button>
             )}
         </HStack>
     );

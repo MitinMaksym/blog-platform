@@ -65,7 +65,7 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = memo((props) =>
 
 
     return (
-        <div className={cls.cardWrapper}>
+        <div data-testid="EditableProfileCard" className={cls.cardWrapper}>
             <DynamicReducerLoader reducers={reducers} removeAfterUnmount>
                 {!!errors?.length &&
             errors?.map((err) => (
@@ -74,6 +74,7 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = memo((props) =>
                     title={t('error-occured')}
                     text={errorsTranslations[err]}
                     theme={TextTheme.ERROR}
+                    data-testid='EditableProfileCard.Error'
                 />
             ))}
 
