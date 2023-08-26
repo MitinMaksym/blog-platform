@@ -1,6 +1,7 @@
-import type { Meta, StoryFn, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
+import { PaddingDecorator } from 'shared/config/storybook/decorators/PaddingDecorator';
 import { withRouter } from 'storybook-addon-react-router-v6';
-import { Button } from '../Button/Button';
+import { Button } from '../../Button/Button';
 import { Menu } from './Menu';
 
 const meta: Meta<typeof Menu> = {
@@ -11,25 +12,20 @@ const meta: Meta<typeof Menu> = {
         trigger: <Button>+</Button>,
         items: [
             {
-                content: 'Option 1'
+                content: 'Option 1',
             },
             {
-                content: 'Option 2'
+                content: 'Option 2',
             },
             {
-                content: 'Option 3'
+                content: 'Option 3',
             },
             {
-                content: 'Option 4'
+                content: 'Option 4',
             },
-        ]
+        ],
     },
-    decorators: [withRouter, (Story: StoryFn) => (
-        <div style={{padding: '100px'}}>
-            <Story/>
-        </div>
-    )
-    ]
+    decorators: [withRouter, PaddingDecorator(200)],
 };
 
 export default meta;
@@ -37,31 +33,36 @@ type Story = StoryObj<typeof Menu>;
 
 export const Primary: Story = {
     args: {},
-    decorators:[]  
 };
+
 export const TopLeft: Story = {
     args: {
         direction: 'topLeft'
     },
-    decorators:[]  
 };
+
 export const TopRight: Story = {
     args: {
         direction: 'topRight'
     },
-    decorators:[]  
 };
+
 export const BottomLeft: Story = {
     args: {
         direction: 'bottomLeft'
     },
-    decorators:[]  
 };
+
 export const BottomRight: Story = {
     args: {
         direction: 'bottomRight'
     },
-    decorators:[]  
+};
+
+export const BottomCenter: Story = {
+    args: {
+        direction: 'bottomCenter'
+    },
 };
 
 

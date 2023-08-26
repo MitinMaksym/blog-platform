@@ -25,3 +25,8 @@
     padding: 8px 12px;
     display: inline-block;
 }
+
+.disabled {
+    opacity: 0.7;
+    pointer-events: none;
+}

@@ -15,8 +15,9 @@ const MainPage = () => {
     
     return (
         <Page>
-            <h1>{t('page-title')} <BugButton/>
+            <h1>{t('page-title')}
             </h1>
+            <BugButton/>
             <Button onClick={handleModalToggle}>{t('toggle-modal', {ns: 'translation'})}</Button>
             <Modal open={modalOpen} onClose={handleModalClose}>
                 {t('page-title')}

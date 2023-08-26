@@ -2,7 +2,7 @@ import { ArticlesSortField } from 'entities/Article';
 import { FC, memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { ListBox, ListBoxItem } from 'shared/ui/ListBox/ListBox';
+import { ListBox, ListBoxItem } from 'shared/ui/popups/ListBox/ListBox';
 
 interface ArticlesSortSelectProps {
    className?: string

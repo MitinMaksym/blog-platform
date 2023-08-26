@@ -6,13 +6,14 @@ import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorato
 import { withRouter } from 'storybook-addon-react-router-v6';
 import avatarImg from 'shared/assets/avatar.webp';
 import { SuspenseDecorator } from 'shared/config/storybook/decorators/SuspenseDecorator';
+import testImg from 'shared/assets/testImg.png';
 import ArticleDetailsPage from './ArticleDetailsPage';
 
 const data: Article =  {
     'id': '1',
     'title': 'Javascript news',
     'subtitle': 'Что нового в JS за 2022 год?',
-    'img': 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
+    'img': testImg,
     'views': 1022,
     'createdAt': '26.02.2022',
     'type': ['IT'],

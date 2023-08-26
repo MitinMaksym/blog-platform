@@ -1,10 +1,12 @@
 import { Fragment } from 'react';
 import { Listbox } from '@headlessui/react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Button } from '../Button/Button';
-import { HStack } from '../Stack';
+import { Button } from '../../Button/Button';
+import { HStack } from '../../Stack';
+import { directionClasses, PopupDirection } from '../styles/popup';
 
 import cls from './ListBox.module.scss';
+import popupCls from '../styles/Popup.module.scss';
 
 export type ListBoxItem<T extends string> = {
    value: T
@@ -18,11 +20,12 @@ export interface ListBoxProps<T extends string> {
    label?: string
    disabled?: boolean
    className?: string
+   direction?: PopupDirection
    onChange: (el: T) => void
 }
 
 export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
-    const {id, items, value, disabled, label, onChange} = props;
+    const {id, items, value, disabled, label,direction = 'bottomLeft', onChange} = props;
     const { className } = props;
 
     return (
@@ -30,19 +33,19 @@ export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
             justify='between' 
             align='center'
             gap="4"
-            className={classNames(cls.listBox, {}, [className])} 
         >
             {label && <label htmlFor={id}>{label}</label>}
             <Listbox
                 as={'div'} 
                 value={value} 
+                className={classNames(popupCls.popup, {}, [className])} 
                 onChange={onChange}>
-                <Listbox.Button as='div' className={cls.trigger}>
+                <Listbox.Button as='div' className={popupCls.trigger}>
                     <Button disabled={disabled}>
                         {items.find(el => el.value === value)?.content}
                     </Button>
                 </Listbox.Button>
-                <Listbox.Options className={cls.options} as='ul'>
+                <Listbox.Options className={classNames(cls.options, {}, [directionClasses[direction]])} as='ul'>
                     {items.map((item) => (
                         <Listbox.Option
                             key={item.value}

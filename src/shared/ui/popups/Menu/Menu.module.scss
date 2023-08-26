@@ -1,0 +1,18 @@
+.items {
+    position: absolute;
+    min-width: 100px;
+    z-index: var(--popup-z-index);
+    display: flex;
+    flex-direction: column;
+    background-color: var(--card-bg);
+    border: none;
+    outline: transparent;
+}
+
+.item {
+    padding: 10px;
+}
+
+.active {
+    background-color: var(--inverted-primary-color);
+}

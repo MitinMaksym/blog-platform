@@ -38,6 +38,6 @@
   "search": "Search",
   "create-article": "Create article",
   "page-forbidden": "This page is forbidden",
-  "admin-panel": "Admin Panel"
-  
+  "admin-panel": "Admin Panel",
+  "notifications-error": "Failed to load notifications"
 }

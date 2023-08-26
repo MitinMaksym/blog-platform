@@ -1,0 +1,21 @@
+.options {
+    background: var(--listbox-bg);
+    position: absolute;
+    z-index: var(--popup-z-index);
+    border-radius: 5px;
+    padding: 5px;
+    min-width: 100%;
+}
+
+.item {
+    padding: 5px 15px;
+    white-space: nowrap;
+}
+
+.active {
+    background: var(--inverted-secondary-color);
+}
+
+.selected {
+    background-color: var(--inverted-primary-color);
+}

@@ -1,5 +1,6 @@
 import { FC, useEffect, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Button } from 'shared/ui/Button/Button';
 
 interface BugButtoProps {
     className?: string;
@@ -12,9 +13,9 @@ export const BugButton: FC<BugButtoProps> = ({ className }) => {
         if(error) throw new Error('test error');
     },[error]);
     return (
-        <div className={classNames('', {}, [className])} onClick={() => setError(true)}>
+        <Button className={classNames('', {}, [className])} onClick={() => setError(true)}>
             {/* eslint-disable  */}
             Test Error
-        </div>
+        </Button>
     );
 };

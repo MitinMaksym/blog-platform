@@ -1,0 +1,10 @@
+.content {
+    position: absolute;
+    z-index: var(--popup-z-index);
+    background-color: var(--card-bg);
+    border: none;
+    outline: transparent;
+    padding: 15px;
+    min-width: 100%;
+    border-radius: 10px;
+}
