@@ -38,5 +38,6 @@
   "search": "Пошук",
   "create-article": "Створити статтю",
   "admin-panel": "Адмін панель",
-  "page-forbidden": "Доступ заборонено"
+  "page-forbidden": "Доступ заборонено",
+  "notifications-error": "Не вдалося загрузити  сповіщення"
 }

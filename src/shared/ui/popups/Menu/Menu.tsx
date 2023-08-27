@@ -1,12 +1,13 @@
 import { FC, Fragment, memo, ReactNode } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Menu as MenuBase } from '@headlessui/react';
-import { AppLink } from '../AppLink/AppLink';
-import { BtnVariant, Button } from '../Button/Button';
+import { AppLink } from '../../AppLink/AppLink';
+import { BtnVariant, Button } from '../../Button/Button';
+import {directionClasses, PopupDirection} from '../styles/popup';
 
 import cls from './Menu.module.scss';
+import popupCls from '../styles/Popup.module.scss';
 
-type DropdownDirection = 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight'
 
 interface MenuItem {
    content: ReactNode
@@ -18,43 +19,39 @@ interface MenuItem {
 interface MenuProps {
    trigger: ReactNode
    items: Array<MenuItem>
-   direction?: DropdownDirection
+   direction?: PopupDirection
    className?: string;
+   inactive?: boolean
 }
 
-const directionClasses: Record<DropdownDirection, string> = {
-    'bottomLeft': cls.directionBottomLeft,
-    'bottomRight': cls.directionBottomRight,
-    'topLeft': cls.directionTopLeft,
-    'topRight': cls.directionTopRight
-};
-
 export const Menu: FC<MenuProps> = memo((props) => {
-    const { trigger, items, className, direction = 'bottomLeft' } = props;
+    const { trigger, items, className, direction = 'bottomLeft', inactive = false } = props;
 
 
 
 
     return (
-        <MenuBase as={'div'} className={classNames(cls.menu, {}, [className])}>
-            <MenuBase.Button as={'div'} className={cls.trigger}>{trigger}</MenuBase.Button>
+        <MenuBase as={'nav'} className={classNames(popupCls.popup, {}, [className])}>
+            <MenuBase.Button as='div' className={popupCls.trigger}>{trigger}</MenuBase.Button>
             <MenuBase.Items as="ul" className={classNames(cls.items, {}, [directionClasses[direction]])}>
                 {items.map((item, idx) => <MenuBase.Item 
                     key={idx}
                     as={Fragment}
-                    disabled={item.disabled}>
+                    disabled={item.disabled || inactive}>
                     {({ active, disabled }) => {
                         let content =  <Button type='button' variant={BtnVariant.CLEAR}>{item.content}</Button>;
 
 
                         if(item.href) {
-                            content = <AppLink to={item.href}>{item.content}</AppLink>;
+                            content = (
+                                <AppLink disabled={disabled || inactive} to={item.href}>{item.content}</AppLink>
+                            );
                         }
 
                         return  <li className={classNames(cls.item, 
                             {
                                 [cls.active]: active, 
-                                [cls.disabled]: disabled
+                                [popupCls.disabled]: disabled
                             }, [])
                         } onClick={item.onClick}>
                             {content}

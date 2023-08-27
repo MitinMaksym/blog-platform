@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import {  Modal } from './Modal';
 
@@ -11,6 +12,11 @@ const meta: Meta<typeof Modal> = {
         open:true,
         children: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas, suscipit'
     },
+    parameters: {
+        loki: {
+            skip: true
+        }
+    }
 };
 
 export default meta;
@@ -22,12 +28,12 @@ export const Light: Story = {
     decorators: [ThemeDecorator()]
 };
 
-// export const Dark: Story = {
-//     args: {
-//         children: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-//         Nulla consequuntur sequi harum, earum accusamus esse`
+export const Dark: Story = {
+    args: {
+        children: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+        Nulla consequuntur sequi harum, earum accusamus esse`
 
-//     },
-//     decorators: [ThemeDecorator(Theme.DARK)]
-// }; 
+    },
+    decorators: [ThemeDecorator(Theme.DARK)]
+}; 
 

@@ -1,0 +1,14 @@
+.notificationItem {
+    border: 1px solid var(--primary-color);
+    padding: 10px;
+}
+
+.link {
+    @media (any-hover: hover) {
+        transition: transform 0.3s ease 0s;
+
+        &:hover {
+            transform: scale(1.01);
+        }
+    }
+}

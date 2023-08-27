@@ -1,6 +1,6 @@
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ListBox, ListBoxItem, ListBoxProps } from 'shared/ui/ListBox/ListBox';
+import { ListBox, ListBoxItem, ListBoxProps } from 'shared/ui/popups/ListBox/ListBox';
 import { Currency } from '../../model/consts/consts';
 
 const options: Array<ListBoxItem<Currency>> = Object.entries(Currency).map((val) => 

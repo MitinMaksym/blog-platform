@@ -4,9 +4,13 @@
     transition: opacity 0.3s ease 0s;
 
     @media (any-hover: hover) {
-        &:hover {
+        &:not(:disabled) {
             opacity: 0.7;
         }
+    }
+
+    &:disabled {
+        cursor: auto;
     }
 }
 
