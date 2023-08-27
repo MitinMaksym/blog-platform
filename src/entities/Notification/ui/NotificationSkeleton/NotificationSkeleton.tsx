@@ -12,5 +12,6 @@ export const NotificationSkeleton: FC<NotificationSkeletonProps> = memo((props) 
         <Skeleton className={className} />
         <Skeleton className={className} />
         <Skeleton className={className} />
+        <Skeleton className={className} />
     </>;
 });

@@ -19,7 +19,6 @@ export const Navbar = ({ className }: NavbarProps) => {
     const [loginModalVisible, setLoginModalVisible] = useState(false);
     const userData = useSelector(selectUserAuthData);
 
-
     const closeLoginModal = useCallback(() => setLoginModalVisible(false),[]);
 
     const openLoginModal = useCallback(() => setLoginModalVisible(true),[]);
@@ -36,9 +35,7 @@ export const Navbar = ({ className }: NavbarProps) => {
         content = (
             <>
                 <Button onClick={openLoginModal}>{t('sign-in')}</Button>
-                {loginModalVisible && (
-                    <LoginModal open={loginModalVisible} onClose={closeLoginModal} />
-                )}
+                <LoginModal open={loginModalVisible} onClose={closeLoginModal} />
             </>
         );
     }

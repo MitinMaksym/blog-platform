@@ -33,6 +33,7 @@ const LoginForm: FC<LoginFormProps> = ({ className, onSuccess }) => {
     const password = useSelector(selectLoginPassword);
     const error = useSelector(selectLoginError);
     const loading = useSelector(selectLoginLoading);
+    const submitBtnDisabled = !username || !password || loading;
     
     const handleUsernameChange = useCallback((name: string) => 
         dispatch(loginActions.setUsername(name)), [dispatch]);
@@ -60,6 +61,7 @@ const LoginForm: FC<LoginFormProps> = ({ className, onSuccess }) => {
                     label='Username'
                     className={cls.input} 
                     value={username} 
+                    autoFocus
                     onChange={handleUsernameChange}/>       
                 <Input
                     type="password"
@@ -71,7 +73,7 @@ const LoginForm: FC<LoginFormProps> = ({ className, onSuccess }) => {
                 <Button 
                     className={cls.button}  
                     variant={BtnVariant.BACKGROUND_INVERTED}
-                    disabled={loading}>
+                    disabled={submitBtnDisabled}>
                     {t('sign-in')}
                 </Button> 
             </VStack>     
