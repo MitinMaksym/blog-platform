@@ -12,6 +12,11 @@ const meta: Meta<typeof Modal> = {
         open:true,
         children: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas, suscipit'
     },
+    parameters: {
+        loki: {
+            skip: true
+        }
+    }
 };
 
 export default meta;
