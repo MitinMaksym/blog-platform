@@ -6,8 +6,6 @@ import notificationsIcon from '@/shared/assets/icons/notification.svg';
 import { PopupDirection } from '@/shared/ui/popups/styles/popup';
 import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice';
 import { Drawer } from '@/shared/ui/Drawer/Drawer';
-
-import { AnimationProvider } from '@/shared/lib/components/AnimationProvider';
 import cls from './ShowNotificationsButton.module.scss';
 
 interface ShowNotificationsButtonProps {

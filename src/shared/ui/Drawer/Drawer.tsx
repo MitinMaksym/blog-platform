@@ -1,6 +1,6 @@
 import {  ReactNode, useCallback, useEffect } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
+import { AnimationProvider, useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
 import { Overlay } from '../Overlay/Overlay';
 import { Portal } from '../Portal/Portal';
 
@@ -94,12 +94,18 @@ const DrawerBase = (props: DrawerProps) => {
     );
 };
 
-const DrawerWrapper = ({children, ...otherProps}:DrawerProps) => {
+const DrawerAsync = (props :DrawerProps) => {
     const {isLoaded} = useAnimationLibs();
     if(!isLoaded) return null;
     
-    return <DrawerBase {...otherProps}>{children}</DrawerBase>;
+    return <DrawerBase {...props}/>;
 };
+
+export const Drawer = (props: DrawerProps) => (
+    <AnimationProvider>
+        <DrawerAsync {...props}/>
+    </AnimationProvider>
+);
 
 
 
