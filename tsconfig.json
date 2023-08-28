@@ -16,9 +16,8 @@
     // For absolute import
     "baseUrl": ".",
     "paths": {
-      "*": [
-        "./src/*"
-      ]
+
+      "@/*": ["./src/*"]
     }
   },
   "ts-node": {

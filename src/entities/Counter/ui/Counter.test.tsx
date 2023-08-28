@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react';
-import { componentRender } from 'shared/lib/tests/componentRender';
 import userEvent from '@testing-library/user-event';
+import { componentRender } from '@/shared/lib/tests/componentRender';
 import { Counter, counterReducer } from '..';
 
 

@@ -1,5 +1,5 @@
 import { FC, memo } from 'react';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 
 interface NotificationSkeletonProps {
    className?: string;

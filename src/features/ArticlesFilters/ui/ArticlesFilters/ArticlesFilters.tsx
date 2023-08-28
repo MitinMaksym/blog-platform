@@ -1,14 +1,14 @@
 import { FC, memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
-import { Card } from 'shared/ui/Card/Card';
-import { Input } from 'shared/ui/Input/Input';
-import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
 import { useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { ArticlesFilters as  ArticlesFiltersType} from 'entities/Article';
-import { HStack } from 'shared/ui/Stack';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { DynamicReducerLoader, ReducersList } from '@/shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
+import { Card } from '@/shared/ui/Card/Card';
+import { Input } from '@/shared/ui/Input/Input';
+import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
+import { ArticlesFilters as  ArticlesFiltersType} from '@/entities/Article';
+import { HStack } from '@/shared/ui/Stack';
 import { useSaveFilterState } from '../../lib/hooks/useSaveFiltersState.ts/useSaveFiltersState';
 import { 
     selectArticlesFiltersSearch, 

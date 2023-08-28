@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from 'app/providers/StoreProvider';
-import { Article, ArticlesFilters } from 'entities/Article';
+import { ThunkConfig } from '@/app/providers/StoreProvider';
+import { Article, ArticlesFilters } from '@/entities/Article';
 import { selectArticlesPageLimit } from '../../selectors/selectArticlesPageLimit/selectArticlesPageLimit';
 import { selectArticlesCurrentPage } from '../../selectors/selectArticlesCurrentPage/selectArticlesCurrentPage';
 

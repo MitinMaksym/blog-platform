@@ -1,13 +1,13 @@
-import { NotificationsList } from 'entities/Notification';
 import { FC, memo, useCallback, useState } from 'react';
-import { Icon } from 'shared/ui/Icon/Icon/Icon';
-import { Popover } from 'shared/ui/popups/Popover/Popover';
-import notificationsIcon from 'shared/assets/icons/notification.svg';
-import { PopupDirection } from 'shared/ui/popups/styles/popup';
-import { useDevice } from 'shared/lib/hooks/useDevice/useDevice';
-import { Drawer } from 'shared/ui/Drawer/Drawer';
+import { NotificationsList } from '@/entities/Notification';
+import { Icon } from '@/shared/ui/Icon/Icon/Icon';
+import { Popover } from '@/shared/ui/popups/Popover/Popover';
+import notificationsIcon from '@/shared/assets/icons/notification.svg';
+import { PopupDirection } from '@/shared/ui/popups/styles/popup';
+import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice';
+import { Drawer } from '@/shared/ui/Drawer/Drawer';
 
-import { AnimationProvider } from 'shared/lib/components/AnimationProvider';
+import { AnimationProvider } from '@/shared/lib/components/AnimationProvider';
 import cls from './ShowNotificationsButton.module.scss';
 
 interface ShowNotificationsButtonProps {
@@ -29,11 +29,11 @@ export const ShowNotificationsButton: FC<ShowNotificationsButtonProps> = memo((p
     if(isMobile){
         return <>
             {trigger}
-            {<AnimationProvider>
-                <Drawer isOpen={drawerVisible} onClose={hideDrawer}>
-                    <NotificationsList/>
-                </Drawer>
-            </AnimationProvider>}
+       
+            <Drawer isOpen={drawerVisible} onClose={hideDrawer}>
+                <NotificationsList/>
+            </Drawer>
+
         </>;
      
     }

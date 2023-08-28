@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { PaddingDecorator } from 'shared/config/storybook/decorators/PaddingDecorator';
+import { PaddingDecorator } from '@/shared/config/storybook/decorators/PaddingDecorator';
 import { Button } from '../../Button/Button';
 import {  Popover } from './Popover';
 

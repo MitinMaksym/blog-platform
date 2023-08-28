@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
-import testImg from 'shared/assets/testImg.png';
 import { withRouter } from 'storybook-addon-react-router-v6';
+import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
+import testImg from '@/shared/assets/testImg.png';
 import { Article } from '../../model/types/article';
 import { ArticleDetails } from './ArticleDetails';
 

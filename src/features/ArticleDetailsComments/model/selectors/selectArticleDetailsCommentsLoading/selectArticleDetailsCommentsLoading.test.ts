@@ -1,4 +1,4 @@
-import { StateSchema } from 'app/providers/StoreProvider';
+import { StateSchema } from '@/app/providers/StoreProvider';
 import { selectArticleDetailsCommentsLoading } from './selectArticleDetailsCommentsLoading';
 
 describe('selectArticleDetailsCommentsLoading', () => {

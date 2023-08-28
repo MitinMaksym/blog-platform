@@ -1,13 +1,13 @@
 import { FC, memo, useCallback } from 'react';
 import { A11y } from 'swiper';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Text } from 'shared/ui/Text/Text';
-import { Article } from 'entities/Article';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { ArticleListItem } from 'entities/Article/ui/ArticleListItem/ArticleListItem';
-import { HStack } from 'shared/ui/Stack';
-import { Loader } from 'shared/ui/Loader/Loader';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Text } from '@/shared/ui/Text/Text';
+import { Article } from '@/entities/Article';
+import { ArticleListItem } from '@/entities/Article/ui/ArticleListItem/ArticleListItem';
+import { HStack } from '@/shared/ui/Stack';
+import { Loader } from '@/shared/ui/Loader/Loader';
 import { useGetArticleRecommendationsQuery } from '../../api/articleRecommendationsApi';
 
 // Import Swiper styles

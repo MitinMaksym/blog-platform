@@ -1,5 +1,5 @@
-import { ARTICLES_VIEW } from 'shared/const/localstorage';
-import { TestAsyncThunk } from 'shared/lib/tests/testAsyncThunk/TestAsyncThunk';
+import { ARTICLES_VIEW } from '@/shared/const/localstorage';
+import { TestAsyncThunk } from '@/shared/lib/tests/testAsyncThunk/TestAsyncThunk';
 import { articlesPageActions } from '../../slice/articlesPageSlice';
 import { initArticlesPage } from './initArticlesPage';
 

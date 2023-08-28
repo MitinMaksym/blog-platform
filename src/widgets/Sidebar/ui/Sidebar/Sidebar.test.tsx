@@ -1,6 +1,6 @@
 import { screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { componentRender } from 'shared/lib/tests/componentRender';
+import { componentRender } from '@/shared/lib/tests/componentRender';
 import { Sidebar } from './Sidebar';
 
 describe('Sidebar',() => {

@@ -1,6 +1,6 @@
 import {  AsyncThunk } from '@reduxjs/toolkit';
-import { StateSchema, ThunkConfig } from 'app/providers/StoreProvider';
 import axios, { AxiosStatic } from 'axios';
+import { StateSchema, ThunkConfig } from '@/app/providers/StoreProvider';
 
 type AsyncThunkType<Return, Arg, Reject> = 
 AsyncThunk<Return, Arg, ThunkConfig<Reject>>

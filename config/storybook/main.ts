@@ -21,6 +21,12 @@ const config: StorybookConfig = {
         autodocs: 'tag',
     },
     webpackFinal: async (config: Configuration) => {
+        if(config.resolve?.alias){
+            config.resolve.alias = {
+                ...config.resolve.alias,
+                '@': path.resolve(__dirname, '../../src'),
+            };
+        }
        
         config?.resolve?.modules?.push(path.resolve(__dirname, '..', '..', 'src'));
         config?.resolve?.extensions?.push('.ts', '.tsx');

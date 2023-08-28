@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import avatarImg from 'shared/assets/avatar.webp';
 import { withRouter } from 'storybook-addon-react-router-v6';
+import avatarImg from '@/shared/assets/avatar.webp';
 import { CommentCard } from './CommentCard';
 
 const meta: Meta<typeof CommentCard> = {

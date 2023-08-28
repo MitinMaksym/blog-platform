@@ -1,4 +1,4 @@
-import { StateSchema } from 'app/providers/StoreProvider';
+import { StateSchema } from '@/app/providers/StoreProvider';
 import { selectArticlesPageInit } from './selectArticlesPageInit';
 
 describe('selectArticlesPageInit', () => {

@@ -1,8 +1,8 @@
 import { FC, memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { SortOrder } from 'shared/types';
-import { ListBox, ListBoxItem } from 'shared/ui/popups/ListBox/ListBox';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { SortOrder } from '@/shared/types';
+import { ListBox, ListBoxItem } from '@/shared/ui/popups/ListBox/ListBox';
 
 
 interface ArticlesOrderSelectProps {

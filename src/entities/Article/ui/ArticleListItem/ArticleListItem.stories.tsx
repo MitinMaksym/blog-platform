@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { withRouter } from 'storybook-addon-react-router-v6';
-import testImg from 'shared/assets/testImg.png';
-import avatarImg from 'shared/assets/avatar.webp';
+import testImg from '@/shared/assets/testImg.png';
+import avatarImg from '@/shared/assets/avatar.webp';
 import { Article } from '../../model/types/article';
 import { ArticleListItem } from './ArticleListItem';
 

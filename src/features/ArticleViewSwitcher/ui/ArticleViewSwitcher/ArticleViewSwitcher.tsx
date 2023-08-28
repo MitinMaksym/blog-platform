@@ -1,12 +1,12 @@
 import { FC, memo } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import {ArticleView} from 'entities/Article';
-import gridIcon from 'shared/assets/icons/grid.svg';
-import listIcon from 'shared/assets/icons/list.svg';
-import { BtnVariant, Button } from 'shared/ui/Button/Button';
-import { Icon } from 'shared/ui/Icon/Icon/Icon';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import {ArticleView} from '@/entities/Article';
+import gridIcon from '@/shared/assets/icons/grid.svg';
+import listIcon from '@/shared/assets/icons/list.svg';
+import { BtnVariant, Button } from '@/shared/ui/Button/Button';
+import { Icon } from '@/shared/ui/Icon/Icon/Icon';
 
-import { HStack } from 'shared/ui/Stack';
+import { HStack } from '@/shared/ui/Stack';
 import cls from './ArticleViewSwitcher.module.scss';
 
 interface ArticleViewSwitcherProps {

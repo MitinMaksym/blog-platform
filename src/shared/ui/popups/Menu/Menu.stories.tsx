@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { PaddingDecorator } from 'shared/config/storybook/decorators/PaddingDecorator';
 import { withRouter } from 'storybook-addon-react-router-v6';
+import { PaddingDecorator } from '@/shared/config/storybook/decorators/PaddingDecorator';
 import { Button } from '../../Button/Button';
 import { Menu } from './Menu';
 

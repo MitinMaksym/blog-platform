@@ -1,10 +1,10 @@
 import { useSelector } from 'react-redux';
 import { useEffect, useCallback } from 'react';
-import { ArticlesFilters, ArticlesSortField, ArticleType } from 'entities/Article';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { SortOrder } from 'shared/types';
 import { useSearchParams } from 'react-router-dom';
-import { ARTICLES_FILTERS } from 'shared/const/localstorage';
+import { ArticlesFilters, ArticlesSortField, ArticleType } from '@/entities/Article';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { SortOrder } from '@/shared/types';
+import { ARTICLES_FILTERS } from '@/shared/const/localstorage';
 import { selectArticlesFilters} from '../../../model/selectors/articleFiltersSelectors';
 import { articlesFiltersActions } from '../../../model/slice/articlesFiltersSlice';
 

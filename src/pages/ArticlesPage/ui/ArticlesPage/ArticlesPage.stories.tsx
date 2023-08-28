@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Theme } from 'app/providers/ThemeProvider';
-import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
-import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
-import testImg from 'shared/assets/testImg.png';
-import avatarImg from 'shared/assets/avatar.webp';
 import { withRouter } from 'storybook-addon-react-router-v6';
+import { Theme } from '@/app/providers/ThemeProvider';
+import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
+import testImg from '@/shared/assets/testImg.png';
+import avatarImg from '@/shared/assets/avatar.webp';
 import  ArticlesPage  from './ArticlesPage';
 import { ArticlesPageSchema } from '../../model/types/articlesPageSchema';
 

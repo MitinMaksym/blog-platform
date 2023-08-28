@@ -1,6 +1,6 @@
 import { FC, Fragment, memo, ReactNode } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
 import { Menu as MenuBase } from '@headlessui/react';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink } from '../../AppLink/AppLink';
 import { BtnVariant, Button } from '../../Button/Button';
 import {directionClasses, PopupDirection} from '../styles/popup';

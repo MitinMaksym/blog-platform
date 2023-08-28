@@ -1,10 +1,10 @@
-import { EditableProfileCard } from 'features/EditProfile';
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Page } from 'widgets/Page';
-import { Text } from 'shared/ui/Text/Text';
+import { EditableProfileCard } from '@/features/EditProfile';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Page } from '@/widgets/Page';
+import { Text } from '@/shared/ui/Text/Text';
     
 interface ProfilePageProps {
     className?: string;

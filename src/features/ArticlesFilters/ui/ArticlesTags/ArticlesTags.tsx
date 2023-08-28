@@ -1,8 +1,8 @@
 import { FC, memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { TagItem, Tags } from 'shared/ui/Tags/Tags';
-import {ArticleType} from 'entities/Article/model/types/article';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { TagItem, Tags } from '@/shared/ui/Tags/Tags';
+import {ArticleType} from '@/entities/Article/model/types/article';
 
 interface ArticlesTagsProps {
    className?: string;

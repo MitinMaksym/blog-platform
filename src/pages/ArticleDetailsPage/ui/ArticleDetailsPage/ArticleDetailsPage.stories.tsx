@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Theme } from 'app/providers/ThemeProvider';
-import { Article } from 'entities/Article';
-import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
-import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { withRouter } from 'storybook-addon-react-router-v6';
-import avatarImg from 'shared/assets/avatar.webp';
-import { SuspenseDecorator } from 'shared/config/storybook/decorators/SuspenseDecorator';
-import testImg from 'shared/assets/testImg.png';
+import { Theme } from '@/app/providers/ThemeProvider';
+import { Article } from '@/entities/Article';
+import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
+import avatarImg from '@/shared/assets/avatar.webp';
+import { SuspenseDecorator } from '@/shared/config/storybook/decorators/SuspenseDecorator';
+import testImg from '@/shared/assets/testImg.png';
 import ArticleDetailsPage from './ArticleDetailsPage';
 
 const data: Article =  {

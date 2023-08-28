@@ -1,7 +1,7 @@
 import { Suspense, useCallback } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { AppRoutesProps, routerConfig } from 'shared/config/routerConfig';
-import { PageLoader } from 'widgets/PageLoader';
+import { AppRoutesProps, routerConfig } from '@/shared/config/routerConfig';
+import { PageLoader } from '@/widgets/PageLoader';
 import { RequireAuth } from './RequireAuth';
 
 export const AppRouter = () => {
