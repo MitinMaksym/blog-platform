@@ -1,59 +1,23 @@
 .drawer {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
     opacity: 0;
     pointer-events: none;
     display: flex;
-    align-items: flex-end;
+    justify-content: center;
 }
 
 .content {
-    height: 70%;
+    z-index: var(--modal-z-index);
+    position: fixed;
+    height: calc(100vh + 100px);
+    width: 95vw;
+    border-radius: 12px 12px 0;
     background: var(--bg-color);
-    bottom: 0;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-    position: relative;
-    width: 100%;
-    min-height: 100px;
-    padding: 20px;
-    overflow-y: auto;
-    overflow-x: hidden;
+    touch-action: none;
+    padding: 15px;
 }
 
 .opened {
     pointer-events: auto;
     opacity: 1;
     z-index: var(--modal-z-index);
-}
-
-.opened .content {
-    animation: open-drawer 0.3s 1 forwards;
-}
-
-.closing .content {
-    animation: close-drawer 0.3s 1 forwards;
-}
-
-@keyframes open-drawer {
-    0% {
-        transform: translateY(100%);
-    }
-
-    100% {
-        transform: translateY(0%);
-    }
-}
-
-@keyframes close-drawer {
-    0% {
-        transform: translateY(0%);
-    }
-
-    100% {
-        transform: translateY(100%);
-    }
 }

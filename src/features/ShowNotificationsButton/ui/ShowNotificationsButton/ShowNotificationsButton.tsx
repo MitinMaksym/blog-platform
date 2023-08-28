@@ -7,6 +7,7 @@ import { PopupDirection } from 'shared/ui/popups/styles/popup';
 import { useDevice } from 'shared/lib/hooks/useDevice/useDevice';
 import { Drawer } from 'shared/ui/Drawer/Drawer';
 
+import { AnimationProvider } from 'shared/lib/components/AnimationProvider';
 import cls from './ShowNotificationsButton.module.scss';
 
 interface ShowNotificationsButtonProps {
@@ -28,9 +29,11 @@ export const ShowNotificationsButton: FC<ShowNotificationsButtonProps> = memo((p
     if(isMobile){
         return <>
             {trigger}
-            <Drawer open={drawerVisible} onClose={hideDrawer}>
-                <NotificationsList/>
-            </Drawer>
+            {<AnimationProvider>
+                <Drawer isOpen={drawerVisible} onClose={hideDrawer}>
+                    <NotificationsList/>
+                </Drawer>
+            </AnimationProvider>}
         </>;
      
     }
