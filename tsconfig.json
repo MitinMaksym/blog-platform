@@ -2,8 +2,8 @@
   "compilerOptions": {
     "outDir": "./dist/",
     "noImplicitAny": true,
+    "target": "ESNext",
     "module": "ESNext",
-    "target": "es5",
     "jsx": "react-jsx",
     "strict": true,
     "allowJs": true,
@@ -12,6 +12,7 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "isolatedModules": true,
+    "skipLibCheck": true,
 
     // For absolute import
     "baseUrl": ".",
