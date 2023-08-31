@@ -7,5 +7,6 @@
   "send-comment-failure": "Failed to send a comment",
   "read-more": "Read more...",
   "recommendations": "Recommendations",
-  "edit": "Edit"
+  "edit": "Edit",
+  "article-feedback": "Leave your feedback about the article"
 }
