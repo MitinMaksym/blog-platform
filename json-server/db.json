@@ -106,6 +106,12 @@
       "articleId": "14",
       "userId": "1",
       "id": "egiuIco"
+    },
+    {
+      "text": "jkhkjhkjkhkhkhkhkhkhkhkhk",
+      "articleId": "14",
+      "userId": "1",
+      "id": "NOq6TH1"
     }
   ],
   "articles": [
@@ -951,15 +957,29 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "roles": ["ADMIN", "MANAGER"],
+      "roles": [
+        "ADMIN",
+        "MANAGER"
+      ],
       "avatar": "https://st2.depositphotos.com/1000393/6507/i/600/depositphotos_65076917-stock-photo-hacker-and-terrorism-fight.jpg"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "roles":[ "USER"],
+      "roles": [
+        "USER"
+      ],
       "avatar": "https://thumbs.dreamstime.com/b/hacker-picture-computer-44924794.jpg"
+    }
+  ],
+  "article-ratings": [
+    {
+      "feedback": "",
+      "rate": 1,
+      "articleId": "15",
+      "userId": "1",
+      "id": 1
     }
   ]
 }

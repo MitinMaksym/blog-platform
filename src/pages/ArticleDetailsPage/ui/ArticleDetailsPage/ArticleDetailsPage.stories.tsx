@@ -8,6 +8,7 @@ import avatarImg from '@/shared/assets/avatar.webp';
 import { SuspenseDecorator } from '@/shared/config/storybook/decorators/SuspenseDecorator';
 import testImg from '@/shared/assets/testImg.png';
 import ArticleDetailsPage from './ArticleDetailsPage';
+import { Rating } from '@/entities/Rating';
 
 const data: Article =  {
     'id': '1',
@@ -46,37 +47,54 @@ const data: Article =  {
     ]
 };
 
+const ratingData: Array<Rating> = [{
+    rate: 4
+}];
+
 const meta: Meta<typeof ArticleDetailsPage> = {
     title: 'pages/ArticleDetailsPage',
     component: ArticleDetailsPage,
     tags: ['autodocs'],
     args: {},
-    decorators:[withRouter, SuspenseDecorator, StoreDecorator({
-        articleDetails: {data}, 
-        articleDetailsComments:{
-            ids:['1'],
-            entities:{
-                '1':  {
-                    id: '1',
-                    text: 'some comment',
-                    user: {
+    decorators: [
+        withRouter,
+        SuspenseDecorator,
+        StoreDecorator({
+            user: { authData: { id: '1' } },
+            articleDetails: { data },
+            articleDetailsComments: {
+                ids: ['1'],
+                entities: {
+                    '1': {
                         id: '1',
-                        username: 'John',
-                        avatar: avatarImg
-                    }
-
-                }
+                        text: 'some comment',
+                        user: {
+                            id: '1',
+                            username: 'John',
+                            avatar: avatarImg,
+                        },
+                    },
+                },
+                text: 'Comment',
             },
-            text:'Comment'
-        }
-    }), 
-    ThemeDecorator(Theme.LIGHT)],
+        }),
+        ThemeDecorator(Theme.LIGHT),
+    ],
+
     parameters: {
         reactRouter: {
             routePath: '/articles/:id',
             routeParams: { id: '1' },
-        }
-    }
+        },
+        mockData: [
+            {
+                url: `${__API__}/article-ratings?articleId=1&userId=1`,
+                method: 'GET',
+                status: 200,
+                response: ratingData,
+            },
+        ],
+    },
 };
 
 export default meta;
