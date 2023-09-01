@@ -7,6 +7,11 @@ import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import avatarIcon from '@/shared/assets/avatar.webp';
 import ProfilePage  from './ProfilePage';
+import { Rating } from '@/entities/Rating';
+
+const ratingData: Array<Rating> = [{
+    rate: 4
+}];
 
 const meta: Meta<typeof ProfilePage> = {
     title: 'pages/ProfilePage',
@@ -17,20 +22,33 @@ const meta: Meta<typeof ProfilePage> = {
         reactRouter: {
             routePath: '/profile/:id',
             routeParams: { id: '1' },
-        }
+        },
+        mockData: [
+            {
+                url: `${__API__}/profile-ratings?profileId=1&userId=1`,
+                method: 'GET',
+                status: 200,
+                response: ratingData,
+            },
+        ],
     },
-    decorators:[withRouter, StoreDecorator({profile: {
-        form: { 
-            first:'First Name', 
-            lastname:'Last Name', 
-            username:'Nickname', 
-            age: 25, 
-            avatar: avatarIcon,
-            country: Country.UKRAINE,
-            currency: Currency.EUR
-        }
-    }
-    })]
+    decorators: [
+        withRouter,
+        StoreDecorator({
+            user: {authData: {id: '1'}},
+            profile: {
+                form: {
+                    first: 'First Name',
+                    lastname: 'Last Name',
+                    username: 'Nickname',
+                    age: 25,
+                    avatar: avatarIcon,
+                    country: Country.UKRAINE,
+                    currency: Currency.EUR,
+                },
+            },
+        }),
+    ],
 };
 
 export default meta;
