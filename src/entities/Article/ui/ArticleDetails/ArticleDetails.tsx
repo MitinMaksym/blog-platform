@@ -12,7 +12,6 @@ import EyeIcon from '@/shared/assets/icons/eye.svg';
 import CalendarIcon from '@/shared/assets/icons/calendar.svg';
 import { Icon } from '@/shared/ui/Icon/Icon/Icon';
 import { Button } from '@/shared/ui/Button/Button';
-import { RoutePath } from '@/shared/config/routerConfig';
 import { HStack } from '@/shared/ui/Stack';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
@@ -28,6 +27,7 @@ import cls from './ArticleDetails.module.scss';
 import { ArticleCodeBlock } from '../ArticleCodeBlock/ArticleCodeBlock';
 import { ArticleImageBlock } from '../ArticleImageBlock/ArticleImageBlock';
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
+import { RoutePath } from '@/shared/const/router';
 
 
 interface ArticleDetailsProps {

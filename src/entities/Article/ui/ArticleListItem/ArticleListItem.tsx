@@ -6,13 +6,13 @@ import { Text } from '@/shared/ui/Text/Text';
 import eyeIcon from '@/shared/assets/icons/eye.svg';
 import { Icon } from '@/shared/ui/Icon/Icon/Icon';
 import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink/AppLink';
-import { RoutePath } from '@/shared/config/routerConfig';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { HStack } from '@/shared/ui/Stack';
 import { Article, ArticleTextBlock as ArticleTextBlockType, ArticleView } from '../../model/types/article';
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 
 import cls from './ArticleListItem.module.scss';
+import { RoutePath } from '@/shared/const/router';
 
 
 interface ArticleListItemProps {
