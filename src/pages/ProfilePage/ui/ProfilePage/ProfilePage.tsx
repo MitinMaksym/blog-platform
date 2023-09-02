@@ -11,7 +11,7 @@ import { VStack } from '@/shared/ui/Stack';
 import { selectUserAuthData } from '@/entities/User';
     
 interface ProfilePageProps {
-    className?: string;
+  className?: string;
 }
 
 

@@ -74,6 +74,7 @@ module.exports = {
         '@typescript-eslint/ban-ts-comment': 'off',
         'react/prop-types': 'off',
         'fsd-methodology-rules-checker/path-checker': ['error', { alias: '@' }],
+        'fsd-methodology-rules-checker/public-api-imports': ['error', { alias: '@' }],
     },
     globals: {
         __IS_DEV__: true,
