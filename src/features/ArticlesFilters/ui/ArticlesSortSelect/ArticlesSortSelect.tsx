@@ -3,10 +3,12 @@ import { useTranslation } from 'react-i18next';
 import { ArticlesSortField } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ListBox, ListBoxItem } from '@/shared/ui/popups/ListBox/ListBox';
+import { PopupDirection } from '@/shared/ui/popups/styles/popup';
 
 interface ArticlesSortSelectProps {
-   className?: string
    value: ArticlesSortField
+   className?: string
+   direction?: PopupDirection
    onChange: (order: ArticlesSortField) => void
 }
 
@@ -17,7 +19,7 @@ const sortTranslations: Record<ArticlesSortField, string> = {
 };
 
 export const ArticlesSortSelect: FC<ArticlesSortSelectProps> = memo((props) => {
-    const { value, className, onChange } = props;
+    const { value, className, direction = 'bottomCenter', onChange } = props;
     const { t } = useTranslation('articles');
 
     const orderOptions:ListBoxItem<ArticlesSortField>[] = useMemo(() => 
@@ -31,6 +33,7 @@ export const ArticlesSortSelect: FC<ArticlesSortSelectProps> = memo((props) => {
                 items={orderOptions} 
                 value={value}
                 label={t('sort-by')}
+                direction={direction}
                 onChange={onChange}/>
         </div>
     );

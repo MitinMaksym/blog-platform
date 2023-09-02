@@ -39,5 +39,6 @@
   "create-article": "Створити статтю",
   "admin-panel": "Адмін панель",
   "page-forbidden": "Доступ заборонено",
-  "notifications-error": "Не вдалося загрузити  сповіщення"
+  "notifications-error": "Не вдалося загрузити  сповіщення",
+  "fetch-profile-error": "Не вдалося загрузити провіль"
 }

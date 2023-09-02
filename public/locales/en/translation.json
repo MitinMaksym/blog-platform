@@ -39,5 +39,6 @@
   "create-article": "Create article",
   "page-forbidden": "This page is forbidden",
   "admin-panel": "Admin Panel",
-  "notifications-error": "Failed to load notifications"
+  "notifications-error": "Failed to load notifications",
+  "fetch-profile-error": "Failed to fetch profile"
 }

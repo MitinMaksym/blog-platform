@@ -40,9 +40,9 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = memo((props) =>
     const editMode = useSelector(selectProfileEditMode);
     const canEdit = useSelector(selectProfileCanEdit);
     const {id} = props;
-
+    const serverError = errors?.includes(ProfileError.SERVER_ERROR);
     const actionButtonsVisible = !loading && canEdit;
-
+    
     const errorsTranslations = {
         [ProfileError.INCORRECT_USER_DATA]: t('incorrect-user-data'),
         [ProfileError.INCORRECT_COUNTRY]: t('incorrect-country'),
@@ -63,21 +63,23 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = memo((props) =>
     const cancelFormEdit = useCallback(() => dispatch(profileActions.cancelFormEdit()),[dispatch]);
     const setEditMode = useCallback(() => dispatch(profileActions.setEditMode(true)),[dispatch]);
 
+    let content;
 
-    return (
-        <div data-testid="EditableProfileCard" className={cls.cardWrapper}>
-            <DynamicReducerLoader reducers={reducers} removeAfterUnmount>
+    if(serverError) content =  <Text title={t('fetch-profile-error')} theme={TextTheme.ERROR}/>;
+    else {
+        content = (
+            <>
+                {' '}
                 {!!errors?.length &&
-            errors?.map((err) => (
-                <Text
-                    key={err}
-                    title={t('error-occured')}
-                    text={errorsTranslations[err]}
-                    theme={TextTheme.ERROR}
-                    data-testid='EditableProfileCard.Error'
-                />
-            ))}
-
+              errors?.map((err) => (
+                  <Text
+                      key={err}
+                      title={t('error-occured')}
+                      text={errorsTranslations[err]}
+                      theme={TextTheme.ERROR}
+                      data-testid="EditableProfileCard.Error"
+                  />
+              ))}
                 <ProfileCard
                     data={formData}
                     className={cls.profileCard}
@@ -92,6 +94,14 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = memo((props) =>
                     onSetEditMode={setEditMode}
                     onCancel={cancelFormEdit}
                 />
+            </>
+        );
+    }
+  
+    return (
+        <div data-testid="EditableProfileCard" className={cls.cardWrapper}>
+            <DynamicReducerLoader reducers={reducers} removeAfterUnmount>
+                {content}
             </DynamicReducerLoader>
         </div>
     );

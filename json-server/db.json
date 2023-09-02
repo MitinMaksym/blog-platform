@@ -981,5 +981,21 @@
       "userId": "1",
       "id": 1
     }
+  ],
+  "profile-ratings": [
+    {
+      "feedback": "Great profile",
+      "rate": 4,
+      "profileId": "1",
+      "userId": "2",
+      "id": 1
+    },
+    {
+      "feedback": "",
+      "rate": 5,
+      "profileId": "343434",
+      "userId": "2",
+      "id": 2
+    }
   ]
 }
