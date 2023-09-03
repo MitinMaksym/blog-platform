@@ -1,0 +1,2 @@
+export { pageReducer } from '.';
+

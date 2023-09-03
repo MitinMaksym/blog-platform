@@ -1,22 +1,13 @@
 import { ReducersMapObject } from '@reduxjs/toolkit';
 import { StoryFn } from '@storybook/react';
 import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
-
-// TODO: PUBLIC API FOR TESTS
-// eslint-disable-next-line
-import { articleDetailsReducer } from '@/entities/Article/model/slice/articleDetailsSlice';
-// eslint-disable-next-line
-import { articleDetailsCommentsReducer } from 
-    '@/features/ArticleDetailsComments/model/slice/articleDetailsCommentsSlice';
-// eslint-disable-next-line
-import { articlesFiltersReducer } from '@/features/ArticlesFilters/model/slice/articlesFiltersSlice';
-// eslint-disable-next-line
-import { loginReducer } from '@/features/AuthByUsername/model/slice/loginSlice';
-// eslint-disable-next-line
-import { profileReducer } from '@/features/EditProfile/model/slice/profileSlice';
-// eslint-disable-next-line
-import { articlesPageReducer } from '@/pages/ArticlesPage/model/slice/articlesPageSlice';
 import { pageReducer } from '@/widgets/Page';
+import { articleDetailsReducer } from '@/entities/Article/testing';
+import { articleDetailsCommentsReducer } from '@/features/ArticleDetailsComments/testing';
+import { articlesFiltersReducer } from '@/features/ArticlesFilters/testing';
+import { loginReducer } from '@/features/AuthByUsername/testing';
+import { profileReducer } from '@/features/EditProfile/testing';
+import { articlesPageReducer } from '@/pages/ArticlesPage/testing';
 
 
 const defaultAsyncReducers:DeepPartial<ReducersMapObject<StateSchema>>  = {
