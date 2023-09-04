@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Theme } from '@/app/providers/ThemeProvider';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
@@ -7,6 +6,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecora
 import AvatarIcon from '@/shared/assets/avatar.webp';
 import { ProfileError } from '../../model/consts/consts';
 import { EditableProfileCard } from './EditableProfileCard';
+import { Theme } from '@/shared/const/theme';
 
 const data = { 
     first:'First Name', 

@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { withRouter } from 'storybook-addon-react-router-v6';
-import { Theme } from '@/app/providers/ThemeProvider';
 import { Article } from '@/entities/Article';
 import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
@@ -9,6 +8,7 @@ import { SuspenseDecorator } from '@/shared/config/storybook/decorators/Suspense
 import testImg from '@/shared/assets/testImg.png';
 import ArticleDetailsPage from './ArticleDetailsPage';
 import { Rating } from '@/entities/Rating';
+import { Theme } from '@/shared/const/theme';
 
 const data: Article =  {
     'id': '1',

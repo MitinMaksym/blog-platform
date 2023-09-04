@@ -81,6 +81,13 @@ module.exports = {
                 testPatterns: ['**/StoreDecorator.tsx', '**/*.test.*', '**/*.story.*'],
             },
         ],
+        'fsd-methodology-rules-checker/layers-imports': [
+            'error',
+            {
+                alias: '@',
+                ignoreImportPatterns: ['**/testing', '**/StoreProvider', '**/*.test', '**/*.story'],
+            },
+        ],
     },
     globals: {
         __IS_DEV__: true,

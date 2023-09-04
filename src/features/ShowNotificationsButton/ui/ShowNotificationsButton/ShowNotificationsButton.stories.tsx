@@ -1,9 +1,7 @@
-import type { Meta, StoryFn, StoryObj } from '@storybook/react';
-import { Theme } from '@/app/providers/ThemeProvider';
+import type { Meta, StoryObj } from '@storybook/react';
 import { Notification } from '@/entities/Notification';
 import { PaddingDecorator } from '@/shared/config/storybook/decorators/PaddingDecorator';
 import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
-import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
 import { ShowNotificationsButton } from './ShowNotificationsButton';
 
 const mockResponse:Array<Notification> = [

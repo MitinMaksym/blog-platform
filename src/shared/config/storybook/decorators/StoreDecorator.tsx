@@ -1,13 +1,13 @@
 import { ReducersMapObject } from '@reduxjs/toolkit';
 import { StoryFn } from '@storybook/react';
 import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
-import { pageReducer } from '@/widgets/Page';
 import { articleDetailsReducer } from '@/entities/Article/testing';
 import { articleDetailsCommentsReducer } from '@/features/ArticleDetailsComments/testing';
 import { articlesFiltersReducer } from '@/features/ArticlesFilters/testing';
 import { loginReducer } from '@/features/AuthByUsername/testing';
 import { profileReducer } from '@/features/EditProfile/testing';
 import { articlesPageReducer } from '@/pages/ArticlesPage/testing';
+import { pageReducer } from '@/widgets/Page/testing';
 
 
 const defaultAsyncReducers:DeepPartial<ReducersMapObject<StateSchema>>  = {
