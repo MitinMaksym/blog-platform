@@ -6,7 +6,7 @@ import { LoginModal } from '@/features/AuthByUsername';
 import { AvatarDropdown } from '@/features/AvatarDropdown';
 import { ShowNotificationsButton } from '@/features/ShowNotificationsButton';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button } from '@/shared/ui/Button/Button';
+import { Button } from '@/shared/ui/Button';
 
 import cls from './Navbar.module.scss';
 

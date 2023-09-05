@@ -2,7 +2,7 @@ import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { ArticleDetails } from '@/entities/Article';
-import { Text, TextTheme } from '@/shared/ui/Text/Text';
+import { Text, TextTheme } from '@/shared/ui/Text';
 import { ArticleDetailsComments } from '@/features/ArticleDetailsComments';
 import { Page } from '@/widgets/Page';
 import { ArticleRecommendations } from '@/features/ArticleRecommendations';

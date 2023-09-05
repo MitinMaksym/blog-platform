@@ -2,8 +2,8 @@ import { FC, memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArticlesSortField } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { ListBox, ListBoxItem } from '@/shared/ui/popups/ListBox/ListBox';
 import { PopupDirection } from '@/shared/ui/popups/styles/popup';
+import { ListBox, ListBoxItem } from '@/shared/ui/popups';
 
 interface ArticlesSortSelectProps {
    value: ArticlesSortField

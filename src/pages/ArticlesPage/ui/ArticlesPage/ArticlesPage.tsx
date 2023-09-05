@@ -6,7 +6,7 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { DynamicReducerLoader, ReducersList } from '@/shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 import { ArticleViewSwitcher } from '@/features/ArticleViewSwitcher';
-import { Text, TextTheme } from '@/shared/ui/Text/Text';
+import { Text, TextTheme } from '@/shared/ui/Text';
 import { ARTICLES_VIEW } from '@/shared/const/localstorage';
 import { Page } from '@/widgets/Page';
 import { ArticlesFilters } from '@/features/ArticlesFilters';

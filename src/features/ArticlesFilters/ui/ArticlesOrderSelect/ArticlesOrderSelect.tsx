@@ -2,8 +2,8 @@ import { FC, memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { SortOrder } from '@/shared/types';
-import { ListBox, ListBoxItem } from '@/shared/ui/popups/ListBox/ListBox';
 import { PopupDirection } from '@/shared/ui/popups/styles/popup';
+import { ListBox, ListBoxItem } from '@/shared/ui/popups';
 
 
 interface ArticlesOrderSelectProps {
@@ -28,7 +28,7 @@ export const ArticlesOrderSelect: FC<ArticlesOrderSelectProps> = memo((props) =>
 
     return (
         <div className={classNames('', {}, [className])}>
-            <ListBox 
+            <ListBox
                 id="article-order-select" 
                 items={orderOptions} 
                 value={value}

@@ -3,8 +3,8 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import {ArticleView} from '@/entities/Article';
 import gridIcon from '@/shared/assets/icons/grid.svg';
 import listIcon from '@/shared/assets/icons/list.svg';
-import { BtnVariant, Button } from '@/shared/ui/Button/Button';
-import { Icon } from '@/shared/ui/Icon/Icon/Icon';
+import { BtnVariant, Button } from '@/shared/ui/Button';
+import { Icon } from '@/shared/ui/Icon';
 
 import { HStack } from '@/shared/ui/Stack';
 import cls from './ArticleViewSwitcher.module.scss';

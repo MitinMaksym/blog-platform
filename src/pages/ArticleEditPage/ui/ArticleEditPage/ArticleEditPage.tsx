@@ -1,7 +1,7 @@
 import { FC, memo } from 'react';
 import { useParams } from 'react-router-dom';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text } from '@/shared/ui/Text/Text';
+import { Text } from '@/shared/ui/Text';
 import { Page } from '@/widgets/Page';
 
 interface ArticleEditPageProps {

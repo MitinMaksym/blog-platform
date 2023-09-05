@@ -1,12 +1,12 @@
 import { FC, memo, useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { StarRating } from '@/shared/ui/Rating/StarRating';
-import { Card } from '@/shared/ui/Card/Card';
+import { StarRating } from '@/shared/ui/StarRating';
+import { Card } from '@/shared/ui/Card';
 import { HStack, VStack } from '@/shared/ui/Stack';
-import { Text } from '@/shared/ui/Text/Text';
-import { Modal } from '@/shared/ui/Modal/Modal';
-import { AutoHeightTextarea } from '@/shared/ui/AutoHeightTextarea/AutoHeightTextarea';
-import {  BtnVariant, Button } from '@/shared/ui/Button/Button';
+import { Text } from '@/shared/ui/Text';
+import { Modal } from '@/shared/ui/Modal';
+import { AutoHeightTextarea } from '@/shared/ui/AutoHeightTextarea';
+import {  BtnVariant, Button } from '@/shared/ui/Button';
 
 
 interface RatingCardProps {

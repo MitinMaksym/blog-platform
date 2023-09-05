@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { BtnVariant, Button } from '@/shared/ui/Button/Button';
+import { BtnVariant, Button } from '@/shared/ui/Button';
 import { HStack } from '@/shared/ui/Stack';
 
 interface EditableProfileCardButtonsProps {

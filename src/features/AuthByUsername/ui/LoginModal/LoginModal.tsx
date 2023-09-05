@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Modal } from '@/shared/ui/Modal/Modal';
+import { Modal } from '@/shared/ui/Modal';
 import { LoginForm } from '../LoginForm/LoginForm.async';
 
 interface LoginModalProps {

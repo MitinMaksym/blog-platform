@@ -4,10 +4,10 @@ import { useSelector } from 'react-redux';
 import { selectIsUserAdmin, selectIsUserManager, selectUserAuthData, userActions } from '@/entities/User';
 import { ARTICLES_FILTERS, USER_DATA_KEY } from '@/shared/const/localstorage';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
-import { Menu } from '@/shared/ui/popups/Menu/Menu';
-import { PopupDirection } from '@/shared/ui/popups/styles/popup';
 import { RoutePath } from '@/shared/const/router';
+import { PopupDirection } from '@/shared/ui/popups/styles/popup';
+import { Menu } from '@/shared/ui/popups';
+import { Avatar } from '@/shared/ui/Avatar';
 
 interface AvatarDropdownProps {
    className?: string;
