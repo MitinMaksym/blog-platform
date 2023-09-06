@@ -38,7 +38,7 @@ npm run start:dev or npm run start:dev:vite - run project in dev mode
 
 The project is designed according to the FSD methodology
 
-Link to th docs - [feature sliced design](https://feature-sliced.design/docs/get-started/tutorial)
+Link to the docs - [feature sliced design](https://feature-sliced.design/docs/get-started/tutorial)
 
 ----
 
@@ -69,7 +69,7 @@ More details about tests - [Tests docs](/docs/tests.md)
 
 Eslint and stylelint are used for checking typescript and scss files.
 
-In addition, eslint-plugin-fsd-methodology-rules-checker plugin is used for strict control of the main architecture principles own eslint
+In addition, own eslint-plugin-fsd-methodology-rules-checker is used for strict control of the main architecture principles own eslint
 are used and contains 3 rules:
 1) path-checker - prohibits the use of absolute imports within the same module
 2) layer-imports - checks the correctness of using layers from the point of view of FSD
@@ -98,33 +98,38 @@ More details about [Storybook](/docs/storybook.md)
 Example:
 
 ```typescript jsx
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Button, ButtonSize, ButtonTheme } from './Button';
+import type { Meta, StoryObj } from '@storybook/react';
+import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
+import { BtnSize, BtnVariant, Button } from './Button';
 import { Theme } from '@/shared/const/theme';
 
-export default {
+const meta: Meta<typeof Button> = {
     title: 'shared/Button',
     component: Button,
+    tags: ['autodocs'],
     argTypes: {
-        backgroundColor: { control: 'color' },
+        variant: BtnVariant,
     },
-} as ComponentMeta<typeof Button>;
-
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
-
-export const Primary = Template.bind({});
-Primary.args = {
-    children: 'Text',
 };
 
-export const Clear = Template.bind({});
-Clear.args = {
-    children: 'Text',
-    theme: ButtonTheme.CLEAR,
+export default meta;
+type Story = StoryObj<typeof Button>;
+
+export const Clear: Story = {
+    args: {
+        variant: BtnVariant.CLEAR,
+        children: 'Text'
+    },
+    decorators:[ThemeDecorator()]  
 };
+
+export const Outlined: Story = {
+    args: {
+        variant: BtnVariant.OUTLINE,
+        children: 'Text'
+    },
+    decorators:[ThemeDecorator()]
+};s
 ```
 
 
@@ -148,12 +153,12 @@ All the config is stored in /config
 
 ----
 
-## CI pipeline и pre commit хуки
+## CI pipeline and pre-commit hooks
 
 Github actions config is in /.github/workflows.
 CI runs all the types of tests, project and storybook builds, linting.
 
-Precommit hook checks the project with linters, config is in /.husky
+Pre-commit hooks check the project with linters, config is in /.husky
 
 ----
 
