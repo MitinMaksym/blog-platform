@@ -1,4 +1,4 @@
-import { DetailedHTMLProps, FC, memo, TextareaHTMLAttributes, useCallback, useRef, useState } from 'react';
+import { DetailedHTMLProps, FC, memo, TextareaHTMLAttributes, useRef, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import useAutosizeTextArea from '@/shared/lib/hooks/useAutosizeTextArea/useAutosizeTextArea';
 

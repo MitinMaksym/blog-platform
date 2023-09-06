@@ -34,6 +34,7 @@ module.exports = {
         'i18next',
         'react-hooks',
         'fsd-methodology-rules-checker',
+        'unused-imports'
     ],
     rules: {
         'react/jsx-indent': [2, 4],
@@ -73,6 +74,7 @@ module.exports = {
         quotes: [2, 'single', { avoidEscape: true }],
         '@typescript-eslint/ban-ts-comment': 'off',
         'react/prop-types': 'off',
+        'unused-imports/no-unused-imports': 'error',
         'fsd-methodology-rules-checker/path-checker': ['error', { alias: '@' }],
         'fsd-methodology-rules-checker/public-api-imports': [
             'error',
