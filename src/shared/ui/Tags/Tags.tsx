@@ -1,5 +1,6 @@
 import { useCallback } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { TypedMemo } from '@/shared/lib/components/TypedMemo/TypedMemo';
 
 import cls from './Tags.module.scss';
 
@@ -15,7 +16,7 @@ interface TagsProps<T extends string> {
    onChange: (value: T) => void
 }
 
-export const Tags = <T extends string>(props: TagsProps<T>) => {
+export const Tags = TypedMemo(<T extends string>(props: TagsProps<T>) => {
     const { items, value, className, onChange } = props;
     const handleChange = useCallback((val: T) => () => {
         onChange(val);
@@ -33,4 +34,4 @@ export const Tags = <T extends string>(props: TagsProps<T>) => {
             }
         </div>
     );
-};
+});

@@ -4,9 +4,11 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button } from '../../Button/Button';
 import { HStack } from '../../Stack';
 import { directionClasses, PopupDirection } from '../styles/popup';
+import { TypedMemo } from '@/shared/lib/components/TypedMemo/TypedMemo';
 
-import cls from './ListBox.module.scss';
 import popupCls from '../styles/Popup.module.scss';
+import cls from './ListBox.module.scss';
+
 
 export type ListBoxItem<T extends string> = {
    value: T
@@ -24,7 +26,7 @@ export interface ListBoxProps<T extends string> {
    onChange: (el: T) => void
 }
 
-export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
+export const ListBox = TypedMemo(<T extends string>(props: ListBoxProps<T>) => {
     const {id, items, value, disabled, label,direction = 'bottomLeft', onChange} = props;
     const { className } = props;
 
@@ -68,4 +70,4 @@ export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
             </Listbox>
         </HStack>
     );
-};
+});

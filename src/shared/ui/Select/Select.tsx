@@ -1,6 +1,7 @@
 import { ChangeEvent, useMemo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Select.module.scss';
+import { TypedMemo } from '@/shared/lib/components/TypedMemo/TypedMemo';
 
 export interface SelectOption<T extends string> {
     value: T
@@ -14,14 +15,14 @@ export interface SelectProps<T extends string> {
     label?: string
     options?: SelectOption<T>[]
     disabled?: boolean
-    onChange:  (value: T) => void
+    onChange?:  (value: T) => void
 }
 
-export const Select = <T extends string>(props: SelectProps<T>) => {
+export const Select = TypedMemo(<T extends string>(props: SelectProps<T>) => {
     const { id, value, className, label, options, disabled, onChange } = props;
 
     const changeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
-        onChange(e.target.value as T);};
+        onChange?.(e.target.value as T);};
 
     const optionsList = useMemo(() => options?.map((opt) => 
         <option 
@@ -40,4 +41,4 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
             {optionsList}
         </select>
     </div>;
-};
+});
