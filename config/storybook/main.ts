@@ -9,9 +9,15 @@ const config: StorybookConfig = {
         'storybook-addon-mock',
         'storybook-react-i18next',
         '@storybook/addon-links',
-        '@storybook/addon-essentials',
+        {
+            name: '@storybook/addon-essentials',
+            options: {
+                backgrounds: false,
+            }
+        },
         '@storybook/addon-interactions',
         'storybook-addon-react-router-v6',
+        'storybook-addon-themes'
     ],
     framework: {
         name: '@storybook/react-webpack5',
