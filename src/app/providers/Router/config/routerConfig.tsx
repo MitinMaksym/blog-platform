@@ -9,7 +9,7 @@ import { MainPage } from '@/pages/MainPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 import { ProfilePage } from '@/pages/ProfilePage';
 import { UserRole } from '@/entities/User';
-import { AppRoutes, RoutePath } from '@/shared/const/router';
+import { AppRoutes, routes } from '@/shared/const/router';
 
 
 export type AppRoutesProps = RouteProps & {
@@ -19,60 +19,60 @@ export type AppRoutesProps = RouteProps & {
 
 export const routerConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.MAIN]: {
-        path: RoutePath.main,
+        path: routes.main(),
         element: <MainPage />,
     },
 
     [AppRoutes.ABOUT]: {
-        path: RoutePath.about,
+        path: routes.about(),
         element: <AboutPage />,
     },
 
     [AppRoutes.PROFILE]: {
-        path: `${RoutePath.profile}:id`,
+        path: routes.profile(':id'),
         element: <ProfilePage />,
         authOnly: true,
     },
 
     [AppRoutes.ARTICLES]: {
-        path: RoutePath.articles,
+        path: routes.articles(),
         element: <ArticlesPage />,
         authOnly: true,
     },
 
     [AppRoutes.ARTICLE_DETAILS]: {
-        path: `${RoutePath.article_details}:id`,
+        path: routes.articleDetails(':id'),
         element: <ArticleDetailsPage />,
         authOnly: true,
     },
 
     [AppRoutes.ARTICLE_EDIT]: {
-        path: RoutePath.article_edit,
+        path: routes.articleEdit(':id'),
         element: <ArticlesEditPage />,
         authOnly: true,
     },
 
     [AppRoutes.ARTICLE_CREATE]: {
-        path: RoutePath.article_create,
+        path: routes.articleCreate(),
         element: <ArticlesEditPage />,
         authOnly: true,
     },
 
     [AppRoutes.ADMIN]: {
-        path: RoutePath.admin,
+        path: routes.admin(),
         element: <AdminPanelPage />,
         roles: [UserRole.ADMIN, UserRole.MANAGER],
         authOnly: true,
     },
 
     [AppRoutes.FORBIDDEN]: {
-        path: RoutePath.forbidden,
+        path: routes.forbidden(),
         element: <ForbiddenPage />,
         authOnly: true,
     },
 
     [AppRoutes.NOT_FOUND]: {
-        path: RoutePath.not_found,
+        path: routes.forbidden(),
         element: <NotFoundPage />,
     },
 };

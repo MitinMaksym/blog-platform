@@ -8,6 +8,7 @@ import avatarIcon from '@/shared/assets/avatar.webp';
 import ProfilePage  from './ProfilePage';
 import { Rating } from '@/entities/Rating';
 import { Theme } from '@/shared/const/theme';
+import { routes } from '@/shared/const/router';
 
 const ratingData: Array<Rating> = [{
     rate: 4
@@ -20,7 +21,7 @@ const meta: Meta<typeof ProfilePage> = {
     argTypes: {},
     parameters: {
         reactRouter: {
-            routePath: '/profile/:id',
+            routePath: routes.profile(':id'),
             routeParams: { id: '1' },
         },
         mockData: [

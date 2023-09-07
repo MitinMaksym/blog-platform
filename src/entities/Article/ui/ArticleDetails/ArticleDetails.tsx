@@ -27,7 +27,7 @@ import cls from './ArticleDetails.module.scss';
 import { ArticleCodeBlock } from '../ArticleCodeBlock/ArticleCodeBlock';
 import { ArticleImageBlock } from '../ArticleImageBlock/ArticleImageBlock';
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
-import { RoutePath } from '@/shared/const/router';
+import { routes } from '@/shared/const/router';
 
 
 interface ArticleDetailsProps {
@@ -63,7 +63,7 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo((props) => {
     const canEdit = useSelector(selectArticleDetailsCanEdit);
 
     const handleEditBtnClick = useCallback(() => {
-        navigate(`${RoutePath.articles}/${id}/edit`);
+        navigate(routes.articleEdit(id));
     }, [navigate, id]); 
 
     useEffect(() => {

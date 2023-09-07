@@ -5,12 +5,6 @@ import { ErrorBoundary } from '@/app/providers/ErrorBoundary';
 import { StoreProvider } from '@/app/providers/StoreProvider';
 import { App } from './app/App';
 
-
-import '@/shared/config/i18n/i18n';
-import './app/styles/index.scss';
-
-
-
 const container = document.getElementById('root');
 
 if(!container) throw new Error('Root container is not found');

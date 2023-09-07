@@ -9,6 +9,7 @@ import testImg from '@/shared/assets/testImg.png';
 import ArticleDetailsPage from './ArticleDetailsPage';
 import { Rating } from '@/entities/Rating';
 import { Theme } from '@/shared/const/theme';
+import { routes } from '@/shared/const/router';
 
 const data: Article =  {
     'id': '1',
@@ -83,7 +84,7 @@ const meta: Meta<typeof ArticleDetailsPage> = {
 
     parameters: {
         reactRouter: {
-            routePath: '/articles/:id',
+            routePath: routes.articleDetails(':id'),
             routeParams: { id: '1' },
         },
         mockData: [

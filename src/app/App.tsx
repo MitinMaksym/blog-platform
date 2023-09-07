@@ -7,6 +7,9 @@ import { selectUserInited, userActions } from '@/entities/User';
 import { USER_DATA_KEY } from '@/shared/const/localstorage';
 import { AppRouter } from './providers/Router';
 
+import '@/shared/config/i18n/i18n';
+import './styles/index.scss';
+
 export const App = () => {
     const dispatch = useDispatch();
     const userInited = useSelector(selectUserInited);

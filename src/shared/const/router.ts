@@ -3,23 +3,24 @@ export enum AppRoutes {
     ABOUT = 'about',
     PROFILE = 'profile',
     ARTICLES = 'articles',
-    ARTICLE_DETAILS = 'article_details',
-    ARTICLE_EDIT = 'article_edit',
-    ARTICLE_CREATE = 'article_create',
+    ARTICLE_DETAILS = 'articleDetails',
+    ARTICLE_EDIT = 'articleEdit',
+    ARTICLE_CREATE = 'articleCreate',
     ADMIN = 'admin',
-    NOT_FOUND = 'not_found',
+    NOT_FOUND = 'notFound',
     FORBIDDEN = 'forbidden'
   }
-  
-export const RoutePath: Record<AppRoutes, string> = {
-    [AppRoutes.MAIN]: '/',
-    [AppRoutes.ABOUT]: '/about',
-    [AppRoutes.PROFILE]: '/profile/', // :id
-    [AppRoutes.ARTICLES]: '/articles',
-    [AppRoutes.ARTICLE_DETAILS]: '/articles/', // :id
-    [AppRoutes.ARTICLE_CREATE]: '/articles/new',
-    [AppRoutes.ARTICLE_EDIT]: '/articles/:id/edit',
-    [AppRoutes.ADMIN]: '/admin',
-    [AppRoutes.FORBIDDEN]: '/forbidden',
-    [AppRoutes.NOT_FOUND]: '*',
+
+export const routes = {
+    [AppRoutes.MAIN]: () => '/',
+    [AppRoutes.ABOUT]: () => '/about',
+    [AppRoutes.PROFILE]: (id: string) => `/profile/${id}`,
+    [AppRoutes.ARTICLES]: () => '/articles',
+    [AppRoutes.ARTICLE_DETAILS]: (id:string) => `/articles/${id}`,
+    [AppRoutes.ARTICLE_CREATE]: () => '/articles/new',
+    [AppRoutes.ARTICLE_EDIT]: (id:string) => `/articles/${id}/edit`,
+    [AppRoutes.ADMIN]: () => '/admin',
+    [AppRoutes.FORBIDDEN]: () => '/forbidden',
+    [AppRoutes.NOT_FOUND]: () => '*',
 };
+  

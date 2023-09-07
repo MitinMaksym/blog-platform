@@ -6,9 +6,10 @@ import { Skeleton } from '@/shared/ui/Skeleton';
 import { HStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
 import { Comment } from '../..';
+import { routes } from '@/shared/const/router';
 
 import cls from './CommentCard.module.scss';
-import { RoutePath } from '@/shared/const/router';
+
 
 interface CommentCardProps {
    className?: string;
@@ -34,7 +35,7 @@ export const CommentCard: FC<CommentCardProps> = memo((props) => {
 
     return (
         <div className={classNames(cls.commentCard, {}, [className])}>
-            <AppLink to={RoutePath.profile + user.id} className={cls.header}>
+            <AppLink to={routes.profile(user.id)} className={cls.header}>
                 {user.avatar && <Avatar src={user.avatar}/>}
                 <Text title={user.username}/>
             </AppLink>

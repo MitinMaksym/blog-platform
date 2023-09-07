@@ -10,9 +10,10 @@ import { Avatar } from '@/shared/ui/Avatar';
 import { HStack } from '@/shared/ui/Stack';
 import { Article, ArticleTextBlock as ArticleTextBlockType, ArticleView } from '../../model/types/article';
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
+import { routes } from '@/shared/const/router';
 
 import cls from './ArticleListItem.module.scss';
-import { RoutePath } from '@/shared/const/router';
+
 
 
 interface ArticleListItemProps {
@@ -27,7 +28,6 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo((props) => {
     const {id, title, blocks, createdAt, views, type, img, user} = article;
     const { t } = useTranslation('article-details');
 
-    const articlePath = RoutePath.article_details + id;
 
     if(view === 'LIST'){
         const texBlock = blocks.find(block => block.type === 'TEXT') as ArticleTextBlockType;
@@ -46,13 +46,13 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo((props) => {
                     <img className={cls.image} src={img} alt={title}/>
                 </div>
                 {texBlock && <ArticleTextBlock className={cls.textBlock} block={texBlock}/>}
-                <AppLink to={articlePath} theme={AppLinkTheme.OUTLINED}>{t('read-more')}</AppLink>
+                <AppLink to={routes.articleDetails(id)} theme={AppLinkTheme.OUTLINED}>{t('read-more')}</AppLink>
             </Card>
         );
     } 
 
     return (
-        <AppLink to={articlePath} target = {target}>
+        <AppLink to={routes.articleDetails(id)} target = {target}>
             <Card className={classNames(cls.articleListItem, {}, [className, cls.gridView])}>
                 <div className={cls.imageWrapper}>
                     <img className={cls.image} src={img} alt={title}/>
