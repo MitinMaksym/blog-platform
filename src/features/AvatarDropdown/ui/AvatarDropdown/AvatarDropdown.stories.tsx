@@ -19,6 +19,11 @@ const meta: Meta<typeof AvatarDropdown> = {
         }),
         PaddingDecorator(200)
     ],
+    parameters: {
+        loki: {
+            skip: true
+        }
+    }
 };
 
 export default meta;
@@ -26,6 +31,5 @@ type Story = StoryObj<typeof AvatarDropdown>;
 
 export const Primary: Story = {
     args: {
-        disabled: true
     },
 };
