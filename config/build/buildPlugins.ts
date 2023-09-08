@@ -15,21 +15,15 @@ export function buildPlugins({
     analyze,
     project
 }: BuildOptions): webpack.WebpackPluginInstance[] {
+    const isProd = !isDev;
     const plugins = [
         new HtmlWebpackPlugin({
             template: paths.html,
-        }),
-        new MiniCssExtractPlugin({
-            filename: 'css/[name].[contenthash:8].css',
-            chunkFilename: 'css/[name].[contenthash:8].css',
         }),
         new webpack.ProgressPlugin(),
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
             __PROJECT__: JSON.stringify(project),
-        }),
-        new CopyPlugin({
-            patterns: [{ from: paths.locales, to: paths.buildLocales }],
         }),
         new Dotenv({
             systemvars: true,
@@ -61,6 +55,19 @@ export function buildPlugins({
     if(analyze){
         plugins.push(new BundleAnalyzerPlugin({analyzerMode: 'server'}));
 
+    }
+    if(isProd){
+        plugins.push(
+            new MiniCssExtractPlugin({
+                filename: 'css/[name].[contenthash:8].css',
+                chunkFilename: 'css/[name].[contenthash:8].css',
+            })
+        );
+        plugins.push(
+            new CopyPlugin({
+                patterns: [{ from: paths.locales, to: paths.buildLocales }],
+            })
+        );
     }
 
     return plugins;
