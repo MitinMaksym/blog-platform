@@ -12,6 +12,9 @@ import { Article, ArticleTextBlock as ArticleTextBlockType, ArticleView } from '
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 import { routes } from '@/shared/const/router';
 
+import { AppImage } from '@/shared/ui/AppImage';
+import { Skeleton } from '@/shared/ui/Skeleton';
+
 import cls from './ArticleListItem.module.scss';
 
 
@@ -43,7 +46,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo((props) => {
                 <Text className={cls.title} title={title}/>
                 <div className={cls.tags}>{type.join(', ')}</div>
                 <div className={cls.imageWrapper}>
-                    <img className={cls.image} src={img} alt={title}/>
+                    <AppImage className={cls.image} fallback={<Skeleton className={cls.image}/>} src={img} alt={title}/>
                 </div>
                 {texBlock && <ArticleTextBlock className={cls.textBlock} block={texBlock}/>}
                 <AppLink to={routes.articleDetails(id)} theme={AppLinkTheme.OUTLINED}>{t('read-more')}</AppLink>
@@ -55,7 +58,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo((props) => {
         <AppLink to={routes.articleDetails(id)} target = {target}>
             <Card className={classNames(cls.articleListItem, {}, [className, cls.gridView])}>
                 <div className={cls.imageWrapper}>
-                    <img className={cls.image} src={img} alt={title}/>
+                    <AppImage className={cls.image} fallback={<Skeleton className={cls.image}/>} src={img} alt={title}/>
                 </div>
                 <div className={cls.date}>{createdAt}</div>
                 <HStack justify='between'>
