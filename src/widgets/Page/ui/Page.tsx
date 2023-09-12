@@ -8,16 +8,17 @@ import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfin
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { selectPageScrollByPath } from '../model/selectors/selectPageScrollByPath/selectPageScrollByPath';
 import { pageActions } from '../model/slice/pageSlice';
+import { TestProps } from '@/shared/types/test';
 
 import cls from './Page.module.scss';
 
-interface PageProps {
+interface PageProps extends TestProps {
    children: ReactNode
    className?: string
    onScrollEnd?: () => void
 }
 
-export const Page: FC<PageProps> = ({children, className, onScrollEnd}) => {
+export const Page: FC<PageProps> = ({children, className, onScrollEnd, ...props}) => {
     const dispatch = useAppDispatch();
     const {pathname} = useLocation();
     const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
@@ -48,11 +49,14 @@ export const Page: FC<PageProps> = ({children, className, onScrollEnd}) => {
     });
 
     return (
-        <main 
-            ref={wrapperRef} 
-            className={classNames(cls.page, {}, [className])} 
-            onScroll={handleScroll}>
+        <main
+            ref={wrapperRef}
+            className={classNames(cls.page, {}, [className])}
+            onScroll={handleScroll}
+            {...props}
+        >
             {children}
-            <div ref={triggerRef}/>
-        </main>);
+            <div ref={triggerRef} />
+        </main>
+    );
 };

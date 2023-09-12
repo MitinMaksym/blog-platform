@@ -1,7 +1,7 @@
 import { FC, memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { SortOrder } from '@/shared/types';
+import { SortOrder } from '@/shared/types/sort';
 import { PopupDirection } from '@/shared/ui/popups/styles/popup';
 import { ListBox, ListBoxItem } from '@/shared/ui/popups';
 

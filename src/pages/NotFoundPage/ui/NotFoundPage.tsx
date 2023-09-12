@@ -11,10 +11,12 @@ interface NotFoundPageProps {
 
 export const NotFoundPage: FC<NotFoundPageProps> = memo(({ className }) => {
     const {t} = useTranslation();
-    return (  
-        <Page className={classNames(cls.notFoundPage, {}, [className])}>
-            <HStack justify='center'>
-                {t('not-found-page')}
-            </HStack>
-        </Page>);
+    return (
+        <Page
+            className={classNames(cls.notFoundPage, {}, [className])}
+            data-testid = "NotFoundPage"
+        >
+            <HStack justify="center">{t('not-found-page')}</HStack>
+        </Page>
+    );
 });

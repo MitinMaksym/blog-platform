@@ -72,7 +72,7 @@ export const routerConfig: Record<AppRoutes, AppRoutesProps> = {
     },
 
     [AppRoutes.NOT_FOUND]: {
-        path: routes.forbidden(),
+        path: routes.notFound(),
         element: <NotFoundPage />,
     },
 };

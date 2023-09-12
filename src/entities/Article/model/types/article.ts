@@ -1,5 +1,5 @@
 import { User } from '@/entities/User';
-import { SortOrder } from '@/shared/types';
+import { SortOrder } from '@/shared/types/sort';
 
 type ArticleBlockType = 'TEXT' | 'CODE' | 'IMAGE'
 

@@ -30,7 +30,7 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
     }
 
     return (
-        <Page className={classNames('', {}, [className])}>
+        <Page className={classNames('', {}, [className])} data-testid = "ProfilePage">
             <VStack align="stretch" gap="16">
                 <Text title={t('profile-page-title')} />
                 <EditableProfileCard id={id} />
