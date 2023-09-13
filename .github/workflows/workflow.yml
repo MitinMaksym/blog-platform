@@ -48,6 +48,9 @@ jobs:
 
   storybook:
     runs-on: ubuntu-latest
+      environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     strategy:
       matrix:
         node-version: [ 17.x ]
@@ -71,14 +74,10 @@ jobs:
       - name: create storybook tests report
         run: npm run test:ui:report
       - name: upload ui tests report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-pages-artifact@v1
         with:
           name: ui-tests-report
           path: ./.loki/report.html
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
-
-      
-  
-
+           uses: actions/deploy-pages@main
