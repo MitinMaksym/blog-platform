@@ -1,5 +1,6 @@
 import { useRef, useCallback } from 'react';
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export function useThrottle(cb:(...arg: any[]) => void, delay: number){
     const throttleRef = useRef(false);
     const lastArgs = useRef<any>();

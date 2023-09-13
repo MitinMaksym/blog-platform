@@ -38,7 +38,7 @@ jobs:
           cache: 'npm'
           cache-dependency-path: '**/package-lock.json' 
       - name: install modules
-        run: npm ci --force
+        run: npm ci
       - name: lint ts
         run: npm run lint:ts
       - name: stylelint

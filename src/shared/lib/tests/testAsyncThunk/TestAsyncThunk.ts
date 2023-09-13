@@ -5,9 +5,10 @@ import { StateSchema, ThunkConfig } from '@/app/providers/StoreProvider';
 type AsyncThunkType<Return, Arg, Reject> = 
 AsyncThunk<Return, Arg, ThunkConfig<Reject>>
 
-const mockedAxios = jest.mocked(axios, true);
+const mockedAxios = jest.mocked(axios, {shallow: false});
 
 export class TestAsyncThunk<Return, Arg, Reject> {
+    // eslint-disable-next-line
     dispatch: jest.MockedFn<any>;
 
     api: jest.MockedFunctionDeep<AxiosStatic>;
