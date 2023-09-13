@@ -74,6 +74,8 @@ jobs:
         run: npm run test:ui:ci
       - name: create storybook tests report
         run: npm run test:ui:report
+      - name: Setup Pages
+        run: actions/configure-pages@v2
       - name: upload ui tests report
         uses: actions/upload-pages-artifact@v1
         with:
