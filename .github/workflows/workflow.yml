@@ -38,7 +38,7 @@ jobs:
           cache: 'npm'
           cache-dependency-path: '**/package-lock.json' 
       - name: install modules
-        run: npm ci
+        run: npm ci --force
       - name: lint ts
         run: npm run lint:ts
       - name: stylelint
@@ -65,6 +65,13 @@ jobs:
         run: npm run storybook:build
       - name: screenshot & storybook tests
         run: npm run test:ui:ci
+      - name: create storybook tests report
+        run: npm run test:ui:report
+      - name: upload ui tests report
+        uses: actions/upload-artifact@v3
+        with:
+          name: ui-tests-report
+          path: .loki/report.html
 
       
   
