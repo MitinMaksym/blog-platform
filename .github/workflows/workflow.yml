@@ -76,8 +76,7 @@ jobs:
       - name: upload ui tests report
         uses: actions/upload-pages-artifact@v1
         with:
-          name: ui-tests-report
-          path: ./.loki/report.html
+          path: ./.loki
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@main
