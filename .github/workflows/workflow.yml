@@ -60,7 +60,7 @@ jobs:
           cache: 'npm'
           cache-dependency-path: '**/package-lock.json' 
       - name: install modules
-        run: npm ci --force
+        run: npm ci
       - name: build storybook
         run: npm run storybook:build
       - name: screenshot & storybook tests
@@ -71,7 +71,10 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: ui-tests-report
-          path: .loki/report.html
+          path: ./.loki/report.html
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
 
       
   
