@@ -8,9 +8,9 @@ import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfin
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { selectPageScrollByPath } from '../model/selectors/selectPageScrollByPath/selectPageScrollByPath';
 import { pageActions } from '../model/slice/pageSlice';
-import { TestProps } from '@/shared/types/tests';
 
 import cls from './Page.module.scss';
+import { TestProps } from '@/shared/types/tests';
 
 interface PageProps extends TestProps {
    children: ReactNode
