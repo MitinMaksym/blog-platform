@@ -72,7 +72,8 @@ const ArticlesPage: FC<ArticlesPageProps> = ({className}) => {
 
     return (
         <DynamicReducerLoader reducers={reducers} removeAfterUnmount={false}>
-            <Page className={classNames('', {}, [className])} onScrollEnd={handleNextPageFetching}>
+            <Page className={classNames('', {}, [className])} 
+                data-testid = "ArticlesPage" onScrollEnd={handleNextPageFetching}>
                 {content}
             </Page>
         </DynamicReducerLoader>

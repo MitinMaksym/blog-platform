@@ -26,10 +26,10 @@ const preview: Preview = {
         },
     },
     globals:{
-        locale: 'ua',
+        locale: 'uk',
         locales: {
             en: 'English',
-            ua: 'Ukrainian',
+            uk: 'Ukrainian',
         },
     }
 };

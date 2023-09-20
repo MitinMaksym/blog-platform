@@ -18,6 +18,7 @@ module.exports = {
         'plugin:i18next/recommended',
         'plugin:react-hooks/recommended',
         'plugin:storybook/recommended',
+        'plugin:cypress/recommended'
     ],
 
     parser: '@typescript-eslint/parser',
@@ -74,6 +75,7 @@ module.exports = {
         quotes: [2, 'single', { avoidEscape: true }],
         '@typescript-eslint/ban-ts-comment': 'off',
         'react/prop-types': 'off',
+        '@typescript-eslint/no-namespace': 'off',
         'unused-imports/no-unused-imports': 'error',
         'fsd-methodology-rules-checker/path-checker': ['error', { alias: '@' }],
         'fsd-methodology-rules-checker/public-api-imports': [
