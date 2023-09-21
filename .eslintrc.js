@@ -77,6 +77,7 @@ module.exports = {
         'react/prop-types': 'off',
         '@typescript-eslint/no-namespace': 'off',
         'unused-imports/no-unused-imports': 'error',
+        'cypress/unsafe-to-chain-command': 'off',
         'fsd-methodology-rules-checker/path-checker': ['error', { alias: '@' }],
         'fsd-methodology-rules-checker/public-api-imports': [
             'error',
