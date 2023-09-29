@@ -22,6 +22,12 @@ describe('User visits Articles page', () => {
         cy.selectByTestId('ArticleListItem').should('have.length.at.least', 3);
     });
 
+    it('and articles are displayed successfully (with stubs)', () => {
+        cy.intercept('GET', '**/articles?*', {fixture: 'articles-list.json'});
+        cy.selectByTestId('ArticleList').should('exist');
+        cy.selectByTestId('ArticleListItem').should('have.length.at.least', 3);
+    });
+
     it('and tries to search article by article name', () => {
         cy.createArticle().then((body) => {
             articleId = body.id;

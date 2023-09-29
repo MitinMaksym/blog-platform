@@ -34,6 +34,7 @@ describe('User visits Article Details page', () => {
     });
 
     it('and rates an article', () => {
+        cy.intercept('GET', '**/articles/*', {fixture: 'article-details.json'});
         cy.selectByTestId('ArticleDetails.Info');
         cy.selectByTestId('RatingCard').scrollIntoView();
         cy.setRate(4, 'Cool');
