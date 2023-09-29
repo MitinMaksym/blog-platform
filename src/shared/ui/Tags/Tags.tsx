@@ -25,7 +25,8 @@ export const Tags = TypedMemo(<T extends string>(props: TagsProps<T>) => {
     return (
         <div className={classNames(cls.tags, {}, [className])} >
             {items.map((item) => 
-                <div  
+                <div 
+                    data-testid={`Tag.${item.value}`} 
                     key={item.value} 
                     className={classNames(cls.tag, {[cls.selected]: item.value === value}, [])} 
                     onClick={handleChange(item.value)}>

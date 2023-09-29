@@ -40,11 +40,12 @@ export const AddCommentForm: FC<AddCommentFormProps> = memo((props) => {
 
     return (
         <form 
-            className={classNames(cls.addCommentForm, {}, [className])} 
+            className={classNames(cls.addCommentForm, {}, [className])} data-testid="AddCommentForm"
             onSubmit={handleFormSubmit}>
             <HStack gap='8' justify='between'>
                 <Input 
-                    id='addCommentInput' 
+                    id='addCommentInput'
+                    data-testid="AddCommentForm.Input" 
                     value={value} 
                     className={cls.input} 
                     placeholder={t('enter-comment-placeholder')}
@@ -52,6 +53,7 @@ export const AddCommentForm: FC<AddCommentFormProps> = memo((props) => {
         
                 />
                 <Button
+                    data-testid="AddCommentForm.Button" 
                     disabled={submitBtnDisabled}>
                     {t('send')}
                 </Button>

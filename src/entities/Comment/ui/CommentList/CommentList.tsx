@@ -28,7 +28,7 @@ export const CommentList: FC<CommentListProps> = memo((props) => {
     }
 
     return (
-        <div className={classNames(cls.commentList, {}, [className])}>
+        <div className={classNames(cls.commentList, {}, [className])} data-testid="CommentsList">
             {comments.length > 0 ? 
                 comments.map(
                     comment => <CommentCard

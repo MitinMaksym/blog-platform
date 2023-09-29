@@ -94,7 +94,7 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo((props) => {
     } else {
         content = (
             <>
-                <div className={cls.header}>
+                <div className={cls.header} data-testid="ArticleDetails.Info">
                     { canEdit && <Button 
                         className={cls.editBtn} 
                         onClick={handleEditBtnClick}>
@@ -108,7 +108,8 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo((props) => {
                     <Text 
                         className={cls.title} 
                         title={article?.title} 
-                        text={article?.subtitle} size="sizeL"/>
+                        text={article?.subtitle} size="sizeL"
+                        data-testid='ArticleDetails'/>
                     <HStack gap='8'>
                         <Icon SVG={EyeIcon}/>
                         <Text title={String(article?.views)}/>

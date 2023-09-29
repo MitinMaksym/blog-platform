@@ -29,7 +29,8 @@ export const ArticlesSortSelect: FC<ArticlesSortSelectProps> = memo((props) => {
     return (
         <div className={classNames('', {}, [className])}>
             <ListBox
-                id="article-sort-select" 
+                id="article-sort-select"
+                data-testid='ArticlesSortSelect' 
                 items={orderOptions} 
                 value={value}
                 label={t('sort-by')}

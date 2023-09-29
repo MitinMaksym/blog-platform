@@ -23,11 +23,12 @@ export interface ListBoxProps<T extends string> {
    disabled?: boolean
    className?: string
    direction?: PopupDirection
+   ['data-testid']?:string
    onChange: (el: T) => void
 }
 
 export const ListBox = TypedMemo(<T extends string>(props: ListBoxProps<T>) => {
-    const {id, items, value, disabled, label,direction = 'bottomLeft', onChange} = props;
+    const {id, items, value, disabled, label,direction = 'bottomLeft', 'data-testid': dataTestId, onChange} = props;
     const { className } = props;
 
     return (
@@ -35,14 +36,15 @@ export const ListBox = TypedMemo(<T extends string>(props: ListBoxProps<T>) => {
             justify='between' 
             align='center'
             gap="4"
+            data-id = {dataTestId}
         >
             {label && <label htmlFor={id}>{label}</label>}
             <Listbox
                 as={'div'} 
                 value={value} 
-                className={classNames(popupCls.popup, {}, [className])} 
+                className={classNames(popupCls.popup, {}, [className])}
                 onChange={onChange}>
-                <Listbox.Button as='div' className={popupCls.trigger}>
+                <Listbox.Button as='div' className={popupCls.trigger} data-testid={`${dataTestId}.Button`}>
                     <Button disabled={disabled}>
                         {items.find(el => el.value === value)?.content}
                     </Button>
@@ -53,6 +55,8 @@ export const ListBox = TypedMemo(<T extends string>(props: ListBoxProps<T>) => {
                             key={item.value}
                             value={item.value}
                             as={Fragment}
+                            data-testid={`ListboxOption.${item.value}`}
+
                         >
                             {({ active, selected }) => (
                                 <li

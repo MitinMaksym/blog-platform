@@ -47,6 +47,5 @@ export const Text: FC<TextProps> = memo((props) => {
     return <div className={classNames(cls.text, {}, [className, cls[theme], cls[align], cls[size]])}>
         <HeaderTag data-testid={`${dataTestId}.Header`} className={cls.title}>{title}</HeaderTag>
         <p data-testid={`${dataTestId}.Paragraph`} className={cls.text}>{text}</p>
-        <h1></h1>
     </div>;
 });

@@ -59,7 +59,8 @@ export const ArticlesFilters: FC<ArticlesFiltersProps> = memo((props) => {
                 </HStack>
                 <Card className={cls.searchInput}>
                     <Input 
-                        id='search-input' 
+                        id='search-input'
+                        data-testid="ArticlesFilters.SearchInput" 
                         value={search} 
                         placeholder={t('search')}
                         onChange={handleFiltersChange('search')}/>

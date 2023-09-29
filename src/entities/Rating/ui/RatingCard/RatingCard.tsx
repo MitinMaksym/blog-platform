@@ -49,12 +49,13 @@ export const RatingCard: FC<RatingCardProps> = memo((props) => {
             {title && <Text title={title}/>}
             <VStack gap="16" align="stretch">
                 <AutoHeightTextarea
+                    data-testid="RatingCard.Input"
                     value={feedback}
                     onChange={handleFeedbackChange}
                 />
                 <HStack gap="8" justify="end">
-                    <Button onClick={handleSubmit}>{t('send')}</Button>
-                    <Button variant={BtnVariant.OUTLINE_ERROR} onClick={handleSubmit}>
+                    <Button data-testid="RatingCard.Send" onClick={handleSubmit}>{t('send')}</Button>
+                    <Button data-testid="RatingCard.Close" variant={BtnVariant.OUTLINE_ERROR} onClick={handleSubmit}>
                         {t('cancel')}
                     </Button>
                 </HStack>
@@ -64,7 +65,7 @@ export const RatingCard: FC<RatingCardProps> = memo((props) => {
    
     return (
         <>
-            <Card className={className}>
+            <Card className={className} data-testid="RatingCard">
                 <VStack>
                     {title && <Text title={title}/>}
                     <StarRating

@@ -30,10 +30,14 @@ export const ArticleList: FC<ArticleListProps> = memo((props) => {
     const notFoundMsgVisible = !articles.length && !loading  && !firstRender;
 
     const renderArticle = useCallback((article: Article) => 
-        <ArticleListItem key={article.id} view={view}  article={article} target={target}/>, [view, target]);
+        <ArticleListItem key={article.id} 
+            view={view}  
+            article={article} target={target}/>, 
+    [view, target]);
 
     return (
-        <div className={classNames(cls.articleList, {}, [className, `${cls[`${view.toLowerCase()}View`]}`])}>
+        <div className={classNames(cls.articleList, {}, [className, `${cls[`${view.toLowerCase()}View`]}`])} 
+            data-testid="ArticleList">
             {articles.length > 0 && articles.map(renderArticle)}
             { notFoundMsgVisible && <Text title={t('articles-not-found')} align='center'/>}
             {loading && getSkeletons(view)}

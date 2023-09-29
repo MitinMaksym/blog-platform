@@ -24,7 +24,7 @@ export const ArticleRecommendations: FC<ArticleRecommendationsProps> = memo((pro
         skip: __PROJECT__ === 'storybook',
     });
     const renderSlide = useCallback((article: Article) => 
-        (<SwiperSlide key={article.id}>
+        (<SwiperSlide key={article.id} data-testid = "ArticleRecommendationsItem">
             <ArticleListItem 
                 article={article} 
                 view='GRID'
@@ -39,8 +39,11 @@ export const ArticleRecommendations: FC<ArticleRecommendationsProps> = memo((pro
     );
 
     return (
-        <div className={classNames(cls.articleRecommendations, {}, [className])}>
-            <Text title={t('recommendations')} className={cls.title}/>
+        <div
+            className={classNames(cls.articleRecommendations, {}, [className])}
+            data-testid="ArticleRecommendationsList"
+        >
+            <Text title={t('recommendations')} className={cls.title} />
             <Swiper
                 modules={[A11y]}
                 spaceBetween={10}

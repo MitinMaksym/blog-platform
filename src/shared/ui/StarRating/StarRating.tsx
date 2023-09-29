@@ -48,6 +48,8 @@ export const StarRating: FC<StarRatingProps> = memo(({rating = 0, className, dis
                 {ratings.map((rating) => (
                     <input
                         key={rating}
+                        data-testid={`StarRating.${rating}`}
+                        data-selected={currentRating >= rating}
                         type="radio"
                         disabled={disabled || !!currentRating}
                         className={cls.item}
