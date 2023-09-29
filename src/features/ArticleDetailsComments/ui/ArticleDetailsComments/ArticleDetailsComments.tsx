@@ -13,11 +13,12 @@ import {
     commentsSelectors,
 } from '../../model/slice/articleDetailsCommentsSlice';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import cls from './ArticleDetailsComments.module.scss';
 import { selectArticleDetailsCommentsLoading } from '../../model/selectors/selectArticleDetailsCommentsLoading/selectArticleDetailsCommentsLoading';
 import { selectArticleCommentFormText } from '../../model/selectors/selectArticleCommentFormText/selectArticleCommentFormText';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { selectArticleDetailsCommentsError } from '../../model/selectors/selectArticleDetailsCommentsError/selectArticleDetailsCommentsError';
+
+import cls from './ArticleDetailsComments.module.scss';
 
 interface ArticleDetailsCommentsProps {
     id: string;
