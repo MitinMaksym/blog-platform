@@ -13,11 +13,10 @@ const initialState: ArticlesPageSchema = {
     page: 1,
     hasMore: false,
     limit: 9,
-    _inited: false
+    _inited: false,
 };
 
 const articlesAdapter = createEntityAdapter<Article>();
-  
 
 export const ArticlesPageSlice = createSlice({
     name: 'articlesPage',
@@ -33,8 +32,7 @@ export const ArticlesPageSlice = createSlice({
 
         initState: (state) => {
             state._inited = true;
-        }
-
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -42,33 +40,29 @@ export const ArticlesPageSlice = createSlice({
                 state.loading = true;
                 state.error = undefined;
 
-                if(action.meta.arg.replace) {
-                    articlesAdapter.removeAll(state); 
+                if (action.meta.arg.replace) {
+                    articlesAdapter.removeAll(state);
                 }
             })
             .addCase(fetchArticlesList.fulfilled, (state, action) => {
                 state.loading = false;
                 state.hasMore = action.payload.length >= state.limit;
-                if(action.meta.arg.replace) {
-                    articlesAdapter.setAll(state, action.payload); 
+                if (action.meta.arg.replace) {
+                    articlesAdapter.setAll(state, action.payload);
                 } else {
                     articlesAdapter.addMany(state, action.payload);
-
                 }
             })
             .addCase(fetchArticlesList.rejected, (state, action) => {
-                state.loading = false; 
+                state.loading = false;
                 state.error = action.payload;
-
             });
-    }
-   
+    },
 });
 
-export const articlesSelectors = articlesAdapter.getSelectors<StateSchema>(state => 
-    state.articlesPage || initialState);
-
-
+export const articlesSelectors = articlesAdapter.getSelectors<StateSchema>(
+    (state) => state.articlesPage || initialState,
+);
 
 export const { actions: articlesPageActions } = ArticlesPageSlice;
 export const { reducer: articlesPageReducer } = ArticlesPageSlice;

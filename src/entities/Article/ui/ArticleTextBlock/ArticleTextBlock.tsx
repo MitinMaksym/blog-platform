@@ -6,18 +6,20 @@ import { ArticleTextBlock as ArticleTextBlockType } from '../../model/types/arti
 import cls from './ArticleTextBlock.module.scss';
 
 interface ArticleTextBlockProps {
-   className?: string;
-   block: ArticleTextBlockType
+    className?: string;
+    block: ArticleTextBlockType;
 }
 
 export const ArticleTextBlock: FC<ArticleTextBlockProps> = memo((props) => {
     const { className, block } = props;
-    const {title, paragraphs} = block;
+    const { title, paragraphs } = block;
 
     return (
         <div className={classNames(cls.articleTextBlock, {}, [className])}>
-            {title && <Text className={cls.title} title={title} size="sizeM"/>}
-            {paragraphs.map(paragraph => <Text key={paragraph} className={cls.paragraph} text={paragraph}/>)}
+            {title && <Text className={cls.title} title={title} size='sizeM' />}
+            {paragraphs.map((paragraph) => (
+                <Text key={paragraph} className={cls.paragraph} text={paragraph} />
+            ))}
         </div>
     );
 });

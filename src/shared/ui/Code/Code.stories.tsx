@@ -29,8 +29,7 @@ export const Primary: Story = {
         export const Primary: Story = {
             args: {},
             decorators:[],  
-        };`
+        };`,
     },
-    decorators:[],
-      
+    decorators: [],
 };

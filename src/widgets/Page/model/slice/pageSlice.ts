@@ -2,16 +2,19 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { PageSchema } from '../types/pageSchema';
 
 const initialState: PageSchema = {
-    scroll: {}
+    scroll: {},
 };
 
 export const pageSlice = createSlice({
     name: 'pageSlice',
     initialState,
     reducers: {
-        setScrollPosition: (state, {payload: { path, position }}: PayloadAction<{path: string, position: number}>) => {
+        setScrollPosition: (
+            state,
+            { payload: { path, position } }: PayloadAction<{ path: string; position: number }>,
+        ) => {
             state.scroll[path] = position;
-        }
+        },
     },
 });
 

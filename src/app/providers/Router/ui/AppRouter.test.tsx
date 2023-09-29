@@ -4,16 +4,15 @@ import { componentRender } from '@/shared/lib/tests/componentRender';
 import { AppRouter } from '..';
 import { UserRole } from '@/entities/User';
 
-describe('App Router',() => {
-
+describe('App Router', () => {
     test('Component should render', async () => {
-        componentRender(<AppRouter/>, {route: routes.about()});
+        componentRender(<AppRouter />, { route: routes.about() });
         const aboutPage = await screen.findByTestId('About');
         expect(aboutPage).toBeInTheDocument();
     });
 
     test('Should render NotFoundPage', async () => {
-        componentRender(<AppRouter/>, {route: '/unknown-url'});
+        componentRender(<AppRouter />, { route: '/unknown-url' });
         const notFoundPage = await screen.findByTestId('NotFoundPage');
         expect(notFoundPage).toBeInTheDocument();
     });
@@ -39,7 +38,7 @@ describe('App Router',() => {
     test("Should redirect to Forbidden page if a user doesn't have an Admin role", async () => {
         componentRender(<AppRouter />, {
             route: routes.admin(),
-            initialState: { user: { authData: {roles:[]} } },
+            initialState: { user: { authData: { roles: [] } } },
         });
         const forbiddenPage = await screen.findByTestId('ForbiddenPage');
         expect(forbiddenPage).toBeInTheDocument();
@@ -48,10 +47,9 @@ describe('App Router',() => {
     test('Should grant an access to a Admin page', async () => {
         componentRender(<AppRouter />, {
             route: routes.admin(),
-            initialState: { user: { authData: {roles:[UserRole.ADMIN]} } },
+            initialState: { user: { authData: { roles: [UserRole.ADMIN] } } },
         });
         const adminPage = await screen.findByTestId('AdminPage');
         expect(adminPage).toBeInTheDocument();
     });
-    
 });

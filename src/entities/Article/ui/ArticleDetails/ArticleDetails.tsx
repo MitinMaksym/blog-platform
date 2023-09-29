@@ -16,11 +16,9 @@ import { HStack } from '@/shared/ui/Stack';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { selectArticleDetailsError } from '../../model/selectors/selectArticleDetailsError/selectArticleDetailsError';
-import { selectArticleDetailsLoading } 
-    from '../../model/selectors/selectArticleDetailsLoading/selectArticleDetailsLoading';
+import { selectArticleDetailsLoading } from '../../model/selectors/selectArticleDetailsLoading/selectArticleDetailsLoading';
 import { selectArticleDetailsData } from '../../model/selectors/selectArticleDetailsData/selectArticleDetailsData';
-import { selectArticleDetailsCanEdit } 
-    from '../../model/selectors/selectArticleDetailsCanEdit/selectArticleDetailsCanEdit';
+import { selectArticleDetailsCanEdit } from '../../model/selectors/selectArticleDetailsCanEdit/selectArticleDetailsCanEdit';
 import { ArticleBlock } from '../../model/types/article';
 
 import cls from './ArticleDetails.module.scss';
@@ -29,26 +27,25 @@ import { ArticleImageBlock } from '../ArticleImageBlock/ArticleImageBlock';
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 import { routes } from '@/shared/const/router';
 
-
 interface ArticleDetailsProps {
-   id: string
-   className?: string;
+    id: string;
+    className?: string;
 }
 const asyncReducers: ReducersList = {
-    articleDetails: articleDetailsReducer
+    articleDetails: articleDetailsReducer,
 };
 
 const renderBlock = (block: ArticleBlock) => {
-    switch(block.type){
-    case 'CODE':
-        return <ArticleCodeBlock key={block.id} className={cls.block}  block={block}/>;
-    case 'IMAGE':
-        return <ArticleImageBlock key={block.id} className={cls.block}  block={block}/>;
-    case 'TEXT':
-        return <ArticleTextBlock key={block.id} className={cls.block}  block={block}/>;
+    switch (block.type) {
+        case 'CODE':
+            return <ArticleCodeBlock key={block.id} className={cls.block} block={block} />;
+        case 'IMAGE':
+            return <ArticleImageBlock key={block.id} className={cls.block} block={block} />;
+        case 'TEXT':
+            return <ArticleTextBlock key={block.id} className={cls.block} block={block} />;
 
-    default: return null;
-
+        default:
+            return null;
     }
 };
 
@@ -64,74 +61,69 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo((props) => {
 
     const handleEditBtnClick = useCallback(() => {
         navigate(routes.articleEdit(id));
-    }, [navigate, id]); 
+    }, [navigate, id]);
 
     useEffect(() => {
-        if(__PROJECT__ !== 'storybook'){
+        if (__PROJECT__ !== 'storybook') {
             dispatch(fetchArticleById(id));
         }
     }, [id, dispatch]);
 
     let content;
 
-    if(loading){
+    if (loading) {
         content = (
             <>
-                <Skeleton className={cls.avatar} width={200} height={200} border='50%'/>
-                <Skeleton className={cls.title} width={300} height={32}/>
-                <Skeleton className={cls.subTitle} width={600} height={24}/>
-                <Skeleton className={cls.block} width='100%' height={200}/>
-                <Skeleton className={cls.block} width='100%' height={200}/>
+                <Skeleton className={cls.avatar} width={200} height={200} border='50%' />
+                <Skeleton className={cls.title} width={300} height={32} />
+                <Skeleton className={cls.subTitle} width={600} height={24} />
+                <Skeleton className={cls.block} width='100%' height={200} />
+                <Skeleton className={cls.block} width='100%' height={200} />
             </>
         );
-    }
-    else if(error){
-        content = <Text 
-            title={t('error-occured', {ns: 'translation'})} 
-            text={t('failed-load-article')} 
-            align="center" 
-            theme={TextTheme.ERROR}/>;
+    } else if (error) {
+        content = (
+            <Text
+                title={t('error-occured', { ns: 'translation' })}
+                text={t('failed-load-article')}
+                align='center'
+                theme={TextTheme.ERROR}
+            />
+        );
     } else {
         content = (
             <>
-                <div className={cls.header} data-testid="ArticleDetails.Info">
-                    { canEdit && <Button 
-                        className={cls.editBtn} 
-                        onClick={handleEditBtnClick}>
-                        {t('edit')}
-                    </Button>}         
-                    <Avatar 
-                        className={cls.avatar}
-                        src={article?.img} 
-                        size = {200} 
-                        align="center"/>
-                    <Text 
-                        className={cls.title} 
-                        title={article?.title} 
-                        text={article?.subtitle} size="sizeL"
-                        data-testid='ArticleDetails'/>
+                <div className={cls.header} data-testid='ArticleDetails.Info'>
+                    {canEdit && (
+                        <Button className={cls.editBtn} onClick={handleEditBtnClick}>
+                            {t('edit')}
+                        </Button>
+                    )}
+                    <Avatar className={cls.avatar} src={article?.img} size={200} align='center' />
+                    <Text
+                        className={cls.title}
+                        title={article?.title}
+                        text={article?.subtitle}
+                        size='sizeL'
+                        data-testid='ArticleDetails'
+                    />
                     <HStack gap='8'>
-                        <Icon SVG={EyeIcon}/>
-                        <Text title={String(article?.views)}/>
+                        <Icon SVG={EyeIcon} />
+                        <Text title={String(article?.views)} />
                     </HStack>
                     <HStack gap='8'>
-                        <Icon SVG={CalendarIcon}/>
-                        <Text title={String(article?.createdAt)}/>
+                        <Icon SVG={CalendarIcon} />
+                        <Text title={String(article?.createdAt)} />
                     </HStack>
                 </div>
-                <div className={cls.blocks}>
-                    {article?.blocks.map(renderBlock)}
-                </div>
-            </> 
-         
+                <div className={cls.blocks}>{article?.blocks.map(renderBlock)}</div>
+            </>
         );
     }
 
     return (
         <DynamicReducerLoader reducers={asyncReducers} removeAfterUnmount>
-            <div className={classNames(cls.articleDetails, {}, [className])}>
-                {content}
-            </div>
+            <div className={classNames(cls.articleDetails, {}, [className])}>{content}</div>
         </DynamicReducerLoader>
     );
 });

@@ -7,21 +7,20 @@ import { SidebarItemType } from '../../model/types/sidebar';
 import cls from './SidebarItem.module.scss';
 
 interface SidebarItemProps {
-    item: SidebarItemType,
-    collapsed: boolean
+    item: SidebarItemType;
+    collapsed: boolean;
 }
 
-
 export const SidebarItem: FC<SidebarItemProps> = memo((props) => {
-    const {t} = useTranslation();
-    const {item, collapsed } = props;
-    const {text, path} = item;
-    return  <li className={classNames(cls.item, {[cls.collapsed]: collapsed}) }>
-        <AppLink to={path} 
-            className={cls.link} 
-            theme={AppLinkTheme.INVERTED}>
-            <item.Icon className={cls.icon}/>
-            <span className={cls.text}>{t(text)}</span>
-        </AppLink>
-    </li>;
+    const { t } = useTranslation();
+    const { item, collapsed } = props;
+    const { text, path } = item;
+    return (
+        <li className={classNames(cls.item, { [cls.collapsed]: collapsed })}>
+            <AppLink to={path} className={cls.link} theme={AppLinkTheme.INVERTED}>
+                <item.Icon className={cls.icon} />
+                <span className={cls.text}>{t(text)}</span>
+            </AppLink>
+        </li>
+    );
 });

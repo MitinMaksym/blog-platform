@@ -3,9 +3,12 @@ import { StoryFn } from '@storybook/react';
 import { ThemeProvider } from '@/app/providers/ThemeProvider';
 import { Theme } from '@/shared/const/theme';
 
-export const ThemeDecorator = (thm: Theme = Theme.LIGHT) => (Story: StoryFn) => (
-    <ThemeProvider defaultTheme={thm}>
-        <div className="app"><Story /></div>
-    </ThemeProvider>
-);
-
+export const ThemeDecorator =
+    (thm: Theme = Theme.LIGHT) =>
+    (Story: StoryFn) => (
+        <ThemeProvider defaultTheme={thm}>
+            <div className='app'>
+                <Story />
+            </div>
+        </ThemeProvider>
+    );

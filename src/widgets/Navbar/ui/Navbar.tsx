@@ -11,26 +11,27 @@ import { Button } from '@/shared/ui/Button';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
-  className?: string
+    className?: string;
 }
 
 export const Navbar = ({ className }: NavbarProps) => {
-    const {t} = useTranslation();
+    const { t } = useTranslation();
     const [loginModalVisible, setLoginModalVisible] = useState(false);
     const userData = useSelector(selectUserAuthData);
 
-    const closeLoginModal = useCallback(() => setLoginModalVisible(false),[]);
+    const closeLoginModal = useCallback(() => setLoginModalVisible(false), []);
 
-    const openLoginModal = useCallback(() => setLoginModalVisible(true),[]);
+    const openLoginModal = useCallback(() => setLoginModalVisible(true), []);
 
     let content;
 
-    if(userData){
-        content =  (<>
-            <ShowNotificationsButton/>
-            <AvatarDropdown/>
-        </>
-        );  
+    if (userData) {
+        content = (
+            <>
+                <ShowNotificationsButton />
+                <AvatarDropdown />
+            </>
+        );
     } else {
         content = (
             <>
@@ -39,10 +40,6 @@ export const Navbar = ({ className }: NavbarProps) => {
             </>
         );
     }
-    
-    return (
-        <header className={classNames(cls.navbar, {}, [className])}>
-            {content}
-        </header>
-    );
+
+    return <header className={classNames(cls.navbar, {}, [className])}>{content}</header>;
 };

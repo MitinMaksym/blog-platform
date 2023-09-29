@@ -1,15 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
-import {  Loader } from './Loader';
+import { Loader } from './Loader';
 import { Theme } from '@/shared/const/theme';
 
 const meta: Meta<typeof Loader> = {
     title: 'shared/Loader',
     component: Loader,
     tags: ['autodocs'],
-    argTypes: {
-       
-    },
+    argTypes: {},
 };
 
 export default meta;
@@ -17,11 +15,9 @@ type Story = StoryObj<typeof Loader>;
 
 export const Light: Story = {
     args: {},
-    decorators:[ThemeDecorator()]
+    decorators: [ThemeDecorator()],
 };
 export const Dark: Story = {
     args: {},
-    decorators:[ThemeDecorator(Theme.DARK)]
+    decorators: [ThemeDecorator(Theme.DARK)],
 };
-
-

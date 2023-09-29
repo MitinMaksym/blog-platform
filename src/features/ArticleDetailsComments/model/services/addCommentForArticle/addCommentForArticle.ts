@@ -5,30 +5,27 @@ import { selectUserAuthData } from '@/entities/User';
 import { selectArticleDetailsData } from '@/entities/Article';
 import { fetchCommentsByArticleId } from '../fetchCommentsByArticleId/fetchCommentsByArticleId';
 
-export const addCommentForArticle = 
-createAsyncThunk<Comment, string, ThunkConfig<string>>(
+export const addCommentForArticle = createAsyncThunk<Comment, string, ThunkConfig<string>>(
     'features/addCommentForArticle',
     async (text, { rejectWithValue, extra, dispatch, getState }) => {
         try {
             const article = selectArticleDetailsData(getState());
             const user = selectUserAuthData(getState());
 
-            if(!article || !user) return rejectWithValue('send-comment-failure');
+            if (!article || !user) return rejectWithValue('send-comment-failure');
 
             const response = await extra.api.post<Comment>('/comments', {
                 text,
-                articleId:article.id,
-                userId: user.id
+                articleId: article.id,
+                userId: user.id,
             });
 
-            if(!response.data) return rejectWithValue('send-comment-failure');
+            if (!response.data) return rejectWithValue('send-comment-failure');
             dispatch(fetchCommentsByArticleId(article.id));
 
             return response.data;
         } catch (error) {
             return rejectWithValue('send-comment-failure');
-     
         }
-    
-    }
+    },
 );

@@ -8,35 +8,34 @@ import { CommentCard } from '../CommentCard/CommentCard';
 import cls from './CommentList.module.scss';
 
 interface CommentListProps {
-   className?: string;
-   comments: Array<Comment>
-   loading: boolean
+    className?: string;
+    comments: Array<Comment>;
+    loading: boolean;
 }
 
 export const CommentList: FC<CommentListProps> = memo((props) => {
     const { className, comments, loading } = props;
     const { t } = useTranslation('article-details');
 
-    if(loading){
+    if (loading) {
         return (
             <>
-                <CommentCard loading/>
-                <CommentCard loading/>
-                <CommentCard loading/>
+                <CommentCard loading />
+                <CommentCard loading />
+                <CommentCard loading />
             </>
         );
     }
 
     return (
-        <div className={classNames(cls.commentList, {}, [className])} data-testid="CommentsList">
-            {comments.length > 0 ? 
-                comments.map(
-                    comment => <CommentCard
-                        key={comment.id} 
-                        className={cls.comment} 
-                        comment={comment}
-                        loading={loading} />) : 
-                <Text title={t('no-comments-found')}/>}
+        <div className={classNames(cls.commentList, {}, [className])} data-testid='CommentsList'>
+            {comments.length > 0 ? (
+                comments.map((comment) => (
+                    <CommentCard key={comment.id} className={cls.comment} comment={comment} loading={loading} />
+                ))
+            ) : (
+                <Text title={t('no-comments-found')} />
+            )}
         </div>
     );
 });

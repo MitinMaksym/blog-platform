@@ -11,27 +11,27 @@ export const resetProfile = (id: string) => {
         method: 'PUT',
         url: `http://localhost:8000/profile/${id}`,
         body: {
-            'id': '3',
-            'first': 'Testname',
-            'lastname': 'TestLastname',
-            'age': 30,
-            'currency': 'EUR',
-            'country': 'Ukraine',
-            'city': 'Kharkiv',
-            'username': 'test',
-            'avatar': 'https://thumbs.dreamstime.com/b/hacker-picture-computer-44924794.jpg'
+            id: '3',
+            first: 'Testname',
+            lastname: 'TestLastname',
+            age: 30,
+            currency: 'EUR',
+            country: 'Ukraine',
+            city: 'Kharkiv',
+            username: 'test',
+            avatar: 'https://thumbs.dreamstime.com/b/hacker-picture-computer-44924794.jpg',
         },
         headers: {
-            Authorization: 'Bearer'
-        }
+            Authorization: 'Bearer',
+        },
     });
 };
 
 declare global {
     namespace Cypress {
-      interface Chainable {
-        updateProfile(firstname: string, lastname: string, age: number): Chainable<void>
-        resetProfile(id: string): Chainable<void>
-      }
+        interface Chainable {
+            updateProfile(firstname: string, lastname: string, age: number): Chainable<void>;
+            resetProfile(id: string): Chainable<void>;
+        }
     }
-  }
+}

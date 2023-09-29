@@ -10,27 +10,24 @@ import { ArticleRating } from '@/features/ArticleRating';
 import { VStack } from '@/shared/ui/Stack';
 
 interface ArticleDetailsPageProps {
-   className?: string;
+    className?: string;
 }
-
-
 
 const ArticleDetailsPage: FC<ArticleDetailsPageProps> = () => {
     const { t } = useTranslation('article-details');
-    const { id } = useParams<{id: string}>();
-    
-    if(!id){
-        return <Text title={t('article-not-found')} theme={TextTheme.ERROR}/>;
+    const { id } = useParams<{ id: string }>();
+
+    if (!id) {
+        return <Text title={t('article-not-found')} theme={TextTheme.ERROR} />;
     }
 
     return (
-
         <Page>
             <VStack gap='16' align='stretch'>
                 <ArticleDetails id={id} />
-                <ArticleRating id={id}/>
+                <ArticleRating id={id} />
                 <ArticleRecommendations />
-                <ArticleDetailsComments id={id}/>
+                <ArticleDetailsComments id={id} />
             </VStack>
         </Page>
     );

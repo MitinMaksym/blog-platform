@@ -7,34 +7,24 @@ const meta: Meta<typeof LoginForm> = {
     component: LoginForm,
     tags: ['autodocs'],
     argTypes: {},
-    args: {
-       
-    },
-    decorators:[StoreDecorator({ loginForm: {username:'Test', password:'123'}})]
+    args: {},
+    decorators: [StoreDecorator({ loginForm: { username: 'Test', password: '123' } })],
 };
 
 export default meta;
 type Story = StoryObj<typeof LoginForm>;
 
 export const Primary: Story = {
-    args: {
-    },
-    decorators:[StoreDecorator({ loginForm: 
-        {username:'Test', password:'123'}})]
+    args: {},
+    decorators: [StoreDecorator({ loginForm: { username: 'Test', password: '123' } })],
 };
 
 export const WithError: Story = {
-    args: {
-    },
-    decorators:[StoreDecorator({ loginForm: 
-        {username:'Test', password:'123', error: 'Test Error'}})]
+    args: {},
+    decorators: [StoreDecorator({ loginForm: { username: 'Test', password: '123', error: 'Test Error' } })],
 };
 
 export const WithLoading: Story = {
-    args: {
-    },
-    decorators:[StoreDecorator({ loginForm: 
-        {loading: true}})]
+    args: {},
+    decorators: [StoreDecorator({ loginForm: { loading: true } })],
 };
-
-

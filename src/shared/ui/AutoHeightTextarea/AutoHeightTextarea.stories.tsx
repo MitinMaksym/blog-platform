@@ -13,7 +13,7 @@ type Story = StoryObj<typeof AutoHeightTextarea>;
 
 export const Primary: Story = {
     args: {
-        value: 'Text'
+        value: 'Text',
     },
-    decorators:[]  
+    decorators: [],
 };

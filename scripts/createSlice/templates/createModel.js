@@ -20,10 +20,7 @@ module.exports = async (layer, sliceName) => {
 
     const createReduxSlice = async () => {
         try {
-            await fs.writeFile(
-                resolveModelPath('slices', `${sliceName}Slice.ts`),
-                reduxSliceTemplate(sliceName),
-            );
+            await fs.writeFile(resolveModelPath('slices', `${sliceName}Slice.ts`), reduxSliceTemplate(sliceName));
         } catch (e) {
             console.log('Не удалось создать редакс слайс', e);
         }
@@ -31,10 +28,7 @@ module.exports = async (layer, sliceName) => {
 
     const createSchemaType = async () => {
         try {
-            await fs.writeFile(
-                resolveModelPath('types', `${sliceName}Schema.ts`),
-                schemaTypeTemplate(sliceName),
-            );
+            await fs.writeFile(resolveModelPath('types', `${sliceName}Schema.ts`), schemaTypeTemplate(sliceName));
         } catch (e) {
             console.log('Не удалось создать тип схемы стейта', e);
         }

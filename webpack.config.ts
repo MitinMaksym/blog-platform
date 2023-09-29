@@ -3,8 +3,6 @@ import { buildWebpackConfig } from './config/build/buildWebpackConfig';
 import { BuildEnv, BuildPaths } from './config/build/types/config';
 
 export default (env: BuildEnv) => {
- 
-
     const mode = env.mode || 'development';
     const isDev = mode === 'development';
     const PORT = env.port || 3000;
@@ -17,7 +15,7 @@ export default (env: BuildEnv) => {
         src: path.resolve(__dirname, 'src'),
         locales: path.resolve(__dirname, 'public', 'locales'),
         buildLocales: path.resolve(__dirname, 'build', 'locales'),
-        envPath: path.resolve(__dirname, `.env.${mode}`)
+        envPath: path.resolve(__dirname, `.env.${mode}`),
     };
 
     return buildWebpackConfig({
@@ -26,6 +24,6 @@ export default (env: BuildEnv) => {
         isDev,
         port: PORT,
         analyze,
-        project: 'frontend'
+        project: 'frontend',
     });
 };

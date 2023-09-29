@@ -15,14 +15,13 @@ type Story = StoryObj<typeof ArticleViewSwitcher>;
 
 export const LIST: Story = {
     args: {
-        view:'LIST'
+        view: 'LIST',
     },
-    decorators:[ThemeDecorator(Theme.DARK)]  
+    decorators: [ThemeDecorator(Theme.DARK)],
 };
 export const GRID: Story = {
     args: {
-        view:'GRID'
+        view: 'GRID',
     },
-    decorators:[ThemeDecorator(Theme.DARK)]  
- 
+    decorators: [ThemeDecorator(Theme.DARK)],
 };

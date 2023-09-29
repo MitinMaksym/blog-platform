@@ -5,16 +5,16 @@ import { Text } from '@/shared/ui/Text';
 import { Page } from '@/widgets/Page';
 
 interface ArticleEditPageProps {
-   className?: string;
+    className?: string;
 }
 
 const ArticleEditPage: FC<ArticleEditPageProps> = memo((props) => {
     const { className } = props;
-    const {id} = useParams<{id: string}>();
+    const { id } = useParams<{ id: string }>();
 
     return (
         <Page className={classNames('', {}, [className])}>
-            {id ? <Text title='Article Edit Page'/> : <Text title='Article Create Page'/>}
+            {id ? <Text title='Article Edit Page' /> : <Text title='Article Create Page' />}
         </Page>
     );
 });

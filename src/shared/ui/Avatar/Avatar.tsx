@@ -8,31 +8,25 @@ import { Icon } from '../Icon';
 
 import cls from './Avatar.module.scss';
 
-
 interface AvatarProps {
-    className?: string
-    src?: string
-    size?: number
-    align?: 'left' | 'center' | 'right'
+    className?: string;
+    src?: string;
+    size?: number;
+    align?: 'left' | 'center' | 'right';
 }
 
-export const Avatar = memo(({ className, src, size, align='left' }: AvatarProps) => {
-
-    const avatarStyles:CSSProperties = useMemo(() => ({width: size || 50, height: size || 50}),[size]);
+export const Avatar = memo(({ className, src, size, align = 'left' }: AvatarProps) => {
+    const avatarStyles: CSSProperties = useMemo(() => ({ width: size || 50, height: size || 50 }), [size]);
 
     return (
         <div className={classNames(cls.container, {}, [cls[align], className])}>
-            <div
-                className={classNames(cls.innerWrapper, {}, [])}
-                style={avatarStyles}
-            >
+            <div className={classNames(cls.innerWrapper, {}, [])} style={avatarStyles}>
                 <AppImage
-                    fallback={<Skeleton width={size} height={size} border="50%" />}
+                    fallback={<Skeleton width={size} height={size} border='50%' />}
                     errorFallback={<Icon SVG={AvatarIcon} />}
                     src={src}
                 />
             </div>
         </div>
     );
-            
 });

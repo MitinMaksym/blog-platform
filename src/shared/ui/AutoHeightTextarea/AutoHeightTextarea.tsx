@@ -5,21 +5,14 @@ import useAutosizeTextArea from '@/shared/lib/hooks/useAutosizeTextArea/useAutos
 import cls from './AutoHeightTextarea.module.scss';
 
 interface AutoHeightTextareaProps
-  extends Omit<
-    DetailedHTMLProps<
-      TextareaHTMLAttributes<HTMLTextAreaElement>,
-      HTMLTextAreaElement
-    >,
-    'onChange'
-  > {
-  value: string
-  className?: string
-  onChange: (value: string) => void
+    extends Omit<DetailedHTMLProps<TextareaHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement>, 'onChange'> {
+    value: string;
+    className?: string;
+    onChange: (value: string) => void;
 }
 
 export const AutoHeightTextarea: FC<AutoHeightTextareaProps> = memo((props) => {
-    const { value, className, disabled, maxLength, onChange, ...otherProps } =
-      props;
+    const { value, className, disabled, maxLength, onChange, ...otherProps } = props;
     const [_, setMounted] = useState(false);
     const textAreaRef = useRef<HTMLTextAreaElement | null>(null);
 
@@ -28,14 +21,14 @@ export const AutoHeightTextarea: FC<AutoHeightTextareaProps> = memo((props) => {
     const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         onChange(e.target?.value);
     };
-  
+
     const handleTextAreaRef = (node: HTMLTextAreaElement) => {
         if (node !== null) {
             textAreaRef.current = node;
             setMounted(true);
         }
     };
-  
+
     return (
         <div className={classNames(cls.autoHeightTextarea, {}, [className])}>
             <textarea

@@ -10,10 +10,9 @@ const MainPage = () => {
 
     return (
         <Page data-testid='MainPage'>
-            <h1>{t('page-title')}
-            </h1>
-            <BugButton/>
-            <Counter/>
+            <h1>{t('page-title')}</h1>
+            <BugButton />
+            <Counter />
         </Page>
     );
 };

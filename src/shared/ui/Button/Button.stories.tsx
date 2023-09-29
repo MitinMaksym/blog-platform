@@ -18,50 +18,50 @@ type Story = StoryObj<typeof Button>;
 export const Clear: Story = {
     args: {
         variant: BtnVariant.CLEAR,
-        children: 'Text'
+        children: 'Text',
     },
-    decorators:[ThemeDecorator()]  
+    decorators: [ThemeDecorator()],
 };
 
 export const Outlined: Story = {
     args: {
         variant: BtnVariant.OUTLINE,
-        children: 'Text'
+        children: 'Text',
     },
-    decorators:[ThemeDecorator()]
+    decorators: [ThemeDecorator()],
 };
 
 export const OutlinedError: Story = {
     args: {
         variant: BtnVariant.OUTLINE_ERROR,
-        children: 'Text'
+        children: 'Text',
     },
-    decorators:[ThemeDecorator()]
+    decorators: [ThemeDecorator()],
 };
 export const OutlinedErrorDark: Story = {
     args: {
         variant: BtnVariant.OUTLINE_ERROR,
-        children: 'Text'
+        children: 'Text',
     },
-    decorators:[ThemeDecorator(Theme.DARK)]
+    decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const OutlinedL: Story = {
     args: {
         variant: BtnVariant.OUTLINE,
         children: 'Text',
-        size: BtnSize.L
+        size: BtnSize.L,
     },
-    decorators:[ThemeDecorator()]
+    decorators: [ThemeDecorator()],
 };
 
 export const OutlinedXL: Story = {
     args: {
         variant: BtnVariant.OUTLINE,
         children: 'Text',
-        size: BtnSize.XL
+        size: BtnSize.XL,
     },
-    decorators:[ThemeDecorator()]  
+    decorators: [ThemeDecorator()],
 };
 
 export const OutlinedDark: Story = {
@@ -69,7 +69,7 @@ export const OutlinedDark: Story = {
         variant: BtnVariant.OUTLINE,
         children: 'Text',
     },
-    decorators:[ThemeDecorator(Theme.DARK)]
+    decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const Background: Story = {
@@ -77,7 +77,7 @@ export const Background: Story = {
         variant: BtnVariant.BACKGROUND,
         children: 'Text',
     },
-    decorators:[ThemeDecorator(Theme.DARK)]
+    decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const BackgroundInverted: Story = {
@@ -85,34 +85,34 @@ export const BackgroundInverted: Story = {
         variant: BtnVariant.BACKGROUND_INVERTED,
         children: 'Text',
     },
-    decorators:[ThemeDecorator(Theme.DARK)]
+    decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const LSize: Story = {
     args: {
         variant: BtnVariant.BACKGROUND_INVERTED,
         children: 'Text',
-        size: BtnSize.L
+        size: BtnSize.L,
     },
-    decorators:[ThemeDecorator(Theme.DARK)]
+    decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const XLSize: Story = {
     args: {
         variant: BtnVariant.BACKGROUND_INVERTED,
         children: 'Text',
-        size: BtnSize.XL
+        size: BtnSize.XL,
     },
-    decorators:[ThemeDecorator(Theme.DARK)]
+    decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const Square: Story = {
     args: {
         variant: BtnVariant.BACKGROUND_INVERTED,
         children: '>',
-        square: true
+        square: true,
     },
-    decorators:[ThemeDecorator(Theme.DARK)]
+    decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const SquareL: Story = {
@@ -120,9 +120,9 @@ export const SquareL: Story = {
         variant: BtnVariant.BACKGROUND_INVERTED,
         children: '>',
         square: true,
-        size: BtnSize.L
+        size: BtnSize.L,
     },
-    decorators:[ThemeDecorator(Theme.DARK)]
+    decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const SquareXL: Story = {
@@ -130,10 +130,7 @@ export const SquareXL: Story = {
         variant: BtnVariant.BACKGROUND_INVERTED,
         children: '>',
         square: true,
-        size: BtnSize.XL
+        size: BtnSize.XL,
     },
-    decorators:[ThemeDecorator(Theme.DARK)]
+    decorators: [ThemeDecorator(Theme.DARK)],
 };
-
-
-

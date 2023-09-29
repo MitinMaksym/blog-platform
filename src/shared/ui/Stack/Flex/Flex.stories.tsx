@@ -7,13 +7,15 @@ const meta: Meta<typeof Flex> = {
     component: Flex,
     tags: ['autodocs'],
     args: {
-        children: <>
-            <div>1</div>
-            <div>2</div>
-            <div>3</div>
-        </>
+        children: (
+            <>
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+            </>
+        ),
     },
-    decorators: [ThemeDecorator()]
+    decorators: [ThemeDecorator()],
 };
 
 export default meta;
@@ -21,77 +23,77 @@ type Story = StoryObj<typeof Flex>;
 
 export const Row: Story = {
     args: {},
-    decorators:[]  
+    decorators: [],
 };
 
 export const JustifyCenter: Story = {
     args: {
         justify: 'center',
     },
-    decorators:[]  
+    decorators: [],
 };
 
 export const JustifyBetween: Story = {
     args: {
-        justify: 'between'
+        justify: 'between',
     },
-    decorators:[]  
+    decorators: [],
 };
 
 export const Column: Story = {
     args: {
-        direction: 'column'
+        direction: 'column',
     },
-    decorators:[]  
+    decorators: [],
 };
 
 export const Gap4: Story = {
     args: {
-        gap: '4'
+        gap: '4',
     },
-    decorators:[]  
+    decorators: [],
 };
 
 export const Gap8: Story = {
     args: {
-        gap: '8'
+        gap: '8',
     },
-    decorators:[]  
+    decorators: [],
 };
 
 export const Gap16: Story = {
     args: {
-        gap: '16'
+        gap: '16',
     },
-    decorators:[]  
+    decorators: [],
 };
 
 export const Gap24: Story = {
     args: {
-        gap: '24'
+        gap: '24',
     },
-    decorators:[]  
+    decorators: [],
 };
 
 export const Gap32: Story = {
     args: {
-        gap: '32'
+        gap: '32',
     },
-    decorators:[]  
+    decorators: [],
 };
 
 export const ColumnGap16: Story = {
     args: {
         direction: 'column',
-        gap: '16'
+        gap: '16',
     },
-    decorators:[]  
+    decorators: [],
 };
 
 export const ColumnGap24: Story = {
     args: {
         direction: 'column',
-        gap: '24'
+        gap: '24',
     },
-    decorators:[]  
+    decorators: [],
 };

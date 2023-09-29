@@ -10,20 +10,18 @@ import { PageSchema } from '@/widgets/Page';
 import { rtkApi } from '../../../../shared/api/rtkApi';
 
 export interface StateSchema {
-    counter: CounterSchema
-    user: UserSchema
-    page: PageSchema
-    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
+    counter: CounterSchema;
+    user: UserSchema;
+    page: PageSchema;
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 
     // async reducers
-    loginForm?: LoginSchema
-    profile?: ProfileSchema
-    articleDetails?: ArticleDetailsSchema
-    articleDetailsComments?: ArticleDetailsCommentsSchema
-    articlesPage?: ArticlesPageSchema
-    articlesFilters?: ArticlesFiltersSchema
+    loginForm?: LoginSchema;
+    profile?: ProfileSchema;
+    articleDetails?: ArticleDetailsSchema;
+    articleDetailsComments?: ArticleDetailsCommentsSchema;
+    articlesPage?: ArticlesPageSchema;
+    articlesFilters?: ArticlesFiltersSchema;
 }
 
-export type StateSchemaKey = keyof StateSchema
-
-
+export type StateSchemaKey = keyof StateSchema;

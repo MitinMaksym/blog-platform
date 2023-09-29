@@ -11,11 +11,10 @@ import { ProfilePage } from '@/pages/ProfilePage';
 import { UserRole } from '@/entities/User';
 import { AppRoutes, routes } from '@/shared/const/router';
 
-
 export type AppRoutesProps = RouteProps & {
     authOnly?: boolean;
-    roles?: Array<UserRole>
-}
+    roles?: Array<UserRole>;
+};
 
 export const routerConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.MAIN]: {

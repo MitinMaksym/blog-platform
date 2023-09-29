@@ -17,17 +17,17 @@ export const App = () => {
     useEffect(() => {
         const storageAuthData = localStorage.getItem(USER_DATA_KEY);
         dispatch(userActions.initAuthData(storageAuthData ? JSON.parse(storageAuthData) : undefined));
-        
-
     }, [dispatch]);
 
-    return <div className={classNames('app', {}, [])}>
-        <Suspense fallback="">
-            <Navbar />
-            <div className='contentPage'>
-                <Sidebar />
-                {userInited && <AppRouter />}
-            </div>
-        </Suspense>
-    </div>;
+    return (
+        <div className={classNames('app', {}, [])}>
+            <Suspense fallback=''>
+                <Navbar />
+                <div className='contentPage'>
+                    <Sidebar />
+                    {userInited && <AppRouter />}
+                </div>
+            </Suspense>
+        </div>
+    );
 };

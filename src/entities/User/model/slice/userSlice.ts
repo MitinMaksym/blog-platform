@@ -3,7 +3,7 @@ import { User, UserSchema } from '../types/userSchema';
 
 const initialState: UserSchema = {
     authData: undefined,
-    _inited: false
+    _inited: false,
 };
 
 export const userSlice = createSlice({
@@ -14,7 +14,7 @@ export const userSlice = createSlice({
             state.authData = action.payload;
         },
 
-        initAuthData: (state, action: PayloadAction<UserSchema['authData']>) => {      
+        initAuthData: (state, action: PayloadAction<UserSchema['authData']>) => {
             state.authData = action.payload;
             state._inited = true;
         },
@@ -22,7 +22,6 @@ export const userSlice = createSlice({
         logout: (state) => {
             state.authData = undefined;
         },
-
     },
 });
 

@@ -7,19 +7,15 @@ import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import cls from './ThemeSwitcher.module.scss';
 
 interface ThemeSwitcherProps {
-  className?: string
+    className?: string;
 }
 
 export const ThemeSwitcher: FC<ThemeSwitcherProps> = memo(({ className }) => {
     const { toggleTheme } = useTheme();
 
     return (
-        <Button
-            variant={BtnVariant.CLEAR}
-            className={classNames('', {}, [className])}
-            onClick={toggleTheme}
-        >
-            <ThemeIcon className={cls.toggleIcon}/>
+        <Button variant={BtnVariant.CLEAR} className={classNames('', {}, [className])} onClick={toggleTheme}>
+            <ThemeIcon className={cls.toggleIcon} />
         </Button>
     );
 });

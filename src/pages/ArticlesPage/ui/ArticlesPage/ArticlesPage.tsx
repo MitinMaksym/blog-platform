@@ -1,4 +1,4 @@
-import { FC, memo, useCallback, } from 'react';
+import { FC, memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { ArticleList, ArticlesFilters as ArticlesFiltersType, ArticleView } from '@/entities/Article';
@@ -21,59 +21,68 @@ import { selectArticlesPageError } from '../../model/selectors/selectArticlesPag
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 
 interface ArticlesPageProps {
-   className?: string;
+    className?: string;
 }
 
 const reducers: ReducersList = {
-    articlesPage: articlesPageReducer
+    articlesPage: articlesPageReducer,
 };
 
-const ArticlesPage: FC<ArticlesPageProps> = ({className}) => {
+const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
     const dispatch = useAppDispatch();
-    const {t} = useTranslation('article-details');
+    const { t } = useTranslation('article-details');
     const articles = useSelector(articlesSelectors.selectAll);
     const loading = useSelector(selectArticlesPageLoading);
     const view = useSelector(selectArticlesPageView);
     const error = useSelector(selectArticlesPageError);
 
-    const handleViewToggle = useCallback((view: ArticleView) => {
-        localStorage.setItem(ARTICLES_VIEW, view);
-        dispatch(articlesPageActions.setView(view));
-    },[dispatch]);
+    const handleViewToggle = useCallback(
+        (view: ArticleView) => {
+            localStorage.setItem(ARTICLES_VIEW, view);
+            dispatch(articlesPageActions.setView(view));
+        },
+        [dispatch],
+    );
 
     const handleNextPageFetching = useCallback(() => {
-        if(__PROJECT__ !== 'storybook'){
+        if (__PROJECT__ !== 'storybook') {
             dispatch(fetchNextArticlesPage());
         }
     }, [dispatch]);
 
-    const handleFiltersChange = useCallback((filters:  ArticlesFiltersType) => {
-        dispatch(articlesPageActions.setPage(1));
-        dispatch(fetchArticlesList({replace: true, filters}));
-    }, [dispatch]);
-
+    const handleFiltersChange = useCallback(
+        (filters: ArticlesFiltersType) => {
+            dispatch(articlesPageActions.setPage(1));
+            dispatch(fetchArticlesList({ replace: true, filters }));
+        },
+        [dispatch],
+    );
 
     useInitialEffect(() => dispatch(initArticlesPage()));
 
     let content;
 
-    if(error) {content = <Text title={t('failed-load-articles')} theme={TextTheme.ERROR}/>;}
-    else {
-        content = <> 
-            <HStack gap='24' justify='between' align='start'>
-                <ArticlesFilters onFilterChange={handleFiltersChange}/>
-                <ArticleViewSwitcher view={view} onToggleView = {handleViewToggle}/>
-            </HStack>
-            
-            <ArticleList view={view} articles={articles} loading={loading}/>
-        </>;
-    }
+    if (error) {
+        content = <Text title={t('failed-load-articles')} theme={TextTheme.ERROR} />;
+    } else {
+        content = (
+            <>
+                <HStack gap='24' justify='between' align='start'>
+                    <ArticlesFilters onFilterChange={handleFiltersChange} />
+                    <ArticleViewSwitcher view={view} onToggleView={handleViewToggle} />
+                </HStack>
 
+                <ArticleList view={view} articles={articles} loading={loading} />
+            </>
+        );
+    }
 
     return (
         <DynamicReducerLoader reducers={reducers} removeAfterUnmount={false}>
-            <Page className={classNames('', {}, [className])} 
-                data-testid = "ArticlesPage" onScrollEnd={handleNextPageFetching}>
+            <Page
+                className={classNames('', {}, [className])}
+                data-testid='ArticlesPage'
+                onScrollEnd={handleNextPageFetching}>
                 {content}
             </Page>
         </DynamicReducerLoader>

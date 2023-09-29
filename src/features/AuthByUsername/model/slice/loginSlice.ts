@@ -6,7 +6,7 @@ const initialState: LoginSchema = {
     username: '',
     password: '',
     loading: false,
-    error: undefined
+    error: undefined,
 };
 
 export const loginSlice = createSlice({
@@ -25,16 +25,13 @@ export const loginSlice = createSlice({
             .addCase(loginByUsername.pending, (state) => {
                 state.loading = true;
                 state.error = undefined;
-
             })
             .addCase(loginByUsername.fulfilled, (state) => {
-                state.loading = false; 
-
+                state.loading = false;
             })
             .addCase(loginByUsername.rejected, (state, action) => {
-                state.loading = false; 
+                state.loading = false;
                 state.error = action.payload;
-
             });
     },
 });

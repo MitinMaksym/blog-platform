@@ -8,53 +8,50 @@ import { HStack } from '@/shared/ui/Stack';
 import cls from './AddCommentForm.module.scss';
 
 interface AddCommentFormProps {
-   className?: string;
-   loading: boolean;
-   value:string;
-   onChange: (text: string) => void
-   onSubmit: (text: string) => void
+    className?: string;
+    loading: boolean;
+    value: string;
+    onChange: (text: string) => void;
+    onSubmit: (text: string) => void;
 }
 
 export const AddCommentForm: FC<AddCommentFormProps> = memo((props) => {
     const { t } = useTranslation();
-    const {
-        value, 
-        className,
-        loading,
-        onChange, 
-        onSubmit 
-    } = props;
+    const { value, className, loading, onChange, onSubmit } = props;
 
+    const handleCommentTextChange = useCallback(
+        (text: string) => {
+            onChange(text);
+        },
+        [onChange],
+    );
 
-    const handleCommentTextChange = useCallback((text: string) => {
-        onChange(text);
-    }, [onChange]);
-
-    const handleFormSubmit = useCallback((e:FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        onSubmit(value);
-        handleCommentTextChange('');
-    },[handleCommentTextChange, onSubmit, value]);
+    const handleFormSubmit = useCallback(
+        (e: FormEvent<HTMLFormElement>) => {
+            e.preventDefault();
+            onSubmit(value);
+            handleCommentTextChange('');
+        },
+        [handleCommentTextChange, onSubmit, value],
+    );
 
     const submitBtnDisabled = !value || loading;
 
     return (
-        <form 
-            className={classNames(cls.addCommentForm, {}, [className])} data-testid="AddCommentForm"
+        <form
+            className={classNames(cls.addCommentForm, {}, [className])}
+            data-testid='AddCommentForm'
             onSubmit={handleFormSubmit}>
             <HStack gap='8' justify='between'>
-                <Input 
+                <Input
                     id='addCommentInput'
-                    data-testid="AddCommentForm.Input" 
-                    value={value} 
-                    className={cls.input} 
+                    data-testid='AddCommentForm.Input'
+                    value={value}
+                    className={cls.input}
                     placeholder={t('enter-comment-placeholder')}
                     onChange={handleCommentTextChange}
-        
                 />
-                <Button
-                    data-testid="AddCommentForm.Button" 
-                    disabled={submitBtnDisabled}>
+                <Button data-testid='AddCommentForm.Button' disabled={submitBtnDisabled}>
                     {t('send')}
                 </Button>
             </HStack>

@@ -1,3 +1,3 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
 
-export const selectProfileFormData = (state:StateSchema) => state.profile?.form;
+export const selectProfileFormData = (state: StateSchema) => state.profile?.form;

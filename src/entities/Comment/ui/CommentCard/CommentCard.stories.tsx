@@ -14,12 +14,11 @@ const meta: Meta<typeof CommentCard> = {
             user: {
                 id: '1',
                 username: 'Test',
-                avatar: avatarImg
-            }
-
-        }
+                avatar: avatarImg,
+            },
+        },
     },
-    decorators:[withRouter]
+    decorators: [withRouter],
 };
 
 export default meta;
@@ -27,5 +26,5 @@ type Story = StoryObj<typeof CommentCard>;
 
 export const Primary: Story = {
     args: {},
-    decorators:[]  
+    decorators: [],
 };

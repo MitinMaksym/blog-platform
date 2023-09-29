@@ -7,8 +7,8 @@ import { selectUserAuthData } from '@/entities/User';
 import { Skeleton } from '@/shared/ui/Skeleton';
 
 interface ArticleRatingProps {
-   id: string
-   className?: string;
+    id: string;
+    className?: string;
 }
 
 export const ArticleRating: FC<ArticleRatingProps> = memo((props) => {
@@ -17,14 +17,14 @@ export const ArticleRating: FC<ArticleRatingProps> = memo((props) => {
     const user = useSelector(selectUserAuthData);
     const { data, isLoading, isFetching } = useGetArticleRatingQuery(
         { articleId: id, userId: user?.id || '' },
-        { refetchOnMountOrArgChange: true }
+        { refetchOnMountOrArgChange: true },
     );
-    const [rateArticle, {isLoading: rateMutationLoading}] = useRateArticleMutation();
+    const [rateArticle, { isLoading: rateMutationLoading }] = useRateArticleMutation();
 
-    if(isLoading) return <Skeleton/>;
+    if (isLoading) return <Skeleton />;
 
-    const submitArticleRate = (rate: number, feedback?:string) => {
-        rateArticle({feedback, rate, articleId: id, userId: user?.id || '' });
+    const submitArticleRate = (rate: number, feedback?: string) => {
+        rateArticle({ feedback, rate, articleId: id, userId: user?.id || '' });
     };
 
     return (

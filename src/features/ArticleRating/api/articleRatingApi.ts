@@ -13,7 +13,7 @@ interface RateArticleArg {
     feedback?: string;
 }
 
-const apiWithTag = rtkApi.enhanceEndpoints({addTagTypes: ['ArticleRating']});
+const apiWithTag = rtkApi.enhanceEndpoints({ addTagTypes: ['ArticleRating'] });
 
 const articleRatingApi = apiWithTag.injectEndpoints({
     endpoints: (build) => ({
@@ -27,19 +27,17 @@ const articleRatingApi = apiWithTag.injectEndpoints({
                 },
             }),
             providesTags: ['ArticleRating'],
-
         }),
         rateArticle: build.mutation<void, RateArticleArg>({
             query: (paylod) => ({
                 url: '/article-ratings',
                 method: 'POST',
-                body: paylod
+                body: paylod,
             }),
-            invalidatesTags:['ArticleRating']
+            invalidatesTags: ['ArticleRating'],
         }),
-    
     }),
     overrideExisting: false,
 });
 
-export const {useGetArticleRatingQuery, useRateArticleMutation} = articleRatingApi;
+export const { useGetArticleRatingQuery, useRateArticleMutation } = articleRatingApi;

@@ -9,45 +9,31 @@ import { NotificationSkeleton } from '../NotificationSkeleton/NotificationSkelet
 import cls from './NotificationsList.module.scss';
 
 interface NotificationsListProps {
-   className?: string;
+    className?: string;
 }
 
 export const NotificationsList: FC<NotificationsListProps> = memo((props) => {
     const { className } = props;
-    const {t} = useTranslation();
+    const { t } = useTranslation();
     const { data, error, isLoading } = useGetNotificationsQuery(undefined, {
         pollingInterval: 10000,
         refetchOnMountOrArgChange: true,
     });
     let content;
 
-    if(isLoading){
+    if (isLoading) {
         content = <NotificationSkeleton className={cls.item} />;
-    }
-
-    else if (error && 'data' in error){
+    } else if (error && 'data' in error) {
+        content = <Text title={t('error-occured')} theme={TextTheme.ERROR} text={t('notifications-error')} />;
+    } else if (data) {
         content = (
-            <Text
-                title={t('error-occured')}
-                theme={TextTheme.ERROR}
-                text={t('notifications-error')}
-            />
+            <VStack gap='4' align='stretch'>
+                {data?.map((notification) => (
+                    <NotificationItem key={notification.id} className={cls.item} item={notification} />
+                ))}
+            </VStack>
         );
-    } else if(data) {
-        content = <VStack gap='4' align='stretch'>
-            {data?.map((notification) => (
-                <NotificationItem
-                    key={notification.id}
-                    className={cls.item}
-                    item={notification}
-                />
-            ))}
-        </VStack>;
     }
 
-    return (
-        <div className={classNames(cls.notificationsList, {}, [className])}>
-            {content}
-        </div>
-    );
+    return <div className={classNames(cls.notificationsList, {}, [className])}>{content}</div>;
 });

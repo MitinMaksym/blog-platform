@@ -5,12 +5,12 @@ import { BtnVariant, Button } from '@/shared/ui/Button';
 // import cls from './LanguageSwitcher.module.scss'
 
 interface LanguageSwitcherProps {
-  className?: string
-  short?: boolean
+    className?: string;
+    short?: boolean;
 }
 
 export const LanguageSwitcher: FC<LanguageSwitcherProps> = memo((props) => {
-    const {className, short} = props;
+    const { className, short } = props;
     const { i18n, t } = useTranslation();
 
     const toggleLanguage = () => {
@@ -20,11 +20,7 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = memo((props) => {
     const languageLabel = short ? t('langShort') : t('langLong');
 
     return (
-        <Button
-            variant={BtnVariant.CLEAR}
-            className={classNames('', {}, [className])}
-            onClick={toggleLanguage}
-        >
+        <Button variant={BtnVariant.CLEAR} className={classNames('', {}, [className])} onClick={toggleLanguage}>
             {languageLabel}
         </Button>
     );

@@ -5,7 +5,6 @@ const notification = {
     id: '1',
     title: 'Notification',
     description: 'Description',
-   
 };
 
 const meta: Meta<typeof NotificationItem> = {
@@ -13,7 +12,7 @@ const meta: Meta<typeof NotificationItem> = {
     component: NotificationItem,
     tags: ['autodocs'],
     args: {
-        item: notification
+        item: notification,
     },
 };
 
@@ -22,6 +21,5 @@ type Story = StoryObj<typeof NotificationItem>;
 
 export const Primary: Story = {
     args: {},
-    decorators:[]  
+    decorators: [],
 };
-

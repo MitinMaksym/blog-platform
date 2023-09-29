@@ -5,8 +5,8 @@ import cls from './Code.module.scss';
 import { BtnVariant, Button } from '../Button/Button';
 
 interface CodeProps {
-   className?: string;
-   text: string;
+    className?: string;
+    text: string;
 }
 
 export const Code: FC<CodeProps> = memo((props) => {
@@ -14,16 +14,13 @@ export const Code: FC<CodeProps> = memo((props) => {
 
     const handleCopyBtnClick = useCallback(() => {
         navigator.clipboard.writeText(text);
-    },[text]);
+    }, [text]);
 
     return (
         <pre className={classNames(cls.code, {}, [className])}>
             <code>
-                <Button
-                    className={cls.copyBtn} 
-                    variant={BtnVariant.CLEAR} 
-                    onClick={handleCopyBtnClick}>                
-                    <CopyBtn className={cls.copyIcon}/>
+                <Button className={cls.copyBtn} variant={BtnVariant.CLEAR} onClick={handleCopyBtnClick}>
+                    <CopyBtn className={cls.copyIcon} />
                 </Button>
                 {text}
             </code>

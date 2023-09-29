@@ -11,46 +11,46 @@ import { Rating } from '@/entities/Rating';
 import { Theme } from '@/shared/const/theme';
 import { routes } from '@/shared/const/router';
 
-const data: Article =  {
-    'id': '1',
-    'title': 'Javascript news',
-    'subtitle': 'Что нового в JS за 2022 год?',
-    'img': testImg,
-    'views': 1022,
-    'createdAt': '26.02.2022',
-    'type': ['IT'],
-    'user': {
-        'id': '1',
-        'username': 'admin',
+const data: Article = {
+    id: '1',
+    title: 'Javascript news',
+    subtitle: 'Что нового в JS за 2022 год?',
+    img: testImg,
+    views: 1022,
+    createdAt: '26.02.2022',
+    type: ['IT'],
+    user: {
+        id: '1',
+        username: 'admin',
     },
-    'blocks': [
+    blocks: [
         {
-            'id': '1',
-            'type': 'TEXT',
-            'title': 'Заголовок этого блока',
-            'paragraphs': [
-                'Программа, которую по традиции называют «Hello, world!», очень проста.'
-            ]
+            id: '1',
+            type: 'TEXT',
+            title: 'Заголовок этого блока',
+            paragraphs: ['Программа, которую по традиции называют «Hello, world!», очень проста.'],
         },
         {
-            'id': '2',
-            'type': 'IMAGE',
-            'src': 'https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png',
-            'title': 'Рисунок 1 - скриншот сайта'
+            id: '2',
+            type: 'IMAGE',
+            src: 'https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png',
+            title: 'Рисунок 1 - скриншот сайта',
         },
         {
-            'id': '3',
-            'type': 'CODE',
-            'code': `const path = require('path');\n\nconst server = 
+            id: '3',
+            type: 'CODE',
+            code: `const path = require('path');\n\nconst server = 
             jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'));
-            \n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);`
+            \n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);`,
         },
-    ]
+    ],
 };
 
-const ratingData: Array<Rating> = [{
-    rate: 4
-}];
+const ratingData: Array<Rating> = [
+    {
+        rate: 4,
+    },
+];
 
 const meta: Meta<typeof ArticleDetailsPage> = {
     title: 'pages/ArticleDetailsPage',
@@ -103,5 +103,5 @@ type Story = StoryObj<typeof ArticleDetailsPage>;
 
 export const Primary: Story = {
     args: {},
-    decorators:[]  
+    decorators: [],
 };

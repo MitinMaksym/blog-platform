@@ -7,26 +7,23 @@ import { Notification } from '../../model/types/notification';
 import cls from './NotificationItem.module.scss';
 
 interface NotificationItemProps {
-   item: Notification
-   className?: string;
+    item: Notification;
+    className?: string;
 }
 
 export const NotificationItem: FC<NotificationItemProps> = memo((props) => {
     const { item, className } = props;
-    const {title, description, href} = item;
+    const { title, description, href } = item;
 
-    const content =  <Card className={classNames(cls.notificationItem, {}, [])}>
-        <Text title={title} text={description} size="sizeS"/>
-    </Card>;
+    const content = (
+        <Card className={classNames(cls.notificationItem, {}, [])}>
+            <Text title={title} text={description} size='sizeS' />
+        </Card>
+    );
 
-    if(href) {
+    if (href) {
         return (
-            <a
-                href={href}
-                className={classNames(cls.link, {}, [className])}
-                target="_blank"
-                rel="noreferrer"
-            >
+            <a href={href} className={classNames(cls.link, {}, [className])} target='_blank' rel='noreferrer'>
                 {content}
             </a>
         );

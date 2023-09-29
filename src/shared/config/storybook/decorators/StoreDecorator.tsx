@@ -9,8 +9,7 @@ import { articlesPageReducer } from '@/pages/ArticlesPage/testing';
 import { pageReducer } from '@/widgets/Page/testing';
 import { ReducersList } from '@/shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 
-
-const defaultAsyncReducers:ReducersList = {
+const defaultAsyncReducers: ReducersList = {
     loginForm: loginReducer,
     page: pageReducer,
     profile: profileReducer,
@@ -20,11 +19,8 @@ const defaultAsyncReducers:ReducersList = {
     articlesFilters: articlesFiltersReducer,
 };
 
-export const StoreDecorator = (
-    state: DeepPartial<StateSchema>, 
-    asyncReducers?: ReducersList
-) => 
-    (Story: StoryFn) => <StoreProvider initialState={state as StateSchema} 
-        asyncReducers={{...defaultAsyncReducers, ...asyncReducers}}>
+export const StoreDecorator = (state: DeepPartial<StateSchema>, asyncReducers?: ReducersList) => (Story: StoryFn) => (
+    <StoreProvider initialState={state as StateSchema} asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}>
         <Story />
-    </StoreProvider>;
+    </StoreProvider>
+);

@@ -9,8 +9,7 @@ interface PageLoaderProps {
 }
 
 export const PageLoader: FC<PageLoaderProps> = ({ className }) => (
-    <HStack className={classNames(cls.pageLoader, {}, [className])} 
-        justify='center'>
-        <Loader/>
+    <HStack className={classNames(cls.pageLoader, {}, [className])} justify='center'>
+        <Loader />
     </HStack>
 );

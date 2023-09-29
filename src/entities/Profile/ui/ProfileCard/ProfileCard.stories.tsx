@@ -3,9 +3,8 @@ import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
 import AvatarIcon from '@/shared/assets/avatar.webp';
-import {ProfileCard} from './ProfileCard';
+import { ProfileCard } from './ProfileCard';
 import { Theme } from '@/shared/const/theme';
-
 
 const meta: Meta<typeof ProfileCard> = {
     title: 'entities/Profile/ProfileCard',
@@ -13,36 +12,32 @@ const meta: Meta<typeof ProfileCard> = {
     tags: ['autodocs'],
     argTypes: {},
     args: {
-        data:{ 
-            first:'First Name', 
-            lastname:'Last Name', 
-            username:'Nickname', 
-            age: 25, 
+        data: {
+            first: 'First Name',
+            lastname: 'Last Name',
+            username: 'Nickname',
+            age: 25,
             avatar: AvatarIcon,
             country: Country.UKRAINE,
-            currency: Currency.EUR
-        }
+            currency: Currency.EUR,
+        },
     },
 };
 
 export default meta;
-type Story = StoryObj<typeof ProfileCard>
+type Story = StoryObj<typeof ProfileCard>;
 
 export const Primary: Story = {
-    decorators: [ThemeDecorator(Theme.LIGHT)]
-
+    decorators: [ThemeDecorator(Theme.LIGHT)],
 };
 
 export const WithLoading: Story = {
     args: {
-        loading: true
+        loading: true,
     },
-    decorators: [ThemeDecorator(Theme.DARK)]
-
+    decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const Dark: Story = {
-    decorators: [ThemeDecorator(Theme.DARK)]
+    decorators: [ThemeDecorator(Theme.DARK)],
 };
-
-

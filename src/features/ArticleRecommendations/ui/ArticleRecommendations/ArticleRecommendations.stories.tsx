@@ -6,150 +6,133 @@ import avatarImg from '@/shared/assets/avatar.webp';
 import { Article } from '@/entities/Article';
 import { ArticleRecommendations } from './ArticleRecommendations';
 
-
-const mockResponse: Article[]= [{
-    'id': '1',
-    'title': 'Javascript news',
-    'subtitle': 'Что нового в JS за 2022 год?',
-    'img': testImg,
-    'views': 1022,
-    'createdAt': '26.02.2022',
-    'user':    {
-        'id': '1',
-        'username': 'admin',
-        'avatar': avatarImg
-    },
-    'type': [
-        'IT', 'SCIENCE', 'SCIENCE', 'IT'
-    ],
-    'blocks': [
-        {
-            'id': '1',
-            'type': 'TEXT',
-            'title': 'Заголовок этого блока',
-            'paragraphs': [
-                // eslint-disable-next-line
+const mockResponse: Article[] = [
+    {
+        id: '1',
+        title: 'Javascript news',
+        subtitle: 'Что нового в JS за 2022 год?',
+        img: testImg,
+        views: 1022,
+        createdAt: '26.02.2022',
+        user: {
+            id: '1',
+            username: 'admin',
+            avatar: avatarImg,
+        },
+        type: ['IT', 'SCIENCE', 'SCIENCE', 'IT'],
+        blocks: [
+            {
+                id: '1',
+                type: 'TEXT',
+                title: 'Заголовок этого блока',
+                paragraphs: [
+                    // eslint-disable-next-line
                     'Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.',
-            ]
-        },
-    ]
-            
-},
-{
-    'id': '2',
-    'title': 'Javascript news',
-    'subtitle': 'Что нового в JS за 2022 год?',
-    'img': testImg,
-    'views': 1022,
-    'createdAt': '26.02.2022',
-    'user':    {
-        'id': '1',
-        'username': 'admin',
-        'avatar': avatarImg
+                ],
+            },
+        ],
     },
-    'type': [
-        'IT', 'SCIENCE', 'SCIENCE', 'IT'
-    ],
-    'blocks': [
-        {
-            'id': '1',
-            'type': 'TEXT',
-            'title': 'Заголовок этого блока',
-            'paragraphs': [
-                // eslint-disable-next-line
-                                'Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.',
-            ]
+    {
+        id: '2',
+        title: 'Javascript news',
+        subtitle: 'Что нового в JS за 2022 год?',
+        img: testImg,
+        views: 1022,
+        createdAt: '26.02.2022',
+        user: {
+            id: '1',
+            username: 'admin',
+            avatar: avatarImg,
         },
-    ]
-                        
-},
-{
-    'id': '3',
-    'title': 'Javascript news',
-    'subtitle': 'Что нового в JS за 2022 год?',
-    'img': testImg,
-    'views': 1022,
-    'createdAt': '26.02.2022',
-    'user':    {
-        'id': '1',
-        'username': 'admin',
-        'avatar': avatarImg
+        type: ['IT', 'SCIENCE', 'SCIENCE', 'IT'],
+        blocks: [
+            {
+                id: '1',
+                type: 'TEXT',
+                title: 'Заголовок этого блока',
+                paragraphs: [
+                    // eslint-disable-next-line
+                    'Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.',
+                ],
+            },
+        ],
     },
-    'type': [
-        'IT', 'SCIENCE', 'SCIENCE', 'IT'
-    ],
-    'blocks': [
-        {
-            'id': '1',
-            'type': 'TEXT',
-            'title': 'Заголовок этого блока',
-            'paragraphs': [
-                // eslint-disable-next-line
-                                'Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.',
-            ]
+    {
+        id: '3',
+        title: 'Javascript news',
+        subtitle: 'Что нового в JS за 2022 год?',
+        img: testImg,
+        views: 1022,
+        createdAt: '26.02.2022',
+        user: {
+            id: '1',
+            username: 'admin',
+            avatar: avatarImg,
         },
-    ]
-                        
-},
-{
-    'id': '4',
-    'title': 'Javascript news',
-    'subtitle': 'Что нового в JS за 2022 год?',
-    'img': testImg,
-    'views': 1022,
-    'createdAt': '26.02.2022',
-    'user':    {
-        'id': '1',
-        'username': 'admin',
-        'avatar': avatarImg
+        type: ['IT', 'SCIENCE', 'SCIENCE', 'IT'],
+        blocks: [
+            {
+                id: '1',
+                type: 'TEXT',
+                title: 'Заголовок этого блока',
+                paragraphs: [
+                    // eslint-disable-next-line
+                    'Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.',
+                ],
+            },
+        ],
     },
-    'type': [
-        'IT', 'SCIENCE', 'SCIENCE', 'IT'
-    ],
-    'blocks': [
-        {
-            'id': '1',
-            'type': 'TEXT',
-            'title': 'Заголовок этого блока',
-            'paragraphs': [
-                // eslint-disable-next-line
-                                            'Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.',
-            ]
+    {
+        id: '4',
+        title: 'Javascript news',
+        subtitle: 'Что нового в JS за 2022 год?',
+        img: testImg,
+        views: 1022,
+        createdAt: '26.02.2022',
+        user: {
+            id: '1',
+            username: 'admin',
+            avatar: avatarImg,
         },
-    ]
-                                    
-},
-{
-    'id': '5',
-    'title': 'Javascript news',
-    'subtitle': 'Что нового в JS за 2022 год?',
-    'img': testImg,
-    'views': 1022,
-    'createdAt': '26.02.2022',
-    'user':    {
-        'id': '1',
-        'username': 'admin',
-        'avatar': avatarImg
+        type: ['IT', 'SCIENCE', 'SCIENCE', 'IT'],
+        blocks: [
+            {
+                id: '1',
+                type: 'TEXT',
+                title: 'Заголовок этого блока',
+                paragraphs: [
+                    // eslint-disable-next-line
+                    'Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.',
+                ],
+            },
+        ],
     },
-    'type': [
-        'IT', 'SCIENCE', 'SCIENCE', 'IT'
-    ],
-    'blocks': [
-        {
-            'id': '1',
-            'type': 'TEXT',
-            'title': 'Заголовок этого блока',
-            'paragraphs': [
-                // eslint-disable-next-line
-                                'Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.',
-            ]
+    {
+        id: '5',
+        title: 'Javascript news',
+        subtitle: 'Что нового в JS за 2022 год?',
+        img: testImg,
+        views: 1022,
+        createdAt: '26.02.2022',
+        user: {
+            id: '1',
+            username: 'admin',
+            avatar: avatarImg,
         },
-    ]
-                        
-},
+        type: ['IT', 'SCIENCE', 'SCIENCE', 'IT'],
+        blocks: [
+            {
+                id: '1',
+                type: 'TEXT',
+                title: 'Заголовок этого блока',
+                paragraphs: [
+                    // eslint-disable-next-line
+                    'Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.',
+                ],
+            },
+        ],
+    },
 ];
-            
-   
 
 const meta: Meta<typeof ArticleRecommendations> = {
     title: 'features/ArticleRecommendations',
@@ -158,7 +141,7 @@ const meta: Meta<typeof ArticleRecommendations> = {
     args: {},
     parameters: {
         loki: {
-            skip: true
+            skip: true,
         },
         mockData: [
             {
@@ -166,11 +149,10 @@ const meta: Meta<typeof ArticleRecommendations> = {
                 method: 'GET',
                 status: 200,
                 response: mockResponse,
-               
             },
         ],
     },
-    decorators: [withRouter(), StoreDecorator({})]
+    decorators: [withRouter(), StoreDecorator({})],
 };
 
 export default meta;
@@ -178,5 +160,5 @@ type Story = StoryObj<typeof ArticleRecommendations>;
 
 export const Primary: Story = {
     args: {},
-    decorators:[]  
+    decorators: [],
 };

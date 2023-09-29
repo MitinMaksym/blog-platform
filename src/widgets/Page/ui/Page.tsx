@@ -13,14 +13,14 @@ import cls from './Page.module.scss';
 import { TestProps } from '@/shared/types/tests';
 
 interface PageProps extends TestProps {
-   children: ReactNode
-   className?: string
-   onScrollEnd?: () => void
+    children: ReactNode;
+    className?: string;
+    onScrollEnd?: () => void;
 }
 
-export const Page: FC<PageProps> = ({children, className, onScrollEnd, ...props}) => {
+export const Page: FC<PageProps> = ({ children, className, onScrollEnd, ...props }) => {
     const dispatch = useAppDispatch();
-    const {pathname} = useLocation();
+    const { pathname } = useLocation();
     const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
     const scrollPosition = useSelector(selectPageScrollByPath(pathname));
@@ -28,19 +28,19 @@ export const Page: FC<PageProps> = ({children, className, onScrollEnd, ...props}
     useInfiniteScroll({
         triggerRef,
         wrapperRef,
-        callback: onScrollEnd
+        callback: onScrollEnd,
     });
 
     const setScrollPosition = useDebounce((position) => {
-        dispatch(pageActions.setScrollPosition(
-            {
-                path: pathname, 
-                position
-            })
+        dispatch(
+            pageActions.setScrollPosition({
+                path: pathname,
+                position,
+            }),
         );
     }, 500);
 
-    const handleScroll = (e:UIEvent<HTMLDivElement>) => {
+    const handleScroll = (e: UIEvent<HTMLDivElement>) => {
         setScrollPosition(e.currentTarget.scrollTop);
     };
 
@@ -49,12 +49,7 @@ export const Page: FC<PageProps> = ({children, className, onScrollEnd, ...props}
     });
 
     return (
-        <main
-            ref={wrapperRef}
-            className={classNames(cls.page, {}, [className])}
-            onScroll={handleScroll}
-            {...props}
-        >
+        <main ref={wrapperRef} className={classNames(cls.page, {}, [className])} onScroll={handleScroll} {...props}>
             {children}
             <div ref={triggerRef} />
         </main>

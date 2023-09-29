@@ -5,14 +5,16 @@ import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecora
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import avatarIcon from '@/shared/assets/avatar.webp';
-import ProfilePage  from './ProfilePage';
+import ProfilePage from './ProfilePage';
 import { Rating } from '@/entities/Rating';
 import { Theme } from '@/shared/const/theme';
 import { routes } from '@/shared/const/router';
 
-const ratingData: Array<Rating> = [{
-    rate: 4
-}];
+const ratingData: Array<Rating> = [
+    {
+        rate: 4,
+    },
+];
 
 const meta: Meta<typeof ProfilePage> = {
     title: 'pages/ProfilePage',
@@ -36,7 +38,7 @@ const meta: Meta<typeof ProfilePage> = {
     decorators: [
         withRouter,
         StoreDecorator({
-            user: {authData: {id: '1'}},
+            user: { authData: { id: '1' } },
             profile: {
                 form: {
                     first: 'First Name',
@@ -57,9 +59,9 @@ type Story = StoryObj<typeof ProfilePage>;
 
 export const Light: Story = {
     args: {},
-    decorators:[ThemeDecorator(), ]
+    decorators: [ThemeDecorator()],
 };
 export const Dark: Story = {
     args: {},
-    decorators:[ThemeDecorator(Theme.DARK)]
+    decorators: [ThemeDecorator(Theme.DARK)],
 };

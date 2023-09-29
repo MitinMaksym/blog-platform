@@ -11,16 +11,15 @@ interface PageErrorProps {
 }
 
 export const PageError: FC<PageErrorProps> = ({ className }) => {
-    const {t} = useTranslation();
+    const { t } = useTranslation();
 
     const handlePageReload = () => {
         window.location.reload();
     };
-    return  <VStack 
-        className={classNames(cls.pageError, {}, [className])} 
-        justify='center' 
-        gap='16'>
-        <h1 className={cls.title}>{t('error-occured')}</h1> 
-        <Button onClick={handlePageReload}>{t('reload-page')}</Button>
-    </VStack>;
+    return (
+        <VStack className={classNames(cls.pageError, {}, [className])} justify='center' gap='16'>
+            <h1 className={cls.title}>{t('error-occured')}</h1>
+            <Button onClick={handlePageReload}>{t('reload-page')}</Button>
+        </VStack>
+    );
 };

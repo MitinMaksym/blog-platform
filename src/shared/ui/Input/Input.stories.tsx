@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
-import {  Input } from './Input';
+import { Input } from './Input';
 import { Theme } from '@/shared/const/theme';
 
 const meta: Meta<typeof Input> = {
@@ -9,7 +9,7 @@ const meta: Meta<typeof Input> = {
     tags: ['autodocs'],
     argTypes: {},
     args: {
-        label: 'Password'
+        label: 'Password',
     },
 };
 
@@ -18,20 +18,20 @@ type Story = StoryObj<typeof Input>;
 
 export const Primary: Story = {
     args: {},
-    decorators:[ThemeDecorator(Theme.LIGHT)]
+    decorators: [ThemeDecorator(Theme.LIGHT)],
 };
 export const ReadOnly: Story = {
     args: {
-        readOnly:true
+        readOnly: true,
     },
-    decorators:[ThemeDecorator(Theme.DARK)]
+    decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const WithLabel: Story = {
     args: {},
-    decorators:[ThemeDecorator(Theme.LIGHT)]
+    decorators: [ThemeDecorator(Theme.LIGHT)],
 };
 export const Dark: Story = {
     args: {},
-    decorators:[ThemeDecorator(Theme.DARK)]
+    decorators: [ThemeDecorator(Theme.DARK)],
 };

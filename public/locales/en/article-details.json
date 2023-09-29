@@ -1,12 +1,12 @@
 {
-  "article-not-found": "Article not found",
-  "failed-load-article": "Failed to load article",
-  "failed-load-articles": "Failed to load articles",
-  "comments": "Comments",
-  "no-comments-found": "No comments found",
-  "send-comment-failure": "Failed to send a comment",
-  "read-more": "Read more...",
-  "recommendations": "Recommendations",
-  "edit": "Edit",
-  "article-feedback": "Leave your feedback about the article"
+    "article-not-found": "Article not found",
+    "failed-load-article": "Failed to load article",
+    "failed-load-articles": "Failed to load articles",
+    "comments": "Comments",
+    "no-comments-found": "No comments found",
+    "send-comment-failure": "Failed to send a comment",
+    "read-more": "Read more...",
+    "recommendations": "Recommendations",
+    "edit": "Edit",
+    "article-feedback": "Leave your feedback about the article"
 }

@@ -1,4 +1,4 @@
-import {  ReactNode, useCallback, useEffect } from 'react';
+import { ReactNode, useCallback, useEffect } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { AnimationProvider, useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
 import { Overlay } from '../Overlay/Overlay';
@@ -14,17 +14,11 @@ interface DrawerProps {
 }
 const height = window.innerHeight - 100;
 const DrawerBase = (props: DrawerProps) => {
-    const {Guesture, Spring} = useAnimationLibs();
-
+    const { Guesture, Spring } = useAnimationLibs();
 
     const [{ y }, api] = Spring.useSpring(() => ({ y: height }));
 
-    const {
-        className,
-        children,
-        isOpen,
-        onClose,   
-    } = props;
+    const { className, children, isOpen, onClose } = props;
 
     const openDrawer = useCallback(() => {
         api.start({ y: 0, immediate: false });
@@ -46,13 +40,7 @@ const DrawerBase = (props: DrawerProps) => {
     };
 
     const bind = Guesture.useDrag(
-        ({
-            last,
-            velocity: [, vy],
-            direction: [, dy],
-            movement: [, my],
-            cancel,
-        }) => {
+        ({ last, velocity: [, vy], direction: [, dy], movement: [, my], cancel }) => {
             if (my < -70) cancel();
 
             if (last) {
@@ -66,7 +54,10 @@ const DrawerBase = (props: DrawerProps) => {
             }
         },
         {
-            from: () => [0, y.get()], filterTaps: true, bounds: { top: 0 }, rubberband: true,
+            from: () => [0, y.get()],
+            filterTaps: true,
+            bounds: { top: 0 },
+            rubberband: true,
         },
     );
 
@@ -76,7 +67,7 @@ const DrawerBase = (props: DrawerProps) => {
 
     const display = y.to((py) => (py < height ? 'block' : 'none'));
     const mods: Mods = {
-        [cls.opened]:isOpen,
+        [cls.opened]: isOpen,
     };
     return (
         <Portal>
@@ -85,8 +76,7 @@ const DrawerBase = (props: DrawerProps) => {
                 <Spring.a.div
                     className={cls.content}
                     style={{ display, bottom: `calc(-100vh + ${height - 100}px)`, y }}
-                    {...bind()}
-                >
+                    {...bind()}>
                     {children}
                 </Spring.a.div>
             </div>
@@ -94,18 +84,15 @@ const DrawerBase = (props: DrawerProps) => {
     );
 };
 
-const DrawerAsync = (props :DrawerProps) => {
-    const {isLoaded} = useAnimationLibs();
-    if(!isLoaded) return null;
-    
-    return <DrawerBase {...props}/>;
+const DrawerAsync = (props: DrawerProps) => {
+    const { isLoaded } = useAnimationLibs();
+    if (!isLoaded) return null;
+
+    return <DrawerBase {...props} />;
 };
 
 export const Drawer = (props: DrawerProps) => (
     <AnimationProvider>
-        <DrawerAsync {...props}/>
+        <DrawerAsync {...props} />
     </AnimationProvider>
 );
-
-
-

@@ -1,6 +1,6 @@
 export interface LoginSchema {
-    username: string
-    password: string
-    loading: boolean
-    error: string | undefined
+    username: string;
+    password: string;
+    loading: boolean;
+    error: string | undefined;
 }

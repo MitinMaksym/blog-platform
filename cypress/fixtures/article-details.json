@@ -6,36 +6,30 @@
     "img": "https://cdn.thomasnet.com/insights-images/21a96e61-44f0-46f1-a3a4-41a46ac44551/750px.png",
     "views": 649,
     "createdAt": "05.05.2018",
-    "type": [
-      "SCIENCE",
-      "ECONOMICS"
-    ],
+    "type": ["SCIENCE", "ECONOMICS"],
     "blocks": [
-      {
-        "id": "1",
-        "type": "TEXT",
-        "title": "The Transition to Renewable Energy",
-        "paragraphs": [
-          "Renewable energy sources, such as solar, wind, and hydroelectric power, offer sustainable alternatives to traditional fossil fuels. They play a crucial role in mitigating climate change, reducing greenhouse gas emissions, and creating a cleaner and more sustainable future.",
-          "This article explores the future of renewable energy, examining the latest advancements in renewable technologies, energy storage solutions, and policy frameworks. It discusses the challenges and opportunities of transitioning to a renewable energy economy and the global efforts to accelerate the adoption of clean energy sources.",
-          "By embracing renewable energy, we can pave the way for a greener and more resilient planet, ensuring a sustainable future for generations to come."
-        ]
-      },
-      {
-        "id": "2",
-        "type": "IMAGE",
-        "src": "https://assets.amigoenergy.com/wp-content/uploads/2021/04/renewable-energy-sources-the-future-illustration.jpg",
-        "title": "Figure 11 - Renewable Energy"
-      }
+        {
+            "id": "1",
+            "type": "TEXT",
+            "title": "The Transition to Renewable Energy",
+            "paragraphs": [
+                "Renewable energy sources, such as solar, wind, and hydroelectric power, offer sustainable alternatives to traditional fossil fuels. They play a crucial role in mitigating climate change, reducing greenhouse gas emissions, and creating a cleaner and more sustainable future.",
+                "This article explores the future of renewable energy, examining the latest advancements in renewable technologies, energy storage solutions, and policy frameworks. It discusses the challenges and opportunities of transitioning to a renewable energy economy and the global efforts to accelerate the adoption of clean energy sources.",
+                "By embracing renewable energy, we can pave the way for a greener and more resilient planet, ensuring a sustainable future for generations to come."
+            ]
+        },
+        {
+            "id": "2",
+            "type": "IMAGE",
+            "src": "https://assets.amigoenergy.com/wp-content/uploads/2021/04/renewable-energy-sources-the-future-illustration.jpg",
+            "title": "Figure 11 - Renewable Energy"
+        }
     ],
     "user": {
-      "id": "1",
-      "username": "admin",
-      "password": "123",
-      "roles": [
-        "ADMIN",
-        "MANAGER"
-      ],
-      "avatar": "https://st2.depositphotos.com/1000393/6507/i/600/depositphotos_65076917-stock-photo-hacker-and-terrorism-fight.jpg"
+        "id": "1",
+        "username": "admin",
+        "password": "123",
+        "roles": ["ADMIN", "MANAGER"],
+        "avatar": "https://st2.depositphotos.com/1000393/6507/i/600/depositphotos_65076917-stock-photo-hacker-and-terrorism-fight.jpg"
     }
-  }
+}

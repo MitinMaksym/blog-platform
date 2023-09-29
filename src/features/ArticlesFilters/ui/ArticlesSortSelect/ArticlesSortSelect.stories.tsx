@@ -6,7 +6,7 @@ const meta: Meta<typeof ArticlesSortSelect> = {
     component: ArticlesSortSelect,
     tags: ['autodocs'],
     args: {
-        value: 'createdAt'
+        value: 'createdAt',
     },
 };
 
@@ -15,5 +15,5 @@ type Story = StoryObj<typeof ArticlesSortSelect>;
 
 export const Primary: Story = {
     args: {},
-    decorators:[]  
+    decorators: [],
 };

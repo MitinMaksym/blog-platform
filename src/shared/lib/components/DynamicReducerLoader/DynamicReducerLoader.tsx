@@ -5,12 +5,12 @@ import { StateSchema, StateSchemaKey, StoreWithReducerManager } from '@/app/prov
 
 export type ReducersList = {
     [name in StateSchemaKey]?: Reducer<NonNullable<StateSchema[name]>>;
-}
+};
 
 interface DynamicReducerLoaderProps {
-    children: ReactNode
-    reducers: ReducersList
-    removeAfterUnmount?: boolean
+    children: ReactNode;
+    reducers: ReducersList;
+    removeAfterUnmount?: boolean;
 }
 
 export const DynamicReducerLoader = (props: DynamicReducerLoaderProps) => {
@@ -19,21 +19,20 @@ export const DynamicReducerLoader = (props: DynamicReducerLoaderProps) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-
         Object.entries(reducers).forEach(([name, reducer]) => {
-            if(!store.reducerManager.getReducerMap()[name as StateSchemaKey]){
+            if (!store.reducerManager.getReducerMap()[name as StateSchemaKey]) {
                 store.reducerManager.add(name as StateSchemaKey, reducer);
-                dispatch({type:`@INIT ${name} reducer`});
+                dispatch({ type: `@INIT ${name} reducer` });
             }
         });
 
         return () => {
-            if(removeAfterUnmount){
+            if (removeAfterUnmount) {
                 Object.entries(reducers).forEach(([name]) => {
                     store.reducerManager.remove(name as StateSchemaKey);
-                    dispatch({type:`@DESTROY ${name} reducer`});
+                    dispatch({ type: `@DESTROY ${name} reducer` });
                 });
-            }       
+            }
         };
         // eslint-disable-next-line
     }, []);

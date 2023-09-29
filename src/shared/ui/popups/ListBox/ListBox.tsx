@@ -9,45 +9,37 @@ import { TypedMemo } from '@/shared/lib/components/TypedMemo/TypedMemo';
 import popupCls from '../styles/Popup.module.scss';
 import cls from './ListBox.module.scss';
 
-
 export type ListBoxItem<T extends string> = {
-   value: T
-   content: string
-}
+    value: T;
+    content: string;
+};
 
 export interface ListBoxProps<T extends string> {
-   id: string
-   items: Array<ListBoxItem<T>>
-   value?: T
-   label?: string
-   disabled?: boolean
-   className?: string
-   direction?: PopupDirection
-   ['data-testid']?:string
-   onChange: (el: T) => void
+    id: string;
+    items: Array<ListBoxItem<T>>;
+    value?: T;
+    label?: string;
+    disabled?: boolean;
+    className?: string;
+    direction?: PopupDirection;
+    ['data-testid']?: string;
+    onChange: (el: T) => void;
 }
 
 export const ListBox = TypedMemo(<T extends string>(props: ListBoxProps<T>) => {
-    const {id, items, value, disabled, label,direction = 'bottomLeft', 'data-testid': dataTestId, onChange} = props;
+    const { id, items, value, disabled, label, direction = 'bottomLeft', 'data-testid': dataTestId, onChange } = props;
     const { className } = props;
 
     return (
-        <HStack 
-            justify='between' 
-            align='center'
-            gap="4"
-            data-id = {dataTestId}
-        >
+        <HStack justify='between' align='center' gap='4' data-id={dataTestId}>
             {label && <label htmlFor={id}>{label}</label>}
             <Listbox
-                as={'div'} 
-                value={value} 
+                as={'div'}
+                value={value}
                 className={classNames(popupCls.popup, {}, [className])}
                 onChange={onChange}>
                 <Listbox.Button as='div' className={popupCls.trigger} data-testid={`${dataTestId}.Button`}>
-                    <Button disabled={disabled}>
-                        {items.find(el => el.value === value)?.content}
-                    </Button>
+                    <Button disabled={disabled}>{items.find((el) => el.value === value)?.content}</Button>
                 </Listbox.Button>
                 <Listbox.Options className={classNames(cls.options, {}, [directionClasses[direction]])} as='ul'>
                     {items.map((item) => (
@@ -55,16 +47,14 @@ export const ListBox = TypedMemo(<T extends string>(props: ListBoxProps<T>) => {
                             key={item.value}
                             value={item.value}
                             as={Fragment}
-                            data-testid={`ListboxOption.${item.value}`}
-
-                        >
+                            data-testid={`ListboxOption.${item.value}`}>
                             {({ active, selected }) => (
                                 <li
-                                    className={
-                                        classNames(cls.item, 
-                                            {[cls.active]: active, 
-                                                [cls.selected]: selected}, [])}
-                                >
+                                    className={classNames(
+                                        cls.item,
+                                        { [cls.active]: active, [cls.selected]: selected },
+                                        [],
+                                    )}>
                                     {item.content}
                                 </li>
                             )}

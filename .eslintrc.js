@@ -12,13 +12,13 @@ module.exports = {
     extends: [
         'plugin:react/recommended',
         'airbnb-base',
-        'prettier',
         'plugin:@typescript-eslint/eslint-recommended',
         'plugin:@typescript-eslint/recommended',
         'plugin:i18next/recommended',
         'plugin:react-hooks/recommended',
         'plugin:storybook/recommended',
-        'plugin:cypress/recommended'
+        'plugin:cypress/recommended',
+        'prettier',
     ],
 
     parser: '@typescript-eslint/parser',
@@ -35,12 +35,12 @@ module.exports = {
         'i18next',
         'react-hooks',
         'fsd-methodology-rules-checker',
-        'unused-imports'
+        'unused-imports',
     ],
     rules: {
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
-        indent: [2, 4],
+        // indent: [2, 4],
         'react/function-component-definition': 'off',
         'import/prefer-default-export': 'off',
         'import/extensions': 'off',
@@ -57,14 +57,14 @@ module.exports = {
         'react/jsx-props-no-spreading': 'off',
         'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
-        semi: [2, 'always'],
-        'max-len': [
-            2,
-            {
-                code: 120,
-                ignoreComments: true,
-            },
-        ],
+        // semi: [2, 'always'],
+        // 'max-len': [
+        //     2,
+        //     {
+        //         code: 120,
+        //         ignoreComments: true,
+        //     },
+        // ],
         'class-methods-use-this': 'off',
         'react/display-name': 'off',
         'react-hooks/rules-of-hooks': 'error',
@@ -72,7 +72,7 @@ module.exports = {
         'no-param-reassign': 'off',
         '@typescript-eslint/no-unused-vars': 'warn',
         'no-unused-vars': 'off',
-        quotes: [2, 'single', { avoidEscape: true }],
+        // quotes: [2, 'single', { avoidEscape: true }],
         '@typescript-eslint/ban-ts-comment': 'off',
         'react/prop-types': 'off',
         '@typescript-eslint/no-namespace': 'off',

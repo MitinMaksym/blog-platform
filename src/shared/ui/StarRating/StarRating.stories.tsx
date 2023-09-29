@@ -13,16 +13,14 @@ type Story = StoryObj<typeof StarRating>;
 
 export const WithoutValue: Story = {
     args: {
-        rating: 0
+        rating: 0,
     },
-    decorators:[]  
+    decorators: [],
 };
 
 export const WithValue: Story = {
     args: {
-        rating: 4
+        rating: 4,
     },
-    decorators:[]  
+    decorators: [],
 };
-
-

@@ -8,11 +8,7 @@ import { Icon } from '@/shared/ui/Icon';
 import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink';
 import { Avatar } from '@/shared/ui/Avatar';
 import { HStack } from '@/shared/ui/Stack';
-import {
-    Article,
-    ArticleTextBlock as ArticleTextBlockType,
-    ArticleView,
-} from '../../model/types/article';
+import { Article, ArticleTextBlock as ArticleTextBlockType, ArticleView } from '../../model/types/article';
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 import { routes } from '@/shared/const/router';
 
@@ -22,10 +18,10 @@ import { Skeleton } from '@/shared/ui/Skeleton';
 import cls from './ArticleListItem.module.scss';
 
 interface ArticleListItemProps {
-  article: Article;
-  view: ArticleView;
-  className?: string;
-  target?: HTMLAttributeAnchorTarget;
+    article: Article;
+    view: ArticleView;
+    className?: string;
+    target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleListItem: FC<ArticleListItemProps> = memo((props) => {
@@ -34,26 +30,22 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo((props) => {
     const { t } = useTranslation('article-details');
 
     if (view === 'LIST') {
-        const texBlock = blocks.find(
-            (block) => block.type === 'TEXT'
-        ) as ArticleTextBlockType;
+        const texBlock = blocks.find((block) => block.type === 'TEXT') as ArticleTextBlockType;
         return (
             <Card
-                className={classNames(cls.articleListItem, {}, [
-                    className,
-                    cls.listView,
-                ])}
-                data-testid="ArticleListItem"
-            >
-                <HStack justify="between" align="center">
-                    <HStack gap="16">
+                className={classNames(cls.articleListItem, {}, [className, cls.listView])}
+                data-testid='ArticleListItem'>
+                <HStack justify='between' align='center'>
+                    <HStack gap='16'>
                         <Avatar src={user.avatar} />
                         <Text title={user.username} />
                     </HStack>
-                    <Text className={cls.date} text={createdAt}/>
+                    <Text className={cls.date} text={createdAt} />
                 </HStack>
-                <Text className={cls.title} title={title} data-testid="ArticleListItem"/>
-                <div className={cls.tags} data-testid="ArticleListItem.Tags">{type.join(', ')}</div>
+                <Text className={cls.title} title={title} data-testid='ArticleListItem' />
+                <div className={cls.tags} data-testid='ArticleListItem.Tags'>
+                    {type.join(', ')}
+                </div>
                 <div className={cls.imageWrapper}>
                     <AppImage
                         className={cls.image}
@@ -62,9 +54,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo((props) => {
                         alt={title}
                     />
                 </div>
-                {texBlock && (
-                    <ArticleTextBlock className={cls.textBlock} block={texBlock} />
-                )}
+                {texBlock && <ArticleTextBlock className={cls.textBlock} block={texBlock} />}
                 <AppLink to={routes.articleDetails(id)} theme={AppLinkTheme.OUTLINED}>
                     {t('read-more')}
                 </AppLink>
@@ -73,17 +63,8 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo((props) => {
     }
 
     return (
-        <AppLink
-            to={routes.articleDetails(id)}
-            target={target}
-            data-testid="ArticleListItem"
-        >
-            <Card
-                className={classNames(cls.articleListItem, {}, [
-                    className,
-                    cls.gridView,
-                ])}
-            >
+        <AppLink to={routes.articleDetails(id)} target={target} data-testid='ArticleListItem'>
+            <Card className={classNames(cls.articleListItem, {}, [className, cls.gridView])}>
                 <div className={cls.imageWrapper}>
                     <AppImage
                         className={cls.image}
@@ -92,15 +73,19 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo((props) => {
                         alt={title}
                     />
                 </div>
-                <Text className={cls.date} text={createdAt}/>
-                <HStack justify="between">
-                    <div className={cls.tags} data-testid="ArticleListItem.Tags">{type.join(', ')}</div>
-                    <HStack gap="4">
-                        <span data-testid="ArticleListItem.Views" className={cls.count}>{views}</span>
+                <Text className={cls.date} text={createdAt} />
+                <HStack justify='between'>
+                    <div className={cls.tags} data-testid='ArticleListItem.Tags'>
+                        {type.join(', ')}
+                    </div>
+                    <HStack gap='4'>
+                        <span data-testid='ArticleListItem.Views' className={cls.count}>
+                            {views}
+                        </span>
                         <Icon SVG={eyeIcon} />
                     </HStack>
                 </HStack>
-                <Text className={cls.title} title={title} data-testid="ArticleListItem" />
+                <Text className={cls.title} title={title} data-testid='ArticleListItem' />
             </Card>
         </AppLink>
     );

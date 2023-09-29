@@ -3,7 +3,6 @@ import { CounterSchema } from '../types/counterSchema';
 
 const initialState: CounterSchema = {
     value: 0,
-
 };
 
 export const counterSlice = buildSlice({

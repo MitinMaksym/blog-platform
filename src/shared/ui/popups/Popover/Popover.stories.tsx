@@ -1,10 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { PaddingDecorator } from '@/shared/config/storybook/decorators/PaddingDecorator';
 import { Button } from '../../Button/Button';
-import {  Popover } from './Popover';
+import { Popover } from './Popover';
 
 const content = <div>{'Hello World'}</div>;
-
 
 const meta: Meta<typeof Popover> = {
     title: 'shared/Popover',
@@ -21,45 +20,42 @@ const meta: Meta<typeof Popover> = {
 export default meta;
 type Story = StoryObj<typeof Popover>;
 
-
 export const Primary: Story = {
-    args: {
-    },
+    args: {},
 };
 
 export const Disabled: Story = {
     args: {
-        disabled: true
+        disabled: true,
     },
 };
 
 export const TopLeft: Story = {
     args: {
-        direction: 'topLeft'
-    }, 
+        direction: 'topLeft',
+    },
 };
 
 export const TopRight: Story = {
     args: {
-        direction: 'topRight'
-    }, 
+        direction: 'topRight',
+    },
 };
 
 export const BottomLeft: Story = {
     args: {
-        direction: 'bottomLeft'
-    }, 
+        direction: 'bottomLeft',
+    },
 };
 
 export const BottomRight: Story = {
     args: {
-        direction: 'bottomRight'
-    }, 
+        direction: 'bottomRight',
+    },
 };
 
 export const BottomCenter: Story = {
     args: {
-        direction: 'bottomCenter'
-    }, 
+        direction: 'bottomCenter',
+    },
 };
-

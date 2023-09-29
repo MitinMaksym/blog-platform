@@ -6,19 +6,16 @@ import { selectArticlesPageLoading } from '../../selectors/selectArticlesPageLoa
 import { articlesPageActions } from '../../slice/articlesPageSlice';
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 
-
-export const fetchNextArticlesPage = 
-createAsyncThunk<void, void, ThunkConfig<string>>(
+export const fetchNextArticlesPage = createAsyncThunk<void, void, ThunkConfig<string>>(
     'pages/fetchNextArticlesPage',
     async (_, { getState, dispatch }) => {
         const hasMore = selectArticlesPageHasMore(getState());
         const loading = selectArticlesPageLoading(getState());
         const currentPage = selectArticlesCurrentPage(getState());
 
-        if(hasMore && !loading) {
+        if (hasMore && !loading) {
             dispatch(articlesPageActions.setPage(currentPage + 1));
             dispatch(fetchArticlesList({}));
         }
-    
-    }
+    },
 );

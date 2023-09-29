@@ -1,12 +1,12 @@
 {
-  "article-not-found": "Стаття не знайдена",
-  "failed-load-article": "Не вдалося загрузити статтю",
-  "failed-load-articles": "Не вдалося загрузити статті",
-  "comments": "Коментарі",
-  "no-comments-found": "Коментарі відсутні",
-  "send-comment-failure": "Не вдалося відправити коментар",
-  "read-more": "Читати далі...",
-  "recommendations": "Рекомендації",
-  "edit": "Редагувати",
-  "article-feedback": "Залиште Ваш відгук про статтю"
+    "article-not-found": "Стаття не знайдена",
+    "failed-load-article": "Не вдалося загрузити статтю",
+    "failed-load-articles": "Не вдалося загрузити статті",
+    "comments": "Коментарі",
+    "no-comments-found": "Коментарі відсутні",
+    "send-comment-failure": "Не вдалося відправити коментар",
+    "read-more": "Читати далі...",
+    "recommendations": "Рекомендації",
+    "edit": "Редагувати",
+    "article-feedback": "Залиште Ваш відгук про статтю"
 }

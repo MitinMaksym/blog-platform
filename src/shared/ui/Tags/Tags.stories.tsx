@@ -7,9 +7,9 @@ const meta: Meta<typeof Tags> = {
     tags: ['autodocs'],
     args: {
         items: [
-            {value: '1', content: 'Tag1'}, 
-            {value: '2', content: 'Tag2'}, 
-            {value: '3', content: 'Tag3'}
+            { value: '1', content: 'Tag1' },
+            { value: '2', content: 'Tag2' },
+            { value: '3', content: 'Tag3' },
         ],
     },
 };
@@ -19,11 +19,11 @@ type Story = StoryObj<typeof Tags>;
 
 export const Primary: Story = {
     args: {},
-    decorators:[]  
+    decorators: [],
 };
 export const Selected: Story = {
     args: {
-        value: '1'
+        value: '1',
     },
-    decorators:[]  
+    decorators: [],
 };

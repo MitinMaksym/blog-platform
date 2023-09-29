@@ -5,17 +5,15 @@ import { fetchCommentsByArticleId } from './fetchCommentsByArticleId';
 jest.mock('axios');
 
 describe('fetchCommentsByArticleId', () => {
-
-    const data =  [
+    const data = [
         {
             id: '1',
             text: 'some comment',
             user: {
                 id: '1',
                 username: 'John',
-                avatar: ''
-            }
-
+                avatar: '',
+            },
         },
         {
             id: '2',
@@ -23,15 +21,14 @@ describe('fetchCommentsByArticleId', () => {
             user: {
                 id: '2',
                 username: 'Tom',
-                avatar: ''
-            }
-
-        }
+                avatar: '',
+            },
+        },
     ];
 
     test('should load article data', async () => {
         const thunk = new TestAsyncThunk<Array<Comment>, string | undefined, string>(fetchCommentsByArticleId);
-        thunk.api.get.mockReturnValue(Promise.resolve({data}));
+        thunk.api.get.mockReturnValue(Promise.resolve({ data }));
         const result = await thunk.callThunk('1');
         expect(result.meta.requestStatus).toBe('fulfilled');
         expect(thunk.api.get).toHaveBeenCalled();
@@ -40,7 +37,7 @@ describe('fetchCommentsByArticleId', () => {
 
     test('with error', async () => {
         const thunk = new TestAsyncThunk<Array<Comment>, string | undefined, string>(fetchCommentsByArticleId);
-        thunk.api.get.mockReturnValue(Promise.resolve({status: 403}));
+        thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
         const result = await thunk.callThunk('1');
         expect(result.meta.requestStatus).toBe('rejected');
         expect(thunk.api.get).toHaveBeenCalled();

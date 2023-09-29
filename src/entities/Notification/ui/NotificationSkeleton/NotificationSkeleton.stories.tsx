@@ -8,9 +8,9 @@ const meta: Meta<typeof NotificationSkeleton> = {
     args: {},
     parameters: {
         loki: {
-            skip: true
-        }
-    }
+            skip: true,
+        },
+    },
 };
 
 export default meta;
@@ -18,5 +18,5 @@ type Story = StoryObj<typeof NotificationSkeleton>;
 
 export const Primary: Story = {
     args: {},
-    decorators:[]  
+    decorators: [],
 };

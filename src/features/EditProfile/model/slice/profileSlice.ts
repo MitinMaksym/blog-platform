@@ -4,13 +4,12 @@ import { fetchProfileData } from '../services/fetchProfileData/fetchProfileData'
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 import { ProfileSchema } from '../types/profileSchema';
 
-
 const initialState: ProfileSchema = {
     data: undefined,
     form: undefined,
     loading: false,
     editMode: false,
-    errors: undefined
+    errors: undefined,
 };
 
 export const profileSlice = createSlice({
@@ -24,7 +23,7 @@ export const profileSlice = createSlice({
         setProfileForm: (state, action: PayloadAction<Profile>) => {
             state.form = {
                 ...state.form,
-                ...action.payload
+                ...action.payload,
             };
         },
         cancelFormEdit: (state) => {
@@ -38,35 +37,29 @@ export const profileSlice = createSlice({
             .addCase(fetchProfileData.pending, (state) => {
                 state.loading = true;
                 state.errors = undefined;
-
             })
             .addCase(fetchProfileData.fulfilled, (state, action: PayloadAction<Profile>) => {
-                state.loading = false; 
+                state.loading = false;
                 state.data = action.payload;
                 state.form = action.payload;
-
             })
             .addCase(fetchProfileData.rejected, (state, action) => {
-                state.loading = false; 
+                state.loading = false;
                 state.errors = action.payload;
-
             })
             .addCase(updateProfileData.pending, (state) => {
                 state.loading = true;
                 state.errors = undefined;
-
             })
             .addCase(updateProfileData.fulfilled, (state, action) => {
-                state.loading = false; 
+                state.loading = false;
                 state.data = action.payload;
                 state.form = action.payload;
                 state.editMode = false;
-
             })
             .addCase(updateProfileData.rejected, (state, action) => {
-                state.loading = false; 
+                state.loading = false;
                 state.errors = action.payload;
-
             });
     },
 });

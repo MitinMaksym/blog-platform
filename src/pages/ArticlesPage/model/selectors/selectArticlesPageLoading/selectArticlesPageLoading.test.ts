@@ -3,12 +3,12 @@ import { selectArticlesPageLoading } from './selectArticlesPageLoading';
 
 describe('selectArticlesPageLoading', () => {
     test('should return loading state', () => {
-        const state:DeepPartial<StateSchema> = {articlesPage: {loading: true}};
+        const state: DeepPartial<StateSchema> = { articlesPage: { loading: true } };
         expect(selectArticlesPageLoading(state as StateSchema)).toBe(true);
     });
 
     test('should work with empty state', () => {
-        const state:DeepPartial<StateSchema> = {};
+        const state: DeepPartial<StateSchema> = {};
         expect(selectArticlesPageLoading(state as StateSchema)).toBe(false);
     });
 });

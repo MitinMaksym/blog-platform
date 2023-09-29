@@ -9,10 +9,8 @@ const meta: Meta<typeof Sidebar> = {
     title: 'widgets/Sidebar',
     component: Sidebar,
     tags: ['autodocs'],
-    argTypes: {
-    },
-    decorators: [RouterDecorator, StoreDecorator({user:{authData:{}}})]
-
+    argTypes: {},
+    decorators: [RouterDecorator, StoreDecorator({ user: { authData: {} } })],
 };
 
 export default meta;
@@ -20,16 +18,13 @@ type Story = StoryObj<typeof Sidebar>;
 
 export const Light: Story = {
     args: {},
-    decorators:[ThemeDecorator()]
+    decorators: [ThemeDecorator()],
 };
 export const Dark: Story = {
     args: {},
-    decorators:[ThemeDecorator(Theme.DARK)]
+    decorators: [ThemeDecorator(Theme.DARK)],
 };
 export const NoAuth: Story = {
     args: {},
-    decorators:[ThemeDecorator(Theme.DARK), StoreDecorator({user:{authData:undefined}})]
+    decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({ user: { authData: undefined } })],
 };
-
-
-

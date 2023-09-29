@@ -9,37 +9,33 @@ import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkele
 import cls from './ArticleList.module.scss';
 
 interface ArticleListProps {
-   articles: Array<Article>
-   view: ArticleView
-   loading?:boolean 
-   className?: string;
-   target?: HTMLAttributeAnchorTarget
-
+    articles: Array<Article>;
+    view: ArticleView;
+    loading?: boolean;
+    className?: string;
+    target?: HTMLAttributeAnchorTarget;
 }
 
-const getSkeletons = (view: ArticleView) => new Array(view === 'GRID' ? 8 : 3)
-    .fill(0)
-    .map((_, index) => (
-        <ArticleListItemSkeleton key={index} view={view} />
-    ));
+const getSkeletons = (view: ArticleView) =>
+    new Array(view === 'GRID' ? 8 : 3).fill(0).map((_, index) => <ArticleListItemSkeleton key={index} view={view} />);
 
 export const ArticleList: FC<ArticleListProps> = memo((props) => {
-    const {t} = useTranslation('articles');
+    const { t } = useTranslation('articles');
     const { className, articles, view, target, loading = false } = props;
     const firstRender = useFirstRender();
-    const notFoundMsgVisible = !articles.length && !loading  && !firstRender;
+    const notFoundMsgVisible = !articles.length && !loading && !firstRender;
 
-    const renderArticle = useCallback((article: Article) => 
-        <ArticleListItem key={article.id} 
-            view={view}  
-            article={article} target={target}/>, 
-    [view, target]);
+    const renderArticle = useCallback(
+        (article: Article) => <ArticleListItem key={article.id} view={view} article={article} target={target} />,
+        [view, target],
+    );
 
     return (
-        <div className={classNames(cls.articleList, {}, [className, `${cls[`${view.toLowerCase()}View`]}`])} 
-            data-testid="ArticleList">
+        <div
+            className={classNames(cls.articleList, {}, [className, `${cls[`${view.toLowerCase()}View`]}`])}
+            data-testid='ArticleList'>
             {articles.length > 0 && articles.map(renderArticle)}
-            { notFoundMsgVisible && <Text title={t('articles-not-found')} align='center'/>}
+            {notFoundMsgVisible && <Text title={t('articles-not-found')} align='center' />}
             {loading && getSkeletons(view)}
         </div>
     );

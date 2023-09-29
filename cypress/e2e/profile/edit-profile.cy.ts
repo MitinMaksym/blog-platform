@@ -1,10 +1,8 @@
-
 let profileId = '';
 
 describe('Profile editing functionality', () => {
-
     beforeEach(() => {
-        cy.login().then(({id}) => {
+        cy.login().then(({ id }) => {
             cy.visit(`/profile/${id}`);
             profileId = id;
         });

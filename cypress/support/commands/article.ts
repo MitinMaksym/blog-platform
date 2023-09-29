@@ -15,7 +15,7 @@ const defaultArticle = {
             type: 'TEXT',
             title: 'Заголовок этого блока',
             paragraphs: ['«Hello, world!»,'],
-        }
+        },
     ],
 };
 
@@ -25,9 +25,9 @@ export const createArticle = (article?: Article) => {
         url: 'http://localhost:8000/articles',
         body: article ?? defaultArticle,
         headers: {
-            Authorization: 'Bearer'
-        }
-    }).then(({body}) => body);
+            Authorization: 'Bearer',
+        },
+    }).then(({ body }) => body);
 };
 
 export const removeArticle = (id: string) => {
@@ -35,16 +35,16 @@ export const removeArticle = (id: string) => {
         method: 'DELETE',
         url: `http://localhost:8000/articles/${id}`,
         headers: {
-            Authorization: 'Bearer'
-        }
+            Authorization: 'Bearer',
+        },
     });
 };
 
 declare global {
     namespace Cypress {
-      interface Chainable {
-        createArticle(): Chainable<Article>
-        removeArticle(id: string): Chainable<void>
-      }
+        interface Chainable {
+            createArticle(): Chainable<Article>;
+            removeArticle(id: string): Chainable<void>;
+        }
     }
-  }
+}

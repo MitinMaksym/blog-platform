@@ -10,7 +10,7 @@ const meta: Meta<typeof MainPage> = {
     component: MainPage,
     tags: ['autodocs'],
     argTypes: {},
-    decorators:[withRouter, StoreDecorator({page: {scroll:{}}})]
+    decorators: [withRouter, StoreDecorator({ page: { scroll: {} } })],
 };
 
 export default meta;
@@ -18,10 +18,9 @@ type Story = StoryObj<typeof MainPage>;
 
 export const Light: Story = {
     args: {},
-    decorators:[ThemeDecorator()]
-
+    decorators: [ThemeDecorator()],
 };
 export const Dark: Story = {
     args: {},
-    decorators:[ThemeDecorator(Theme.DARK)]
+    decorators: [ThemeDecorator(Theme.DARK)],
 };

@@ -14,7 +14,7 @@ import 'swiper/scss';
 import cls from './ArticleRecommendations.module.scss';
 
 interface ArticleRecommendationsProps {
-   className?: string;
+    className?: string;
 }
 
 export const ArticleRecommendations: FC<ArticleRecommendationsProps> = memo((props) => {
@@ -23,26 +23,26 @@ export const ArticleRecommendations: FC<ArticleRecommendationsProps> = memo((pro
     const { data: articles, isLoading } = useGetArticleRecommendationsQuery(5, {
         skip: __PROJECT__ === 'storybook',
     });
-    const renderSlide = useCallback((article: Article) => 
-        (<SwiperSlide key={article.id} data-testid = "ArticleRecommendationsItem">
-            <ArticleListItem 
-                article={article} 
-                view='GRID'
-                target="_blank"/>
-        </SwiperSlide>), 
-    []);
-    
-    if (isLoading) return (
-        <HStack justify="center" align="center">
-            <Loader />
-        </HStack>
+    const renderSlide = useCallback(
+        (article: Article) => (
+            <SwiperSlide key={article.id} data-testid='ArticleRecommendationsItem'>
+                <ArticleListItem article={article} view='GRID' target='_blank' />
+            </SwiperSlide>
+        ),
+        [],
     );
+
+    if (isLoading)
+        return (
+            <HStack justify='center' align='center'>
+                <Loader />
+            </HStack>
+        );
 
     return (
         <div
             className={classNames(cls.articleRecommendations, {}, [className])}
-            data-testid="ArticleRecommendationsList"
-        >
+            data-testid='ArticleRecommendationsList'>
             <Text title={t('recommendations')} className={cls.title} />
             <Swiper
                 modules={[A11y]}
@@ -61,8 +61,7 @@ export const ArticleRecommendations: FC<ArticleRecommendationsProps> = memo((pro
                     1280: {
                         slidesPerView: 4,
                     },
-                }}
-            >
+                }}>
                 {!!articles?.length && articles.map(renderSlide)}
             </Swiper>
         </div>

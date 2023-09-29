@@ -3,7 +3,6 @@ import { withRouter } from 'storybook-addon-react-router-v6';
 import avatarImg from '@/shared/assets/avatar.webp';
 import { CommentList } from './CommentList';
 
-
 const meta: Meta<typeof CommentList> = {
     title: 'entities/Comment/CommentList',
     component: CommentList,
@@ -16,14 +15,12 @@ const meta: Meta<typeof CommentList> = {
                 user: {
                     id: '1',
                     username: 'John',
-                    avatar: avatarImg
-                }
-    
+                    avatar: avatarImg,
+                },
             },
-
-        ]
+        ],
     },
-    decorators:[withRouter]
+    decorators: [withRouter],
 };
 
 export default meta;
@@ -39,5 +36,5 @@ export const Loading: Story = {
     },
     parameters: {
         loki: { skip: true },
-    }
+    },
 };

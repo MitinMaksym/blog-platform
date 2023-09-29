@@ -8,14 +8,14 @@ import { ProfileError } from '../../model/consts/consts';
 import { EditableProfileCard } from './EditableProfileCard';
 import { Theme } from '@/shared/const/theme';
 
-const data = { 
-    first:'First Name', 
-    lastname:'Last Name', 
-    username:'Nickname', 
-    age: 25, 
+const data = {
+    first: 'First Name',
+    lastname: 'Last Name',
+    username: 'Nickname',
+    age: 25,
     avatar: AvatarIcon,
     country: Country.UKRAINE,
-    currency: Currency.EUR
+    currency: Currency.EUR,
 };
 
 const meta: Meta<typeof EditableProfileCard> = {
@@ -24,24 +24,23 @@ const meta: Meta<typeof EditableProfileCard> = {
     tags: ['autodocs'],
     argTypes: {},
     args: {},
-    decorators: [StoreDecorator({profile: {form: data}})]
+    decorators: [StoreDecorator({ profile: { form: data } })],
 };
 
 export default meta;
-type Story = StoryObj<typeof EditableProfileCard>
+type Story = StoryObj<typeof EditableProfileCard>;
 
 export const Primary: Story = {
-    decorators: [ThemeDecorator(Theme.LIGHT)]
-
+    decorators: [ThemeDecorator(Theme.LIGHT)],
 };
 
 export const Dark: Story = {
-    decorators: [ThemeDecorator(Theme.DARK)]
+    decorators: [ThemeDecorator(Theme.DARK)],
 };
 
-
 export const WithError: Story = {
-    decorators: [ThemeDecorator(Theme.DARK), 
-        StoreDecorator({profile: {form:data, errors:[ProfileError.INCORRECT_USER_DATA]}})],
-    
+    decorators: [
+        ThemeDecorator(Theme.DARK),
+        StoreDecorator({ profile: { form: data, errors: [ProfileError.INCORRECT_USER_DATA] } }),
+    ],
 };

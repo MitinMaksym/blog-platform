@@ -19,17 +19,17 @@ type Story = StoryObj<typeof Skeleton>;
 export const Primary: Story = {
     args: {
         width: 100,
-        height: 100
+        height: 100,
     },
-    decorators:[ThemeDecorator(Theme.LIGHT)]  
+    decorators: [ThemeDecorator(Theme.LIGHT)],
 };
 export const Circle: Story = {
     args: {
         width: 100,
         height: 100,
-        border: '50%'
+        border: '50%',
     },
-    decorators:[ThemeDecorator(Theme.LIGHT)]
+    decorators: [ThemeDecorator(Theme.LIGHT)],
 };
 
 export const Dark: Story = {
@@ -37,7 +37,7 @@ export const Dark: Story = {
         width: 100,
         height: 100,
     },
-    decorators:[ThemeDecorator(Theme.DARK)]  
+    decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const Orange: Story = {
@@ -45,5 +45,5 @@ export const Orange: Story = {
         width: 100,
         height: 100,
     },
-    decorators:[ThemeDecorator(Theme.LIGHT)]  
+    decorators: [ThemeDecorator(Theme.LIGHT)],
 };

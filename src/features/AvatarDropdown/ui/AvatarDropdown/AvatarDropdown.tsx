@@ -10,9 +10,9 @@ import { Avatar } from '@/shared/ui/Avatar';
 import { routes } from '@/shared/const/router';
 
 interface AvatarDropdownProps {
-   className?: string;
-   direction?: PopupDirection
-   disabled?: boolean
+    className?: string;
+    direction?: PopupDirection;
+    disabled?: boolean;
 }
 
 export const AvatarDropdown: FC<AvatarDropdownProps> = memo((props) => {
@@ -24,14 +24,13 @@ export const AvatarDropdown: FC<AvatarDropdownProps> = memo((props) => {
     const adminPanelAvailable = isAdmin || isManager;
     const userData = useSelector(selectUserAuthData);
 
-
     const handleLogout = useCallback(() => {
         dispatch(userActions.logout());
         localStorage.removeItem(USER_DATA_KEY);
         localStorage.removeItem(ARTICLES_FILTERS);
     }, [dispatch]);
 
-    if(!userData) return null;
+    if (!userData) return null;
 
     return (
         <Menu
@@ -43,11 +42,11 @@ export const AvatarDropdown: FC<AvatarDropdownProps> = memo((props) => {
                 ...[
                     ...(adminPanelAvailable
                         ? [
-                            {
-                                content: t('admin-panel'),
-                                href: routes.admin(),
-                            },
-                        ]
+                              {
+                                  content: t('admin-panel'),
+                                  href: routes.admin(),
+                              },
+                          ]
                         : []),
                 ],
                 {

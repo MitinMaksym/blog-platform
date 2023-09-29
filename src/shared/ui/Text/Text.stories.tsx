@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
-import {  Text, TextTheme } from './Text';
+import { Text, TextTheme } from './Text';
 import { Theme } from '@/shared/const/theme';
 
 const meta: Meta<typeof Text> = {
@@ -16,112 +16,105 @@ type Story = StoryObj<typeof Text>;
 export const Primary: Story = {
     args: {
         title: 'Test title',
-        text: 'Text text'
+        text: 'Text text',
     },
-    decorators:[ThemeDecorator(Theme.LIGHT)]
+    decorators: [ThemeDecorator(Theme.LIGHT)],
 };
 
 export const Error: Story = {
     args: {
         title: 'Test title',
         text: 'Text text',
-        theme: TextTheme.ERROR
+        theme: TextTheme.ERROR,
     },
-    decorators:[ThemeDecorator(Theme.LIGHT)]
+    decorators: [ThemeDecorator(Theme.LIGHT)],
 };
 
 export const ErrorDark: Story = {
     args: {
         title: 'Test title',
         text: 'Text text',
-        theme: TextTheme.ERROR
+        theme: TextTheme.ERROR,
     },
-    decorators:[ThemeDecorator(Theme.DARK)]
+    decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const OnlyTitle: Story = {
     args: {
-        title: 'Text title'
+        title: 'Text title',
     },
-    decorators:[ThemeDecorator(Theme.LIGHT)]
+    decorators: [ThemeDecorator(Theme.LIGHT)],
 };
 
 export const OnlyText: Story = {
     args: {
-        text: 'Text text'
+        text: 'Text text',
     },
-    decorators:[ThemeDecorator(Theme.LIGHT)]
+    decorators: [ThemeDecorator(Theme.LIGHT)],
 };
 
 export const PrimaryDark: Story = {
     args: {
         title: 'Test title',
-        text: 'Text text'
+        text: 'Text text',
     },
-    decorators:[ThemeDecorator(Theme.DARK)]
+    decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const OnlyTitleDark: Story = {
     args: {
-        title: 'Text title'
+        title: 'Text title',
     },
-    decorators:[ThemeDecorator(Theme.DARK)]
+    decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const AlignLeft: Story = {
     args: {
         text: 'Text text',
-        align:'left'
+        align: 'left',
     },
-    decorators:[ThemeDecorator(Theme.LIGHT)]
+    decorators: [ThemeDecorator(Theme.LIGHT)],
 };
 
 export const AlignRight: Story = {
     args: {
         text: 'Text text',
-        align:'right'
+        align: 'right',
     },
-    decorators:[ThemeDecorator(Theme.LIGHT)]
+    decorators: [ThemeDecorator(Theme.LIGHT)],
 };
 
 export const AlignCenter: Story = {
     args: {
         text: 'Text text',
-        align: 'center'
+        align: 'center',
     },
-    decorators:[ThemeDecorator(Theme.LIGHT)]
+    decorators: [ThemeDecorator(Theme.LIGHT)],
 };
 
 export const SizeS: Story = {
     args: {
-        title:'Test title',
+        title: 'Test title',
         text: 'Text text',
-        size:'sizeS'
+        size: 'sizeS',
     },
-    decorators:[ThemeDecorator(Theme.LIGHT)]
+    decorators: [ThemeDecorator(Theme.LIGHT)],
 };
 
 export const SizeM: Story = {
     args: {
-        title:'Test title',
+        title: 'Test title',
         text: 'Text text',
-        size:'sizeM'
+        size: 'sizeM',
     },
-    decorators:[ThemeDecorator(Theme.LIGHT)]
+    decorators: [ThemeDecorator(Theme.LIGHT)],
 };
 
 export const SizeL: Story = {
     args: {
-        title:'Test title',
+        title: 'Test title',
         text: 'Text text',
-        size: 'sizeL'
+        size: 'sizeL',
     },
-    decorators:[ThemeDecorator(Theme.LIGHT)]
+    decorators: [ThemeDecorator(Theme.LIGHT)],
 };
-
-
-
-
-
-
-

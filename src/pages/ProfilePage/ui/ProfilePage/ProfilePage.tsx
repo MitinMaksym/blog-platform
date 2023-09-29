@@ -9,29 +9,29 @@ import { Text } from '@/shared/ui/Text';
 import { ProfileRating } from '@/features/ProfileRating';
 import { VStack } from '@/shared/ui/Stack';
 import { selectUserAuthData } from '@/entities/User';
-    
+
 interface ProfilePageProps {
-  className?: string;
+    className?: string;
 }
 
-
 const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
-    const {t} = useTranslation('profile');
-    const { id } = useParams<{id: string}>();
+    const { t } = useTranslation('profile');
+    const { id } = useParams<{ id: string }>();
     const user = useSelector(selectUserAuthData);
     const profileErrors = useSelector(selectProfileErrors);
     const canRateProfile = id !== user?.id && !profileErrors;
 
-    if(!id){
-        return  (
-            <Page className = {classNames('', {}, [className])}>
-                <Text title={t('profile-not-found')}/>
-            </Page>);
+    if (!id) {
+        return (
+            <Page className={classNames('', {}, [className])}>
+                <Text title={t('profile-not-found')} />
+            </Page>
+        );
     }
 
     return (
-        <Page className={classNames('', {}, [className])} data-testid = "ProfilePage">
-            <VStack align="stretch" gap="16">
+        <Page className={classNames('', {}, [className])} data-testid='ProfilePage'>
+            <VStack align='stretch' gap='16'>
                 <Text title={t('profile-page-title')} />
                 <EditableProfileCard id={id} />
                 {canRateProfile && <ProfileRating id={id} />}

@@ -13,7 +13,7 @@ type Story = StoryObj<typeof RatingCard>;
 
 export const Primary: Story = {
     args: {
-        rating: 4
+        rating: 4,
     },
-    decorators:[]  
+    decorators: [],
 };

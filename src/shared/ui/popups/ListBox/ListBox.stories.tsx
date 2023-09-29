@@ -15,9 +15,7 @@ const meta: Meta<typeof ListBox> = {
         ],
         value: '1',
     },
-    decorators: [
-        PaddingDecorator(200)
-    ],
+    decorators: [PaddingDecorator(200)],
 };
 
 export default meta;
@@ -34,37 +32,36 @@ export const Disabled: Story = {
 export const WithLable: Story = {
     args: {
         label: 'Label',
-        direction: 'bottomCenter'
+        direction: 'bottomCenter',
     },
 };
 
 export const TopLeft: Story = {
     args: {
-        direction: 'topLeft'
+        direction: 'topLeft',
     },
 };
 
 export const TopRight: Story = {
     args: {
-        direction: 'topRight'
+        direction: 'topRight',
     },
 };
 
 export const BottomLeft: Story = {
     args: {
-        direction: 'bottomLeft'
+        direction: 'bottomLeft',
     },
 };
 
 export const BottomRight: Story = {
     args: {
-        direction: 'bottomRight'
+        direction: 'bottomRight',
     },
 };
 
 export const BottomCenter: Story = {
     args: {
-        direction: 'bottomCenter'
+        direction: 'bottomCenter',
     },
 };
-

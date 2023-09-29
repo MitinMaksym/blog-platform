@@ -1,15 +1,11 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 
 interface ModalProps {
-    open: boolean
-    animationDuration?: number
-    onClose: () => void
-} 
-export const useModal = ({
-    open,
-    animationDuration = 300,
-    onClose,
-}: ModalProps) => {
+    open: boolean;
+    animationDuration?: number;
+    onClose: () => void;
+}
+export const useModal = ({ open, animationDuration = 300, onClose }: ModalProps) => {
     const [closing, setClosing] = useState(false);
     const timerRef = useRef<number>();
 
@@ -26,7 +22,7 @@ export const useModal = ({
         (e: KeyboardEvent) => {
             if (e.key === 'Escape') close();
         },
-        [close]
+        [close],
     );
 
     useEffect(() => {

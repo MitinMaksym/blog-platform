@@ -13,7 +13,7 @@ interface RateProfileArg {
     feedback?: string;
 }
 
-const apiWithTag = rtkApi.enhanceEndpoints({addTagTypes: ['ProfileRating']});
+const apiWithTag = rtkApi.enhanceEndpoints({ addTagTypes: ['ProfileRating'] });
 
 const profileRatingApi = apiWithTag.injectEndpoints({
     endpoints: (build) => ({
@@ -27,19 +27,17 @@ const profileRatingApi = apiWithTag.injectEndpoints({
                 },
             }),
             providesTags: ['ProfileRating'],
-
         }),
         rateProfile: build.mutation<void, RateProfileArg>({
             query: (paylod) => ({
                 url: '/profile-ratings',
                 method: 'POST',
-                body: paylod
+                body: paylod,
             }),
-            invalidatesTags:['ProfileRating']
+            invalidatesTags: ['ProfileRating'],
         }),
-    
     }),
     overrideExisting: false,
 });
 
-export const {useGetProfileRatingQuery, useRateProfileMutation} = profileRatingApi;
+export const { useGetProfileRatingQuery, useRateProfileMutation } = profileRatingApi;

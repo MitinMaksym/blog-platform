@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { withRouter } from 'storybook-addon-react-router-v6';
 import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
 import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
-import {NotFoundPage} from './NotFoundPage';
+import { NotFoundPage } from './NotFoundPage';
 import { Theme } from '@/shared/const/theme';
 
 const meta: Meta<typeof NotFoundPage> = {
@@ -10,7 +10,7 @@ const meta: Meta<typeof NotFoundPage> = {
     component: NotFoundPage,
     tags: ['autodocs'],
     argTypes: {},
-    decorators:[withRouter, StoreDecorator({page: {scroll:{}}})]
+    decorators: [withRouter, StoreDecorator({ page: { scroll: {} } })],
 };
 
 export default meta;
@@ -18,9 +18,9 @@ type Story = StoryObj<typeof NotFoundPage>;
 
 export const Light: Story = {
     args: {},
-    decorators:[ThemeDecorator()]
+    decorators: [ThemeDecorator()],
 };
 export const Dark: Story = {
     args: {},
-    decorators:[ThemeDecorator(Theme.DARK)]
+    decorators: [ThemeDecorator(Theme.DARK)],
 };

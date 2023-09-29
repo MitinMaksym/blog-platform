@@ -8,7 +8,7 @@ const meta: Meta<typeof ArticlesFilters> = {
     component: ArticlesFilters,
     tags: ['autodocs'],
     args: {},
-    decorators: [withRouter, StoreDecorator({})]
+    decorators: [withRouter, StoreDecorator({})],
 };
 
 export default meta;
@@ -16,5 +16,5 @@ type Story = StoryObj<typeof ArticlesFilters>;
 
 export const Primary: Story = {
     args: {},
-    decorators:[]  
+    decorators: [],
 };

@@ -37,32 +37,30 @@ export const Primary: Story = {
 
 export const TopLeft: Story = {
     args: {
-        direction: 'topLeft'
+        direction: 'topLeft',
     },
 };
 
 export const TopRight: Story = {
     args: {
-        direction: 'topRight'
+        direction: 'topRight',
     },
 };
 
 export const BottomLeft: Story = {
     args: {
-        direction: 'bottomLeft'
+        direction: 'bottomLeft',
     },
 };
 
 export const BottomRight: Story = {
     args: {
-        direction: 'bottomRight'
+        direction: 'bottomRight',
     },
 };
 
 export const BottomCenter: Story = {
     args: {
-        direction: 'bottomCenter'
+        direction: 'bottomCenter',
     },
 };
-
-

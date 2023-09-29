@@ -3,12 +3,12 @@ import { selectArticleDetailsCommentsLoading } from './selectArticleDetailsComme
 
 describe('selectArticleDetailsCommentsLoading', () => {
     test('should return article loading state', () => {
-        const state:DeepPartial<StateSchema> = {articleDetailsComments: {loading: true}};
+        const state: DeepPartial<StateSchema> = { articleDetailsComments: { loading: true } };
         expect(selectArticleDetailsCommentsLoading(state as StateSchema)).toBe(true);
     });
 
     test('should work with empty state', () => {
-        const state:DeepPartial<StateSchema> = {};
+        const state: DeepPartial<StateSchema> = {};
         expect(selectArticleDetailsCommentsLoading(state as StateSchema)).toBe(false);
     });
 });

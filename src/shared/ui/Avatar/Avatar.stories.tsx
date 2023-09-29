@@ -1,15 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
-import {  Avatar } from './Avatar';
-import avatarImg from './avatarImg.webp'; 
+import { Avatar } from './Avatar';
+import avatarImg from './avatarImg.webp';
 
 const meta: Meta<typeof Avatar> = {
     title: 'shared/Avatar',
     component: Avatar,
     tags: ['autodocs'],
-    argTypes: {
-       
-    },
+    argTypes: {},
 };
 
 export default meta;
@@ -18,40 +16,39 @@ type Story = StoryObj<typeof Avatar>;
 export const Small: Story = {
     args: {
         size: 50,
-        src: avatarImg
+        src: avatarImg,
     },
-    decorators:[ThemeDecorator()]
+    decorators: [ThemeDecorator()],
 };
 
 export const Big: Story = {
     args: {
         size: 150,
-        src: avatarImg
+        src: avatarImg,
     },
-    decorators:[ThemeDecorator()]
+    decorators: [ThemeDecorator()],
 };
 export const AlignLeft: Story = {
     args: {
         size: 150,
         src: avatarImg,
-        align:'left'
+        align: 'left',
     },
-    decorators:[ThemeDecorator()]
+    decorators: [ThemeDecorator()],
 };
 export const AlignCenter: Story = {
     args: {
         size: 150,
         src: avatarImg,
-        align:'center'
+        align: 'center',
     },
-    decorators:[ThemeDecorator()]
+    decorators: [ThemeDecorator()],
 };
 export const AlignRight: Story = {
     args: {
         size: 150,
         src: avatarImg,
-        align:'right'
+        align: 'right',
     },
-    decorators:[ThemeDecorator()]
+    decorators: [ThemeDecorator()],
 };
-

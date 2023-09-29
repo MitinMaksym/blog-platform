@@ -18,5 +18,3 @@ export const Primary: Story = {
     args: {},
     decorators:[]
 };`;
-
-

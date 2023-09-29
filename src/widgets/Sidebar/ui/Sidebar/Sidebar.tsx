@@ -11,7 +11,7 @@ import { SidebarItem } from '../SidebarItem/SidebarItem';
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
-className?: string
+    className?: string;
 }
 
 export const Sidebar: FC<SidebarProps> = memo(({ className }) => {
@@ -22,26 +22,25 @@ export const Sidebar: FC<SidebarProps> = memo(({ className }) => {
         setCollapsed((prev) => !prev);
     };
     return (
-        <nav data-testid = 'sidebar'
-            className={classNames(cls.sidebar, { [cls.collapsed]: collapsed }, [
-                className,
-            ])}
-        >
+        <nav data-testid='sidebar' className={classNames(cls.sidebar, { [cls.collapsed]: collapsed }, [className])}>
             <ul className={cls.items}>
-                {sidebarItemsList
-                    .map((item) => 
-                        <SidebarItem key = {item.path} item={item} collapsed={collapsed}/>)}
+                {sidebarItemsList.map((item) => (
+                    <SidebarItem key={item.path} item={item} collapsed={collapsed} />
+                ))}
             </ul>
-          
-            <Button data-testid='toggle-btn' 
-                className={cls.collapseBtn} 
-                variant={BtnVariant.BACKGROUND_INVERTED} 
+
+            <Button
+                data-testid='toggle-btn'
+                className={cls.collapseBtn}
+                variant={BtnVariant.BACKGROUND_INVERTED}
                 size={BtnSize.L}
                 square={true}
-                onClick={onToggle}>{collapsed ? '>' : '<'}</Button>
+                onClick={onToggle}>
+                {collapsed ? '>' : '<'}
+            </Button>
             <HStack className={cls.switchers} gap='16' justify='center'>
                 <ThemeSwitcher />
-                <LanguageSwitcher short={collapsed}/>
+                <LanguageSwitcher short={collapsed} />
             </HStack>
         </nav>
     );

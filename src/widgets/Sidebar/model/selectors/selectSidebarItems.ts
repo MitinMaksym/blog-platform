@@ -8,15 +8,15 @@ import ArticlesIcon from '@/shared/assets/icons/articles.svg';
 import { SidebarItemType } from '../types/sidebar';
 
 export const selectSidebarItems = createSelector(selectUserAuthData, (userData) => {
-    const sidebarItemsList:Array<SidebarItemType> =  [
-        {Icon: AboutIcon, path: routes.about(), text: 'about-page-link'},
-        {Icon: MainIcon, path: routes.main(), text: 'main-page-link'},
+    const sidebarItemsList: Array<SidebarItemType> = [
+        { Icon: AboutIcon, path: routes.about(), text: 'about-page-link' },
+        { Icon: MainIcon, path: routes.main(), text: 'main-page-link' },
     ];
 
-    if(userData){
-        sidebarItemsList.push(        
-            {Icon: ProfileIcon, path: routes.profile(userData.id), text: 'profile-page-link', authOnly: true},
-            {Icon: ArticlesIcon, path: routes.articles(), text: 'articles-page-link', authOnly: true }
+    if (userData) {
+        sidebarItemsList.push(
+            { Icon: ProfileIcon, path: routes.profile(userData.id), text: 'profile-page-link', authOnly: true },
+            { Icon: ArticlesIcon, path: routes.articles(), text: 'articles-page-link', authOnly: true },
         );
     }
 

@@ -14,20 +14,14 @@ export default meta;
 type Story = StoryObj<typeof Card>;
 
 export const Primary: Story = {
-    args: {
-        
-    },
-    decorators:[ThemeDecorator(Theme.LIGHT)]  
+    args: {},
+    decorators: [ThemeDecorator(Theme.LIGHT)],
 };
 export const Dark: Story = {
-    args: {
-        
-    },
-    decorators:[ThemeDecorator(Theme.DARK)]  
+    args: {},
+    decorators: [ThemeDecorator(Theme.DARK)],
 };
 export const Orange: Story = {
-    args: {
-        
-    },
-    decorators:[ThemeDecorator(Theme.ORANGE)]  
+    args: {},
+    decorators: [ThemeDecorator(Theme.ORANGE)],
 };

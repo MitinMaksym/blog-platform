@@ -13,11 +13,11 @@ const config: StorybookConfig = {
             name: '@storybook/addon-essentials',
             options: {
                 backgrounds: false,
-            }
+            },
         },
         '@storybook/addon-interactions',
         'storybook-addon-react-router-v6',
-        'storybook-addon-themes'
+        'storybook-addon-themes',
     ],
     framework: {
         name: '@storybook/react-webpack5',
@@ -27,21 +27,21 @@ const config: StorybookConfig = {
         autodocs: 'tag',
     },
     webpackFinal: async (config: Configuration) => {
-        if(config.resolve?.alias){
+        if (config.resolve?.alias) {
             config.resolve.alias = {
                 ...config.resolve.alias,
                 '@': path.resolve(__dirname, '../../src'),
             };
         }
-       
+
         config?.resolve?.modules?.push(path.resolve(__dirname, '..', '..', 'src'));
         config?.resolve?.extensions?.push('.ts', '.tsx');
-    
-        if(config.module) {
+
+        if (config.module) {
             // eslint-disable-next-line no-param-reassign
             config.module.rules = config.module?.rules?.map((rule) => {
                 if (/svg/.test((rule as RuleSetRule).test as string)) {
-                    return { ...rule as RuleSetRule, exclude: /\.svg$/i };
+                    return { ...(rule as RuleSetRule), exclude: /\.svg$/i };
                 }
                 return rule;
             });
@@ -53,11 +53,13 @@ const config: StorybookConfig = {
 
         config?.module?.rules?.push(buildCssLoader(true));
 
-        config.plugins?.push( new DefinePlugin({
-            __IS_DEV__: true,
-            __PROJECT__: JSON.stringify('storybook'),
-            __API__: JSON.stringify(process.env.API_URL)
-        }),);
+        config.plugins?.push(
+            new DefinePlugin({
+                __IS_DEV__: true,
+                __PROJECT__: JSON.stringify('storybook'),
+                __API__: JSON.stringify(process.env.API_URL),
+            }),
+        );
 
         return config;
     },

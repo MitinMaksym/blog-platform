@@ -7,32 +7,29 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { DynamicReducerLoader, ReducersList } from '@/shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 import { Text, TextTheme } from '@/shared/ui/Text';
-import { 
-    articleDetailsCommentsActions, 
-    articleDetailsCommentsReducer, 
-    commentsSelectors 
+import {
+    articleDetailsCommentsActions,
+    articleDetailsCommentsReducer,
+    commentsSelectors,
 } from '../../model/slice/articleDetailsCommentsSlice';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import cls from './ArticleDetailsComments.module.scss';
-import { selectArticleDetailsCommentsLoading } 
-    from '../../model/selectors/selectArticleDetailsCommentsLoading/selectArticleDetailsCommentsLoading';
-import { selectArticleCommentFormText } 
-    from '../../model/selectors/selectArticleCommentFormText/selectArticleCommentFormText';
+import { selectArticleDetailsCommentsLoading } from '../../model/selectors/selectArticleDetailsCommentsLoading/selectArticleDetailsCommentsLoading';
+import { selectArticleCommentFormText } from '../../model/selectors/selectArticleCommentFormText/selectArticleCommentFormText';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
-import { selectArticleDetailsCommentsError } 
-    from '../../model/selectors/selectArticleDetailsCommentsError/selectArticleDetailsCommentsError';
+import { selectArticleDetailsCommentsError } from '../../model/selectors/selectArticleDetailsCommentsError/selectArticleDetailsCommentsError';
 
 interface ArticleDetailsCommentsProps {
-   id: string
-   className?: string;
+    id: string;
+    className?: string;
 }
 
 const reducers: ReducersList = {
-    articleDetailsComments: articleDetailsCommentsReducer
+    articleDetailsComments: articleDetailsCommentsReducer,
 };
 
 const ArticleDetailsComments: FC<ArticleDetailsCommentsProps> = memo((props) => {
-    const {t} = useTranslation('article-details');
+    const { t } = useTranslation('article-details');
     const dispatch = useAppDispatch();
     const { id, className } = props;
     const text = useSelector(selectArticleCommentFormText);
@@ -45,37 +42,42 @@ const ArticleDetailsComments: FC<ArticleDetailsCommentsProps> = memo((props) => 
         dispatch(fetchCommentsByArticleId(id));
     });
 
-    const handleCommentTextChange = useCallback((text: string) => {
-        dispatch(articleDetailsCommentsActions.setCommentText(text));
-    }, [dispatch]);
+    const handleCommentTextChange = useCallback(
+        (text: string) => {
+            dispatch(articleDetailsCommentsActions.setCommentText(text));
+        },
+        [dispatch],
+    );
 
-    const sendCommentHandler = useCallback((text: string) => {
-        dispatch(addCommentForArticle(text));
-    },[dispatch]);
+    const sendCommentHandler = useCallback(
+        (text: string) => {
+            dispatch(addCommentForArticle(text));
+        },
+        [dispatch],
+    );
 
     let content;
 
-    if(error) content = <Text title={error} theme={TextTheme.ERROR}/>;
+    if (error) content = <Text title={error} theme={TextTheme.ERROR} />;
     else {
-        content =  <>
-            <Text className={cls.title} title={t('comments')}/>
-            <AddCommentForm 
-                loading={loading} 
-                value={text}
-                className={cls.form} 
-                onChange={handleCommentTextChange} 
-                onSubmit={sendCommentHandler}/>
-            <CommentList comments={comments} loading={loading}/>
-        </>; 
+        content = (
+            <>
+                <Text className={cls.title} title={t('comments')} />
+                <AddCommentForm
+                    loading={loading}
+                    value={text}
+                    className={cls.form}
+                    onChange={handleCommentTextChange}
+                    onSubmit={sendCommentHandler}
+                />
+                <CommentList comments={comments} loading={loading} />
+            </>
+        );
     }
-    
-
 
     return (
         <DynamicReducerLoader reducers={reducers}>
-            <div className={classNames(cls.articleDetailsComments, {}, [className])}>
-                {content}
-            </div>
+            <div className={classNames(cls.articleDetailsComments, {}, [className])}>{content}</div>
         </DynamicReducerLoader>
     );
 });

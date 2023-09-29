@@ -1,14 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
-import {  Select } from './Select';
+import { Select } from './Select';
 
 const meta: Meta<typeof Select> = {
     title: 'shared/Select',
     component: Select,
     tags: ['autodocs'],
-    argTypes: {
-       
-    },
+    argTypes: {},
 };
 
 export default meta;
@@ -19,10 +17,9 @@ export const Primary: Story = {
         id: 'TestId',
         label: 'Choose option',
         options: [
-            {value: 'option1', content: 'Option 1'},
-            {value: 'option2', content: 'Option 2'}
-        ]
+            { value: 'option1', content: 'Option 1' },
+            { value: 'option2', content: 'Option 2' },
+        ],
     },
-    decorators:[ThemeDecorator()]
+    decorators: [ThemeDecorator()],
 };
-

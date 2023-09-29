@@ -7,7 +7,7 @@ import { selectUserAuthData } from '@/entities/User';
 import { useGetProfileRatingQuery, useRateProfileMutation } from '../../api/articleRatingApi';
 
 interface ProfileRatingProps {
-    id: string
+    id: string;
     className?: string;
 }
 
@@ -17,16 +17,16 @@ export const ProfileRating = memo((props: ProfileRatingProps) => {
     const user = useSelector(selectUserAuthData);
     const { data, isLoading, isFetching } = useGetProfileRatingQuery(
         { profileId: id, userId: user?.id || '' },
-        { refetchOnMountOrArgChange: true }
+        { refetchOnMountOrArgChange: true },
     );
-    const [rateArticle, {isLoading: rateMutationLoading}] = useRateProfileMutation();
+    const [rateArticle, { isLoading: rateMutationLoading }] = useRateProfileMutation();
 
-    if(isLoading) return <Skeleton/>;
+    if (isLoading) return <Skeleton />;
 
-    const submitProfileRate = (rate: number, feedback?:string) => {
-        rateArticle({feedback, rate, profileId: id, userId: user?.id || '' });
+    const submitProfileRate = (rate: number, feedback?: string) => {
+        rateArticle({ feedback, rate, profileId: id, userId: user?.id || '' });
     };
-    
+
     return (
         <div className={className}>
             <RatingCard
