@@ -17,7 +17,7 @@ interface ArticleDetailsPageProps {
 const ArticleDetailsPage: FC<ArticleDetailsPageProps> = () => {
     const { t } = useTranslation('article-details');
     const { id } = useParams<{ id: string }>();
-    const isArticleRatingEnabled = getFeatureFlag('isArticleRatingEnabled');
+    const isArticleRatingEnabled = getFeatureFlag('isArticleRatingEnabled') || __PROJECT__ === 'storybook';
     if (!id) {
         return <Text title={t('article-not-found')} theme={TextTheme.ERROR} />;
     }
