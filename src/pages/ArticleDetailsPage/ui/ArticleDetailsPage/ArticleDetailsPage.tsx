@@ -8,6 +8,7 @@ import { Page } from '@/widgets/Page';
 import { ArticleRecommendations } from '@/features/ArticleRecommendations';
 import { ArticleRating } from '@/features/ArticleRating';
 import { VStack } from '@/shared/ui/Stack';
+import { getFeatureFlag } from '@/shared/lib/features';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -16,7 +17,7 @@ interface ArticleDetailsPageProps {
 const ArticleDetailsPage: FC<ArticleDetailsPageProps> = () => {
     const { t } = useTranslation('article-details');
     const { id } = useParams<{ id: string }>();
-
+    const isArticleRatingEnabled = getFeatureFlag('isArticleRatingEnabled');
     if (!id) {
         return <Text title={t('article-not-found')} theme={TextTheme.ERROR} />;
     }
@@ -25,7 +26,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = () => {
         <Page>
             <VStack gap='16' align='stretch'>
                 <ArticleDetails id={id} />
-                <ArticleRating id={id} />
+                {isArticleRatingEnabled && <ArticleRating id={id} />}
                 <ArticleRecommendations />
                 <ArticleDetailsComments id={id} />
             </VStack>

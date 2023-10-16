@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { setFeatureFlags } from '@/shared/lib/features';
 import { User, UserSchema } from '../types/userSchema';
 
 const initialState: UserSchema = {
@@ -12,10 +13,12 @@ export const userSlice = createSlice({
     reducers: {
         setAuthData: (state, action: PayloadAction<User>) => {
             state.authData = action.payload;
+            setFeatureFlags(action.payload.features);
         },
 
         initAuthData: (state, action: PayloadAction<UserSchema['authData']>) => {
             state.authData = action.payload;
+            setFeatureFlags(action.payload?.features);
             state._inited = true;
         },
 
