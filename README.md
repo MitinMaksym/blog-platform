@@ -135,7 +135,6 @@ export const Outlined: Story = {
     },
     decorators: [ThemeDecorator()],
 };
-s;
 ```
 
 ---
@@ -185,11 +184,18 @@ For async reducers injection (to trim down the initial bundle size)
 Using feature flags are only allowed with the help of toggleFeatures helper function. It accepts an options object of the
 following format:
 
-{
-name: feature flag name,
-on: function that will be executed after turning on the feature
-of: function that will be executed after turning off the feature
-}
+```typescript
+
+    const articleRating = toggleFeatures({
+        name: 'isArticleRatingEnabled',
+        on: () => <ArticleRating id={id} />, // function that will be executed after turning on the feature
+        off: () => (
+            <div>
+                <Card>{`Rating feature will be available soon`}</Card>
+            </div> // function that will be executed after turning off the feature
+        ),
+    });
+```
 
 To delete a feature by feature flag remove-feature.ts script should be used, it accepts 2 arguments:
 
