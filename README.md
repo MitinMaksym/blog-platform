@@ -180,6 +180,24 @@ For async reducers injection (to trim down the initial bundle size)
 
 ---
 
+### Working with feature flags
+
+Using feature flags are only allowed with the help of toggleFeatures helper function. It accepts an options object of the
+following format:
+
+{
+name: feature flag name,
+on: function that will be executed after turning on the feature
+of: function that will be executed after turning off the feature
+}
+
+To delete a feature by feature flag remove-feature.ts script should be used, it accepts 2 arguments:
+
+1. feature flage the will be deleted
+2. State (on\off)
+
+---
+
 ## Enitities
 
 -   [Article](/src/entities/Article)

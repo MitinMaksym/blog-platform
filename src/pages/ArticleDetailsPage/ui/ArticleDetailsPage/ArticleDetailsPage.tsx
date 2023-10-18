@@ -8,7 +8,8 @@ import { Page } from '@/widgets/Page';
 import { ArticleRecommendations } from '@/features/ArticleRecommendations';
 import { ArticleRating } from '@/features/ArticleRating';
 import { VStack } from '@/shared/ui/Stack';
-import { getFeatureFlag } from '@/shared/lib/features';
+import { toggleFeatures } from '@/shared/lib/features';
+import { Card } from '@/shared/ui/Card';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -17,16 +18,24 @@ interface ArticleDetailsPageProps {
 const ArticleDetailsPage: FC<ArticleDetailsPageProps> = () => {
     const { t } = useTranslation('article-details');
     const { id } = useParams<{ id: string }>();
-    const isArticleRatingEnabled = getFeatureFlag('isArticleRatingEnabled') || __PROJECT__ === 'storybook';
+
     if (!id) {
         return <Text title={t('article-not-found')} theme={TextTheme.ERROR} />;
     }
-
+    const articleRating = toggleFeatures({
+        name: 'isArticleRatingEnabled',
+        on: () => <ArticleRating id={id} />,
+        off: () => (
+            <div>
+                <Card>{`Rating feature will be available soon`}</Card>
+            </div>
+        ),
+    });
     return (
         <Page>
             <VStack gap='16' align='stretch'>
                 <ArticleDetails id={id} />
-                {isArticleRatingEnabled && <ArticleRating id={id} />}
+                {articleRating}
                 <ArticleRecommendations />
                 <ArticleDetailsComments id={id} />
             </VStack>
