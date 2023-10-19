@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { setFeatureFlags } from '@/shared/lib/features';
 import { User, UserSchema } from '../types/userSchema';
+import { saveJsonSettings } from '../services/saveJsonSettings/saveJsonSettings';
 
 const initialState: UserSchema = {
     authData: undefined,
@@ -25,6 +26,13 @@ export const userSlice = createSlice({
         logout: (state) => {
             state.authData = undefined;
         },
+    },
+    extraReducers: (builder) => {
+        builder.addCase(saveJsonSettings.fulfilled, (state, { payload }) => {
+            if (state.authData) {
+                state.authData.jsonSettings = payload;
+            }
+        });
     },
 });
 
