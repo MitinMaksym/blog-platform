@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Notification } from '@/entities/Notification';
 import { PaddingDecorator } from '@/shared/config/storybook/decorators/PaddingDecorator';
-import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
 import { ShowNotificationsButton } from './ShowNotificationsButton';
 
 const mockResponse: Array<Notification> = [
@@ -32,7 +31,7 @@ const meta: Meta<typeof ShowNotificationsButton> = {
             },
         ],
     },
-    decorators: [StoreDecorator({}), PaddingDecorator(200)],
+    decorators: [PaddingDecorator(200)],
 };
 
 export default meta;

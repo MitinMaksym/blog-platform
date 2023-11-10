@@ -1,7 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
 import { ArticleViewSwitcher } from './ArticleViewSwitcher';
-import { Theme } from '@/shared/const/theme';
 
 const meta: Meta<typeof ArticleViewSwitcher> = {
     title: 'features/ArticleViewSwitcher',
@@ -17,11 +15,9 @@ export const LIST: Story = {
     args: {
         view: 'LIST',
     },
-    decorators: [ThemeDecorator(Theme.DARK)],
 };
 export const GRID: Story = {
     args: {
         view: 'GRID',
     },
-    decorators: [ThemeDecorator(Theme.DARK)],
 };

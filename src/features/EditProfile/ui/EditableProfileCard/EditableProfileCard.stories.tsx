@@ -2,11 +2,9 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
-import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
 import AvatarIcon from '@/shared/assets/avatar.webp';
 import { ProfileError } from '../../model/consts/consts';
 import { EditableProfileCard } from './EditableProfileCard';
-import { Theme } from '@/shared/const/theme';
 
 const data = {
     first: 'First Name',
@@ -30,17 +28,8 @@ const meta: Meta<typeof EditableProfileCard> = {
 export default meta;
 type Story = StoryObj<typeof EditableProfileCard>;
 
-export const Primary: Story = {
-    decorators: [ThemeDecorator(Theme.LIGHT)],
-};
-
-export const Dark: Story = {
-    decorators: [ThemeDecorator(Theme.DARK)],
-};
+export const Primary: Story = {};
 
 export const WithError: Story = {
-    decorators: [
-        ThemeDecorator(Theme.DARK),
-        StoreDecorator({ profile: { form: data, errors: [ProfileError.INCORRECT_USER_DATA] } }),
-    ],
+    decorators: [StoreDecorator({ profile: { form: data, errors: [ProfileError.INCORRECT_USER_DATA] } })],
 };

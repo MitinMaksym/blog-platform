@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { withRouter } from 'storybook-addon-react-router-v6';
-import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
 import ArticleEditPage from './ArticleEditPage';
 
 const meta: Meta<typeof ArticleEditPage> = {
@@ -8,7 +7,7 @@ const meta: Meta<typeof ArticleEditPage> = {
     component: ArticleEditPage,
     tags: ['autodocs'],
     args: {},
-    decorators: [withRouter, StoreDecorator({})],
+    decorators: [withRouter],
 };
 
 export default meta;

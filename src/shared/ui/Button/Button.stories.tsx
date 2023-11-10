@@ -1,7 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
 import { BtnSize, BtnVariant, Button } from './Button';
-import { Theme } from '@/shared/const/theme';
 
 const meta: Meta<typeof Button> = {
     title: 'shared/Button',
@@ -20,7 +18,6 @@ export const Clear: Story = {
         variant: BtnVariant.CLEAR,
         children: 'Text',
     },
-    decorators: [ThemeDecorator()],
 };
 
 export const Outlined: Story = {
@@ -28,7 +25,6 @@ export const Outlined: Story = {
         variant: BtnVariant.OUTLINE,
         children: 'Text',
     },
-    decorators: [ThemeDecorator()],
 };
 
 export const OutlinedError: Story = {
@@ -36,14 +32,6 @@ export const OutlinedError: Story = {
         variant: BtnVariant.OUTLINE_ERROR,
         children: 'Text',
     },
-    decorators: [ThemeDecorator()],
-};
-export const OutlinedErrorDark: Story = {
-    args: {
-        variant: BtnVariant.OUTLINE_ERROR,
-        children: 'Text',
-    },
-    decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const OutlinedL: Story = {
@@ -52,7 +40,6 @@ export const OutlinedL: Story = {
         children: 'Text',
         size: BtnSize.L,
     },
-    decorators: [ThemeDecorator()],
 };
 
 export const OutlinedXL: Story = {
@@ -61,15 +48,6 @@ export const OutlinedXL: Story = {
         children: 'Text',
         size: BtnSize.XL,
     },
-    decorators: [ThemeDecorator()],
-};
-
-export const OutlinedDark: Story = {
-    args: {
-        variant: BtnVariant.OUTLINE,
-        children: 'Text',
-    },
-    decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const Background: Story = {
@@ -77,7 +55,6 @@ export const Background: Story = {
         variant: BtnVariant.BACKGROUND,
         children: 'Text',
     },
-    decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const BackgroundInverted: Story = {
@@ -85,7 +62,6 @@ export const BackgroundInverted: Story = {
         variant: BtnVariant.BACKGROUND_INVERTED,
         children: 'Text',
     },
-    decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const LSize: Story = {
@@ -94,7 +70,6 @@ export const LSize: Story = {
         children: 'Text',
         size: BtnSize.L,
     },
-    decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const XLSize: Story = {
@@ -103,7 +78,6 @@ export const XLSize: Story = {
         children: 'Text',
         size: BtnSize.XL,
     },
-    decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const Square: Story = {
@@ -112,7 +86,6 @@ export const Square: Story = {
         children: '>',
         square: true,
     },
-    decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const SquareL: Story = {
@@ -122,7 +95,6 @@ export const SquareL: Story = {
         square: true,
         size: BtnSize.L,
     },
-    decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const SquareXL: Story = {
@@ -132,5 +104,4 @@ export const SquareXL: Story = {
         square: true,
         size: BtnSize.XL,
     },
-    decorators: [ThemeDecorator(Theme.DARK)],
 };

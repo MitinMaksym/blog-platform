@@ -1,6 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { withRouter } from 'storybook-addon-react-router-v6';
-import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
 import testImg from '@/shared/assets/testImg.png';
 import avatarImg from '@/shared/assets/avatar.webp';
 import { Article } from '@/entities/Article';
@@ -152,7 +150,6 @@ const meta: Meta<typeof ArticleRecommendations> = {
             },
         ],
     },
-    decorators: [withRouter(), StoreDecorator({})],
 };
 
 export default meta;

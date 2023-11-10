@@ -1,8 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
 import { RouterDecorator } from '@/shared/config/storybook/decorators/RouterDecorator';
 import { AppLink, AppLinkTheme } from './AppLink';
-import { Theme } from '@/shared/const/theme';
 
 const meta: Meta<typeof AppLink> = {
     title: 'shared/AppLink',
@@ -21,15 +19,6 @@ export const Primary: Story = {
         theme: AppLinkTheme.PRIMARY,
         children: 'Text',
     },
-    decorators: [ThemeDecorator()],
-};
-
-export const PrimaryDark: Story = {
-    args: {
-        theme: AppLinkTheme.PRIMARY,
-        children: 'Text',
-    },
-    decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const Secondary: Story = {
@@ -37,14 +26,12 @@ export const Secondary: Story = {
         theme: AppLinkTheme.SECONDARY,
         children: 'Text',
     },
-    decorators: [ThemeDecorator()],
 };
 export const Outlined: Story = {
     args: {
         theme: AppLinkTheme.OUTLINED,
         children: 'Text',
     },
-    decorators: [ThemeDecorator()],
 };
 
 export const Inverted: Story = {
@@ -52,13 +39,4 @@ export const Inverted: Story = {
         theme: AppLinkTheme.INVERTED,
         children: 'Text',
     },
-    decorators: [ThemeDecorator()],
-};
-
-export const SecondaryDark: Story = {
-    args: {
-        theme: AppLinkTheme.SECONDARY,
-        children: 'Text',
-    },
-    decorators: [ThemeDecorator(Theme.DARK)],
 };

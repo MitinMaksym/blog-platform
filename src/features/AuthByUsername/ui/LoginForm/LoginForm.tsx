@@ -54,11 +54,18 @@ const LoginForm: FC<LoginFormProps> = ({ className, onSuccess }) => {
             <form className={classNames(cls.loginForm, {}, [className])} onSubmit={handleSubmit}>
                 <VStack gap='16' justify='center'>
                     <Text title={t('login-form')} />
-                    {error && <Text text={error} theme={TextTheme.ERROR} />}
+                    {error && (
+                        <Text
+                            text={error}
+                            className={classNames('', { [cls.errMsg]: error, [cls.errMsgOffscreen]: !error }, [])}
+                            theme={TextTheme.ERROR}
+                        />
+                    )}
                     <Input
                         type='text'
                         id='username'
                         label='Username'
+                        required
                         className={cls.input}
                         value={username}
                         autoFocus

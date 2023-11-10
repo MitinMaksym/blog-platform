@@ -1,12 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { withRouter } from 'storybook-addon-react-router-v6';
 import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
-import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
 import testImg from '@/shared/assets/testImg.png';
 import avatarImg from '@/shared/assets/avatar.webp';
 import ArticlesPage from './ArticlesPage';
 import { ArticlesPageSchema } from '../../model/types/articlesPageSchema';
-import { Theme } from '@/shared/const/theme';
 
 const articlesPageState: ArticlesPageSchema = {
     entities: {
@@ -75,7 +73,7 @@ const meta: Meta<typeof ArticlesPage> = {
     component: ArticlesPage,
     tags: ['autodocs'],
     args: {},
-    decorators: [withRouter, ThemeDecorator(Theme.DARK), StoreDecorator({ articlesPage: articlesPageState })],
+    decorators: [withRouter, StoreDecorator({ articlesPage: articlesPageState })],
     parameters: {
         loki: {
             skip: true,

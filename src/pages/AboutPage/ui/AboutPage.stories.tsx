@@ -3,7 +3,6 @@ import { withRouter } from 'storybook-addon-react-router-v6';
 import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
 import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
 import AboutPage from './AboutPage';
-import { Theme } from '@/shared/const/theme';
 
 const meta: Meta<typeof AboutPage> = {
     title: 'pages/AboutPage',
@@ -16,11 +15,7 @@ const meta: Meta<typeof AboutPage> = {
 export default meta;
 type Story = StoryObj<typeof AboutPage>;
 
-export const Light: Story = {
+export const Primary: Story = {
     args: {},
     decorators: [ThemeDecorator()],
-};
-export const Dark: Story = {
-    args: {},
-    decorators: [ThemeDecorator(Theme.DARK)],
 };

@@ -1,4 +1,5 @@
 import type { Preview } from '@storybook/react';
+import { StoreDecorator } from '../../src/shared/config/storybook/decorators/StoreDecorator';
 import { Theme } from '../../src/shared/const/theme';
 
 import { StyleDecorator } from '../../src/shared/config/storybook/decorators/StyleDecorator';
@@ -33,6 +34,6 @@ const preview: Preview = {
     },
 };
 
-export const decorators = [StyleDecorator];
+export const decorators = [StyleDecorator, StoreDecorator({})];
 
 export default preview;

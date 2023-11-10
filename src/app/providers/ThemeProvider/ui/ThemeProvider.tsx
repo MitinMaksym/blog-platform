@@ -4,14 +4,14 @@ import { ThemeContext } from '../../../../shared/lib/context/ThemeContext';
 import { useJsonSettings } from '@/entities/User';
 
 interface ThemeProviderProps {
-    defaultTheme?: Theme;
+    initialTheme?: Theme;
     children: ReactNode;
 }
 
-const ThemeProvider = ({ children, defaultTheme }: ThemeProviderProps) => {
-    const { theme: themeFromSettings = Theme.LIGHT } = useJsonSettings();
-    const [theme, setTheme] = useState<Theme>(themeFromSettings || defaultTheme);
-
+const ThemeProvider = ({ children, initialTheme }: ThemeProviderProps) => {
+    const { theme: themeFromSettings } = useJsonSettings();
+    const [theme, setTheme] = useState<Theme>(initialTheme || Theme.LIGHT);
+    console.log(initialTheme);
     const defaultProps = useMemo(() => ({ theme, setTheme }), [theme]);
 
     useEffect(() => {

@@ -1,10 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
-import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
 import AvatarIcon from '@/shared/assets/avatar.webp';
 import { ProfileCard } from './ProfileCard';
-import { Theme } from '@/shared/const/theme';
 
 const meta: Meta<typeof ProfileCard> = {
     title: 'entities/Profile/ProfileCard',
@@ -27,17 +25,10 @@ const meta: Meta<typeof ProfileCard> = {
 export default meta;
 type Story = StoryObj<typeof ProfileCard>;
 
-export const Primary: Story = {
-    decorators: [ThemeDecorator(Theme.LIGHT)],
-};
+export const Primary: Story = {};
 
 export const WithLoading: Story = {
     args: {
         loading: true,
     },
-    decorators: [ThemeDecorator(Theme.DARK)],
-};
-
-export const Dark: Story = {
-    decorators: [ThemeDecorator(Theme.DARK)],
 };
