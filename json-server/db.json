@@ -978,7 +978,7 @@
         "isCounterEnabled": true
       },
       "jsonSettings": {
-        "theme": "dark",
+        "theme": "light",
         "isFirstVisit": false
       }
     },
@@ -995,7 +995,7 @@
         "isCounterEnabled": true
       },
       "jsonSettings": {
-        "theme": "orange",
+        "theme": "light",
         "isFirstVisit": false
       }
     },

@@ -14,7 +14,10 @@ export const saveJsonSettings = createAsyncThunk<JsonSettings, JsonSettings, Thu
         if (!userData) return rejectWithValue('not authenticated');
         try {
             const { jsonSettings } = await dispatch(
-                updateJsonSettingsMutation({ settings: { ...currentSettings, ...newSettings }, userId: userData.id }),
+                updateJsonSettingsMutation({
+                    jsonSettings: { ...currentSettings, ...newSettings },
+                    userId: userData.id,
+                }),
             ).unwrap();
 
             if (!jsonSettings) return rejectWithValue('no json settings data');
