@@ -1,3 +1,4 @@
+export { initUserData } from './model/services/initUserData/initUserData';
 export { useJsonSettings } from './selectors/selectJsonSettings/selectJsonSettings';
 export { saveJsonSettings } from './model/services/saveJsonSettings/saveJsonSettings';
 export { UserRole } from './model/consts/user.const';
